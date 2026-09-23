@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "foundationVersion": "0.1.0",
+  "language": "zh-CN",
+  "project": {
+    "name": "Information Rain",
+    "slug": "information-rain",
+    "summary": "记录并探索手机原生、推荐即生成、多维信息分发的新娱乐媒介。",
+    "problem": "现有讨论分散在对话和实验中，缺少一个能区分已确认判断、候选假设、纠正记录与后续工作的长期项目入口。",
+    "users": [
+      "项目所有者",
+      "后续共同研究、设计或实现这一产品愿景的协作者"
+    ],
+    "firstRelease": [
+      "建立本地 Git 仓库",
+      "用一份 README 汇总当前技术愿景、概念边界、合理性判断、纠正记录与关键未知",
+      "为后续研究、原型和实现保留可恢复的项目上下文"
+    ],
+    "notInScope": [
+      "产品代码",
+      "技术栈选型",
+      "外部服务或模型接入",
+      "部署、GitHub 远程仓库或公开发布",
+      "将尚未验证的愿景写成确定产品规格"
+    ],
+    "successCriteria": [
+      "一个没有聊天历史的协作者可以从 README 准确恢复当前愿景、已纠正的误解和下一批关键问题"
+    ]
+  },
+  "classification": {
+    "productType": "mobile",
+    "userShape": "owner-only",
+    "runShape": "local",
+    "collaborationShape": "ai-assisted",
+    "stage": "idea",
+    "riskLevel": "low",
+    "riskDimensions": {
+      "data": "low",
+      "identity": "none",
+      "money": "none",
+      "privacy": "low",
+      "externalSystems": "none",
+      "automation": "none",
+      "businessDependency": "none"
+    }
+  },
+  "technology": {
+    "adapter": "docs-only",
+    "deploymentProfile": "none",
+    "rationale": "当前目标是保存和推进产品认识，而不是提前锁定软件架构；文档型基础最符合当前阶段。"
+  },
+  "modules": [
+    "project-brief",
+    "decisions",
+    "git",
+    "versioning",
+    "stage-gates",
+    "testing",
+    "secrets",
+    "continuity"
+  ],
+  "assumptions": [
+    {
+      "text": "首个可验证原型仍将以手机交互为主要体验环境。",
+      "reviewByStage": "prototype"
+    },
+    {
+      "text": "当前仓库在进入原型阶段以前不需要存储真实用户数据或连接付费模型服务。",
+      "reviewByStage": "prototype"
+    }
+  ],
+  "decisions": [
+    {
+      "title": "先建立文档型研究仓库",
+      "context": "产品愿景仍在形成，已有二维文字 Demo 只能代表局部实验，当前最重要的是保存清晰且可修正的认识基线。",
+      "choice": "使用 docs-only 基础建立本地 Git 仓库，并以 README 作为当前项目入口。",
+      "rationale": "这样既能形成长期工作位置，又不会用过早的软件架构替代产品探索。",
+      "alternatives": [
+        "立即建立移动应用代码仓库",
+        "继续只在聊天中保存想法"
+      ],
+      "consequences": [
+        "当前不会产生可运行产品",
+        "后续确认原型方向后需要重新选择技术路线并推进项目阶段",
+        "重要纠正、决定和实验结果需要持续写回仓库"
+      ],
+      "reviewWhen": "当下一项工作从概念讨论转为可运行的手机交互原型时重新评估。"
+    }
+  ],
+  "externalActions": {
+    "createRepository": false,
+    "configureRemote": false,
+    "provisionCloud": false,
+    "setSecrets": false,
+    "deploy": false
+  }
+}

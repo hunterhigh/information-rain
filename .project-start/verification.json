@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "foundationVersion": "0.1.0",
+  "generatedAt": "2026-09-23T10:31:13.781079+00:00",
+  "status": "ready-with-followups",
+  "adapter": "docs-only",
+  "checks": [
+    {
+      "id": "manifest",
+      "status": "pass",
+      "detail": "Manifest is valid."
+    },
+    {
+      "id": "file-record",
+      "status": "pass",
+      "detail": "Generated file record was checked."
+    },
+    {
+      "id": "content-scan",
+      "status": "pass",
+      "detail": "No secrets or unfinished placeholders detected."
+    },
+    {
+      "id": "adapter-tools",
+      "status": "unverified",
+      "detail": "Local adapter commands were not run in this verification."
+    }
+  ]
+}

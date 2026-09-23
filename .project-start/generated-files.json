@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "foundationVersion": "0.1.0",
+  "files": [
+    {
+      "path": ".gitignore",
+      "owner": "shared",
+      "module": "git",
+      "sha256": "52886f728899347c45d4636836ac2334a7edbb16a9a67eda6de8925c9929e279"
+    },
+    {
+      "path": ".project-start/manifest.json",
+      "owner": "system",
+      "module": "project-brief",
+      "sha256": "dbd6a6cbb492b52029e37ababe7392b5f8f356b689f3d5c564e85709daa853b8"
+    },
+    {
+      "path": "AGENTS.md",
+      "owner": "shared",
+      "module": "continuity",
+      "sha256": "486481ebebd9979d0d959b3aa62be9243d4c400fc6e5e569fb71790cceafc90b"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "owner": "shared",
+      "module": "versioning",
+      "sha256": "9f646fbb88a916baea9628e0d03708c04e4a384de89131c57635ee4534de760e"
+    },
+    {
+      "path": "docs/project/architecture.md",
+      "owner": "shared",
+      "module": "decisions",
+      "sha256": "d92fb5a271eac3fe37f61dde3263e152b4c033332c95ccce17781fe7c215cd61"
+    },
+    {
+      "path": "docs/project/brief.md",
+      "owner": "shared",
+      "module": "project-brief",
+      "sha256": "7e1533aa4541c4ed288ea13cb2fd9747d97bdfdb229a42aa8744467360739b25"
+    },
+    {
+      "path": "docs/project/decisions/0001-initial-foundation.md",
+      "owner": "shared",
+      "module": "decisions",
+      "sha256": "85ce89dad5393a9e4ed7c785e7be0c182428e390c351a15cbe14e46c30336ce5"
+    },
+    {
+      "path": "docs/project/roadmap.md",
+      "owner": "shared",
+      "module": "stage-gates",
+      "sha256": "c579bf136a1c6dba4dc449e52224cd8c235d09123eae07934517418f8939be01"
+    },
+    {
+      "path": "docs/project/stage-gates.md",
+      "owner": "shared",
+      "module": "stage-gates",
+      "sha256": "a67f05253c6ac6f26cd4e24fc4694f709ddb5d8d56212a130bbf89081fa05d7c"
+    },
+    {
+      "path": "START-HERE.md",
+      "owner": "shared",
+      "module": "project-brief",
+      "sha256": "9f7ca3fff35a8fc655d0d9e56ce4b00fa1ffe4698f52b42309e691327904fa1d"
+    }
+  ],
+  "mutableSystemFiles": [
+    ".project-start/generated-files.json",
+    ".project-start/verification.json"
+  ]
+}
