@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102638">
+  <title>Information Rain · 机制试验</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-head">
+      <a class="wordmark" href="#top" aria-label="Information Rain，返回页面顶部"><span class="wordmark-mark" aria-hidden="true">↘</span> information rain</a>
+      <span class="prototype-label">ROUND 01 · MECHANISM DEMO</span>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow">一片信息，不止一条去处</p>
+          <h1 id="intro-title">让内容决定<br><em>雨往哪里落。</em></h1>
+          <p class="intro-deck">同一个入口，三段不同的规则。走出去，再从足迹回看：有的方向还在，有的后果已经发生，有的信号已经换了。</p>
+        </div>
+        <div class="rain-diagram" aria-hidden="true"><span class="rain-source"></span><span class="rain-drop rain-drop-a"></span><span class="rain-drop rain-drop-b"></span><span class="rain-drop rain-drop-c"></span><span class="rain-stem stem-a"></span><span class="rain-stem stem-b"></span><span class="rain-stem stem-c"></span></div>
+      </section>
+
+      <section class="demo-intro" aria-labelledby="demo-heading">
+        <div><p class="eyebrow">01 / 选择一段内容</p><h2 id="demo-heading">从这里开始</h2></div>
+        <p>以下都是预写文字与规则模拟，没有实时 AI 生成。三段可随时切换，进度各自保留。</p>
+      </section>
+
+      <nav id="world-nav" class="world-nav" aria-label="选择测试内容"></nav>
+
+      <div class="workspace">
+        <section class="experience" aria-labelledby="scene-title">
+          <div class="experience-topline"><span id="world-marker"></span><span class="mode-pill" id="mode-pill"></span></div>
+          <div class="scene-frame">
+            <div class="scene-side-label" aria-hidden="true">CURRENT<br>POSITION</div>
+            <article class="scene-card" id="scene-card" aria-live="polite">
+              <p class="scene-eyebrow" id="scene-eyebrow"></p>
+              <h2 id="scene-title"></h2>
+              <p class="scene-body" id="scene-body"></p>
+              <p class="scene-rule"><span class="rule-dot" aria-hidden="true"></span><span id="scene-rule"></span></p>
+            </article>
+          </div>
+          <div class="choice-heading"><div><p class="eyebrow">下一片信息</p><h3 id="choice-title">现在可以去</h3></div><span class="choice-count" id="choice-count"></span></div>
+          <p class="history-notice" id="history-notice" hidden></p>
+          <div class="choices" id="choices"></div>
+          <button type="button" class="resume-button" id="resume-button" hidden>继续当前内容 <span aria-hidden="true">↗</span></button>
+        </section>
+
+        <aside class="trail" aria-labelledby="trail-title">
+          <div class="trail-heading"><p class="eyebrow">已经发生</p><h2 id="trail-title">你的足迹</h2><p>点开任一位置，看看当时有什么；能否再次行动由那段内容决定。</p></div>
+          <ol id="trail-list" class="trail-list"></ol>
+          <button type="button" id="reset-button" class="reset-button">重新开始这一段 <span aria-hidden="true">↺</span></button>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer"><span>INFORMATION RAIN / PRODUCT 01</span><span>机制样本 · 非正式内容体验</span></footer>
+  </div>
+</body>
+</html>
