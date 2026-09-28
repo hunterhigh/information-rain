@@ -40,4 +40,4 @@
 
 ## 当前实验
 
-按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。[旧 v0.1](experiments/round-01/product-01/demo/README.md)仍是撤回的内部机制样本，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。当前[分发原型](experiments/round-01/distribution-demo/DEMO-BRIEF.md)保留 Kimi 版本的 30 个内容与插画，仅本地优化界面；原始内容有 48 条指向缺失节点的路径，未获内容修改授权前不补写作品。全球公开发布先看[合规初探](docs/research/2026-09-28-distribution-compliance.md)，私有试验不等于授权或产品验收。
+按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。[旧 v0.1](experiments/round-01/product-01/demo/README.md)仍是撤回的内部机制样本，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。当前[分发原型](experiments/round-01/distribution-demo/DEMO-BRIEF.md)已获授权从导入的 30 部中删除指定 11 部，并补全保留 19 部的剧情与分支，见[决定 0007](docs/project/decisions/0007-distribution-content-selection.md)；原始导入的 48 条缺失路径仍记录在来源档案中，不应当作修订版的通过条件。全球公开发布先看[合规初探](docs/research/2026-09-28-distribution-compliance.md)，私有试验不等于授权或产品验收。

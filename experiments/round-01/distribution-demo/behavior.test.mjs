@@ -44,4 +44,31 @@ assert.deepEqual([...context.pathHistory], ['start', 'next']);
 assert.equal(context.stats.totalSteps, 1);
 assert.deepEqual(events.slice(1), [['saved'], ['render', 'next']]);
 
-console.log('方向导航：失效目标不再导致空白，有效目标仍可进入');
+const profileStart = html.indexOf('function updateProfileStats() {');
+const profileEnd = html.indexOf('function toggleTextSize() {', profileStart);
+assert.ok(profileStart >= 0 && profileEnd > profileStart, '找不到记录页统计函数');
+const profile = {
+  worlds: [{ id: 'kept', title: '保留内容' }],
+  stats: { exploredWorlds: ['kept', 'removed'] },
+  getBookmarks: () => ['kept', 'removed'],
+  getCollectedEndings: () => ['kept::end', 'removed::end'],
+  getFootprints: () => [
+    { worldId: 'removed', endingTitle: '旧结局', time: 1 },
+    { worldId: 'kept', endingTitle: '新结局', time: 1 },
+  ],
+  el: {
+    statWorlds: { textContent: '' },
+    statEndings: { textContent: '' },
+    statBookmarks: { textContent: '' },
+    footprintList: { innerHTML: '' },
+  },
+};
+runInNewContext(html.slice(profileStart, profileEnd), profile);
+profile.updateProfileStats();
+assert.equal(profile.el.statWorlds.textContent, 1);
+assert.equal(profile.el.statEndings.textContent, 1);
+assert.equal(profile.el.statBookmarks.textContent, 1);
+assert.match(profile.el.footprintList.innerHTML, /保留内容/);
+assert.doesNotMatch(profile.el.footprintList.innerHTML, /未知内容|旧结局/);
+
+console.log('方向导航与删选后的记录页：通过');

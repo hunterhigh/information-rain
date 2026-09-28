@@ -9,7 +9,7 @@
 
 项目将分别出现**工具产品**与**分发产品**。文字拓扑 Agent 是工具产品的主要功能之一；分发产品让人发现、进入并继续消费不同媒介的内容。**全梦**是长期技术愿景名，**信息雨**是多可达后继的信息流方法，尚未确定任一产品的正式名称。媒介验证暂沿文字、插画、短视频逐层推进；这是战略顺序，不是每一作品都必须升级到视频。见[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)。
 
-当前从 Kimi 原型导入的[分发 Demo](experiments/round-01/distribution-demo/DEMO-BRIEF.md)保留 30 个既有内容和封面，仅本地改界面/交互。其作品质量、48 条原始失效分支及热门 IP 的发布权尚未通过评审；[全球化合规初探](docs/research/2026-09-28-distribution-compliance.md)是风险地图，不是上线许可。
+当前从 Kimi 原型导入的[分发 Demo](experiments/round-01/distribution-demo/DEMO-BRIEF.md)正按项目所有者[决定 0007](docs/project/decisions/0007-distribution-content-selection.md)筛选为 19 部并补全内容；原始 30 部与 48 条失效分支记录在来源档案中。修订版的作品质量及热门 IP 的发布权仍须分别评审；[全球化合规初探](docs/research/2026-09-28-distribution-compliance.md)是风险地图，不是上线许可。
 
 ## 这个仓库是什么
 
