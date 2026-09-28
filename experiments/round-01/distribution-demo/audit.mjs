@@ -1,7 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { runInNewContext, Script } from 'node:vm';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const folder = dirname(fileURLToPath(import.meta.url));
@@ -11,7 +11,14 @@ const end = html.indexOf('\n        ];', start);
 if (start < 0 || end < 0) throw new Error('找不到作品数据区');
 
 const source = html.slice(start + 'const worlds = '.length, end + '\n        ]'.length);
-const worlds = runInNewContext(`(${source})`, {}, { timeout: 1000 });
+const builtInWorlds = runInNewContext(`(${source})`, {}, { timeout: 1000 });
+const registrySource = readFileSync(join(folder, 'content-pool', 'registry.generated.js'), 'utf8');
+const registryContext = { window: {} };
+runInNewContext(registrySource, registryContext, { timeout: 1000 });
+const registeredWorlds = registryContext.window.InformationRainContentRegistry?.worlds;
+if (!Array.isArray(registeredWorlds)) throw new Error('内容注册表没有 worlds 数组');
+const registryManifest = JSON.parse(readFileSync(join(folder, 'content-pool', 'registry.json'), 'utf8'));
+const worlds = [...builtInWorlds, ...registeredWorlds];
 const contentHash = createHash('sha256').update(JSON.stringify(worlds)).digest('hex');
 const scriptStart = html.lastIndexOf('<script>');
 const scriptEnd = html.indexOf('</script>', scriptStart);
@@ -25,23 +32,29 @@ if (process.argv.includes('--print-hash')) {
 
 // This is the owner's 19-work editorial selection, not the 30-work import baseline.
 // The original hashes and missing-path inventory remain in SOURCE.md and Git history.
-const expectedIds = [
+const expectedBuiltInIds = [
   'apocalypse', 'garden', 'building', 'midnight', 'neon', 'wuxia',
   'space', 'abyss', 'western', 'campus', 'loop', 'dream',
   'lotr', 'twilight', 'meta_comic', 'er', 'aot', 'hp', 'got'
 ];
+const expectedRegisteredIds = registryManifest.packs.map(pack => pack.id);
+const expectedIds = [...expectedBuiltInIds, ...expectedRegisteredIds];
 const errors = [];
 const actualIds = worlds.map(world => world.id);
 if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) {
-  errors.push(`作品清单与已选择的 19 部不一致：${actualIds.join(', ')}`);
+  errors.push(`作品清单与内置内容及注册表不一致：${actualIds.join(', ')}`);
+}
+if (new Set(actualIds).size !== actualIds.length) errors.push('作品 ID 存在重复');
+if (JSON.stringify(registeredWorlds.map(world => world.id)) !== JSON.stringify(expectedRegisteredIds)) {
+  errors.push('浏览器注册表与 registry.json 的顺序或 ID 不一致');
 }
 
 const imageNames = new Set(readdirSync(join(folder, 'images')));
-const expectedImages = new Set(expectedIds.map(id => `${id}.jpg`));
+const expectedBuiltInImages = new Set(expectedBuiltInIds.map(id => `${id}.jpg`));
 for (const imageName of imageNames) {
-  if (!expectedImages.has(imageName)) errors.push(`已移除作品的封面仍存在：${imageName}`);
+  if (!expectedBuiltInImages.has(imageName)) errors.push(`内置目录含未登记封面：${imageName}`);
 }
-for (const imageName of expectedImages) {
+for (const imageName of expectedBuiltInImages) {
   if (!imageNames.has(imageName)) errors.push(`保留作品缺少封面：${imageName}`);
 }
 
@@ -59,8 +72,8 @@ for (const world of worlds) {
   if (!endingIds.length) errors.push(`${world.id}: 没有结局`);
   if (world.nodes !== sceneCount) errors.push(`${world.id}: nodes 元数据 ${world.nodes} 与非结局节点 ${sceneCount} 不符`);
   if (world.ends !== endingIds.length) errors.push(`${world.id}: ends 元数据 ${world.ends} 与实际 ${endingIds.length} 不符`);
-  const imageName = world.image?.replace(/^\.\/images\//, '');
-  if (!imageName || !imageNames.has(imageName)) errors.push(`${world.id}: 封面图不存在`);
+  const imagePath = world.image?.startsWith('./') ? resolve(folder, world.image.slice(2)) : null;
+  if (!imagePath || !existsSync(imagePath)) errors.push(`${world.id}: 封面图不存在`);
 
   const reached = new Set();
   const stack = [world.startNode];
@@ -95,6 +108,6 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(`内容结构通过：${worlds.length} 部作品、${nodes} 个节点、${endings} 个结局、${exits} 条选择、${expectedImages.size} 张使用中的封面`);
+  console.log(`内容结构通过：${worlds.length} 部作品（${builtInWorlds.length} 部内置 + ${registeredWorlds.length} 部注册）、${nodes} 个节点、${endings} 个结局、${exits} 条选择、${worlds.length} 张使用中的封面`);
   console.log(`当前内容 SHA-256: ${contentHash}`);
 }

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/register-distribution-content.mjs",
+  "packs": [
+    {
+      "id": "ashduel",
+      "title": "雨庭最后一式",
+      "entry": "packs/ashduel/world-entry.js",
+      "image": "packs/ashduel/images/ashduel.jpg",
+      "width": 1080,
+      "height": 1920,
+      "entrySha256": "42ea6105bb087b3abdfd0a4718a45b967ae5757ef6d090d230b2800dafe7ea3a",
+      "coverSha256": "c8ad38580c8a44557c855ab5064edf866ef7b1a11d758bc22e4854ea494093a4",
+      "packageSha256": "2f7915316ed372fcf25c47f61f57d8b8f2b8196795051ae8c6b49f9bf348fc14"
+    },
+    {
+      "id": "lastferry",
+      "title": "最后一班渡船",
+      "entry": "packs/lastferry/world-entry.js",
+      "image": "packs/lastferry/images/lastferry.jpg",
+      "width": 1080,
+      "height": 1920,
+      "entrySha256": "82bd8b00b2be382557257f3726f36536131245ac6a91c67a872ad6c9d6976823",
+      "coverSha256": "b347120de975a5a413a651c19160795697581f77ddf58c815d03b9f231222235",
+      "packageSha256": "a7a3dfe4d8257d727970fffd1b18b3e523f9991362d1bc44caf1cc5e059ddcf7"
+    },
+    {
+      "id": "seventhinterview",
+      "title": "第七次问询",
+      "entry": "packs/seventhinterview/world-entry.js",
+      "image": "packs/seventhinterview/images/seventhinterview.jpg",
+      "width": 1080,
+      "height": 1920,
+      "entrySha256": "735fcc5ca0a5397bc7b4c45752a230026855330cbbf3d394d79e708f8f874d6d",
+      "coverSha256": "9a9d7d0cdb151ac543cd151c6a55c1e49412e34ca58f49cf3132cebb16ea08c6",
+      "packageSha256": "c8be0c64dbed238466104294aa0527ef0a453732e6c0c9005cf682730631866e"
+    },
+    {
+      "id": "whitehour",
+      "title": "白室二十四时",
+      "entry": "packs/whitehour/world-entry.js",
+      "image": "packs/whitehour/images/whitehour.jpg",
+      "width": 1080,
+      "height": 1920,
+      "entrySha256": "5edce0f951f1ecd14f3a1591b9b8a5ffd1985d6b5a3e8b56f7951e2b35ce8b19",
+      "coverSha256": "a940a098aa9b405de19e887f370ea20be943fab441f3f889711f6ffdef182991",
+      "packageSha256": "df0b89d3ee1f12b5a52c2c37dff233afd60a8070597155542c61c3bb39203b6b"
+    }
+  ]
+}

@@ -40,4 +40,4 @@
 
 ## 当前实验
 
-按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。[旧 v0.1](experiments/round-01/product-01/demo/README.md)仍是撤回的内部机制样本，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。当前[分发原型](experiments/round-01/distribution-demo/DEMO-BRIEF.md)已获授权从导入的 30 部中删除指定 11 部，并补全保留 19 部的剧情与分支，见[决定 0007](docs/project/decisions/0007-distribution-content-selection.md)；原始导入的 48 条缺失路径仍记录在来源档案中，不应当作修订版的通过条件。全球公开发布先看[合规初探](docs/research/2026-09-28-distribution-compliance.md)，私有试验不等于授权或产品验收。
+按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。[旧 v0.1](experiments/round-01/product-01/demo/README.md)仍是撤回的内部机制样本，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。当前[分发原型](experiments/round-01/distribution-demo/DEMO-BRIEF.md)包含 19 部内置修订作品和 4 部注册内容包；19 部的筛选与补全见[决定 0007](docs/project/decisions/0007-distribution-content-selection.md)，四包导入与后续注册格式见[决定 0009](docs/project/decisions/0009-distribution-content-registry.md)及[内容池说明](experiments/round-01/distribution-demo/content-pool/README.md)。原始导入的 48 条缺失路径仍记录在来源档案中，不应当作修订版的通过条件。全球公开发布先看[合规初探](docs/research/2026-09-28-distribution-compliance.md)，私有试验不等于授权或产品验收。

@@ -17,17 +17,23 @@ const world = {
   },
 };
 const events = [];
+let experienceState = 'worlds.reading.ready';
 const context = {
   worlds: [world],
   currentWorldIndex: 0,
   currentNodeId: 'start',
-  isAnimating: false,
   pathHistory: ['start'],
   stats: { totalSteps: 0 },
   el: { nodeLayer: { style: {} } },
   showToast: message => events.push(['toast', message]),
   saveStats: () => events.push(['saved']),
   renderNode: nodeId => events.push(['render', nodeId]),
+  experienceMatches: value => experienceState === value || experienceState.startsWith(`${value}.`),
+  sendExperience: event => {
+    events.push(['state', event]);
+    if (event === 'MOVE') experienceState = 'worlds.reading.transitioning';
+    if (event === 'NODE_READY') experienceState = 'worlds.reading.typing';
+  },
   setTimeout: callback => { callback(); return 1; },
 };
 runInNewContext(html.slice(start, end), context);
@@ -42,7 +48,19 @@ context.handleDirection('right');
 assert.equal(context.currentNodeId, 'next', '有效方向应正常进入目标节点');
 assert.deepEqual([...context.pathHistory], ['start', 'next']);
 assert.equal(context.stats.totalSteps, 1);
-assert.deepEqual(events.slice(1), [['saved'], ['render', 'next']]);
+assert.deepEqual(events.slice(1), [
+  ['state', 'MOVE'],
+  ['saved'],
+  ['state', 'NODE_READY'],
+  ['render', 'next'],
+]);
+
+assert.match(html, /aspect-ratio:\s*9\s*\/\s*16/, '作品舞台必须保留 9:16 竖屏比例');
+assert.match(html, /swiper@14\.2\.0/, 'Swiper 必须固定到已核验版本');
+assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
+assert.doesNotMatch(html, /let wheelLocked\b/, '不应恢复固定时长的滚轮锁');
+assert.match(html, /content-pool\/registry\.generated\.js/, '页面必须加载内容注册表');
+assert.match(html, /worlds\.push\(world\)/, '注册内容必须进入统一作品池');
 
 const profileStart = html.indexOf('function updateProfileStats() {');
 const profileEnd = html.indexOf('function toggleTextSize() {', profileStart);
