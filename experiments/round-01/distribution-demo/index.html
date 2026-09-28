@@ -13,6 +13,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
+            isolation: isolate;
             font-family: 'Inter', 'Noto Serif SC', serif;
             background: #0a0a0f;
             color: #fff;
@@ -33,12 +34,68 @@
             align-items: center;
             justify-content: center;
             min-width: 0;
-            background: radial-gradient(circle at 50% 42%, rgba(68, 76, 112, 0.14), transparent 52%);
+            background: transparent;
+        }
+
+        #worldsPage {
+            isolation: isolate;
+            background: transparent;
+            --info-rail-width: clamp(320px, 24vw, 400px);
+            --info-rail-right-gap: clamp(32px, 5vw, 84px);
+        }
+
+        .world-ambient-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            background: #0a0e15;
+            visibility: hidden;
+        }
+
+        body.worlds-active .world-ambient-backdrop { visibility: visible; }
+        main { z-index: 1; background: transparent !important; }
+
+        .world-ambient-art {
+            position: absolute;
+            inset: -48px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(40px) saturate(0.9);
+            transform: scale(1.02);
+            opacity: 0;
+            transition: opacity 320ms ease;
+        }
+
+        .world-ambient-art.is-visible { opacity: 1; }
+
+        .world-ambient-tint {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(8,13,23,0.62) 0%,
+                rgba(17,24,32,0.50) 50%,
+                rgba(8,13,23,0.62) 100%);
+        }
+
+        .stage-shell,
+        .sidebar-right {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 769px) {
+            /* Keep the 9:16 stage centered in the viewport, not in the leftover column. */
+            .world-stage {
+                transform: translateX(calc((var(--info-rail-width) + var(--info-rail-right-gap) - 84px) / 2));
+            }
         }
 
         .world-stage {
             position: relative;
-            width: min(100%, calc(56.25dvh - 13.5px), 506px);
+            width: min(100%, calc(42.85dvh), 506px);
             height: auto;
             aspect-ratio: 9 / 16;
             overflow: hidden;
@@ -116,7 +173,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 2rem 2rem 6.25rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.15) 70%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.72) 30%, rgba(0,0,0,0.34) 55%, transparent 78%);
             pointer-events: none;
             transition: opacity 0.18s ease;
         }
@@ -149,14 +206,6 @@
             white-space: pre-line;
             pointer-events: auto;
         }
-
-        .node-text.typing::after {
-            content: '|';
-            animation: blink 1s infinite;
-            color: rgba(255,255,255,0.6);
-        }
-
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         /* Direction Controls */
         .dir-controls {
@@ -266,13 +315,50 @@
 
         /* Sidebar Right */
         .sidebar-right {
-            width: 280px;
-            min-width: 280px;
-            border-left: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
+            width: var(--info-rail-width);
+            min-width: var(--info-rail-width);
+            margin-right: var(--info-rail-right-gap);
+            padding: clamp(128px, 18vh, 170px) clamp(24px, 4.65vw, 78px) 28px 0;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
+            scrollbar-width: none;
+            color: rgba(255,255,255,0.84);
         }
+
+        .sidebar-right::-webkit-scrollbar { display: none; }
+        .sidebar-right h3 { color: rgba(255,255,255,0.42); font-size: 11px; font-weight: 400; letter-spacing: 0.02em; }
+        .info-author { margin-bottom: 38px; }
+        .info-author h3 { margin-bottom: 12px; }
+        .info-author-name { font-size: 14px; color: rgba(255,255,255,0.94); }
+        .info-avatar { display: none; }
+        .info-actions { display: flex; align-items: center; gap: 48px; margin-bottom: 56px; }
+        .info-action {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            color: rgba(255,255,255,0.82);
+            font: inherit;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .info-action .info-like-heart { color: #f1ca84; font-size: 16px; margin-right: 8px; }
+        .info-action[disabled] { color: rgba(255,255,255,0.36); cursor: not-allowed; }
+        .info-experience { min-height: 126px; }
+        .info-experience h3 { margin-bottom: 8px; }
+        .info-progress { font-size: 12px; color: rgba(255,255,255,0.78); }
+        .info-experience .exp-map-container { margin: 18px 0 0; padding: 0; background: transparent; }
+        .exp-map-container > p { display: none; }
+        .info-experience .exp-map { justify-content: flex-start; gap: 8px; margin-top: 0; max-height: 96px; }
+        .info-experience .exp-map > div.w-full { padding: 0 !important; color: rgba(255,255,255,0.42) !important; text-align: left !important; background: transparent !important; }
+        .info-experience .exp-dot { width: 20px; height: 20px; font-size: 9px; background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); }
+        .info-meta { margin-top: 44px; display: grid; gap: 16px; }
+        .info-meta-row { display: flex; justify-content: space-between; gap: 20px; font-size: 12px; }
+        .info-meta-row span:first-child { color: rgba(255,255,255,0.48); }
+        .info-meta-row span:last-child { color: rgba(255,255,255,0.88); text-align: right; }
+        .info-description { margin-top: 42px; }
+        .info-description h3 { margin-bottom: 12px; }
+        .info-description p { color: rgba(255,255,255,0.82); font-size: 12px; line-height: 1.8; }
 
         /* Experience Map */
         .exp-map-container {
@@ -423,16 +509,28 @@
 
         /* Nav Item Active */
         .nav-item {
-            transition: all 0.3s ease;
+            transition: color 0.2s ease, background 0.2s ease;
             cursor: pointer;
-            border-radius: 12px;
+            border-radius: 2px;
             border: 0;
             background: transparent;
             font: inherit;
+            justify-content: flex-start !important;
+            padding-left: 12px;
+            color: rgba(255,255,255,0.68);
+            text-align: left;
+            height: 40px !important;
+            aspect-ratio: auto !important;
         }
 
-        .nav-item:hover { background: rgba(255,255,255,0.06); }
-        .nav-item.active { background: rgba(255,255,255,0.1); color: #fff; }
+        .sidebar-left { border: 0; }
+        .sidebar-left nav { gap: 8px; }
+        .sidebar-left > div:last-child button:first-child svg { display: none; }
+        .sidebar-left > div:last-child button:first-child::after { content: '设置'; }
+        .nav-item svg { display: none; }
+        .nav-item span { font-size: 12px !important; }
+        .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .nav-item.active { background: rgba(255,255,255,0.08); color: #fff; box-shadow: inset 2px 0 #e9c982; }
 
         /* Enter Button on Cover */
         .stage-enter {
@@ -580,7 +678,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .particle, .exp-dot.current { animation: none !important; }
-            .world-stage, .node-content, .ambience-layer, .cover-layer, .world-progress > span { transition-duration: 0.01ms !important; }
+            .world-stage, .node-content, .ambience-layer, .world-ambient-art, .cover-layer, .world-progress > span { transition-duration: 0.01ms !important; }
         }
 
         /* Section titles */
@@ -607,12 +705,17 @@
         }
     </style>
 </head>
-<body class="flex h-screen w-screen overflow-hidden bg-[#0a0a0f]">
+<body class="worlds-active flex h-screen w-screen overflow-hidden bg-[#0a0a0f]">
+    <div class="world-ambient-backdrop" aria-hidden="true">
+        <div id="worldBackdropA" class="world-ambient-art"></div>
+        <div id="worldBackdropB" class="world-ambient-art"></div>
+        <div class="world-ambient-tint"></div>
+    </div>
 
     <!-- Left Sidebar Navigation -->
-    <aside class="sidebar-left w-[72px] min-w-[72px] border-r border-white/[0.06] flex flex-col items-center py-6 gap-2 z-50 bg-[#0a0a0f]">
+    <aside class="sidebar-left w-[84px] min-w-[84px] flex flex-col items-center py-6 gap-2 z-50 bg-transparent">
         <!-- Logo -->
-        <div class="mb-6 w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-lg font-bold shadow-lg shadow-indigo-500/20" aria-label="信息雨">雨</div>
+        <div class="mb-6 w-full pl-7 text-[16px] text-amber-100" aria-label="信息雨">雨</div>
 
         <!-- Nav Items -->
         <nav class="flex flex-col gap-1 w-full px-2" id="leftNav">
@@ -634,11 +737,11 @@
             </button>
         </nav>
 
-        <div class="mt-auto flex flex-col gap-3">
-            <button type="button" onclick="switchPage('profile')" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white/80 hover:bg-white/10 transition-all" title="设置">
+        <div class="mt-auto w-full flex flex-col items-start gap-3 pl-7 text-xs text-white/65">
+            <button type="button" onclick="switchPage('profile')" class="hover:text-white transition-all" title="设置">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </button>
-            <button type="button" onclick="switchPage('profile')" class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-xs font-medium cursor-pointer" title="用户">我</button>
+            <button type="button" onclick="switchPage('profile')" class="hover:text-white transition-all" title="用户">我</button>
         </div>
     </aside>
 
@@ -722,34 +825,27 @@
 
             <!-- Right Sidebar -->
             <aside class="sidebar-right">
-                <div class="p-4 border-b border-white/[0.06]">
-                    <h3 class="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">创作者</h3>
-                    <div class="flex items-center gap-3">
-                        <div id="authorAvatar" class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 shrink-0"></div>
-                        <div>
-                            <div id="rightAuthor" class="text-sm font-medium text-white/90"></div>
-                        </div>
-                    </div>
+                <div class="info-author">
+                    <h3>创作者</h3>
+                    <div id="authorAvatar" class="info-avatar" aria-hidden="true"></div>
+                    <div id="rightAuthor" class="info-author-name"></div>
                 </div>
 
                 <!-- Interaction Buttons -->
-                <div class="flex gap-2 p-4 border-b border-white/[0.06]">
-                    <button id="btnLike" onclick="toggleLike(this)" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/[0.08] hover:bg-white/10 transition-all text-sm text-white/70">
-                        <span>♡</span>
+                <div class="info-actions">
+                    <button id="btnLike" onclick="toggleLike(this)" class="info-action">
+                        <span class="info-like-heart">♡</span>
                         <span id="likeCount">收藏</span>
                     </button>
-                    <button type="button" disabled title="评论尚未开放" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/[0.08] text-sm text-white/35 cursor-not-allowed">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    <button type="button" disabled title="评论尚未开放" class="info-action">
                         <span id="commentCount">评论未开放</span>
                     </button>
                 </div>
 
                 <!-- Experience Map -->
-                <div class="flex-1 overflow-y-auto py-4">
-                    <div class="px-4 mb-3">
-                        <h3 class="text-xs font-medium text-white/40 uppercase tracking-wider">体验图</h3>
-                        <p id="pathProgress" class="text-xs text-white/30 mt-1">未开始</p>
-                    </div>
+                <div class="info-experience">
+                    <h3>体验图</h3>
+                    <p id="pathProgress" class="info-progress">未开始</p>
                     <div class="exp-map-container">
                         <p id="expSummary" class="text-xs text-white/50 leading-relaxed mb-2">尚无足迹</p>
                         <div id="expMap" class="exp-map"></div>
@@ -757,26 +853,27 @@
                 </div>
 
                 <!-- Meta Info -->
-                <div class="p-4 border-t border-white/[0.06] space-y-2">
-                    <div class="flex justify-between text-xs">
-                        <span class="text-white/30">节点数</span>
-                        <span id="metaNodes" class="text-white/60"></span>
+                <div class="info-meta">
+                    <div class="info-meta-row">
+                        <span>节点数</span>
+                        <span id="metaNodes"></span>
                     </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-white/30">体验时长</span>
-                        <span id="metaTime" class="text-white/60"></span>
+                    <div class="info-meta-row">
+                        <span>体验时长</span>
+                        <span id="metaTime"></span>
                     </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-white/30">结局数</span>
-                        <span id="metaEnds" class="text-white/60"></span>
+                    <div class="info-meta-row">
+                        <span>结局数</span>
+                        <span id="metaEnds"></span>
                     </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-white/30">标签</span>
-                        <span id="metaTags" class="text-white/60 text-right"></span>
+                    <div class="info-meta-row">
+                        <span>标签</span>
+                        <span id="metaTags"></span>
                     </div>
-                    <div class="pt-2 mt-2 border-t border-white/[0.04]">
-                        <p id="rightDesc" class="text-xs text-white/40 leading-relaxed"></p>
-                    </div>
+                </div>
+                <div class="info-description">
+                    <h3>作品简介</h3>
+                    <p id="rightDesc"></p>
                 </div>
             </aside>
         </div>
@@ -843,13 +940,6 @@
                             <span class="text-sm text-white/80">文字大小</span>
                         </div>
                         <span id="textSizeLabel" class="text-sm text-white/50">中</span>
-                    </div>
-                    <div class="setting-item" onclick="toggleSetting(this, &#39;typewriter&#39;)" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSetting(this,'typewriter')}">
-                        <div class="flex items-center gap-3">
-                            <span class="text-sm text-white/50" aria-hidden="true">▌</span>
-                            <span class="text-sm text-white/80">逐字显示</span>
-                        </div>
-                        <div class="toggle on" data-setting="typewriter"></div>
                     </div>
                     <div class="setting-item" onclick="clearAllData()">
                         <div class="flex items-center gap-3">
@@ -3060,10 +3150,8 @@
         let currentNodeId = null;
         let pathHistory = [];
         let currentPage = 'worlds';
-        let typeTimer = null;
         let nodeTransitionTimer = null;
         let toastTimer = null;
-        let pendingText = '';
         let experienceActor = null;
         let fallbackExperienceState = 'worlds.cover';
         let worldSwiper = null;
@@ -3160,10 +3248,7 @@
         };
 
         // Default settings
-        let settings = {
-            textSize: 'md', // sm/md/lg
-            typewriter: true
-        };
+        let settings = { textSize: 'md' }; // sm/md/lg
 
         // Stats
         let stats = {
@@ -3178,6 +3263,8 @@
             worldSwiper: document.getElementById('worldSwiper'),
             worldSlides: document.getElementById('worldSlides'),
             ambience: document.getElementById('ambienceLayer'),
+            worldBackdropA: document.getElementById('worldBackdropA'),
+            worldBackdropB: document.getElementById('worldBackdropB'),
             nodeLayer: document.getElementById('nodeLayer'),
             nodeText: document.getElementById('nodeText'),
             dirControls: document.getElementById('dirControls'),
@@ -3318,7 +3405,6 @@
                 if (s) {
                     const saved = JSON.parse(s);
                     settings.textSize = ['sm', 'md', 'lg'].includes(saved.textSize) ? saved.textSize : 'md';
-                    settings.typewriter = saved.typewriter !== false;
                 }
             } catch (e) {}
         }
@@ -3328,7 +3414,6 @@
             const fontSizes = { sm: '13px', md: '15px', lg: '17px' };
             document.getElementById('textSizeLabel').textContent = labels[settings.textSize];
             el.nodeText.style.fontSize = fontSizes[settings.textSize];
-            document.querySelector('[data-setting="typewriter"]').classList.toggle('on', settings.typewriter);
         }
 
         function saveSettings() {
@@ -3433,6 +3518,7 @@
                 search: 'OPEN_SEARCH'
             };
             sendExperience(pageEvents[pageName]);
+            document.body.classList.toggle('worlds-active', pageName === 'worlds');
 
             // Hide all pages
             el.worldsPage.classList.add('hidden');
@@ -3600,23 +3686,12 @@
             showToast('文字大小：' + labels[settings.textSize]);
         }
 
-        function toggleSetting(elItem, key) {
-            const toggle = elItem.querySelector('.toggle');
-            if (!toggle) return;
-
-            settings[key] = !settings[key];
-            toggle.classList.toggle('on', settings[key]);
-            saveSettings();
-
-            if (key === 'typewriter') showToast(settings.typewriter ? '逐字显示已开启' : '逐字显示已关闭');
-        }
-
         function clearAllData() {
             if (!confirm('确定要清除所有本地数据吗？此操作不可恢复。')) return;
 
             Object.values(LS_KEYS).forEach(key => localStorage.removeItem(key));
             stats = { exploredWorlds: [], collectedEndings: [], totalSteps: 0 };
-            settings = { textSize: 'md', typewriter: true };
+            settings = { textSize: 'md' };
             applySettings();
             updateProfileStats();
             renderBookmarks();
@@ -3636,11 +3711,8 @@
                 worldSwiper.mousewheel?.enable();
             }
 
-            if (typeTimer) clearTimeout(typeTimer);
             if (nodeTransitionTimer) clearTimeout(nodeTransitionTimer);
-            typeTimer = null;
             nodeTransitionTimer = null;
-            pendingText = '';
             el.nodeText.textContent = '';
             el.nodeText.classList.remove('typing');
             el.nodeLayer.classList.remove('slide-in-right', 'slide-in-left', 'slide-in-up', 'slide-in-down', 'fade-in');
@@ -3651,6 +3723,7 @@
             // 更新氛围背景
             el.ambience.style.backgroundImage = world.image ? `url(${world.image})` : '';
             el.ambience.style.backgroundColor = '#111118';
+            updateWorldBackdrop(world);
 
             // 封面信息
             el.coverTitle.textContent = world.title;
@@ -3686,7 +3759,7 @@
                 'from-fuchsia-400 to-rose-500',
                 'from-lime-400 to-emerald-500'
             ];
-            el.authorAvatar.className = `w-12 h-12 rounded-full bg-gradient-to-br ${gradients[index % gradients.length]} shrink-0`;
+            el.authorAvatar.className = `info-avatar w-12 h-12 rounded-full bg-gradient-to-br ${gradients[index % gradients.length]} shrink-0`;
 
             // 更新喜欢按钮状态
             updateLikeButton();
@@ -3714,6 +3787,17 @@
 
             // 重新生成粒子
             generateParticles(world.theme.particles);
+        }
+
+        let activeWorldBackdrop = null;
+
+        function updateWorldBackdrop(world) {
+            const next = activeWorldBackdrop === el.worldBackdropA ? el.worldBackdropB : el.worldBackdropA;
+            next.style.backgroundImage = world.image ? `url("${world.image}")` : 'none';
+            next.style.backgroundColor = world.theme?.bg || '#111118';
+            next.classList.add('is-visible');
+            activeWorldBackdrop?.classList.remove('is-visible');
+            activeWorldBackdrop = next;
         }
 
         function updateLikeButton() {
@@ -3787,12 +3871,6 @@
         // 渲染节点
         // ============================================================
         function renderNode(nodeId, animType = 'fade') {
-            // 清除打字机定时器
-            if (typeTimer) {
-                clearTimeout(typeTimer);
-                typeTimer = null;
-            }
-
             // 兜底：清除任何残留的内联样式
             el.nodeLayer.style.opacity = '1';
             el.nodeLayer.style.transform = '';
@@ -3812,10 +3890,11 @@
 
             sendExperience('TYPE_START');
 
-            // 文本渲染（带打字机效果）
-            el.nodeText.className = 'node-text typing';
-            el.nodeText.innerHTML = '';
+            // 节点正文直接完整显示，不再逐字输出。
+            el.nodeText.className = 'node-text';
+            el.nodeText.textContent = node.text;
             el.nodeText.scrollTop = 0;
+            sendExperience('TYPE_DONE');
 
             // 方向控制
             const hasExits = node.exits && (node.exits.left || node.exits.right || node.exits.up);
@@ -3832,9 +3911,6 @@
                 el.dirControls.classList.add('opacity-0', 'pointer-events-none');
                 el.dirControls.inert = true;
             }
-
-            // 打字机
-            typeWriter(node.text, el.nodeText, 16);
 
             // 动画类
             if (animType === 'left') el.nodeLayer.classList.add('slide-in-right');
@@ -3862,40 +3938,6 @@
                 btn.style.visibility = 'hidden';
                 btn.disabled = true;
             }
-        }
-
-        function typeWriter(text, element, speed = 20) {
-            let i = 0;
-            element.textContent = '';
-            pendingText = text;
-            if (!settings.typewriter || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                finishTypewriter();
-                return;
-            }
-
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    typeTimer = setTimeout(type, speed);
-                } else {
-                    element.classList.remove('typing');
-                    typeTimer = null;
-                    pendingText = '';
-                    sendExperience('TYPE_DONE');
-                }
-            }
-            type();
-        }
-
-        function finishTypewriter() {
-            if (!pendingText) return;
-            if (typeTimer) clearTimeout(typeTimer);
-            typeTimer = null;
-            el.nodeText.textContent = pendingText;
-            el.nodeText.classList.remove('typing');
-            pendingText = '';
-            sendExperience('TYPE_DONE');
         }
 
         // ============================================================
@@ -4127,7 +4169,6 @@
                 }
             }, { passive: true });
 
-            el.nodeText.addEventListener('click', finishTypewriter);
             el.searchInput.addEventListener('input', event => renderSearchResults(event.target.value));
         }
 

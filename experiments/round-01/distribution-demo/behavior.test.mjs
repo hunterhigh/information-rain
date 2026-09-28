@@ -59,6 +59,11 @@ assert.match(html, /aspect-ratio:\s*9\s*\/\s*16/, '作品舞台必须保留 9:16
 assert.match(html, /swiper@14\.2\.0/, 'Swiper 必须固定到已核验版本');
 assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
 assert.doesNotMatch(html, /let wheelLocked\b/, '不应恢复固定时长的滚轮锁');
+assert.doesNotMatch(html, /逐字显示|typeWriter\(|finishTypewriter|typeTimer/, '正文不应再使用逐字输出效果');
+const renderNodeStart = html.indexOf('function renderNode(nodeId, animType = \'fade\') {');
+const renderNodeEnd = html.indexOf('function updateDirBtn(', renderNodeStart);
+assert.ok(renderNodeStart >= 0 && renderNodeEnd > renderNodeStart, '找不到节点渲染函数');
+assert.match(html.slice(renderNodeStart, renderNodeEnd), /el\.nodeText\.textContent\s*=\s*node\.text/, '节点正文应一次性完整显示');
 assert.match(html, /content-pool\/registry\.generated\.js/, '页面必须加载内容注册表');
 assert.match(html, /worlds\.push\(world\)/, '注册内容必须进入统一作品池');
 
