@@ -4,7 +4,7 @@
 
 ## 我们正在做什么
 
-记录并探索手机原生、推荐即生成、多维信息分发的新娱乐媒介。
+记录并探索手机原生、推荐即生成、多维信息分发的新娱乐媒介。当前已采纳**工具产品 + 分发产品**的双产品方向；「全梦」是技术愿景名，「信息雨」是信息流方法，文字拓扑 Agent 属于工具产品。[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)是最新产品基线。
 
 要解决的问题：现有讨论分散在对话和实验中，缺少一个能区分已确认判断、候选假设、纠正记录与后续工作的长期项目入口。
 
@@ -40,4 +40,4 @@
 
 ## 当前实验
 
-按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。round1 的 product-01 仍以“内容自定的信息雨”为候选方向；[研究](experiments/round-01/product-01/RESEARCH.md)与[推演](experiments/round-01/product-01/WORKING.md)保留。[旧 v0.1](experiments/round-01/product-01/demo/README.md)虽能运行，却被项目所有者指出像机制说明和官网、缺少值得读的内容，已撤回为内部样本；见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。下一步先提出产品价值与每个 Demo 的内容创作简报，独立审读内容，再以最少界面制作新版本；不再把功能测试通过称为产品 Demo 通过。
+按[实验脚手架](docs/project/experiment-scaffold.md)逐个推进候选。[旧 v0.1](experiments/round-01/product-01/demo/README.md)仍是撤回的内部机制样本，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。当前[分发原型](experiments/round-01/distribution-demo/DEMO-BRIEF.md)保留 Kimi 版本的 30 个内容与插画，仅本地优化界面；原始内容有 48 条指向缺失节点的路径，未获内容修改授权前不补写作品。全球公开发布先看[合规初探](docs/research/2026-09-28-distribution-compliance.md)，私有试验不等于授权或产品验收。

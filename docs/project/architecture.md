@@ -13,3 +13,5 @@
 ## 边界
 
 本文件记录已批准的项目起点。2026-09-24 的 product-01 本地静态 Demo 是实验样本，不是正式产品架构或技术栈决定；不接入外部服务、不持久化真实用户数据，也未部署。
+
+2026-09-28 的[决定 0006](decisions/0006-two-products-and-medium-validation.md)确认工具产品与分发产品应分别成立；当前[分发原型](../../experiments/round-01/distribution-demo/DEMO-BRIEF.md)仅是本地静态实验。两产品是否共享代码、数据接口或账号均未决定，不应从单文件 HTML 推出正式架构。

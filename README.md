@@ -2,8 +2,14 @@
 
 > 一个关于手机原生、推荐即生成、多维信息分发与生成式娱乐世界的长期思考和实验项目。
 
-状态：愿景形成期；round1 本地机制试验
-更新：2026-09-24
+状态：双产品方向已采纳；分发原型本地验证中
+更新：2026-09-28
+
+## 当前已采纳的产品方向
+
+项目将分别出现**工具产品**与**分发产品**。文字拓扑 Agent 是工具产品的主要功能之一；分发产品让人发现、进入并继续消费不同媒介的内容。**全梦**是长期技术愿景名，**信息雨**是多可达后继的信息流方法，尚未确定任一产品的正式名称。媒介验证暂沿文字、插画、短视频逐层推进；这是战略顺序，不是每一作品都必须升级到视频。见[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)。
+
+当前从 Kimi 原型导入的[分发 Demo](experiments/round-01/distribution-demo/DEMO-BRIEF.md)保留 30 个既有内容和封面，仅本地改界面/交互。其作品质量、48 条原始失效分支及热门 IP 的发布权尚未通过评审；[全球化合规初探](docs/research/2026-09-28-distribution-compliance.md)是风险地图，不是上线许可。
 
 ## 这个仓库是什么
 
@@ -19,9 +25,9 @@
 
 ## 一句话愿景
 
-构造一种专注手机的生成式信息分发产品：推荐不再只从已有内容中挑选下一条，而是实时决定并生成下一刻的内容；用户也不再只能沿单轴瀑布流向下消费，而是在多个可到达的信息方向中移动、探索并形成自己的体验路径。
+围绕「全梦」技术愿景，分别构建创作工具与手机原生分发产品：前者让多走向内容可被生产，后者通过信息雨使用户不只沿单轴信息流消费，而能从当前位置进入多个可到达的后继。推荐即生成是长期能力假设，不是当前预写 Demo 已实现的功能。
 
-暂定名称是 **Information Rain / 信息雨**。
+早期曾把整体产品暂称为 **Information Rain / 信息雨**；现已由[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)修正为信息流方法，产品名未定。
 
 ## 我们真正讨论的对象
 
@@ -418,7 +424,7 @@ A → B → C
 
 ## 当前恢复点
 
-当前按[产品实验脚手架](docs/project/experiment-scaffold.md)推进。第一个候选“内容自定的信息雨”已有[研究](experiments/round-01/product-01/RESEARCH.md)与[推演](experiments/round-01/product-01/WORKING.md)。[旧 v0.1](experiments/round-01/product-01/demo/README.md)虽通过路径测试，却把规则样本误作产品内容，用官网式 hero 和解释机制的文字阻断了体验；项目所有者查看后明确否定，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。旧 Demo 和[原评审](experiments/round-01/product-01/AUTO-REVIEW.md)仅作内部证据，不再是待试用产品。下一步先重新提出产品价值和具体内容创作简报，写出可独立阅读的内容，再决定最小界面和交互。自动产出原则仍在，但功能通过不能替代内容和产品判断。旧的单轴 R01-B 方案已排除；其他候选尚待独立研究产生。
+当前按[产品实验脚手架](docs/project/experiment-scaffold.md)推进。[旧 v0.1](experiments/round-01/product-01/demo/README.md)虽通过路径测试，却把规则样本误作产品内容，用官网式 hero 和解释机制的文字阻断了体验；项目所有者明确否定，见[决定 0005](docs/project/decisions/0005-content-first-demo.md)。旧 Demo 和[原评审](experiments/round-01/product-01/AUTO-REVIEW.md)仅作内部证据。新方向采用双产品框架，分发原型已有本地可运行样本，但内容质量、路径完整性、版权与安全均待独立检验。旧的单轴 R01-B 方案仍已排除。
 
 原型必须真正区分以下两种情况：
 
