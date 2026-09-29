@@ -10,4 +10,4 @@
 
 长期工具与分发两条产品方向见[决定 0006](../docs/project/decisions/0006-two-products-and-medium-validation.md)；当前只推进分发产品，见[决定 0011](../docs/project/decisions/0011-distribution-product-as-active-roadmap.md)。
 
-历史与停止的测试材料由[归档索引](archive/README.md)说明。动画对比页仍服务未决事务 `UT-01`，不是当前主页面已采纳的设计。模板只在未来明确开启新实验时使用。
+历史与停止的测试材料由[归档索引](archive/README.md)说明。动画对比页现作为方案档案保留：当前主页面采用轻微落位，原位叠化与柔焦叠化是未来备选。`UT-01` 已关闭，不是未决事务。模板只在未来明确开启新实验时使用。
