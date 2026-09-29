@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>信息雨｜文字切换动画对比</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f4f1e8;
+      --muted: rgba(232, 231, 226, .58);
+      --accent: #e9c982;
+      --stage-image: url('../images/apocalypse.jpg');
+    }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; }
+    body {
+      background: radial-gradient(ellipse at 52% 45%, #202832 0%, #11161e 52%, #0a0e15 100%);
+      color: var(--ink);
+      font-family: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      padding: 30px clamp(20px, 4vw, 72px) 36px;
+    }
+    .page { width: min(100%, 1720px); margin: 0 auto; }
+    header { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 26px; }
+    h1 { margin: 0; font: 600 clamp(22px, 2vw, 30px)/1.3 "Noto Serif SC", "Songti SC", serif; letter-spacing: .025em; }
+    .intro { max-width: 550px; margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .story-label { flex: none; padding-bottom: 4px; color: rgba(255,255,255,.42); font-size: 11px; letter-spacing: .08em; }
+    .examples { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 32px); align-items: start; }
+    .example { min-width: 0; }
+    .example-head { min-height: 56px; margin-bottom: 10px; }
+    .example-head h2 { margin: 0; font: 600 16px/1.4 "Noto Serif SC", "Songti SC", serif; }
+    .example-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .stage {
+      position: relative;
+      width: min(100%, 340px);
+      max-height: 64vh;
+      aspect-ratio: 9 / 16;
+      margin: 0 auto;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 13px;
+      background: #11151d var(--stage-image) center / cover no-repeat;
+      box-shadow: 0 18px 52px rgba(0,0,0,.34);
+    }
+    .image-wash { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,8,12,.08), transparent 30%); }
+    .content-layer { position: absolute; inset: 0; }
+    .legibility { position: absolute; inset: 26% 0 0; background: linear-gradient(to top, rgba(0,0,0,.98) 0%, rgba(0,0,0,.88) 36%, rgba(0,0,0,.48) 70%, transparent 100%); }
+    .copy {
+      position: absolute;
+      right: 17px;
+      bottom: 82px;
+      left: 17px;
+      max-height: 52%;
+      overflow: hidden;
+      color: rgba(255,255,255,.96);
+      font: 400 clamp(12px, .9vw, 15px)/1.8 "Noto Serif SC", "Songti SC", "Microsoft YaHei", serif;
+      text-shadow: 0 2px 9px rgba(0,0,0,.55);
+    }
+    .copy p { margin: 0; }
+    .copy p + p { margin-top: .8em; }
+    .copy--new { visibility: hidden; opacity: 0; }
+    .controls {
+      position: absolute;
+      right: 12px;
+      bottom: 13px;
+      left: 12px;
+      display: flex;
+      justify-content: center;
+      gap: clamp(8px, 1vw, 18px);
+      color: rgba(255,255,255,.78);
+      font-size: 10px;
+      text-align: center;
+    }
+    .controls span { max-width: 31%; line-height: 1.35; }
+    .controls i { display: block; margin: 0 auto 4px; color: rgba(255,255,255,.5); font: normal 15px/1 sans-serif; }
+    .replay {
+      display: block;
+      margin: 13px auto 0;
+      padding: 7px 0;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.72);
+      font: inherit;
+      font-size: 11px;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+    .replay:hover, .replay:focus-visible { color: var(--accent); }
+    .replay:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .tap-hint { margin: 3px 0 0; color: rgba(255,255,255,.34); font-size: 10px; text-align: center; }
+
+    /* Baseline: current behavior moves and fades the whole reading layer. */
+    .stage.playing[data-mode="current"] .content-layer--old { animation: currentOut 260ms ease-in forwards; }
+    .stage.playing[data-mode="current"] .content-layer--new { visibility: visible; animation: currentIn 460ms cubic-bezier(.2,.7,.25,1) 180ms both; }
+    .stage.playing[data-mode="current"] .copy--new { visibility: visible; }
+    /* A: both paragraphs dissolve in place; image, gradient and controls stay still. */
+    .stage.playing[data-mode="dissolve"] .copy--old { animation: fadeAway 180ms ease-in forwards; }
+    .stage.playing[data-mode="dissolve"] .copy--new { visibility: visible; animation: fadeHere 300ms ease-out 110ms both; }
+    /* B: the incoming paragraph resolves gently into focus, without moving its panel. */
+    .stage.playing[data-mode="focus"] .copy--old { animation: fadeAway 190ms ease-in forwards; }
+    .stage.playing[data-mode="focus"] .copy--new { visibility: visible; animation: focusHere 380ms cubic-bezier(.2,.7,.2,1) 90ms both; }
+    /* C: the paragraph itself settles a few pixels; no card, shadow or gradient travels. */
+    .stage.playing[data-mode="settle"] .copy--old { animation: textLeave 210ms ease-in forwards; }
+    .stage.playing[data-mode="settle"] .copy--new { visibility: visible; animation: textSettle 330ms cubic-bezier(.2,.75,.25,1) 100ms both; }
+    /* D: the next passage appears in short phrase lines instead of one moving block. */
+    .stage.playing[data-mode="lines"] .copy--old { animation: fadeAway 180ms ease-in forwards; }
+    .stage.playing[data-mode="lines"] .copy--new { visibility: visible; opacity: 1; }
+    .stage.playing[data-mode="lines"] .line { display: block; clip-path: inset(0 0 100% 0); animation: lineReveal 390ms cubic-bezier(.2,.7,.2,1) both; }
+    .stage.playing[data-mode="lines"] .line:nth-child(2) { animation-delay: 60ms; }
+    .stage.playing[data-mode="lines"] .line:nth-child(3) { animation-delay: 120ms; }
+    .stage.playing[data-mode="lines"] .line:nth-child(4) { animation-delay: 180ms; }
+
+    @keyframes currentOut { to { opacity: 0; transform: translateY(7%); } }
+    @keyframes currentIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeAway { to { opacity: 0; } }
+    @keyframes fadeHere { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes focusHere { from { opacity: 0; filter: blur(4px); } to { opacity: 1; filter: blur(0); } }
+    @keyframes textLeave { to { opacity: 0; transform: translateY(-6px); } }
+    @keyframes textSettle { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes lineReveal { to { clip-path: inset(0 0 0 0); } }
+
+    @media (max-width: 1080px) {
+      header { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .examples { grid-template-columns: repeat(2, minmax(220px, 1fr)); row-gap: 28px; }
+      .stage { width: min(100%, 340px); max-height: none; }
+    }
+    @media (max-width: 620px) {
+      body { padding: 24px 18px; }
+      .examples { grid-template-columns: 1fr; }
+      .stage { width: min(100%, 340px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>故事文字，怎样自然地接上下一段？</h1>
+        <p class="intro">现行方式加四种候选，共五个样例。它们使用同一张现有封面、同一段内容和同一组方向入口；点“重播”可以看文字怎样离开、下一段怎样出现。</p>
+      </div>
+      <div class="story-label">同一舞台 · 同一内容 · 不同切换方式</div>
+    </header>
+
+    <section class="examples" aria-label="文字切换动画对比">
+      <article class="example">
+        <div class="example-head"><h2>现行方式</h2><p>文字层淡出并移动，再由下一段滑入</p></div>
+        <div class="stage" data-mode="current">
+          <div class="image-wash"></div>
+          <div class="content-layer content-layer--old"><div class="legibility"></div><div class="copy copy--old"><p>猫眼里的走廊被压成一个弯曲的圆。三个人穿着同样的灰色雨衣，袖口贴着写有楼层编号的纸条；一个拿着长杆逐户敲门，另一个在本子上划去无人应答的房号。</p></div></div>
+          <div class="content-layer content-layer--new" hidden><div class="legibility"></div><div class="copy copy--new"><p>站在最后的人忽然抬头：「三零二里面有人。」</p><p>你可以开门问清他们在查什么，也可以从窗离开；继续藏着，能避过这一轮，却可能被他们当成需要强行检查的房间。</p></div></div>
+          <div class="controls"><span><i>←</i>开门与他们交涉</span><span><i>↑</i>赌他们不会破门</span><span><i>→</i>从窗离开</span></div>
+        </div>
+        <button class="replay" type="button">↻ 重播</button>
+        <p class="tap-hint">整层文字与渐变一起移动</p>
+      </article>
+
+      <article class="example">
+        <div class="example-head"><h2>原位叠化</h2><p>旧段淡去，新段在同一位置出现</p></div>
+        <div class="stage" data-mode="dissolve">
+          <div class="image-wash"></div><div class="legibility"></div>
+          <div class="copy copy--old"><p>猫眼里的走廊被压成一个弯曲的圆。三个人穿着同样的灰色雨衣，袖口贴着写有楼层编号的纸条；一个拿着长杆逐户敲门，另一个在本子上划去无人应答的房号。</p></div>
+          <div class="copy copy--new"><p>站在最后的人忽然抬头：「三零二里面有人。」</p><p>你可以开门问清他们在查什么，也可以从窗离开；继续藏着，能避过这一轮，却可能被他们当成需要强行检查的房间。</p></div>
+          <div class="controls"><span><i>←</i>开门与他们交涉</span><span><i>↑</i>赌他们不会破门</span><span><i>→</i>从窗离开</span></div>
+        </div>
+        <button class="replay" type="button">↻ 重播</button>
+        <p class="tap-hint">舞台和按钮都保持稳定</p>
+      </article>
+
+      <article class="example">
+        <div class="example-head"><h2>柔焦叠化</h2><p>新段从轻微虚焦慢慢变清楚</p></div>
+        <div class="stage" data-mode="focus">
+          <div class="image-wash"></div><div class="legibility"></div>
+          <div class="copy copy--old"><p>猫眼里的走廊被压成一个弯曲的圆。三个人穿着同样的灰色雨衣，袖口贴着写有楼层编号的纸条；一个拿着长杆逐户敲门，另一个在本子上划去无人应答的房号。</p></div>
+          <div class="copy copy--new"><p>站在最后的人忽然抬头：「三零二里面有人。」</p><p>你可以开门问清他们在查什么，也可以从窗离开；继续藏着，能避过这一轮，却可能被他们当成需要强行检查的房间。</p></div>
+          <div class="controls"><span><i>←</i>开门与他们交涉</span><span><i>↑</i>赌他们不会破门</span><span><i>→</i>从窗离开</span></div>
+        </div>
+        <button class="replay" type="button">↻ 重播</button>
+        <p class="tap-hint">只有正文变清晰，不做位移</p>
+      </article>
+
+      <article class="example">
+        <div class="example-head"><h2>轻微落位</h2><p>旧段轻退，新段只移动几像素</p></div>
+        <div class="stage" data-mode="settle">
+          <div class="image-wash"></div><div class="legibility"></div>
+          <div class="copy copy--old"><p>猫眼里的走廊被压成一个弯曲的圆。三个人穿着同样的灰色雨衣，袖口贴着写有楼层编号的纸条；一个拿着长杆逐户敲门，另一个在本子上划去无人应答的房号。</p></div>
+          <div class="copy copy--new"><p>站在最后的人忽然抬头：「三零二里面有人。」</p><p>你可以开门问清他们在查什么，也可以从窗离开；继续藏着，能避过这一轮，却可能被他们当成需要强行检查的房间。</p></div>
+          <div class="controls"><span><i>←</i>开门与他们交涉</span><span><i>↑</i>赌他们不会破门</span><span><i>→</i>从窗离开</span></div>
+        </div>
+        <button class="replay" type="button">↻ 重播</button>
+        <p class="tap-hint">只动文字，不带动背景和渐变</p>
+      </article>
+
+      <article class="example">
+        <div class="example-head"><h2>逐行显现</h2><p>新段按短句分层出现，像叙事展开</p></div>
+        <div class="stage" data-mode="lines">
+          <div class="image-wash"></div><div class="legibility"></div>
+          <div class="copy copy--old"><p>猫眼里的走廊被压成一个弯曲的圆。三个人穿着同样的灰色雨衣，袖口贴着写有楼层编号的纸条；一个拿着长杆逐户敲门，另一个在本子上划去无人应答的房号。</p></div>
+          <div class="copy copy--new"><p><span class="line">站在最后的人忽然抬头：</span><span class="line">「三零二里面有人。」</span><span class="line">你可以开门问清他们在查什么，</span><span class="line">也可以从窗离开；继续藏着，</span><span class="line">可能会被他们强行检查。</span></p></div>
+          <div class="controls"><span><i>←</i>开门与他们交涉</span><span><i>↑</i>赌他们不会破门</span><span><i>→</i>从窗离开</span></div>
+        </div>
+        <button class="replay" type="button">↻ 重播</button>
+        <p class="tap-hint">节奏更明显，也更容易拖慢阅读</p>
+      </article>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('.example').forEach((example) => {
+      const stage = example.querySelector('.stage');
+      const replay = example.querySelector('.replay');
+      const play = () => {
+        stage.classList.remove('playing');
+        stage.querySelectorAll('.content-layer--new').forEach((layer) => { layer.hidden = false; });
+        void stage.offsetWidth;
+        stage.classList.add('playing');
+      };
+      replay.addEventListener('click', play);
+      stage.addEventListener('click', play);
+      stage.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); play(); }
+      });
+      stage.tabIndex = 0;
+      stage.setAttribute('role', 'button');
+      stage.setAttribute('aria-label', `重播：${example.querySelector('h2').textContent}`);
+    });
+  </script>
+</body>
+</html>
