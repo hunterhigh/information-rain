@@ -325,6 +325,8 @@
         }
 
         .node-text {
+            position: relative;
+            z-index: 1;
             flex: 0 1 auto;
             min-height: 0;
             max-height: min(58%, calc(100% - 7rem));
@@ -339,6 +341,32 @@
             pointer-events: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(255,255,255,0.24) transparent;
+        }
+
+        .node-text-settle-in {
+            animation: nodeTextSettleIn 330ms cubic-bezier(.2,.75,.25,1) both;
+        }
+
+        .node-text-exit-copy {
+            position: absolute;
+            z-index: 2;
+            flex: none;
+            margin: 0;
+            overflow: hidden;
+            pointer-events: none;
+            scrollbar-width: none;
+            animation: nodeTextLeave 210ms ease-in both;
+        }
+
+        .node-text-exit-copy::-webkit-scrollbar { display: none; }
+
+        @keyframes nodeTextLeave {
+            to { opacity: 0; transform: translateY(-6px); }
+        }
+
+        @keyframes nodeTextSettleIn {
+            from { opacity: 0; transform: translateY(7px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Direction Controls */
@@ -603,16 +631,8 @@
         .stage-save.hidden { display: none; }
 
         /* Animations */
-        .slide-in-right { animation: slideInRight 0.5s ease forwards; }
-        .slide-in-left { animation: slideInLeft 0.5s ease forwards; }
-        .slide-in-up { animation: slideInUp 0.5s ease forwards; }
-        .slide-in-down { animation: slideInDown 0.5s ease forwards; }
         .fade-in { animation: fadeIn 0.5s ease forwards; }
 
-        @keyframes slideInRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideInLeft { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes slideInDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* Toast */
@@ -3310,6 +3330,8 @@
         let pathHistory = [];
         let currentPage = 'worlds';
         let nodeTransitionTimer = null;
+        let nodeTextSettleTimer = null;
+        let nodeTextSettleHandler = null;
         let toastTimer = null;
         let experienceActor = null;
         let fallbackExperienceState = 'worlds.cover';
@@ -4117,9 +4139,11 @@
 
             if (nodeTransitionTimer) clearTimeout(nodeTransitionTimer);
             nodeTransitionTimer = null;
+            clearNodeTextSettle();
+            clearNodeTextExitCopies();
             el.nodeText.textContent = '';
             el.nodeText.classList.remove('typing');
-            el.nodeLayer.classList.remove('slide-in-right', 'slide-in-left', 'slide-in-up', 'slide-in-down', 'fade-in');
+            el.nodeLayer.classList.remove('fade-in');
             el.nodeLayer.style.opacity = '';
             el.nodeLayer.style.transform = '';
             el.nodeLayer.style.transition = '';
@@ -4274,12 +4298,51 @@
         // ============================================================
         // 渲染节点
         // ============================================================
+        function clearNodeTextSettle() {
+            if (nodeTextSettleTimer) clearTimeout(nodeTextSettleTimer);
+            nodeTextSettleTimer = null;
+            if (nodeTextSettleHandler) {
+                el.nodeText.removeEventListener('animationend', nodeTextSettleHandler);
+                nodeTextSettleHandler = null;
+            }
+            el.nodeText.classList.remove('node-text-settle-in');
+        }
+
+        function clearNodeTextExitCopies() {
+            el.nodeLayer.querySelectorAll('.node-text-exit-copy').forEach(copy => copy.remove());
+        }
+
+        function createNodeTextExitCopy() {
+            clearNodeTextExitCopies();
+            if (!el.nodeText.textContent.trim()) return;
+            const copy = el.nodeText.cloneNode(true);
+            const layerRect = el.nodeLayer.getBoundingClientRect();
+            const textRect = el.nodeText.getBoundingClientRect();
+            copy.removeAttribute('id');
+            copy.className = 'node-text node-text-exit-copy';
+            copy.setAttribute('aria-hidden', 'true');
+            copy.style.left = `${textRect.left - layerRect.left}px`;
+            copy.style.top = `${textRect.top - layerRect.top}px`;
+            copy.style.width = `${textRect.width}px`;
+            copy.style.height = `${textRect.height}px`;
+            copy.scrollTop = el.nodeText.scrollTop;
+            el.nodeLayer.appendChild(copy);
+            const remove = () => copy.remove();
+            copy.addEventListener('animationend', remove, { once: true });
+            setTimeout(remove, 400);
+        }
+
+        function finishNodeTextSettle() {
+            clearNodeTextSettle();
+            sendExperience('TYPE_DONE');
+        }
+
         function renderNode(nodeId, animType = 'fade') {
             // 兜底：清除任何残留的内联样式
             el.nodeLayer.style.opacity = '1';
             el.nodeLayer.style.transform = '';
             el.nodeLayer.style.transition = '';
-            el.nodeLayer.classList.remove('slide-in-right', 'slide-in-left', 'slide-in-up', 'slide-in-down', 'fade-in');
+            el.nodeLayer.classList.remove('fade-in');
 
             const world = worlds[currentWorldIndex];
             const node = world.data[nodeId];
@@ -4288,17 +4351,20 @@
 
             // 结局处理
             if (node.isEnding) {
+                clearNodeTextExitCopies();
                 showEnding(node);
                 return;
             }
 
+            clearNodeTextSettle();
+            if (animType !== 'settle') clearNodeTextExitCopies();
             sendExperience('TYPE_START');
 
             // 节点正文直接完整显示，不再逐字输出。
             el.nodeText.className = 'node-text';
             el.nodeText.textContent = node.text;
             el.nodeText.scrollTop = 0;
-            sendExperience('TYPE_DONE');
+            if (animType !== 'settle') sendExperience('TYPE_DONE');
 
             // 方向控制
             const hasExits = node.exits && (node.exits.left || node.exits.right || node.exits.up);
@@ -4316,16 +4382,15 @@
                 el.dirControls.inert = true;
             }
 
-            // 动画类
-            if (animType === 'left') el.nodeLayer.classList.add('slide-in-right');
-            else if (animType === 'right') el.nodeLayer.classList.add('slide-in-left');
-            else if (animType === 'up') el.nodeLayer.classList.add('slide-in-up');
-            else if (animType === 'down') el.nodeLayer.classList.add('slide-in-down');
-            else if (animType === 'fade') el.nodeLayer.classList.add('fade-in');
-
-            setTimeout(() => {
-                el.nodeLayer.classList.remove('slide-in-right', 'slide-in-left', 'slide-in-up', 'slide-in-down', 'fade-in');
-            }, 600);
+            if (animType === 'settle') {
+                el.nodeText.classList.add('node-text-settle-in');
+                nodeTextSettleHandler = () => finishNodeTextSettle();
+                el.nodeText.addEventListener('animationend', nodeTextSettleHandler, { once: true });
+                nodeTextSettleTimer = setTimeout(finishNodeTextSettle, 500);
+            } else if (animType === 'fade') {
+                el.nodeLayer.classList.add('fade-in');
+                setTimeout(() => el.nodeLayer.classList.remove('fade-in'), 600);
+            }
 
             renderExpMap();
         }
@@ -4348,7 +4413,7 @@
         // 方向导航
         // ============================================================
         function handleDirection(dir) {
-            if (experienceMatches('worlds.reading.transitioning') || experienceMatches('worlds.reading.ending')) return;
+            if (experienceMatches('worlds.reading.typing') || experienceMatches('worlds.reading.transitioning') || experienceMatches('worlds.reading.ending')) return;
             const world = worlds[currentWorldIndex];
             const node = world.data[currentNodeId];
 
@@ -4362,6 +4427,7 @@
 
             sendExperience('MOVE');
             const nextNodeId = node.exits[dir];
+            createNodeTextExitCopy();
 
             // 记录路径
             pathHistory.push(nextNodeId);
@@ -4371,22 +4437,11 @@
             stats.totalSteps++;
             saveStats();
 
-            // 动画方向映射
-            const animMap = { left: 'left', right: 'right', up: 'up' };
-
-            // 先淡出当前
-            el.nodeLayer.style.opacity = '0';
-            el.nodeLayer.style.transform = dir === 'left' ? 'translateX(20%)' : dir === 'right' ? 'translateX(-20%)' : 'translateY(10%)';
-            el.nodeLayer.style.transition = 'all 0.3s ease';
-
             nodeTransitionTimer = setTimeout(() => {
-                el.nodeLayer.style.transition = '';
-                el.nodeLayer.style.transform = '';
-                el.nodeLayer.style.opacity = '1';
                 sendExperience('NODE_READY');
-                renderNode(nextNodeId, animMap[dir]);
+                renderNode(nextNodeId, 'settle');
                 nodeTransitionTimer = null;
-            }, 300);
+            }, 100);
         }
 
         // ============================================================

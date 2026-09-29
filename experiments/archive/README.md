@@ -10,7 +10,7 @@
 
 ## 仍在使用的比较材料
 
-[`round-01/distribution-demo/design/text-transition-comparison.html`](../round-01/distribution-demo/design/text-transition-comparison.html) **不是归档测试**：它对应未决事务 `UT-01`，用于选择主 Demo 的节点文字过渡方式。主页面当前仍保留原动画。未决事务关闭后再更新此处状态。
+[`round-01/distribution-demo/design/text-transition-comparison.html`](../round-01/distribution-demo/design/text-transition-comparison.html) 是保留的设计档案，不是测试 Demo。`UT-01` 已决定采用“轻微落位”，主页面已实施；“原位叠化”和“柔焦叠化”作为后续迭代备选，“逐行显现”记录早期探索。详情见[决定 0010](../../docs/project/decisions/0010-reading-interaction-refinement.md)。
 
 ## 归档规则
 

@@ -26,6 +26,6 @@
 
 预览截图不是自动化验收记录，也不能替代当前代码或未来正式产品的运行检查。
 
-## 仍未决定的正文过渡动画
+## 正文过渡动画档案
 
-`text-transition-comparison.html` 对应未决事务 `UT-01`，用于比较节点文字过渡。当前主页面仍使用原有动画；最终选择见[决定 0010](../../../../docs/project/decisions/0010-reading-interaction-refinement.md)。
+`text-transition-comparison.html` 是动画方案档案。主页面当前采用“轻微落位”；“原位叠化”和“柔焦叠化”留作后续备选，“逐行显现”保留为历史探索。方案决定和实施边界见[决定 0010](../../../../docs/project/decisions/0010-reading-interaction-refinement.md)。
