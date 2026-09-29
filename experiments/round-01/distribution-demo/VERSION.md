@@ -5,7 +5,7 @@
 - 阶段：私有内部基线；待项目所有者试玩，不是已验收或可公开发布版本
 - 覆盖范围：本目录的分发 Demo、其 23 部内容及其注册产物
 - 内容 SHA-256：`c2f0e069ecc22637ac9fda555be588a59c997cf8d83d0e243d2839a741bebfcd`
-- GitHub Release：尚未同步；当前网络无法连接 GitHub，远端恢复后需推送提交与标签并创建 Release
+- GitHub Release：[demo-v0.1.0 私有内部基线](https://github.com/hunterhigh/information-rain/releases/tag/demo-v0.1.0)
 
 ## 版本约定
 
