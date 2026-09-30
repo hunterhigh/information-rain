@@ -13,7 +13,7 @@ All notable changes follow Semantic Versioning.
 
 ## Unreleased
 
-- 修复手机动效对比页对 Touch Events 的兼容，确保不完整 Pointer Events 环境也能直接拖动并收到方向/转场反馈。
+- 修复手机动效对比页的拖动事件分工：触屏优先走原生 Touch Events，鼠标/触控笔走 Pointer Events，避免两类事件抢占同一次手势。
 - 新增可交互的手机划动/转场比较页，可从现有 Cloudflare Pages 主域名访问，供项目所有者选择手势反馈；没有将候选动效直接写入产品界面。
 - 复用现有 Swiper 处理手机封面滑动，并修复阅读态从正文起手划动无响应的问题；正文滚动与故事/作品导航按边界协同。
 - 手机 9:16 阅读舞台根据扣除导航及安全区后的空间等比放大、居中；桌面布局不变。

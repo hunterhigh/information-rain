@@ -313,7 +313,10 @@
           if (enough) advance(Math.abs(dx) > Math.abs(dy) ? { x: dx || velocityX, y: 0 } : { x: 0, y: dy || velocityY });
           else returnToRest();
         };
-        stage.addEventListener('pointerdown', event => { if (event.button <= 0) beginDrag(event.pointerId, event.clientX, event.clientY, true); });
+        stage.addEventListener('pointerdown', event => {
+          if (event.pointerType === 'touch' || event.button > 0) return;
+          beginDrag(event.pointerId, event.clientX, event.clientY, true);
+        });
         stage.addEventListener('pointermove', event => { if (pointer === event.pointerId) moveDrag(event.clientX, event.clientY); });
         stage.addEventListener('pointerup', event => { if (pointer === event.pointerId) finishDrag(event.clientX, event.clientY); });
         stage.addEventListener('pointercancel', event => { if (pointer === event.pointerId) { pointer = null; returnToRest(); } });
