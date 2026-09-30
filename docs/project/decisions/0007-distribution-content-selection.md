@@ -4,7 +4,7 @@
 
 ## 决定
 
-项目所有者认为原有 30 部中的 11 部「没看懂啥意思」，要求先从当前分发 Demo 删除：原列表第 15、16、17、18、20、21、22、27、28、29、30 部，即 `bauhaus`、`ukiyo`、`dunhuang`、`glitch`、`danmaku`、`trending`、`wiki`、`monet`、`noir`、`yonkoma`、`nosleep`。删除包括 Demo 的作品数据与对应封面文件；原始导入清单和哈希继续留在 [SOURCE](../../../experiments/round-01/distribution-demo/SOURCE.md) 与 Git 历史中，不把筛选后的版本伪装成原件。
+项目所有者认为原有 30 部中的 11 部「没看懂啥意思」，要求先从当前分发 Demo 删除：原列表第 15、16、17、18、20、21、22、27、28、29、30 部，即 `bauhaus`、`ukiyo`、`dunhuang`、`glitch`、`danmaku`、`trending`、`wiki`、`monet`、`noir`、`yonkoma`、`nosleep`。删除包括 Demo 的作品数据与对应封面文件；原始导入清单和哈希继续留在[当前分发源码目录的来源档案](../../../products/distribution/reader-web/SOURCE.md)与 Git 历史中，不把筛选后的版本伪装成原件。
 
 其余 19 部保留，授权丰富节点、补全剧情和结局，解决用户反馈中的节点过短、选择后果不显著、缺乏代入及游戏感。此前 0006 及 Demo 文档中的「仅改 UI、不改内容」仅适用于先前的界面维护阶段，不再约束本次内容修订；双产品结构、媒介验证顺序及公开发布前的权利审查仍有效。
 

@@ -35,3 +35,11 @@
 ## Stage changes
 
 When real users, production data, payments, scheduled writes, new vendors, or business-critical use are introduced, reassess `.project-start/manifest.json` before proceeding.
+
+## Product and document boundaries
+
+- `products/distribution/` is the active reader product source. `products/tool-agent/` is reserved for a separate future tool product. Keep product code, build output, deployment settings, and runtime assets within the correct product boundary.
+- Product definitions and roadmaps belong in `docs/products/<product>/`; long-term technical vision belongs in `docs/vision/`; business plans belong in `docs/business/`; sourced external research belongs under `docs/research/<topic>/`; cross-product workflow belongs in `docs/project/`.
+- `experiments/` is for bounded experiments and historical samples. Do not place the active product source there.
+- `START-HERE.md` is the single workspace entry index. Each documentation category maintains its own README index. Add a link to the relevant index whenever adding a durable document; update all references when moving a file.
+- Do not copy a document into a second folder to make it easier to find. Link to its single authoritative location instead.

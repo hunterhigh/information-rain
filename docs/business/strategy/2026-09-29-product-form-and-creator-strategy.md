@@ -3,7 +3,7 @@
 - 状态：研究与候选判断；不是已批准的产品规格或实施排期
 - 适用范围：英语市场、从零冷启动、当前分发 Demo 与长期工具产品方向
 - 核对日期：2026-09-29
-- 关联：[双产品决定](../project/decisions/0006-two-products-and-medium-validation.md)、[当前工作基线](../project/working-baseline.md)、[竞品证据](2026-09-29-interactive-story-competitive-landscape.md)
+- 关联：[双产品决定](../../project/decisions/0006-two-products-and-medium-validation.md)、[当前工作基线](../../project/working-baseline.md)、[竞品证据](../../research/market/2026-09-29-interactive-story-competitive-landscape.md)
 
 ## 先区分现状与设想
 
@@ -41,7 +41,7 @@ TikTok 在 2018 年与 musical.ly 合并时，后者已自报一亿月活，既�
 
 现有平台显示这些回报可以组合，但有前提：AO3 的读者反馈依赖评论、kudos、书签与社群；WEBTOON CANVAS 提供自助发布及达到条件后的广告与粉丝支持；Choice of Games 对职业作者提供编辑、预付款与版税。信息雨目前不能把这些平台的成熟回报写成自己的招募承诺。[AO3 反馈机制](https://archive.transformativeworks.org/admin_posts/129)、[WEBTOON 创作者收入](https://creators.webtoon.com/en/make-money)、[Choice of Games 作者合作](https://www.choiceofgames.com/looking-for-writers/)。
 
-第一批作者不宜只按“喜欢故事”筛选。互动小说作者、短篇作者、有少量现成粉丝的创作者、以学习为目标的新人，动机与 AI 接受度各不相同。尤其使用他人 IP 的作者，作品分享、商业化和公开发行的权利边界需单独核对；当前 Demo 的内容来源与公开发布条件仍以[内容权利调研](2026-09-28-distribution-compliance.md)为准。
+第一批作者不宜只按“喜欢故事”筛选。互动小说作者、短篇作者、有少量现成粉丝的创作者、以学习为目标的新人，动机与 AI 接受度各不相同。尤其使用他人 IP 的作者，作品分享、商业化和公开发行的权利边界需单独核对；当前 Demo 作品的审查状态见[产品简报](../../../products/distribution/reader-web/DEMO-BRIEF.md)，目标地域规则仍参考[内容权利与合规研究](../../research/compliance/2026-09-28-distribution-compliance.md)。
 
 ## 工具产品的候选定位与能力顺序
 
@@ -68,6 +68,6 @@ AI 的介入方式是创作者获取的核心风险。Choice of Games 的 Hosted
 ## 仍待决定
 
 - 首个工具目标作者是哪一类，AI 可以触及正文的边界由作者如何设定。
-- 一部作品、一个世界、一次路径与一个作者身份之间的正式关系；目前[分发本体](../products/distribution/ontology.md)仍是草案。
+- 一部作品、一个世界、一次路径与一个作者身份之间的正式关系；目前[分发本体](../../products/distribution/ontology.md)仍是草案。
 - 公开阅读、作者注册、投稿审核、收益与作品权利各自的门槛。
 - 泛内容和生活记录试验能否沿用短故事的创作及消费行为；不能因同一节点图结构就认定产品连续。

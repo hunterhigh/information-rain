@@ -35,4 +35,4 @@
 
 ## 后续恢复点
 
-先由项目所有者确认首个后端最小范围（推荐：作品导入 + 目录/作品 API + 阅读进度恢复），再进行针对性技术选型和数据/API 设计。完整对照与一手来源保存在[架构参考调研](../../research/2026-09-29-platform-architecture-reference-survey.md)。
+先由项目所有者确认首个后端最小范围（推荐：作品导入 + 目录/作品 API + 阅读进度恢复），再进行针对性技术选型和数据/API 设计。完整对照与一手来源保存在[架构参考调研](../../research/architecture/2026-09-29-platform-architecture-reference-survey.md)。

@@ -3,7 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const source = path.join(repoRoot, 'experiments/round-01/distribution-demo')
+const source = path.join(repoRoot, 'products/distribution/reader-web')
 const output = path.resolve(repoRoot, 'dist/cloudflare-preview')
 
 if (!output.startsWith(path.join(repoRoot, 'dist') + path.sep)) {

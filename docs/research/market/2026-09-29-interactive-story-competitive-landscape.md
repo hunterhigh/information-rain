@@ -3,7 +3,7 @@
 - 状态：研究快照；不是全市场穷尽清单，也不是产品选型决定
 - 适用范围：英语市场；重点是短时交互、竖屏、AI、创作者入口与分发
 - 核对日期：2026-09-29。应用商店数据、网页计数与价格会变化，引用时须重新核对。
-- 关联：[产品形态与创作者交换关系](2026-09-29-product-form-and-creator-strategy.md)、[当前分发产品基线](../project/working-baseline.md)
+- 关联：[产品形态与创作者交换关系](../../business/strategy/2026-09-29-product-form-and-creator-strategy.md)、[当前分发产品基线](../../project/working-baseline.md)
 
 ## 证据口径
 

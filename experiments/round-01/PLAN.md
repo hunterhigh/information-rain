@@ -1,13 +1,13 @@
 # 第一轮实验登记
 
-状态：旧 product-01 v0.1 仍为不合格的内部机制样本；2026-09-28 另行采纳[双产品方向](../../docs/project/decisions/0006-two-products-and-medium-validation.md)，并引入[分发原型](distribution-demo/DEMO-BRIEF.md)作本地界面维护。以下原候选表是旧实验登记，不再代表当前唯一产品结构。
+状态：历史实验登记，停止新增候选；当前有效产品结构见[双产品决定](../../docs/project/decisions/0006-two-products-and-medium-validation.md)和[分发产品路线图](../../docs/products/distribution/roadmap.md)。当时引入的[分发原型](../../products/distribution/reader-web/DEMO-BRIEF.md)现已迁入正式产品源码目录。以下记录仅供追溯，不代表当前工作队列。
 
 ## 当前承接
 
 - 工具产品：文字拓扑 Agent 是主要功能之一；本轮尚未开始该产品的具体 Demo，不凭分发原型反推工具产品规格。
 - 分发产品：项目所有者已从原 30 部中删除指定 11 部，保留 19 部并授权丰富、补全其节点、剧情和结局，见[决定 0007](../../docs/project/decisions/0007-distribution-content-selection.md)；随后又提供 4 个标准内容包并要求注册到内容池，见[决定 0009](../../docs/project/decisions/0009-distribution-content-registry.md)。当前 Demo 共 23 部。原始 48 条失效路径属于首次导入基线，不再作为当前版本的预期缺陷；所有内容仍需独立检查内容质量与路径完整性，再由项目所有者亲自体验，内容价值不由技术测试代判。
 - 媒介验证：保留文字 → 插画 → 短视频的战略顺序，不把第一轮旧文字媒介约束扩大成所有后续阶段的禁令。
-- 公开发布前：先按[合规初探](../../docs/research/2026-09-28-distribution-compliance.md)处理热门 IP、内容安全、音乐权利与目标地域；本地/私有仓库测试不代表已经许可。
+- 当前作品已由项目所有者确认通过审查；目标地域规则仍按[合规研究](../../docs/research/compliance/2026-09-28-distribution-compliance.md)单独核对。该研究是风险地图，不替代目标市场判断。
 
 ## 本轮问题
 

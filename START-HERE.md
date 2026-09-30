@@ -1,65 +1,38 @@
-# Information Rain：项目地图
+# Information Rain 项目入口
 
-开工状态：**可以开工，但有已记录的后续事项**
+这里是工作恢复入口，不承载完整愿景、产品规格或商业研究。具体内容只在各自的权威文档中维护；本页负责说明去哪里读、当前哪条产品线在推进。
 
-## 我们正在做什么
+## 当前状态
 
-记录并探索手机原生、推荐即生成、多维信息分发的新娱乐媒介。当前已采纳**工具产品 + 分发产品**的双产品方向；「全梦」是技术愿景名，「信息雨」是信息流方法，文字拓扑 Agent 属于工具产品。[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)是双产品战略基线。
+- **产品组合**：工具 Agent 与分发产品是两条独立产品线，不能把一边的需求或实现自动套用到另一边。方向依据见[决定 0006](docs/project/decisions/0006-two-products-and-medium-validation.md)。
+- **当前主线**：分发产品；工具 Agent 先预留产品和源码位置，暂不开始实施。当前阶段与下一步以[工作基线](docs/project/working-baseline.md)和[分发产品路线图](docs/products/distribution/roadmap.md)为准。
+- **技术愿景**：全梦是长期技术愿景，信息雨是信息组织方法；它们不代替各产品自己的本体和规格。见[技术愿景](docs/vision/technical-vision.md)与[技术愿景本体](docs/vision/ontology.md)。
 
-要解决的问题：现有讨论分散在对话和实验中，缺少一个能区分已确认判断、候选假设、纠正记录与后续工作的长期项目入口。
+## 开始一项工作时
 
-当前唯一实施主线是**分发产品**：以现有 Demo 为工作基线，逐步形成可上线的完整产品。工具产品仍属于长期方向，但当前不在实施队列。见[决定 0011](docs/project/decisions/0011-distribution-product-as-active-roadmap.md)。
+1. 读[当前工作基线](docs/project/working-baseline.md)，确认正在推进的产品和状态。
+2. 读对应的[产品目录索引](docs/products/README.md)、产品本体和路线图。
+3. 通过[项目文档索引](docs/project/README.md)查阅决定、会议、工作基线和流程；通过[研究索引](docs/research/README.md)查阅外部证据，只把当前有效材料当作实现依据。
+4. 修改后按[文档与版本规则](docs/project/documentation-workflow.md)更新权威文档、索引和 Git 记录。
 
-## 当前工作从这里恢复
+## 仓库地图
 
-按以下顺序阅读，避免把愿景、产品定义和实现状态混为一谈：
+| 位置 | 放什么 | 规则 |
+| --- | --- | --- |
+| [`products/`](products/README.md) | 各产品源码、运行内容和产品专属资源 | 每个产品独立目录；独立构建、部署和版本边界。 |
+| [`docs/vision/`](docs/vision/) | 长期技术愿景和愿景本体 | 不直接充当产品规格。 |
+| [`docs/products/`](docs/products/README.md) | 产品业务本体、路线图和产品决策依据 | 每个产品单独维护；未知内容明确标为待确认。 |
+| [`docs/business/`](docs/business/README.md) | 商业模式、市场进入、创作者交换等策划 | 保存判断和适用范围，不冒充已批准产品功能。 |
+| [`docs/research/`](docs/research/README.md) | 有来源的外部研究与证据 | 按主题归档，由研究索引统一导航。 |
+| [`docs/project/`](docs/project/) | 项目治理、基线、决定、会议、阶段门和流程 | 跨产品共用的协作规则。 |
+| [`experiments/`](experiments/README.md) | 有界实验、试验材料和历史样本 | 当前产品源码不再放在此处。 |
 
-1. [当前工作基线](docs/project/working-baseline.md)
-2. [技术愿景本体](docs/vision/ontology.md)
-3. [分发产品业务语言本体](docs/products/distribution/ontology.md)
-4. [分发产品实施路线图](docs/products/distribution/roadmap.md)
-5. [文档、归档与版本工作规则](docs/project/documentation-workflow.md)
+## 重要入口
 
-## 市场与产品形态研究（候选判断）
-
-- [产品形态、创作者动机与工具/分发关系](docs/research/2026-09-29-product-form-and-creator-strategy.md)：整理短交互故事与泛内容的边界、创作者上传的交换关系、工具 Agent 候选定位、分发和运营影响。
-- [英语市场互动短故事竞品证据](docs/research/2026-09-29-interactive-story-competitive-landscape.md)：按上架产品、可玩网页与预发布宣示分层，比较 AI、视频、竖屏、交互、商业化及证据缺口。
-
-两份研究用于后续产品讨论，不修改当前唯一实施主线，也不表示其中候选功能已获批准。
-
-## 第一阶段
-
-- 建立本地 Git 仓库
-- 用一份 README 汇总当前技术愿景、概念边界、合理性判断、纠正记录与关键未知
-- 为后续研究、原型和实现保留可恢复的项目上下文
-
-## 起始阶段边界与后续授权
-
-以下清单记录项目最初只建设知识库时的边界，不代表当前目标永远不进入产品实施。后续范围变化须以正式决定和当前路线图为准；现行主线见[决定 0011](docs/project/decisions/0011-distribution-product-as-active-roadmap.md)。
-
-- 初始阶段未做面向真实用户的产品代码；之后已授权本地 Demo，目前目标是逐步将分发产品做成可上线产品。
-- 技术栈、外部服务和托管数据方案仍未选定，按分发产品路线图逐步决定。
-- 部署和公开发布仍需满足项目阶段门并获得相应授权；私有 GitHub 远端已由[决定 0002](docs/project/decisions/0002-private-github-remote.md)单独授权。
-- 尚未验证的技术愿景仍不能直接写成确定产品规格。
-
-## 已启用的工程保护
-
-- 项目范围
-- 重要决定记录
-- Git 变更历史
-- 版本管理
-- 阶段门
-- 最低自动验证
-- 敏感配置保护
-- 交接与退出
-
-## 原型边界已核对
-
-- 首个机制 Demo 以手机尺寸为主要交互环境；已在 375px 与 390px 浏览器尺寸走查。
-- 当前仍不存储真实用户数据，也不连接付费模型服务；Demo 刷新后进度清空。
-
-## 当前分发产品基线
-
-[分发 Demo](experiments/round-01/distribution-demo/DEMO-BRIEF.md)是当前唯一主动维护版本，内容池包含 19 部内置修订作品和 4 部注册内容包。19 部作品的筛选与修订见[决定 0007](docs/project/decisions/0007-distribution-content-selection.md)；注册格式与四包来源见[决定 0009](docs/project/decisions/0009-distribution-content-registry.md)及[内容池说明](experiments/round-01/distribution-demo/content-pool/README.md)。旧 product-01 已撤回并归档；本轮不启动多个 Demo 的组合测试，历史材料见[归档索引](experiments/archive/README.md)。
-
-现有内容结构和代码检查通过不等于内容试玩、产品验收或上线许可。原始导入的 48 条缺失路径仍在来源档案中，不应当作修订版的通过条件。公开发布还须处理[内容权利与合规](docs/research/2026-09-28-distribution-compliance.md)。完整实施顺序见[分发产品路线图](docs/products/distribution/roadmap.md)。
+- [项目简报](docs/project/brief.md)
+- [产品路线图总览](docs/project/roadmap.md)
+- [阶段门](docs/project/stage-gates.md)
+- [工作文档与版本流程](docs/project/documentation-workflow.md)
+- [产品目录边界决定 0012](docs/project/decisions/0012-single-repository-product-boundaries.md)
+- [技术愿景资料索引](docs/vision/README.md)
+- [项目级变更日志](CHANGELOG.md)

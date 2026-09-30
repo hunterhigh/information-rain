@@ -43,4 +43,4 @@
 
 项目所有者已决定保留工具产品与分发产品两个产品；文字拓扑 Agent 归工具产品；「全梦」为技术愿景名，「信息雨」为信息流方法；媒介表达逐步验证文字、插画、短视频。以上已写入[决定 0006](../decisions/0006-two-products-and-medium-validation.md)，不再是待定建议。
 
-项目所有者另要求研究热门 IP 二创、safe space 与音乐的全球分发合规，并继续优化该 Demo 的 UI、交互和视觉元素，**不得影响其中的分发内容**。已有[合规初探](../../research/2026-09-28-distribution-compliance.md)及[本地 Demo](../../../experiments/round-01/distribution-demo/DEMO-BRIEF.md)分别承接两条工作线。Kimi 原型中的内容并未因此被项目所有者逐篇验收或取得公开发布许可。
+项目所有者另要求研究热门 IP 二创、safe space 与音乐的全球分发合规，并继续优化该 Demo 的 UI、交互和视觉元素，**不得影响其中的分发内容**。已有[合规初探](../../research/compliance/2026-09-28-distribution-compliance.md)及[当前分发产品源码和简报](../../../products/distribution/reader-web/DEMO-BRIEF.md)分别承接两条工作线。2026-09-30，项目所有者确认当前作品已通过审查；目标地域的法规和平台规则仍依公开范围单独核验。

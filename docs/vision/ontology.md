@@ -37,5 +37,5 @@
 
 ## 依据
 
-- [项目愿景与已纠正概念](../../README.md)
+- [技术愿景正文与已纠正概念](technical-vision.md)
 - [双产品结构与媒介验证顺序](../project/decisions/0006-two-products-and-medium-validation.md)

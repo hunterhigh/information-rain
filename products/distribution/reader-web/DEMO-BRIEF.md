@@ -1,6 +1,6 @@
 # 分发产品 Demo：产品与内容简报
 
-状态：2026-09-28，本地内容池现有 23 部作品，待项目所有者试玩。19 部内置修订作品来自项目所有者提供的 Kimi HTML 原型压缩包；[SOURCE](SOURCE.md)保留原始导入证据，当前有效筛选与编辑授权见[决定 0007](../../../docs/project/decisions/0007-distribution-content-selection.md)，逐部改动见[修订对照](CONTENT-REVISION-REVIEW.md)。另有 4 部由项目所有者提供的标准内容包通过注册器加入，来源、边界和注册机制见[决定 0009](../../../docs/project/decisions/0009-distribution-content-registry.md)。
+状态：2026-09-28，本地内容池现有 23 部作品，待项目所有者试玩。2026-09-30，项目所有者确认当前作品已通过审查。19 部内置修订作品来自项目所有者提供的 Kimi HTML 原型压缩包；[SOURCE](SOURCE.md)保留原始导入证据，当前有效筛选与编辑授权见[决定 0007](../../../docs/project/decisions/0007-distribution-content-selection.md)，逐部改动见[修订对照](CONTENT-REVISION-REVIEW.md)。另有 4 部由项目所有者提供的标准内容包通过注册器加入，来源、边界和注册机制见[决定 0009](../../../docs/project/decisions/0009-distribution-content-registry.md)。
 
 ## 给体验者什么
 
@@ -14,6 +14,6 @@
 
 ## 评审边界
 
-先核对 23 部入口、封面、所有节点和结局可达；再脱离界面分别审读作品、用多条路径检查后果与连续性，最后由项目所有者试玩。功能测试不会替代内容判断。热门 IP 二创及图片尚未完成公开分发权利审查；本地私有实验不构成全球上线许可。
+作品结构、内容体验与权利是不同审查维度。项目所有者已确认当前作品审查通过；目标地域的平台规则、音乐权利及其他上线条件仍按[合规研究](../../../docs/research/compliance/2026-09-28-distribution-compliance.md)结合发布范围核对。本地私有实验本身不代表任何未说明的商业化或跨地域承诺。
 
 [此前界面维护版的分层评审](AUTO-REVIEW.md)与[来源核验](SOURCE.md)保留为历史证据，不等于本次内容修订版已完成评审。打开本目录的 `index.html` 可查看静态页面；推荐通过本地静态服务访问，以免不同浏览器对 `file:` 存储施加不同限制。页面仍从外部 CDN 加载样式字体，离线体验未验证。
