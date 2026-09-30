@@ -17,6 +17,14 @@
 
 ## 本轮采用方向
 
+### 2026-09-30：复用滑动引擎的边界复核
+
+当前手机交互直接复用已集成的 Swiper v14.2.0，没有增加第二套滑动依赖。Swiper 负责封面之间的跟手竖向切换；阅读正文仍由原有页面状态和触摸事件负责，因为正文既要保留自然滚动，也要把横向/边缘竖向动作映射为剧情分支或作品切换。
+
+此前参考的 PeerTube `videos-list.component.ts` 主要处理视频列表、分页和列表状态，不是手势识别或滑动动画引擎，因此不适合复制到当前交互。借用其中与当前目标匹配的列表架构，不意味着需要照搬其 Angular 组件。
+
+依据：[Swiper 官方仓库](https://github.com/nolimits4web/swiper)、[Swiper API](https://swiperjs.com/swiper-api)、[PeerTube 视频列表组件](https://github.com/Chocobozzz/PeerTube/blob/develop/client/src/app/shared/shared-video-miniature/videos-list.component.ts)。开源实现用途的区分是结合源码和当前产品边界作出的工程判断。
+
 ### 1. Swiper：已用于本轮分发 Demo 的作品切换试验
 
 - 仓库：[nolimits4web/swiper](https://github.com/nolimits4web/swiper)

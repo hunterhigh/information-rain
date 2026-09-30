@@ -843,12 +843,20 @@
             .sidebar-left .nav-item span { white-space: nowrap; font-size: 11px !important; line-height: 1.2; }
             .sidebar-left .nav-item.active { color: #f0d79d; font-weight: 600; }
             .stage-shell {
+                display: grid;
+                place-items: center;
+                min-width: 0;
+                min-height: 0;
                 padding: 0 0 calc(58px + env(safe-area-inset-bottom)) !important;
                 background: #05060a;
             }
             .world-stage {
                 width: min(100%, calc(56.25dvh - 40px));
                 border-radius: 0;
+            }
+            @supports (width: 1cqh) {
+                .stage-shell { container-type: size; }
+                .world-stage { width: min(100cqw, 56.25cqh); }
             }
             .sidebar-right { display: none; }
             .node-text { max-height: min(58%, calc(100% - 7rem)); }
@@ -4634,16 +4642,25 @@
             let touchStartX = 0;
             let touchStarted = false;
             let touchIgnored = false;
+            let touchStartedInText = false;
+            let touchStartTextScrollTop = 0;
 
             el.stage.addEventListener('touchstart', (e) => {
+                if (e.touches.length !== 1) {
+                    touchStarted = false;
+                    return;
+                }
+                const touchTarget = e.target instanceof Element ? e.target : e.target.parentElement;
                 touchStartY = e.touches[0].clientY;
                 touchStartX = e.touches[0].clientX;
                 touchStarted = true;
-                touchIgnored = Boolean(e.target.closest('button, .node-text'));
+                touchIgnored = Boolean(touchTarget?.closest('button, input, textarea, select'));
+                touchStartedInText = Boolean(touchTarget?.closest('.node-text'));
+                touchStartTextScrollTop = touchStartedInText ? el.nodeText.scrollTop : 0;
             }, { passive: true });
 
             el.stage.addEventListener('touchend', (e) => {
-                if (!touchStarted) return;
+                if (!touchStarted || e.changedTouches.length !== 1) return;
                 touchStarted = false;
                 if (touchIgnored) return;
 
@@ -4663,14 +4680,35 @@
                     return;
                 }
 
-                // 探索模式：左右与上进入内容方向，向下切换作品。
+                // 正文可纵向滚动；横向划动仍可从正文上选择左右分支。
                 if (absDx > absDy && absDx > 52) {
                     handleDirection(dx > 0 ? 'right' : 'left');
-                } else if (absDy > absDx && absDy > 52 && dy < 0) {
+                    return;
+                }
+
+                if (touchStartedInText) {
+                    const textDidScroll = Math.abs(el.nodeText.scrollTop - touchStartTextScrollTop) > 1;
+                    if (textDidScroll) return;
+
+                    const textCanScroll = el.nodeText.scrollHeight > el.nodeText.clientHeight + 1;
+                    const atTextTop = el.nodeText.scrollTop <= 1;
+                    const atTextBottom = el.nodeText.scrollTop + el.nodeText.clientHeight >= el.nodeText.scrollHeight - 1;
+                    const gestureMovesIntoText = (dy < 0 && !atTextBottom) || (dy > 0 && !atTextTop);
+                    if (textCanScroll && gestureMovesIntoText) return;
+                }
+
+                // 正文中：上划选择“上”方向；下划切换到下一部作品。
+                if (absDy > absDx && absDy > 52 && dy < 0) {
                     handleDirection('up');
                 } else if (absDy > absDx && absDy > 72 && dy > 0) {
                     switchWorld(1);
                 }
+            }, { passive: true });
+
+            el.stage.addEventListener('touchcancel', () => {
+                touchStarted = false;
+                touchIgnored = false;
+                touchStartedInText = false;
             }, { passive: true });
 
             el.searchInput.addEventListener('input', event => renderSearchResults(event.target.value));
