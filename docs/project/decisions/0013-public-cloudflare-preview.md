@@ -38,9 +38,16 @@
 - 本次固定部署地址：[https://93525925.information-rain-preview.pages.dev/](https://93525925.information-rain-preview.pages.dev/)
 - 部署 ID：`93525925-6988-4f78-9db7-29d6aa5e41eb`
 - 环境/分支：Production / `main`
-- 对应仓库提交：`4ae46d2`
+- 首次比较页发布对应提交：`4ae46d2`
 - HTTP 检查：主域名页面返回 200；仍带 `noindex, nofollow, noarchive`。
 - 说明：手机和桌面访问的是同一个 Pages 项目与静态 HTML。带哈希的部署域名固定指向某次部署快照；日常访问应使用 `information-rain-preview.pages.dev` 主域名。
+
+#### 手机拖动兼容修复
+
+- 对应提交：`96430ff`
+- 部署地址：[https://f98cb302.information-rain-preview.pages.dev/](https://f98cb302.information-rain-preview.pages.dev/)
+- 部署 ID：`f98cb302-93f7-4359-8fec-2f1dc7dfcd36`
+- 访问路径仍为主域名下 `/design/mobile-swipe-motion-comparison.html`；返回 200，当前脚本包含触屏 Touch Events 和鼠标/触控笔 Pointer Events 两条输入路径。
 
 ## 复核条件
 
