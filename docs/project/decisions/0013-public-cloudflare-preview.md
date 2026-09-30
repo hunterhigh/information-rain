@@ -21,7 +21,7 @@
 - 初始部署地址：[https://0d2e9616.information-rain-preview.pages.dev/](https://0d2e9616.information-rain-preview.pages.dev/)
 - 部署 ID：`0d2e9616-e978-4178-acc1-05434af6dafd`
 - 环境/分支：Production / `main`
-- 对应仓库提交：`c892929`
+- 对应仓库提交：`aee4dd8`
 - 发布来源：`products/distribution/reader-web/` 的静态发布包；草稿、来源审查文档与开发脚本没有进入构建输出。
 
 ### 2026-09-30 手机端滑动与舞台更新
@@ -48,6 +48,15 @@
 - 部署地址：[https://f98cb302.information-rain-preview.pages.dev/](https://f98cb302.information-rain-preview.pages.dev/)
 - 部署 ID：`f98cb302-93f7-4359-8fec-2f1dc7dfcd36`
 - 访问路径仍为主域名下 `/design/mobile-swipe-motion-comparison.html`；返回 200，当前脚本包含触屏 Touch Events 和鼠标/触控笔 Pointer Events 两条输入路径。
+
+### 2026-09-30 统一作品内容池
+
+- 本次固定部署地址：[https://44aeed12.information-rain-preview.pages.dev/](https://44aeed12.information-rain-preview.pages.dev/)
+- 部署 ID：`44aeed12-daca-43a2-88e1-8543fc3d17eb`
+- 环境/分支：Production / `main`
+- 对应源码提交：`a028997`
+- 页面主地址、生成目录、迁移封面及手机动效比较页均返回 200；响应仍带 `noindex, nofollow, noarchive`。
+- 作品源文件与创作草稿未进入静态发布包。内容池结构与迁移核对见[决定 0014](0014-unified-distribution-content-pool.md)。
 
 ## 复核条件
 

@@ -28,7 +28,7 @@
 - 动画对比页作为方案档案保留；主 Demo 已采用轻微落位，`UT-01` 已关闭。其他方案仅供未来新迭代参考，不进入当前未决事务。
 - 产品验证是后续打磨和上线过程的一部分；“暂缓 Demo 测试”表示当前不安排体验试验，不表示未来产品不验证。
 - 项目所有者于 2026-09-30 确认当前作品已通过审查。作品审查不替代目标市场的平台规则、地域合规和运营条件核对。
-- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、运行时注册表、被引用图片和独立的手机划动动效比较页；源码仓库内的内容草稿、来源与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `96430ff`。
+- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、运行时注册表、被引用图片和独立的手机划动动效比较页；源码仓库内的内容草稿、来源与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `a028997`。
 
 ## 如何更新路线图
 
