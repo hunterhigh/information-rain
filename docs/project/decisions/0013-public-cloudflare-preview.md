@@ -68,6 +68,14 @@
 - GIF 路径：`/design/mobile-swipe-motion-gifs/01-arrow-baseline.gif` 至 `05-direction-glow.gif`。
 - Wrangler 已报告部署完成；本机网络未能完成外部 HTTP 探测，故不记录为已验证 HTTP 状态。
 
+### 2026-09-30 整屏滑动与分支选择更新
+
+- 预览主地址：[信息雨 Cloudflare Pages](https://information-rain-preview.pages.dev/)
+- 本次部署地址：[https://0cf799e6.information-rain-preview.pages.dev/](https://0cf799e6.information-rain-preview.pages.dev/)
+- 部署 ID：`0cf799e6-547d-472c-8003-9ab03107620e`
+- 对应源码提交：`dafe0df`
+- 发布内容：采用整屏滑动浏览作品；阅读中的左右分支加入跟手提示、保留按钮与分支名，并按选择方向播放整屏转场。Wrangler 报告部署完成。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。
