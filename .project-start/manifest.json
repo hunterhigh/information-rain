@@ -12,42 +12,41 @@
       "后续共同研究、设计或实现这一产品愿景的协作者"
     ],
     "firstRelease": [
-      "建立本地 Git 仓库",
-      "用一份 README 汇总当前技术愿景、概念边界、合理性判断、纠正记录与关键未知",
-      "为后续研究、原型和实现保留可恢复的项目上下文"
+      "维护产品术语、路线图、工作基线和决策记录",
+      "将当前分发 Demo 部署为受控的 Cloudflare 静态预览",
+      "适配手机端浏览体验，并建立可追溯的静态发布包"
     ],
     "notInScope": [
-      "产品代码",
       "技术栈选型",
-      "外部服务或模型接入",
-      "部署、GitHub 远程仓库或公开发布",
+      "用户账号、云端读者数据、内容 API 或模型接入",
+      "未经访问控制核实的公开内容发布",
       "将尚未验证的愿景写成确定产品规格"
     ],
     "successCriteria": [
-      "一个没有聊天历史的协作者可以从 README 准确恢复当前愿景、已纠正的误解和下一批关键问题"
+      "受控线上预览可追溯到 Git 提交，手机端核心阅读流程适配完成，且不依赖临时开发电脑保存产品数据"
     ]
   },
   "classification": {
     "productType": "mobile",
     "userShape": "owner-only",
-    "runShape": "local",
+    "runShape": "hosted-static-preview",
     "collaborationShape": "ai-assisted",
-    "stage": "idea",
-    "riskLevel": "low",
+    "stage": "prototype",
+    "riskLevel": "medium",
     "riskDimensions": {
       "data": "low",
       "identity": "none",
       "money": "none",
-      "privacy": "low",
-      "externalSystems": "none",
+      "privacy": "medium",
+      "externalSystems": "medium",
       "automation": "none",
       "businessDependency": "none"
     }
   },
   "technology": {
-    "adapter": "docs-only",
-    "deploymentProfile": "none",
-    "rationale": "当前目标是保存和推进产品认识，而不是提前锁定软件架构；文档型基础最符合当前阶段。"
+    "adapter": "static-web",
+    "deploymentProfile": "cloudflare-pages-preview",
+    "rationale": "阶段 1 使用 Cloudflare Pages 托管现有静态 Demo，并通过构建脚本只发布运行文件；受控访问核验前不得开放含未审查内容的线上预览。"
   },
   "modules": [
     "project-brief",
@@ -90,8 +89,8 @@
   "externalActions": {
     "createRepository": false,
     "configureRemote": false,
-    "provisionCloud": false,
+    "provisionCloud": true,
     "setSecrets": false,
-    "deploy": false
+    "deploy": true
   }
 }
