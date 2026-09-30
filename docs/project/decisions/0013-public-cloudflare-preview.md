@@ -18,11 +18,19 @@
 
 - Cloudflare Pages 项目：`information-rain-preview`
 - 主地址：[https://information-rain-preview.pages.dev/](https://information-rain-preview.pages.dev/)
-- 本次部署地址：[https://0d2e9616.information-rain-preview.pages.dev/](https://0d2e9616.information-rain-preview.pages.dev/)
+- 初始部署地址：[https://0d2e9616.information-rain-preview.pages.dev/](https://0d2e9616.information-rain-preview.pages.dev/)
 - 部署 ID：`0d2e9616-e978-4178-acc1-05434af6dafd`
 - 环境/分支：Production / `main`
-- 对应仓库提交：`aee4dd8`
+- 对应仓库提交：`c892929`
 - 发布来源：`products/distribution/reader-web/` 的静态发布包；草稿、来源审查文档与开发脚本没有进入构建输出。
+
+### 2026-09-30 手机端滑动与舞台更新
+
+- 部署地址：[https://acb0e6d5.information-rain-preview.pages.dev/](https://acb0e6d5.information-rain-preview.pages.dev/)
+- 部署 ID：`acb0e6d5-fe9f-49a4-800a-d6475fecf0c2`
+- 环境/分支：Production / `main`
+- 对应仓库提交：`c892929`
+- HTTP 检查：返回 200；响应仍包含 `X-Robots-Tag: noindex, nofollow, noarchive`。
 
 ## 复核条件
 
