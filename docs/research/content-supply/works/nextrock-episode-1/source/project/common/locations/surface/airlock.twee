@@ -1,9 +1,0 @@
-:: Airlock [location pod]
-
-<<nav>>
-    <<section Exits>>
-        <<action "Central Hub">>
-        <<action "Rover Bay">>
-        <<action "Surface on Foot">>
-    <</section>>
-<</nav>>

@@ -1,7 +1,0 @@
-:: Surgery Pod [location pod]
-
-<<nav>>
-    <<section Exits>>
-        <<action "Medical Hub">>
-    <</section>>
-<</nav>>

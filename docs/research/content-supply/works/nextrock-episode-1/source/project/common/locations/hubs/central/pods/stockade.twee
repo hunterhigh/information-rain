@@ -1,7 +1,0 @@
-:: Stockade Pod [location pod]
-
-<<nav>>
-    <<section Exits>>
-        <<action "Central Hub">>
-    <</section>>
-<</nav>>

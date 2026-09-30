@@ -1,4 +1,4 @@
-"""Refresh the selected public Twine source snapshots in this directory.
+"""Restore the curated public Twine source snapshots at fixed commits.
 
 Uses the Python standard library. GitHub CLI login or GITHUB_TOKEN is optional
 but helps with GitHub API rate limits. Never writes authentication details.
@@ -30,123 +30,67 @@ USER_AGENT = "Information-Rain-source-catalog"
 # These are research references, separate from the reader product content pool.
 SPECS = [
     {
-        "id": "shrine-sample",
-        "title": "Shrine sample",
-        "repo": "adaumann/speckit-preset-game-narrative-writing",
-        "scope": "sample",
-        "prefixes": ["game-narrative-writing/specs/shrine-sample/"],
-    },
-    {
-        "id": "nextrock-episode-1",
-        "title": "NextRock, episode 1 and common passages",
-        "repo": "cliffhall/NextRock",
-        "scope": "episode",
-        "prefixes": ["project/common/", "project/episodes/ep1/"],
-    },
-    *[
-        {
-            "id": f"game-jam-{slug}",
-            "title": title,
-            "repo": "ronynn/Game-Jam-Submissions",
-            "scope": "source snapshot",
-            "files": [path],
-        }
-        for slug, title, path in [
-            ("dawn", "Dawn", "Dawn.twee"),
-            ("abate", "Abate, part 1", "abate/part1.tw"),
-            ("aesthetics", "Aesthetics", "aesthetics.tw"),
-            ("catch", "Catch", "catch.tw"),
-            ("igcs", "IGCS", "igcs.twee"),
-            ("kev", "Kev", "kev/kev.twee"),
-            ("ld50", "LD50", "ld50.twee"),
-            ("meritocracy", "Meritocracy", "meritocracy/merit.twee"),
-            ("nimble", "Nimble", "nimble.twee"),
-            ("sac", "SAC", "sac.tw"),
-        ]
-    ],
-    {
-        "id": "chinatown-memo",
-        "title": "Chinatown Memo",
-        "repo": "thedavidweng/Twine-Immigration-Act",
-        "scope": "source snapshot",
-        "files": ["Chinatown Memo.twee"],
-    },
-    {
-        "id": "stephen-wong",
-        "title": "Stephen Wong",
-        "repo": "thedavidweng/Twine-Immigration-Act",
-        "scope": "source snapshot",
-        "files": ["Stephen Wong.twee"],
-    },
-    {
-        "id": "interview-interview",
+        "id": "ronynn--interview-interview",
         "title": "Interview Interview",
         "repo": "ronynn/interview-interview",
-        "scope": "source snapshot",
-        "prefixes": [""],
+        "revision": "2f076256da096a4a2148bb79ee12d1a4267c7f54",
+        "scope": "complete five-chapter story",
+        "files": ["dat.tw", "gym.tw", "interview.tw", "job.tw", "reptile.tw"],
+        "selection_note": "目录列有 Chapter 0–4；最终段落 scales8 标记 The End。",
     },
     {
-        "id": "old-house-test-story",
-        "title": "Old House test story",
-        "repo": "sagitrs/sgstory",
-        "scope": "test sample",
-        "prefixes": ["tests/e2e/old-house/src/"],
+        "id": "jaymoda88--ling-xiao-lu",
+        "title": "凌霄錄",
+        "repo": "jaymoda88/Ling-Xiao_Demo",
+        "revision": "ad301daf02c839193f3065fd96637a11d563b2e3",
+        "scope": "six-volume story passages only",
+        "prefixes": ["凌霄錄/src/story/"],
+        "selection_note": "src/story/ 包含第一至六卷与第六卷多种结局；这里只保留故事段落，不是可独立运行的游戏源码。",
     },
     {
-        "id": "ethertale",
-        "title": "ETHERTALE",
-        "repo": "Techy-Nature/ETHERTALE",
-        "scope": "source snapshot, including engine passages",
-        "prefixes": ["src/"],
+        "id": "thedavidweng--chinatown-memo",
+        "title": "Chinatown Memo",
+        "repo": "thedavidweng/Twine-Immigration-Act",
+        "revision": "b7365f9ef8f32aa7bbf049a9ee1c873dd33cfea4",
+        "scope": "complete historical story",
+        "files": ["Chinatown Memo.twee"],
+        "selection_note": "1923 至 2011 的家族与社区记忆主线，经多处选择到 The End；同仓库另一标题版本基本重复。",
     },
     {
-        "id": "service-suspended",
-        "title": "Service Suspended",
-        "repo": "Znboston/service-suspended",
-        "scope": "source snapshot",
-        "files": ["project-1/src/Service Suspended.twee"],
+        "id": "ronynn--intergalactic-chat-simulator",
+        "title": "Intergalactic Chat Simulator",
+        "repo": "ronynn/Game-Jam-Submissions",
+        "revision": "0eaadbfdaf3997e8fe759182893687aac73b1098",
+        "scope": "complete branching story",
+        "files": ["igcs.twee"],
+        "selection_note": "从日常出发，经同行和对话选择抵达多个有差异的标记结局。",
     },
     {
-        "id": "twine-interactive-story",
-        "title": "Twine Interactive Story",
-        "repo": "itruebag94/twine-interactive-story",
-        "scope": "source snapshot",
-        "prefixes": [""],
+        "id": "ronynn--the-sacrificial-trail",
+        "title": "The Sacrificial Trail",
+        "repo": "ronynn/Game-Jam-Submissions",
+        "revision": "0eaadbfdaf3997e8fe759182893687aac73b1098",
+        "scope": "complete narrative game",
+        "files": ["sac.tw"],
+        "selection_note": "逃亡与献祭主线有阶段选择及 Victory、GameOver、TheEnd 收束；状态规则需要人工理解。",
     },
     {
-        "id": "principe-de-lyssa",
-        "title": "Principe de Lyssa",
-        "repo": "QuarkSpin/stories",
-        "scope": "draft",
-        "prefixes": ["stories/drafts/principe-de-lyssa/"],
-    },
-    {
-        "id": "psychotlenij",
+        "id": "lapkiteam--psychotlenij",
         "title": "Psychotlenij",
         "repo": "lapkiteam/Psychotlenij",
-        "scope": "source snapshot",
+        "revision": "b5d79319a966bba9c0f8860b0c59f13ec0428c41",
+        "scope": "complete satirical story",
         "files": ["src/game.twee"],
+        "selection_note": "俄语讽刺冒险有连续场景、实际选项与四个明确标记的结局。",
     },
     {
-        "id": "ling-xiao-demo",
-        "title": "Ling Xiao Demo",
-        "repo": "jaymoda88/Ling-Xiao_Demo",
-        "scope": "demo, including system passages",
-        "prefixes": [""],
-    },
-    {
-        "id": "research-data-incident",
-        "title": "Research Data Incident scenario",
-        "repo": "cloudpedagogy/cloudpedagogy-word-twine-renderer",
-        "scope": "educational sample",
-        "files": ["output/twine/research_data_incident_scenario.twee"],
-    },
-    {
-        "id": "after-the-final-battle",
-        "title": "After the Final Battle",
-        "repo": "mewzicians/After-the-final-battle-test-build",
-        "scope": "test build",
-        "files": ["After_the_Final_Battle_v19.twee"],
+        "id": "itruebag94--tarea-final",
+        "title": "Tarea Final",
+        "repo": "itruebag94/twine-interactive-story",
+        "revision": "8ef57e0acf0e31290e42cd87acedef3c8c51bb44",
+        "scope": "complete survival story",
+        "files": ["Tarea Final_IgnacioTruebaGandur.twee"],
+        "selection_note": "西语比利牛斯山求生故事包含五项挑战、分支失败结局与到达终点的结局。",
     },
 ]
 
@@ -220,11 +164,19 @@ def fetch_source(item: tuple[dict, str, str]) -> dict:
 def main() -> None:
     by_repo: dict[str, list[dict]] = {}
     for spec in SPECS:
+        owner = spec["repo"].split("/", 1)[0].lower()
+        if not re.fullmatch(r"[a-z0-9-]+--[a-z0-9-]+", spec["id"]):
+            raise RuntimeError(f"Invalid work ID: {spec['id']}")
+        if spec["id"].split("--", 1)[0] != owner:
+            raise RuntimeError(f"Work ID owner does not match source: {spec['id']}")
         by_repo.setdefault(spec["repo"], []).append(spec)
 
     work_inputs: list[tuple[dict, str, list[str]]] = []
     for repo, specs in by_repo.items():
-        commit_data = get_json(f"https://api.github.com/repos/{repo}/commits/HEAD")
+        revision = specs[0]["revision"]
+        if any(spec["revision"] != revision for spec in specs):
+            raise RuntimeError(f"Conflicting revisions for {repo}")
+        commit_data = get_json(f"https://api.github.com/repos/{repo}/commits/{revision}")
         commit = commit_data["sha"]
         tree_sha = commit_data["commit"]["tree"]["sha"]
         tree = get_json(
@@ -276,7 +228,9 @@ def main() -> None:
             f"- 源文件：{len(files)} 个；节点标记：{sum(f['passages'] for f in files)} 个；"
             f"方括号链接标记：{sum(f['bracket_links'] for f in files)} 个。\n\n"
             "原始路径保留在 [source/](source/)；完整文件列表和校验值见"
-            " [总目录](../../data/catalog.json)。\n",
+            " [总目录](../../data/catalog.json)。\n\n"
+            f"本轮筛选保留依据：{spec['selection_note']}"
+            "细节见[清洗记录](../../notes/2026-09-30-quality-screening.md)。\n",
             encoding="utf-8",
         )
 
@@ -287,17 +241,18 @@ def main() -> None:
     work_index = [
         "# 作品索引",
         "",
-        "状态：活动资料索引｜适用产品：分发产品",
+        "状态：活动资料索引｜适用产品：分发产品｜筛选日期：2026-09-30",
         "",
-        "每个目录保留一个作品或作品样本的公开源文件快照。"
-        "“范围”仅说明当前获得的材料类型，不断言作品完整性。",
+        "当前保留剧情有收束、内部有实际选择且可供叙事结构参考的完整作品；单篇也可入选。"
+        "筛选依据和移出清单见[清洗记录](../notes/2026-09-30-quality-screening.md)。",
         "",
-        "| 作品 | 范围 | 源文件数 | 来源 |",
+        "| 作品 | 保留依据 | 源文件数 | 来源 |",
         "| --- | --- | ---: | --- |",
     ]
     for work in catalog["works"]:
+        selection_note = next(spec["selection_note"] for spec in SPECS if spec["id"] == work["id"])
         work_index.append(
-            f"| [{work['title']}]({work['id']}/README.md) | {work['scope']} | "
+            f"| [{work['title']}]({work['id']}/README.md) | {selection_note} | "
             f"{len(work['source_files'])} | "
             f"[原仓库]({work['source_repository']}/tree/{work['source_commit']}) |"
         )

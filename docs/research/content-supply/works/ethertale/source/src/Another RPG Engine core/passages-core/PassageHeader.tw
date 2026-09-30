@@ -1,7 +1,0 @@
-:: PassageHeader[nobr]
-<<if tags().includes("menu")>>
-	<<unset $subject, $target>>
-	<<include "menubar">>
-<</if>>
-
-<<include "PassageHeader-custom">>

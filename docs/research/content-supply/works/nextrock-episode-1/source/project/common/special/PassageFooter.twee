@@ -1,2 +1,0 @@
-:: PassageFooter
-<<if def $currentNav>><<run setup.renderCurrentNav()>><</if>>
