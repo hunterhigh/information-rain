@@ -251,7 +251,6 @@
         .world-stage[data-text-size="sm"] { --reading-font-size: 14px; --reading-line-height: 1.88; --reading-shade-start: 80%; }
         .world-stage[data-text-size="md"] { --reading-font-size: 16px; --reading-line-height: 1.78; --reading-shade-start: 84%; }
         .world-stage[data-text-size="lg"] { --reading-font-size: 18px; --reading-line-height: 1.68; --reading-shade-start: 88%; }
-        .world-stage.is-reading { touch-action: pan-y; }
 
         .world-swiper {
             position: absolute;
@@ -2414,12 +2413,19 @@
         function createScreenSnapshot() {
             el.stage.querySelectorAll('.screen-snapshot').forEach(snapshot => snapshot.remove());
             const snapshot = el.stage.cloneNode(true);
+            const sourceNodes = [el.stage, ...el.stage.querySelectorAll('*')];
+            const snapshotNodes = [snapshot, ...snapshot.querySelectorAll('*')];
+            sourceNodes.forEach((source, index) => {
+                snapshotNodes[index].scrollTop = source.scrollTop;
+                snapshotNodes[index].scrollLeft = source.scrollLeft;
+            });
             snapshot.removeAttribute('id');
             snapshot.classList.remove('is-branch-dragging');
             snapshot.style.removeProperty('--branch-drag-x');
             snapshot.style.removeProperty('--gesture-opacity');
             snapshot.removeAttribute('data-gesture-direction');
             snapshot.querySelectorAll('.is-gesture-target').forEach(element => element.classList.remove('is-gesture-target'));
+            snapshot.querySelectorAll('.gesture-feedback').forEach(element => element.remove());
             snapshot.classList.add('screen-snapshot');
             snapshot.setAttribute('aria-hidden', 'true');
             snapshot.inert = true;
