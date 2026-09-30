@@ -451,7 +451,7 @@
 
         .gesture-feedback {
             position: absolute;
-            z-index: 22;
+            z-index: 70;
             top: 50%;
             display: flex;
             align-items: center;
@@ -469,13 +469,21 @@
         }
         .gesture-feedback.left { left: 10px; transform: translateY(-50%); }
         .gesture-feedback.right { right: 10px; transform: translateY(-50%); }
-        .gesture-feedback .arrow { color: #e5ce9a; font-size: 18px; }
         .world-stage.is-branch-dragging .gesture-feedback { opacity: var(--gesture-opacity, 0); }
-        .world-stage.is-branch-dragging #nodeLayer { transform: translate3d(var(--branch-drag-x, 0px), 0, 0); }
-        .world-stage.is-branch-dragging #btnLeft,
-        .world-stage.is-branch-dragging #btnRight { transition: none; }
-        .world-stage.is-branch-dragging[data-gesture-direction="left"] #btnLeft,
-        .world-stage.is-branch-dragging[data-gesture-direction="right"] #btnRight { opacity: 1; }
+        .world-stage.is-branch-dragging > #nodeLayer { opacity: 0; }
+        .world-stage.is-branch-dragging > #mobileBranchHints { opacity: 0; }
+        .world-stage.is-branch-dragging > :not(.screen-snapshot):not(.gesture-feedback),
+        .world-stage.is-screen-swap-pending > :not(.screen-snapshot):not(.gesture-feedback) { opacity: 0 !important; pointer-events: none !important; }
+        .world-stage.is-branch-dragging > .ambience-layer,
+        .world-stage.is-screen-swap-pending > .ambience-layer { opacity: 1 !important; }
+        .world-stage.is-screen-swap-pending { pointer-events: none; }
+        .gesture-feedback.up { top: 16%; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+        .gesture-feedback.down { top: auto; bottom: 16%; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+        .mobile-branch-hints { display: none; }
+        .world-stage.is-branch-dragging[data-gesture-direction="left"] > #mobileBranchHints #mobileLeftChoice,
+        .world-stage.is-branch-dragging[data-gesture-direction="right"] > #mobileBranchHints #mobileRightChoice { color: #fff1cc; opacity: 1; }
+        .world-stage.is-branch-dragging[data-gesture-direction="left"] > #mobileBranchHints #mobileRightChoice,
+        .world-stage.is-branch-dragging[data-gesture-direction="right"] > #mobileBranchHints #mobileLeftChoice { opacity: .42; }
 
         .screen-snapshot {
             position: absolute !important;
@@ -489,13 +497,16 @@
             animation-duration: 460ms;
             animation-timing-function: cubic-bezier(.2,.78,.22,1);
             animation-fill-mode: forwards;
+            will-change: transform, opacity;
         }
         .screen-snapshot-left { animation-name: screen-swipe-left; }
         .screen-snapshot-right { animation-name: screen-swipe-right; }
         .screen-snapshot-up { animation-name: screen-swipe-up; }
+        .screen-snapshot-down { animation-name: screen-swipe-down; }
         @keyframes screen-swipe-left { to { transform: translate3d(-100%,0,0); opacity: .92; } }
         @keyframes screen-swipe-right { to { transform: translate3d(100%,0,0); opacity: .92; } }
         @keyframes screen-swipe-up { to { transform: translate3d(0,-100%,0); opacity: .92; } }
+        @keyframes screen-swipe-down { to { transform: translate3d(0,100%,0); opacity: .92; } }
         @media (prefers-reduced-motion: reduce) { .screen-snapshot { animation-duration: 1ms; } }
 
         /* Ending Overlay */
@@ -916,10 +927,25 @@
             }
             .sidebar-right { display: none; }
             .node-text { max-height: min(58%, calc(100% - 7rem)); }
-            .dir-controls { gap: 0.25rem; max-width: calc(100% - 12px); }
-            .dir-btn { width: min(100px, 31vw); }
-            .dir-btn .label { width: 100%; max-width: none; font-size: 11px; color: rgba(255,255,255,0.82); }
-            .dir-btn .icon { width: 40px; height: 40px; }
+            .dir-controls { display: none !important; }
+            .mobile-branch-hints:not([hidden]) {
+                position: absolute;
+                z-index: 20;
+                right: 10px;
+                bottom: 12px;
+                left: 10px;
+                display: grid;
+                grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+                align-items: end;
+                gap: 5px;
+                color: rgba(255,255,255,.82);
+                pointer-events: none;
+                text-shadow: 0 1px 8px rgba(0,0,0,.8);
+            }
+            #mobileLeftChoice, #mobileRightChoice { max-width: 100%; font-size: 11px; line-height: 1.35; }
+            #mobileLeftChoice { text-align: left; }
+            #mobileRightChoice { text-align: right; }
+            .mobile-swipe-instruction { color: rgba(255,255,255,.45); font-size: 9px; white-space: nowrap; }
             main > div:not(#worldsPage) { padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
             .bookmark-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; max-height: none; overflow: visible; padding: 4px 0; }
             #bookmarksPage > div, #searchPage > div { padding: 16px !important; }
@@ -1060,8 +1086,15 @@
                             <span class="label" id="labelRight"></span>
                         </button>
                     </div>
-                    <div id="gestureFeedbackLeft" class="gesture-feedback left" aria-hidden="true"><span class="arrow">←</span><span></span></div>
-                    <div id="gestureFeedbackRight" class="gesture-feedback right" aria-hidden="true"><span></span><span class="arrow">→</span></div>
+                    <div id="gestureFeedbackLeft" class="gesture-feedback left" aria-hidden="true"></div>
+                    <div id="gestureFeedbackRight" class="gesture-feedback right" aria-hidden="true"></div>
+                    <div id="gestureFeedbackUp" class="gesture-feedback up" aria-hidden="true"></div>
+                    <div id="gestureFeedbackDown" class="gesture-feedback down" aria-hidden="true">下一部作品</div>
+                    <div id="mobileBranchHints" class="mobile-branch-hints" hidden aria-live="polite">
+                        <span id="mobileLeftChoice"></span>
+                        <span class="mobile-swipe-instruction">左右滑动选择</span>
+                        <span id="mobileRightChoice"></span>
+                    </div>
 
                     <!-- Ending Overlay -->
                     <div id="endingLayer" class="ending-overlay hidden">
@@ -1276,6 +1309,7 @@
         let experienceActor = null;
         let fallbackExperienceState = 'worlds.cover';
         let worldSwiper = null;
+        let pendingWorldGesture = null;
         const HOME_BATCH_SIZE = 8;
         const HOME_CARD_ASPECT = 9 / 16;
         let homeQuery = '';
@@ -2072,7 +2106,10 @@
         // ============================================================
         function loadWorld(index, direction = 'next') {
             const world = worlds[index];
-            el.stage.classList.remove('is-reading', 'is-branch-dragging');
+            const swipeTransition = pendingWorldGesture;
+            el.stage.classList.remove('is-reading');
+            clearSwipeFeedback(!swipeTransition);
+            el.stage.classList.toggle('is-screen-swap-pending', Boolean(swipeTransition));
             sendExperience('SHOW_COVER');
 
             if (worldSwiper) {
@@ -2149,6 +2186,7 @@
             el.btnSave.classList.remove('hidden');
             el.dirControls.classList.add('opacity-0', 'pointer-events-none');
             el.dirControls.inert = true;
+            document.getElementById('mobileBranchHints').hidden = true;
 
             // 更新体验图
             renderExpMap();
@@ -2158,6 +2196,12 @@
 
             // 重新生成粒子
             generateParticles(world.theme.particles);
+
+            if (swipeTransition) {
+                pendingWorldGesture = null;
+                el.stage.classList.remove('is-screen-swap-pending');
+                animateScreenSnapshot(swipeTransition.snapshot, swipeTransition.direction);
+            }
         }
 
         let activeWorldBackdrop = null;
@@ -2311,20 +2355,28 @@
             if (animType !== 'settle') sendExperience('TYPE_DONE');
 
             // 方向控制
-            const hasExits = node.exits && (node.exits.left || node.exits.right || node.exits.up);
+            const reachableExit = direction => node.exits?.[direction] && world.data[node.exits[direction]] ? node.exits[direction] : null;
+            const leftExit = reachableExit('left');
+            const rightExit = reachableExit('right');
+            const upExit = reachableExit('up');
+            const hasExits = leftExit || rightExit || upExit;
 
             if (hasExits) {
                 el.dirControls.classList.remove('opacity-0', 'pointer-events-none');
                 el.dirControls.inert = false;
 
                 // 更新按钮
-                updateDirBtn('btnLeft', 'labelLeft', node.exits?.left, node.labels?.left);
-                updateDirBtn('btnUp', 'labelUp', node.exits?.up, node.labels?.up);
-                updateDirBtn('btnRight', 'labelRight', node.exits?.right, node.labels?.right);
+                updateDirBtn('btnLeft', 'labelLeft', leftExit, node.labels?.left);
+                updateDirBtn('btnUp', 'labelUp', upExit, node.labels?.up);
+                updateDirBtn('btnRight', 'labelRight', rightExit, node.labels?.right);
             } else {
                 el.dirControls.classList.add('opacity-0', 'pointer-events-none');
                 el.dirControls.inert = true;
+                updateDirBtn('btnLeft', 'labelLeft', null, null);
+                updateDirBtn('btnUp', 'labelUp', null, null);
+                updateDirBtn('btnRight', 'labelRight', null, null);
             }
+            document.getElementById('mobileBranchHints').hidden = !(leftExit || rightExit);
 
             if (animType === 'settle') {
                 el.nodeText.classList.add('node-text-settle-in');
@@ -2342,16 +2394,20 @@
         function updateDirBtn(btnId, labelId, target, label) {
             const btn = document.getElementById(btnId);
             const lbl = document.getElementById(labelId);
-            if (btnId === 'btnLeft') document.querySelector('#gestureFeedbackLeft span:last-child').textContent = label || '左侧分支';
-            if (btnId === 'btnRight') document.querySelector('#gestureFeedbackRight span:first-child').textContent = label || '右侧分支';
+            if (btnId === 'btnLeft') document.getElementById('gestureFeedbackLeft').textContent = `将进入：${label || '左侧分支'}`;
+            if (btnId === 'btnRight') document.getElementById('gestureFeedbackRight').textContent = `将进入：${label || '右侧分支'}`;
+            if (btnId === 'btnUp') document.getElementById('gestureFeedbackUp').textContent = `将进入：${label || '上方分支'}`;
+            const mobileChoice = btnId === 'btnLeft' ? document.getElementById('mobileLeftChoice') : btnId === 'btnRight' ? document.getElementById('mobileRightChoice') : null;
+            if (mobileChoice) mobileChoice.textContent = target ? `${btnId === 'btnLeft' ? '左滑' : '右滑'} · ${label || (btnId === 'btnLeft' ? '左侧分支' : '右侧分支')}` : '';
             if (target) {
                 btn.style.visibility = 'visible';
-            lbl.textContent = label || { btnLeft: '向左选择', btnUp: '向上选择', btnRight: '向右选择' }[btnId];
+                lbl.textContent = label || { btnLeft: '向左选择', btnUp: '向上选择', btnRight: '向右选择' }[btnId];
                 btn.disabled = false;
-                btn.setAttribute('aria-label', label ? `${label}，向${{ left: '左', up: '上', right: '右' }[btnId.slice(3).toLowerCase()]}进入` : '进入下一位置');
+                btn.setAttribute('aria-label', `${label || '选择分支'}，向${{ Left: '左', Up: '上', Right: '右' }[btnId.slice(3)]}进入`);
             } else {
                 btn.style.visibility = 'hidden';
                 btn.disabled = true;
+                lbl.textContent = '';
             }
         }
 
@@ -2363,7 +2419,6 @@
             snapshot.style.removeProperty('--branch-drag-x');
             snapshot.style.removeProperty('--gesture-opacity');
             snapshot.removeAttribute('data-gesture-direction');
-            snapshot.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
             snapshot.querySelectorAll('.is-gesture-target').forEach(element => element.classList.remove('is-gesture-target'));
             snapshot.classList.add('screen-snapshot');
             snapshot.setAttribute('aria-hidden', 'true');
@@ -2372,10 +2427,23 @@
             return snapshot;
         }
 
+        function clearSwipeFeedback(removeSnapshot = true) {
+            el.stage.classList.remove('is-branch-dragging');
+            el.stage.style.removeProperty('--gesture-opacity');
+            el.stage.removeAttribute('data-gesture-direction');
+            document.getElementById('btnLeft').classList.remove('is-gesture-target');
+            document.getElementById('btnRight').classList.remove('is-gesture-target');
+            if (removeSnapshot) el.stage.querySelectorAll('.screen-snapshot').forEach(snapshot => snapshot.remove());
+        }
+
         function animateScreenSnapshot(snapshot, direction) {
             if (!snapshot) return;
+            el.stage.classList.add('is-screen-swap-pending');
             snapshot.classList.add(`screen-snapshot-${direction}`);
-            const remove = () => snapshot.remove();
+            const remove = () => {
+                snapshot.remove();
+                if (!el.stage.querySelector('.screen-snapshot')) el.stage.classList.remove('is-screen-swap-pending');
+            };
             snapshot.addEventListener('animationend', remove, { once: true });
             setTimeout(remove, 560);
         }
@@ -2383,7 +2451,7 @@
         // ============================================================
         // 方向导航
         // ============================================================
-        function handleDirection(dir) {
+        function handleDirection(dir, swipeSnapshot = null) {
             if (experienceMatches('worlds.reading.typing') || experienceMatches('worlds.reading.transitioning') || experienceMatches('worlds.reading.ending')) return;
             const world = worlds[currentWorldIndex];
             const node = world.data[currentNodeId];
@@ -2396,13 +2464,9 @@
                 return;
             }
 
-            const snapshot = createScreenSnapshot();
-            el.stage.classList.remove('is-branch-dragging');
-            el.stage.style.removeProperty('--branch-drag-x');
-            el.stage.style.removeProperty('--gesture-opacity');
-            el.stage.removeAttribute('data-gesture-direction');
-            document.getElementById('btnLeft').classList.remove('is-gesture-target');
-            document.getElementById('btnRight').classList.remove('is-gesture-target');
+            const snapshot = swipeSnapshot || createScreenSnapshot();
+            clearSwipeFeedback(false);
+            if (swipeSnapshot) el.stage.classList.add('is-screen-swap-pending');
             sendExperience('MOVE');
             const nextNodeId = node.exits[dir];
             createNodeTextExitCopy();
@@ -2418,6 +2482,7 @@
             nodeTransitionTimer = setTimeout(() => {
                 sendExperience('NODE_READY');
                 renderNode(nextNodeId, 'settle');
+                el.stage.classList.remove('is-screen-swap-pending');
                 animateScreenSnapshot(snapshot, dir);
                 nodeTransitionTimer = null;
             }, 100);
@@ -2429,6 +2494,7 @@
         function showEnding(node) {
             sendExperience('ENDING');
             el.dirControls.inert = true;
+            document.getElementById('mobileBranchHints').hidden = true;
             el.endingLayer.classList.remove('hidden');
             document.getElementById('endingTitle').textContent = node.title;
             document.getElementById('endingSummary').textContent = node.summary;
@@ -2518,6 +2584,21 @@
             goToWorld(currentWorldIndex + delta);
         }
 
+        function switchWorldByGesture(delta, swipeSnapshot) {
+            const nextIndex = currentWorldIndex + delta;
+            if (nextIndex < 0 || nextIndex >= worlds.length) {
+                clearSwipeFeedback();
+                showToast(nextIndex < 0 ? '已经是第一个内容' : '已经是最后一个内容');
+                return;
+            }
+
+            const snapshot = swipeSnapshot || createScreenSnapshot();
+            clearSwipeFeedback(false);
+            el.stage.classList.add('is-screen-swap-pending');
+            pendingWorldGesture = { snapshot, direction: delta > 0 ? 'down' : 'up' };
+            goToWorld(nextIndex, 0);
+        }
+
         function showToast(msg) {
             if (toastTimer) clearTimeout(toastTimer);
             el.toast.textContent = msg;
@@ -2574,10 +2655,13 @@
             let touchIgnored = false;
             let touchStartedInText = false;
             let touchStartTextScrollTop = 0;
+            let touchSnapshot = null;
 
             el.stage.addEventListener('touchstart', (e) => {
                 if (e.touches.length !== 1) {
                     touchStarted = false;
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
                     return;
                 }
                 const touchTarget = e.target instanceof Element ? e.target : e.target.parentElement;
@@ -2593,40 +2677,67 @@
                 if (!touchStarted || touchIgnored || e.touches.length !== 1 || currentPage !== 'worlds' || !experienceMatches('worlds.reading')) return;
                 const dx = e.touches[0].clientX - touchStartX;
                 const dy = e.touches[0].clientY - touchStartY;
-                if (Math.abs(dx) < 10 || Math.abs(dx) <= Math.abs(dy)) return;
-                const direction = dx > 0 ? 'right' : 'left';
                 const world = worlds[currentWorldIndex];
                 const node = world?.data?.[currentNodeId];
-                if (!node?.exits?.[direction] || !world.data[node.exits[direction]]) return;
+                const horizontal = Math.abs(dx) >= 10 && Math.abs(dx) > Math.abs(dy);
+                const vertical = Math.abs(dy) >= 10 && Math.abs(dy) > Math.abs(dx);
+                let direction = null;
+                if (horizontal) direction = dx > 0 ? 'right' : 'left';
+                else if (vertical && dy < 0) {
+                    const textCanScroll = touchStartedInText && el.nodeText.scrollHeight > el.nodeText.clientHeight + 1;
+                    const atTextBottom = el.nodeText.scrollTop + el.nodeText.clientHeight >= el.nodeText.scrollHeight - 1;
+                    if (!textCanScroll || atTextBottom) direction = 'up';
+                } else if (vertical && dy > 0) {
+                    const textCanScroll = touchStartedInText && el.nodeText.scrollHeight > el.nodeText.clientHeight + 1;
+                    const atTextTop = el.nodeText.scrollTop <= 1;
+                    if (!textCanScroll || atTextTop) direction = 'down';
+                }
+
+                if (direction === 'down') {
+                    if (currentWorldIndex >= worlds.length - 1) direction = null;
+                } else if (!direction || !node?.exits?.[direction] || !world.data[node.exits[direction]]) {
+                    direction = null;
+                }
+
+                if (!direction) {
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
+                    return;
+                }
+
+                if (!touchSnapshot) touchSnapshot = createScreenSnapshot();
                 el.stage.classList.add('is-branch-dragging');
                 el.stage.dataset.gestureDirection = direction;
-                el.stage.style.setProperty('--branch-drag-x', `${Math.max(-48, Math.min(48, dx * 0.2))}px`);
-                el.stage.style.setProperty('--gesture-opacity', String(Math.min(1, Math.abs(dx) / 90)));
-                document.getElementById(direction === 'left' ? 'btnLeft' : 'btnRight').classList.add('is-gesture-target');
+                el.stage.style.setProperty('--gesture-opacity', String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / 100)));
+                touchSnapshot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+                document.getElementById('btnLeft').classList.toggle('is-gesture-target', direction === 'left');
+                document.getElementById('btnRight').classList.toggle('is-gesture-target', direction === 'right');
             }, { passive: true });
 
             el.stage.addEventListener('touchend', (e) => {
                 if (!touchStarted || e.changedTouches.length !== 1) return;
                 touchStarted = false;
-                if (touchIgnored) return;
+                if (touchIgnored) {
+                    touchIgnored = false;
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
+                    return;
+                }
 
                 const dx = e.changedTouches[0].clientX - touchStartX;
                 const dy = e.changedTouches[0].clientY - touchStartY;
                 const absDx = Math.abs(dx);
                 const absDy = Math.abs(dy);
 
-                if (currentPage !== 'worlds') return;
-
-                const clearGestureFeedback = () => {
-                    el.stage.classList.remove('is-branch-dragging');
-                    el.stage.style.removeProperty('--branch-drag-x');
-                    el.stage.style.removeProperty('--gesture-opacity');
-                    el.stage.removeAttribute('data-gesture-direction');
-                    document.getElementById('btnLeft').classList.remove('is-gesture-target');
-                    document.getElementById('btnRight').classList.remove('is-gesture-target');
-                };
+                if (currentPage !== 'worlds') {
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
+                    return;
+                }
 
                 if (!experienceMatches('worlds.reading')) {
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
                     if (worldSwiper) return;
                     // 封面模式：上下滑动切换世界
                     if (absDy > 72 && absDy > absDx) {
@@ -2635,44 +2746,56 @@
                     return;
                 }
 
-                // 正文可纵向滚动；横向划动仍可从正文上选择左右分支。
-                if (absDx > absDy && absDx > 52) {
-                    clearGestureFeedback();
-                    handleDirection(dx > 0 ? 'right' : 'left');
-                    return;
-                }
-
-                clearGestureFeedback();
-
                 if (touchStartedInText) {
                     const textDidScroll = Math.abs(el.nodeText.scrollTop - touchStartTextScrollTop) > 1;
-                    if (textDidScroll) return;
-
+                    if (textDidScroll) {
+                        touchSnapshot = null;
+                        clearSwipeFeedback();
+                        return;
+                    }
                     const textCanScroll = el.nodeText.scrollHeight > el.nodeText.clientHeight + 1;
                     const atTextTop = el.nodeText.scrollTop <= 1;
                     const atTextBottom = el.nodeText.scrollTop + el.nodeText.clientHeight >= el.nodeText.scrollHeight - 1;
                     const gestureMovesIntoText = (dy < 0 && !atTextBottom) || (dy > 0 && !atTextTop);
-                    if (textCanScroll && gestureMovesIntoText) return;
+                    if (textCanScroll && gestureMovesIntoText) {
+                        touchSnapshot = null;
+                        clearSwipeFeedback();
+                        return;
+                    }
+                }
+
+                // 正文可纵向滚动；横向划动仍可从正文上选择左右分支。
+                if (absDx > absDy && absDx > 52) {
+                    const direction = dx > 0 ? 'right' : 'left';
+                    const snapshot = touchSnapshot;
+                    touchSnapshot = null;
+                    handleDirection(direction, snapshot);
+                    touchStartedInText = false;
+                    return;
                 }
 
                 // 正文中：上划选择“上”方向；下划切换到下一部作品。
                 if (absDy > absDx && absDy > 52 && dy < 0) {
-                    handleDirection('up');
+                    const snapshot = touchSnapshot;
+                    touchSnapshot = null;
+                    handleDirection('up', snapshot);
                 } else if (absDy > absDx && absDy > 72 && dy > 0) {
-                    switchWorld(1);
+                    const snapshot = touchSnapshot;
+                    touchSnapshot = null;
+                    switchWorldByGesture(1, snapshot);
+                } else {
+                    touchSnapshot = null;
+                    clearSwipeFeedback();
                 }
+                touchStartedInText = false;
             }, { passive: true });
 
             el.stage.addEventListener('touchcancel', () => {
                 touchStarted = false;
                 touchIgnored = false;
                 touchStartedInText = false;
-                el.stage.classList.remove('is-branch-dragging');
-                el.stage.style.removeProperty('--branch-drag-x');
-                el.stage.style.removeProperty('--gesture-opacity');
-                el.stage.removeAttribute('data-gesture-direction');
-                document.getElementById('btnLeft').classList.remove('is-gesture-target');
-                document.getElementById('btnRight').classList.remove('is-gesture-target');
+                touchSnapshot = null;
+                clearSwipeFeedback();
             }, { passive: true });
 
             el.searchInput.addEventListener('input', event => renderSearchResults(event.target.value));
