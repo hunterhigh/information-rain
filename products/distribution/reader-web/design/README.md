@@ -32,4 +32,4 @@
 
 ## 手机划动与场景转场
 
-`mobile-swipe-motion-comparison.html` 并列展示当前箭头点击基线、Tinder 式倾斜跟手、Reels 式整屏移动、场景视差和方向光提示。样例沿用现有 9:16 阅读画面，可直接拖动；Cloudflare 预览发布后，手机与电脑可从同一 Pages 主域名访问 `/design/mobile-swipe-motion-comparison.html`。它是供项目所有者选择的设计草案，不代表任一候选已被采纳；实现参考和适用边界见[开源项目参考](../../../../docs/research/architecture/2026-09-28-github-project-references.md)。
+`mobile-swipe-motion-comparison.html` 并列展示五种自动循环的划动动画：轻微落位、卡片跟手、整屏推入、轻视差和方向光提示。每个 GIF 都可单独查看，页面打开后无需触摸、拖动或点击。动效沿用现有作品封面和 9:16 阅读画面，是供项目所有者选择的设计草案，不代表任一候选已被采纳；实现参考和适用边界见[开源项目参考](../../../../docs/research/architecture/2026-09-28-github-project-references.md)。GIF 生成脚本为 `make-swipe-motion-gifs.py`。

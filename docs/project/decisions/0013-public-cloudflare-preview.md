@@ -58,6 +58,13 @@
 - 页面主地址、生成目录、迁移封面及手机动效比较页均返回 200；响应仍带 `noindex, nofollow, noarchive`。
 - 作品源文件与创作草稿未进入静态发布包。内容池结构与迁移核对见[决定 0014](0014-unified-distribution-content-pool.md)。
 
+### 2026-09-30 动效比较页自动播放版本
+
+- 发布范围：五个划动转场 GIF 与自动播放比较页；无需依赖设备触摸/拖动事件。
+- 页面入口：[同域名动效比较页](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)
+- GIF 路径：`/design/mobile-swipe-motion-gifs/01-arrow-baseline.gif` 至 `05-direction-glow.gif`。
+- 本次发布对应提交和部署 ID 在完成推送后补录。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。

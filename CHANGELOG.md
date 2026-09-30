@@ -13,6 +13,7 @@ All notable changes follow Semantic Versioning.
 
 ## Unreleased
 
+- 将手机划动对比页改为五个自动循环 GIF，打开后无需拖动即可直接观察；沿用现有作品画面，并将 GIF 纳入 Cloudflare 静态预览构建。
 - 修复手机动效对比页的拖动事件分工：触屏优先走原生 Touch Events，鼠标/触控笔走 Pointer Events，避免两类事件抢占同一次手势。
 - 将分发产品 23 部作品统一迁入按 ID 存放的内容包，建立独立展示顺序、注册器一致性校验和单一运行时目录；详见决定 0014。
 - 新增可交互的手机划动/转场比较页，可从现有 Cloudflare Pages 主域名访问，供项目所有者选择手势反馈；没有将候选动效直接写入产品界面。
