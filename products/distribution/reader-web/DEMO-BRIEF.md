@@ -2,6 +2,8 @@
 
 状态：2026-09-28，本地内容池现有 23 部作品，待项目所有者试玩。2026-09-30，项目所有者确认当前作品已通过审查。19 部内置修订作品来自项目所有者提供的 Kimi HTML 原型压缩包；[SOURCE](SOURCE.md)保留原始导入证据，当前有效筛选与编辑授权见[决定 0007](../../../docs/project/decisions/0007-distribution-content-selection.md)，逐部改动见[修订对照](CONTENT-REVISION-REVIEW.md)。另有 4 部由项目所有者提供的标准内容包通过注册器加入，来源、边界和注册机制见[决定 0009](../../../docs/project/decisions/0009-distribution-content-registry.md)。
 
+现行存储位置：23 部作品均在 [`content-pool/packs/`](content-pool/README.md)；上述“内置/注册”只区分历史来源，不再对应两种运行时存储。展示顺序由同一内容池的 `display-order.json` 管理，见[决定 0014](../../../docs/project/decisions/0014-unified-distribution-content-pool.md)。
+
 ## 给体验者什么
 
 一个手机优先的连续内容入口：向下切换作品，进入作品后沿当前内容提供的可达方向继续。封面帮助选择是否进入，不是官网 hero。读者继续的理由应来自各作品里的事件、人物和可能的后果，而不是产品机制说明。
