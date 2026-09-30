@@ -16,3 +16,4 @@
 | [0010](0010-reading-interaction-refinement.md) | 阅读交互调整 | 已实施；后续方案留档 |
 | [0011](0011-distribution-product-as-active-roadmap.md) | 分发产品作为当前主线 | 当前工作范围 |
 | [0012](0012-single-repository-product-boundaries.md) | 单仓库中的产品、文档和部署边界 | 当前仓库结构依据 |
+| [0013](0013-public-cloudflare-preview.md) | Cloudflare Pages 临时公开预览 | 当前部署范围与访问决定 |

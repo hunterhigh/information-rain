@@ -8,16 +8,16 @@
 
 - **长期方向**：工具产品与分发产品两条线；“全梦”是技术愿景名，“信息雨”是信息流方法。见[决定 0006](decisions/0006-two-products-and-medium-validation.md)。
 - **当前唯一实施主线**：分发产品，以现有分发 Demo 为工作基线；工具产品不进入当前执行路线。见[决定 0011](decisions/0011-distribution-product-as-active-roadmap.md)。
-- **当前产品目标**：先用 Cloudflare Pages 建立受控静态预览，并开始适配当前 Demo 的手机端；随后逐步迭代为完整、可上线的分发产品。当前线上预览不等于公开正式发布。
+- **当前产品目标**：运行 Cloudflare Pages 静态预览，核验当前 Demo 的手机端阅读流程；随后逐步迭代为完整、可上线的分发产品。当前地址是项目所有者接受的临时公开预览，不等于正式产品发布。
 
 ## 活动状态
 
 - **有效代码基线**：[`products/distribution/reader-web/`](../../products/distribution/reader-web/)；读者页面、运行时内容池和页面专属资源位于此处。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
-- **当前分发产品代码基线**：目录与文档治理已提交并推送至 GitHub `main`，提交为 `01236f6`；当前代码位置和文档分类以该提交为准。`demo-v0.1.0` 仍是已标记的历史私有基线。
+- **当前分发产品代码基线**：目录与文档治理已提交并推送至 GitHub `main`，提交为 `01236f6`；后续工作基于远端 `main`。`demo-v0.1.0` 仍是已标记的历史私有基线。
 - **当前有效版本记录**：私有内部基线 `demo-v0.1.0`；后续实现仍位于未发布变更中。
-- **当前工作阶段**：阶段 1“Cloudflare 静态预览与手机适配”实施中。项目所有者已确认使用 `raoz...@163.com` Cloudflare 账号；Pages 写入权限已确认，账号当前没有 Pages 项目。手机端修改与静态发布包已在本地准备，尚未提交；线上发布等待 Access 访问限制配置与核验。
+- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。Cloudflare Pages 项目 `information-rain-preview` 主地址为[预览页](https://information-rain-preview.pages.dev/)，当前部署对应 `aee4dd8`，生产环境分支为 `main`。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制，详情见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：2–4 已实施但尚待所有者试用；当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
 
@@ -33,4 +33,4 @@
 
 ## 当前下一步
 
-继续 Cloudflare Pages Git 集成配置及手机端适配核验。工具 Agent 保持预留，不进入分发产品的构建与部署。
+核验线上页面的手机端核心流程，并决定后续是否恢复 Access 受控访问、配置 GitHub Actions 自动部署及演练回退。工具 Agent 保持预留，不进入分发产品的构建与部署。
