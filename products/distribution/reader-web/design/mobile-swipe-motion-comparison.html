@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>信息雨｜手机划动与转场动效对比</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f1eee8;
+      --muted: #a5a6ad;
+      --gold: #e5ce9a;
+      --blue: #a8cbff;
+      --green: #b9e3cb;
+      --red: #f1b1a7;
+      --stage-image: url('../images/apocalypse.jpg');
+      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; background: #090c11; scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: radial-gradient(ellipse at 50% -5%, #25303b 0%, #111720 40%, #090c11 78%); }
+    button { color: inherit; font: inherit; }
+    .page { width: min(100% - 52px, 1660px); margin: 0 auto; padding: 34px 0 70px; }
+    header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    .eyebrow { margin: 0 0 9px; color: var(--gold); font-size: 11px; letter-spacing: .15em; }
+    h1 { margin: 0; font: 600 clamp(24px, 3vw, 38px)/1.2 "Noto Serif SC", "Songti SC", serif; letter-spacing: .02em; }
+    .intro { max-width: 780px; margin: 12px 0 0; color: #c0c2c8; font-size: 14px; line-height: 1.8; }
+    .status { flex: none; padding-bottom: 4px; color: #8d929a; font-size: 11px; }
+    .principle { display: flex; align-items: flex-start; gap: 14px; margin: 0 0 24px; padding: 14px 0; color: #bec4ce; font-size: 12px; line-height: 1.7; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .principle b { flex: none; color: var(--gold); font-weight: 500; }
+    .examples { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; align-items: start; }
+    .example { min-width: 0; }
+    .example-head { min-height: 86px; padding: 0 2px 10px; }
+    .example-title { display: flex; align-items: baseline; gap: 8px; margin: 0; font: 600 16px/1.45 "Noto Serif SC", "Songti SC", serif; }
+    .number { color: var(--gold); font: 500 10px/1 Inter, sans-serif; letter-spacing: .12em; }
+    .example-head p { margin: 6px 0 0; color: #9ea4ac; font-size: 11px; line-height: 1.6; }
+    .stage-wrap { position: relative; width: min(100%, 300px); margin: 0 auto; }
+    .stage {
+      --dx: 0px; --dy: 0px; --move-x: 0px; --move-y: 0px; --tilt-x: 0px; --tilt-y: 0px;
+      --image-x: 0px; --image-y: 0px; --parallax-x: 0px; --parallax-y: 0px; --copy-x: 0px; --copy-y: 0px;
+      --angle: 0deg; --progress: 0; --back-scale: .91; --back-lift: 13px; --back-opacity: .82; --glow-scale: 1; --feedback-alpha: 0;
+      position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; isolation: isolate;
+      background: #11151b; touch-action: none; user-select: none; -webkit-user-select: none;
+    }
+    .scene-under, .scene-current, .scene-current .art, .scene-under .art, .image-wash, .drag-halo, .direction-word { position: absolute; inset: 0; }
+    .scene-under { z-index: 1; transform: scale(.91) translateY(13px); opacity: .82; }
+    .scene-current { z-index: 2; transform: translate3d(0,0,0); transform-origin: 50% 52%; will-change: transform; }
+    .art { background: var(--stage-image) center / cover no-repeat; transform: translate3d(0,0,0) scale(1); will-change: transform; }
+    .scene-under .art { filter: brightness(.76); }
+    .image-wash { z-index: 2; pointer-events: none; background: linear-gradient(180deg,rgba(5,8,12,.08) 8%,transparent 34%,rgba(4,7,11,.18) 53%,rgba(3,5,8,.88) 100%); }
+    .topline { position: absolute; z-index: 4; top: 17px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,.72); font-size: 10px; letter-spacing: .08em; pointer-events: none; }
+    .readmark { display: flex; gap: 4px; }
+    .readmark i { display: block; width: 17px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.35); }
+    .readmark i:first-child { background: var(--gold); }
+    .story-copy { position: absolute; z-index: 4; left: 17px; right: 17px; bottom: 22px; pointer-events: none; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+    .story-kicker { margin: 0 0 9px; color: rgba(255,255,255,.68); font-size: 10px; letter-spacing: .08em; }
+    .story-copy h3 { margin: 0 0 9px; font: 600 22px/1.35 "Noto Serif SC", "Songti SC", serif; }
+    .story-copy p { margin: 0; color: rgba(255,255,255,.87); font: 13px/1.8 "Noto Serif SC", "Songti SC", serif; }
+    .choice-line { display: flex; justify-content: space-between; gap: 8px; margin-top: 12px; color: rgba(255,255,255,.6); font-size: 10px; }
+    .baseline-controls { position: absolute; z-index: 8; right: 12px; bottom: 18px; left: 12px; display: flex; align-items: center; justify-content: space-between; gap: 2px; }
+    .baseline-controls button { flex: 1; min-height: 35px; padding: 4px 2px; border: 0; background: transparent; color: rgba(255,255,255,.78); font: 11px/1.2 "Noto Serif SC", "Songti SC", serif; cursor: pointer; }
+    .baseline-controls button:active { color: white; transform: scale(.96); }
+    .stage[data-mode="baseline"] .story-copy { bottom: 72px; }
+    .stage[data-mode="baseline"] .gesture-help { display: none; }
+    .stage[data-mode="baseline"].new-beat .story-copy { animation: copy-settle 360ms ease both; }
+    .gesture-help { position: absolute; z-index: 7; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; transition: opacity .22s ease; }
+    .gesture-help span { padding: 8px 11px; border-radius: 999px; color: rgba(255,255,255,.92); background: rgba(5,8,12,.5); backdrop-filter: blur(10px); font-size: 10px; letter-spacing: .05em; }
+    .stage:not(.dragging):not(.swiped) .gesture-help { opacity: .68; }
+    .drag-halo { z-index: 5; pointer-events: none; opacity: 0; background: radial-gradient(ellipse at var(--halo-x,50%) var(--halo-y,50%), rgba(225,201,148,.35), transparent 58%); mix-blend-mode: screen; }
+    .direction-word { z-index: 6; display: grid; place-items: center; pointer-events: none; opacity: 0; color: white; font: 600 19px/1 "Noto Serif SC", "Songti SC", serif; letter-spacing: .16em; text-shadow: 0 1px 20px #000; }
+    .direction-word b { padding: 9px 12px; background: rgba(8,12,16,.22); backdrop-filter: blur(5px); font-weight: 600; }
+    .direction-word.left { right: auto; inset: 0 50% 0 0; }
+    .direction-word.right { left: 50%; inset: 0 0 0 50%; }
+    .direction-word.up { bottom: 58%; inset: 0 0 58%; }
+    .direction-word.down { top: 58%; inset: 58% 0 0; }
+    .stage.dragging .scene-current { transition: none !important; }
+    .stage.settling .scene-current { transition: transform 420ms cubic-bezier(.2,.82,.2,1), opacity 320ms ease !important; }
+    .stage.dragging[data-mode="tinder"] .scene-current { transform: translate3d(var(--tilt-x),var(--tilt-y),0) rotate(var(--angle)) scale(.985); }
+    .stage.dragging[data-mode="tinder"] .scene-under { transform: scale(var(--back-scale)) translateY(var(--back-lift)); opacity: var(--back-opacity); transition: transform 40ms linear, opacity 40ms linear; }
+    .stage.dragging[data-mode="tinder"] .direction-word.active { opacity: var(--feedback-alpha); }
+    .stage.dragging[data-mode="reels"] .scene-current { transform: translate3d(var(--move-x),var(--dy),0); }
+    .stage.dragging[data-mode="reels"] .scene-under { opacity: 1; }
+    .stage.dragging[data-mode="reels"][data-axis="y"][data-direction="up"] .scene-under { transform: translate3d(0,calc(100% + var(--dy)),0); }
+    .stage.dragging[data-mode="reels"][data-axis="y"][data-direction="down"] .scene-under { transform: translate3d(0,calc(-100% + var(--dy)),0); }
+    .stage.dragging[data-mode="reels"][data-axis="x"][data-direction="left"] .scene-under { transform: translate3d(calc(100% + var(--dx)),0,0); }
+    .stage.dragging[data-mode="reels"][data-axis="x"][data-direction="right"] .scene-under { transform: translate3d(calc(-100% + var(--dx)),0,0); }
+    .stage.dragging[data-mode="parallax"] .scene-current { transform: translate3d(var(--image-x),var(--image-y),0); }
+    .stage.dragging[data-mode="parallax"] .scene-current .art { transform: translate3d(var(--parallax-x),var(--parallax-y),0) scale(1.08); }
+    .stage.dragging[data-mode="parallax"] .story-copy { transform: translate3d(var(--copy-x),var(--copy-y),0); }
+    .stage.dragging[data-mode="parallax"] .direction-word.active { opacity: var(--feedback-alpha); }
+    .stage.dragging[data-mode="glow"] .scene-current { transform: scale(var(--glow-scale)); }
+    .stage.dragging[data-mode="glow"] .drag-halo { opacity: var(--feedback-alpha); }
+    .stage.dragging[data-mode="glow"] .direction-word.active { opacity: var(--feedback-alpha); }
+    .stage.swiped .scene-current { opacity: 0; }
+    .stage.swiped[data-mode="tinder"] .scene-current { transform: translate3d(var(--exit-x),var(--exit-y),0) rotate(var(--exit-angle)) scale(.96); }
+    .stage.swiped[data-mode="reels"] .scene-current { transform: translate3d(var(--exit-x),var(--exit-y),0); }
+    .stage.swiped[data-mode="parallax"] .scene-current { transform: translate3d(var(--exit-x),var(--exit-y),0); opacity: .12; }
+    .stage.swiped[data-mode="parallax"] .scene-current .art { transform: scale(1.12); }
+    .stage.swiped[data-mode="glow"] .scene-current { transform: translate3d(var(--exit-x),var(--exit-y),0) scale(1.06); }
+    .stage.swiped .scene-under { transform: scale(1) translateY(0); opacity: 1; transition: transform 420ms cubic-bezier(.2,.82,.2,1), opacity 350ms ease; }
+    .stage.swiped .gesture-help { opacity: 0; }
+    .stage.swiped .image-wash { opacity: 0; transition: opacity 240ms ease; }
+    .stage.settling .scene-current .art { transition: transform 480ms cubic-bezier(.2,.82,.2,1); }
+    .stage.new-beat .scene-current .story-copy { animation: copy-settle 480ms cubic-bezier(.18,.72,.26,1) both; }
+    @keyframes copy-settle { from { opacity: 0; transform: translate3d(0,12px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+    .control-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 11px; }
+    .hint { color: #858d97; font-size: 10px; line-height: 1.5; }
+    .reset { padding: 7px 0 7px 8px; border: 0; background: none; color: #c7cbd1; font-size: 10px; cursor: pointer; }
+    .reset:hover { color: white; }
+    .fit { min-height: 62px; margin: 10px 2px 0; color: #adb2ba; font-size: 11px; line-height: 1.7; }
+    .fit b { color: #e6d4aa; font-weight: 500; }
+    .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; margin-top: 28px; padding: 18px 0 0; border-top: 1px solid rgba(255,255,255,.08); }
+    .sources h2 { grid-column: 1 / -1; margin: 0; color: var(--gold); font-size: 12px; font-weight: 500; letter-spacing: .08em; }
+    .source { color: #9da4ad; font-size: 11px; line-height: 1.7; }
+    .source a { color: #d7d9dc; text-underline-offset: 3px; }
+    .source strong { color: #d7d9dc; font-weight: 500; }
+    .source small { display: block; margin-top: 3px; color: #7e8791; font-size: 10px; }
+    .disclaimer { grid-column: 1 / -1; margin: 4px 0 0; color: #777f89; font-size: 10px; line-height: 1.7; }
+    @media (max-width: 1250px) { .examples { grid-template-columns: repeat(3,minmax(0,1fr)); row-gap: 25px; } .example-head { min-height: 73px; } }
+    @media (max-width: 760px) {
+      .page { width: min(100% - 32px, 480px); padding: 24px 0 48px; }
+      header { display: block; margin-bottom: 20px; }
+      .status { margin-top: 12px; }
+      .principle { gap: 9px; font-size: 11px; }
+      .examples { grid-template-columns: 1fr; gap: 28px; }
+      .example-head { min-height: 0; padding-bottom: 10px; }
+      .stage-wrap { width: min(100%, 350px); }
+      .fit { min-height: 0; }
+      .sources { grid-template-columns: 1fr; gap: 10px; }
+      .sources h2, .disclaimer { grid-column: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+      .stage.settling .scene-current, .stage.settling .scene-under, .stage.swiped .scene-under, .stage.settling .scene-current .art, .stage.new-beat .scene-current .story-copy { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <p class="eyebrow">INFORMATION RAIN · MOBILE READING</p>
+        <h1>划动时，故事怎样跟着手走？</h1>
+        <p class="intro">这是给当前 9:16 阅读舞台准备的动效对比。拖动每个画面，再松手看看：内容是否跟手、方向是否看得懂、切到下一段是否舒服。横向划动表示选择分支；上划表示进入“上”分支；下划表示继续到下一部作品。</p>
+      </div>
+      <div class="status">交互样例 · 尚未选定 · 不代表主 Demo 已采用</div>
+    </header>
+    <div class="principle"><b>先看体验，再定规则</b><span>当前的箭头按钮只负责点击导航，不会解释“为什么往这个方向走”，而且和手指操作重复。下面包含保留按钮的基线，以及不靠固定箭头、由手势本身给出反馈的候选。</span></div>
+
+    <section class="examples" aria-label="手机划动动画对比">
+      <article class="example" data-mode="baseline">
+        <div class="example-head"><h2 class="example-title"><span class="number">01</span>现状：箭头按钮</h2><p>点击才换段；图片和文字不跟手。</p></div>
+        <div class="stage-wrap">
+          <div class="stage" data-mode="baseline">
+            <div class="scene-under"><div class="art" style="background-image:url('../images/abyss.jpg')"></div><div class="image-wash"></div></div>
+            <div class="scene-current"><div class="art" style="background-image:url('../images/apocalypse.jpg')"></div><div class="image-wash"></div><div class="topline"><span>信息雨</span><span class="readmark"><i></i><i></i><i></i></span></div><div class="story-copy"><p class="story-kicker">第 01 段 · 雨夜</p><h3>14楼的房间</h3><p>你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。</p><div class="choice-line"><span>听门后动静</span><span>沿走廊查看</span></div></div></div>
+            <div class="baseline-controls"><button type="button">← 回避</button><button type="button">↑ 追问</button><button type="button">靠近 →</button></div>
+          </div>
+          <div class="control-row"><span class="hint">当前范式：点选方向按钮</span><button class="reset" type="button">重置示例</button></div>
+        </div>
+        <p class="fit"><b>优点：</b>操作明确。<b>不足：</b>占住画面下方，读者要从故事跳到控件。</p>
+      </article>
+
+      <article class="example" data-mode="tinder">
+        <div class="example-head"><h2 class="example-title"><span class="number">02</span>倾斜跟手</h2><p>像 Tinder 拖牌；卡片随手偏转，底下的新画面抬起。</p></div>
+        <div class="stage-wrap">
+          <div class="stage" data-mode="tinder">
+            <div class="scene-under"><div class="art" style="background-image:url('../images/abyss.jpg')"></div><div class="image-wash"></div><div class="story-copy"><p class="story-kicker">下一段 · 地下</p><h3>门后有水声</h3><p>门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。</p></div></div>
+            <div class="scene-current"><div class="art" style="background-image:url('../images/apocalypse.jpg')"></div><div class="image-wash"></div><div class="topline"><span>信息雨</span><span class="readmark"><i></i><i></i><i></i></span></div><div class="story-copy"><p class="story-kicker">第 01 段 · 雨夜</p><h3>14楼的房间</h3><p>你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。</p></div></div>
+            <div class="direction-word left"><b>回避</b></div><div class="direction-word right"><b>靠近</b></div><div class="direction-word up"><b>追问</b></div><div class="direction-word down"><b>下一部</b></div><div class="gesture-help"><span>拖动时画面跟手</span></div>
+          </div>
+          <div class="control-row"><span class="hint">松手超过阈值才进入分支</span><button class="reset" type="button">重置示例</button></div>
+        </div>
+        <p class="fit"><b>优点：</b>手势有重量感。<b>风险：</b>大幅倾斜会把阅读画面做成“挑选卡片”。</p>
+      </article>
+
+      <article class="example" data-mode="reels">
+        <div class="example-head"><h2 class="example-title"><span class="number">03</span>整屏跟手</h2><p>像 Reels；当前整幅向手指方向移动，下一幅从边缘接上。</p></div>
+        <div class="stage-wrap">
+          <div class="stage" data-mode="reels">
+            <div class="scene-under"><div class="art" style="background-image:url('../images/abyss.jpg')"></div><div class="image-wash"></div><div class="story-copy"><p class="story-kicker">下一段 · 地下</p><h3>门后有水声</h3><p>门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。</p></div></div>
+            <div class="scene-current"><div class="art" style="background-image:url('../images/apocalypse.jpg')"></div><div class="image-wash"></div><div class="topline"><span>信息雨</span><span class="readmark"><i></i><i></i><i></i></span></div><div class="story-copy"><p class="story-kicker">第 01 段 · 雨夜</p><h3>14楼的房间</h3><p>你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。</p></div></div>
+            <div class="direction-word left"><b>回避</b></div><div class="direction-word right"><b>靠近</b></div><div class="direction-word up"><b>追问</b></div><div class="direction-word down"><b>下一部</b></div><div class="gesture-help"><span>整幅画面随手滑动</span></div>
+          </div>
+          <div class="control-row"><span class="hint">手势位移直接映射画面</span><button class="reset" type="button">重置示例</button></div>
+        </div>
+        <p class="fit"><b>优点：</b>符合短视频浏览习惯。<b>风险：</b>上下划同时承担分支和换作品，需明确边界。</p>
+      </article>
+
+      <article class="example" data-mode="parallax">
+        <div class="example-head"><h2 class="example-title"><span class="number">04</span>场景视差</h2><p>不转动整幅画面；背景、文字各走不同距离，像镜头穿过故事。</p></div>
+        <div class="stage-wrap">
+          <div class="stage" data-mode="parallax">
+            <div class="scene-under"><div class="art" style="background-image:url('../images/abyss.jpg')"></div><div class="image-wash"></div><div class="story-copy"><p class="story-kicker">下一段 · 地下</p><h3>门后有水声</h3><p>门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。</p></div></div>
+            <div class="scene-current"><div class="art" style="background-image:url('../images/apocalypse.jpg')"></div><div class="image-wash"></div><div class="topline"><span>信息雨</span><span class="readmark"><i></i><i></i><i></i></span></div><div class="story-copy"><p class="story-kicker">第 01 段 · 雨夜</p><h3>14楼的房间</h3><p>你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。</p></div></div>
+            <div class="direction-word left"><b>回避</b></div><div class="direction-word right"><b>靠近</b></div><div class="direction-word up"><b>追问</b></div><div class="direction-word down"><b>下一部</b></div><div class="gesture-help"><span>文字和场景分层移动</span></div>
+          </div>
+          <div class="control-row"><span class="hint">松手后文字轻微落位</span><button class="reset" type="button">重置示例</button></div>
+        </div>
+        <p class="fit"><b>优点：</b>有空间感，文字仍稳定可读。<b>风险：</b>层次幅度要轻，避免眩晕。</p>
+      </article>
+
+      <article class="example" data-mode="glow">
+        <div class="example-head"><h2 class="example-title"><span class="number">05</span>方向光提示</h2><p>画面几乎不离位；光感和方向词随手指增强，松手再切换。</p></div>
+        <div class="stage-wrap">
+          <div class="stage" data-mode="glow">
+            <div class="scene-under"><div class="art" style="background-image:url('../images/abyss.jpg')"></div><div class="image-wash"></div><div class="story-copy"><p class="story-kicker">下一段 · 地下</p><h3>门后有水声</h3><p>门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。</p></div></div>
+            <div class="scene-current"><div class="art" style="background-image:url('../images/apocalypse.jpg')"></div><div class="image-wash"></div><div class="topline"><span>信息雨</span><span class="readmark"><i></i><i></i><i></i></span></div><div class="story-copy"><p class="story-kicker">第 01 段 · 雨夜</p><h3>14楼的房间</h3><p>你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。</p></div></div>
+            <div class="drag-halo"></div><div class="direction-word left"><b>回避</b></div><div class="direction-word right"><b>靠近</b></div><div class="direction-word up"><b>追问</b></div><div class="direction-word down"><b>下一部</b></div><div class="gesture-help"><span>划动时看方向提示</span></div>
+          </div>
+          <div class="control-row"><span class="hint">不需要常驻箭头按钮</span><button class="reset" type="button">重置示例</button></div>
+        </div>
+        <p class="fit"><b>优点：</b>不打断阅读，也能解释动作结果。<b>风险：</b>需控制提示强度和出现时机。</p>
+      </article>
+    </section>
+
+    <section class="sources" aria-label="动效实现参考">
+      <h2>实现参考｜借鉴原理，不照搬产品外观</h2>
+      <div class="source"><strong>Swiper Cards / Creative Effect</strong><br><a href="https://swiperjs.com/swiper-api" target="_blank" rel="noreferrer">Swiper 官方 API</a>：同一套触摸引擎已有卡片堆叠、创意转场参数。适合继续复用现有库。<small>使用范围：封面滑动、下一画面跟随；不要让库接管正文滚动。</small></div>
+      <div class="source"><strong>Tinder Card 的阈值与反馈</strong><br><a href="https://github.com/3DJakob/react-tinder-card" target="_blank" rel="noreferrer">react-tinder-card · MIT</a>：拖动角度、位置/速度阈值、松手回弹，以及满足阈值时的方向提示。<small>代码面向 React；当前单文件网页只借鉴交互规则，不引入 React。</small></div>
+      <div class="source"><strong>Motion 的拖动手感</strong><br><a href="https://motion.dev/docs/react-drag" target="_blank" rel="noreferrer">Motion drag 文档</a>：方向锁定、弹性边界、惯性、按住时的抬升反馈。<small>实现建议：优先只动画 transform/opacity，避免每帧重排。</small></div>
+      <div class="source"><strong>GSAP Draggable 的惯性与边界</strong><br><a href="https://gsap.com/docs/v3/Plugins/Draggable/" target="_blank" rel="noreferrer">GSAP 官方文档</a>：触摸拖动、bounds、抛掷惯性。<small>适合复杂时间轴；当前故事阅读交互未必需要再增加一套动画依赖。</small></div>
+      <p class="disclaimer">样例用现有作品封面和阅读文字制作，纯 HTML/CSS/JavaScript，可用鼠标或触屏拖动。它们是供讨论的动效草案，不是新的产品决定，也不改变主 Demo 当前实现。动效幅度、阈值和方向语义需在方案选定后再收敛。</p>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const scenes = [
+        { image: "../images/apocalypse.jpg", next: "../images/abyss.jpg", title: "14楼的房间", kicker: "第 01 段 · 雨夜", body: "你只按了八楼，电梯却停在贴着新编号的十四层。走廊尽头那扇房里，有昨天偷看你的照片。", nextTitle: "门后有水声", nextKicker: "下一段 · 地下", nextBody: "门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。" },
+        { image: "../images/abyss.jpg", next: "../images/building.jpg", title: "门后有水声", kicker: "第 02 段 · 地下", body: "门缝里涌出的冷气带着河水的腥味。你听见有人在楼下敲击扶手。", nextTitle: "灯还亮着", nextKicker: "下一段 · 走廊", nextBody: "远处有盏灯忽明忽暗。电梯显示屏上的数字，正慢慢从十四往下跳。" },
+        { image: "../images/building.jpg", next: "../images/campus.jpg", title: "灯还亮着", kicker: "第 03 段 · 走廊", body: "远处有盏灯忽明忽暗。电梯显示屏上的数字，正慢慢从十四往下跳。", nextTitle: "有人在等", nextKicker: "下一段 · 楼下", nextBody: "大堂门外站着一个湿透的人。他抬起头，像是已经认识你很久。" },
+        { image: "../images/campus.jpg", next: "../images/apocalypse.jpg", title: "有人在等", kicker: "第 04 段 · 楼下", body: "大堂门外站着一个湿透的人。他抬起头，像是已经认识你很久。", nextTitle: "14楼的房间", nextKicker: "回到起点", nextBody: "电梯门缓缓合上。楼层数字停在十四。" }
+      ];
+      const getParts = stage => ({ current: stage.querySelector('.scene-current'), under: stage.querySelector('.scene-under'), currentArt: stage.querySelector('.scene-current .art'), underArt: stage.querySelector('.scene-under .art'), currentCopy: stage.querySelector('.scene-current .story-copy'), underCopy: stage.querySelector('.scene-under .story-copy') });
+      const updateScene = (layer, scene, isCurrent) => {
+        layer.querySelector('.art').style.backgroundImage = `url('${isCurrent ? scene.image : scene.next}')`;
+        const copy = layer.querySelector('.story-copy');
+        copy.querySelector('.story-kicker').textContent = isCurrent ? scene.kicker : scene.nextKicker;
+        copy.querySelector('h3').textContent = isCurrent ? scene.title : scene.nextTitle;
+        copy.querySelector('p:not(.story-kicker)').textContent = isCurrent ? scene.body : scene.nextBody;
+      };
+      document.querySelectorAll('.example').forEach(example => {
+        const stage = example.querySelector('.stage');
+        const mode = stage.dataset.mode;
+        const parts = getParts(stage);
+        let sceneIndex = 0, pointer = null, startX = 0, startY = 0, lastX = 0, lastY = 0, lastTime = 0, velocityX = 0, velocityY = 0, busy = false;
+        const resetStyles = () => {
+          stage.classList.remove('dragging','swiped','settling','new-beat');
+          stage.style.setProperty('--dx','0px'); stage.style.setProperty('--dy','0px'); stage.style.setProperty('--move-x','0px'); stage.style.setProperty('--move-y','0px'); stage.style.setProperty('--tilt-x','0px'); stage.style.setProperty('--tilt-y','0px'); stage.style.setProperty('--image-x','0px'); stage.style.setProperty('--image-y','0px'); stage.style.setProperty('--parallax-x','0px'); stage.style.setProperty('--parallax-y','0px'); stage.style.setProperty('--copy-x','0px'); stage.style.setProperty('--copy-y','0px'); stage.style.setProperty('--angle','0deg'); stage.style.setProperty('--progress','0'); stage.style.setProperty('--back-scale','.91'); stage.style.setProperty('--back-lift','13px'); stage.style.setProperty('--back-opacity','.82'); stage.style.setProperty('--glow-scale','1'); stage.style.setProperty('--feedback-alpha','0');
+          stage.style.removeProperty('--exit-x'); stage.style.removeProperty('--exit-y'); stage.style.removeProperty('--exit-angle');
+          stage.querySelectorAll('.direction-word').forEach(word => word.classList.remove('active'));
+        };
+        const returnToRest = () => {
+          stage.classList.remove('dragging','swiped','new-beat');
+          stage.classList.add('settling');
+          stage.style.setProperty('--dx','0px'); stage.style.setProperty('--dy','0px'); stage.style.setProperty('--move-x','0px'); stage.style.setProperty('--move-y','0px'); stage.style.setProperty('--tilt-x','0px'); stage.style.setProperty('--tilt-y','0px'); stage.style.setProperty('--image-x','0px'); stage.style.setProperty('--image-y','0px'); stage.style.setProperty('--parallax-x','0px'); stage.style.setProperty('--parallax-y','0px'); stage.style.setProperty('--copy-x','0px'); stage.style.setProperty('--copy-y','0px'); stage.style.setProperty('--angle','0deg'); stage.style.setProperty('--progress','0'); stage.style.setProperty('--back-scale','.91'); stage.style.setProperty('--back-lift','13px'); stage.style.setProperty('--back-opacity','.82'); stage.style.setProperty('--glow-scale','1'); stage.style.setProperty('--feedback-alpha','0');
+          stage.querySelectorAll('.direction-word').forEach(word => word.classList.remove('active'));
+          window.setTimeout(() => stage.classList.remove('settling'), 440);
+        };
+        const setBeat = (layer, scene, current) => updateScene(layer, scene, current);
+        const advance = direction => {
+          if (busy) return;
+          busy = true;
+          const signX = direction.x === 0 ? 0 : Math.sign(direction.x);
+          const signY = direction.y === 0 ? 0 : Math.sign(direction.y);
+          const distance = Math.max(stage.clientWidth, stage.clientHeight) * 1.25;
+          stage.style.setProperty('--exit-x', `${signX * distance}px`);
+          stage.style.setProperty('--exit-y', `${signY * distance}px`);
+          stage.style.setProperty('--exit-angle', `${mode === 'tinder' ? signX * 11 : signX * 2}deg`);
+          stage.classList.remove('dragging'); stage.classList.add('swiped');
+          window.setTimeout(() => {
+            sceneIndex = (sceneIndex + 1) % scenes.length;
+            const nextScene = scenes[sceneIndex];
+            setBeat(parts.current, nextScene, true);
+            setBeat(parts.under, nextScene, false);
+            resetStyles();
+            stage.classList.add('settling','new-beat');
+            window.setTimeout(() => { stage.classList.remove('settling','new-beat'); busy = false; }, 500);
+          }, 300);
+        };
+        stage.addEventListener('pointerdown', event => {
+          if (busy || mode === 'baseline' || event.button > 0) return;
+          pointer = event.pointerId; startX = lastX = event.clientX; startY = lastY = event.clientY; lastTime = performance.now(); velocityX = velocityY = 0;
+          stage.setPointerCapture(pointer); stage.classList.add('dragging');
+        });
+        stage.addEventListener('pointermove', event => {
+          if (pointer !== event.pointerId) return;
+          const now = performance.now(), elapsed = Math.max(1, now - lastTime);
+          const dx = event.clientX - startX, dy = event.clientY - startY;
+          stage.dataset.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+          stage.dataset.direction = stage.dataset.axis === 'x' ? (dx < 0 ? 'left' : 'right') : (dy < 0 ? 'up' : 'down');
+          velocityX = (event.clientX - lastX) / elapsed; velocityY = (event.clientY - lastY) / elapsed;
+          lastX = event.clientX; lastY = event.clientY; lastTime = now;
+          const progress = Math.min(1, Math.max(Math.abs(dx) / (stage.clientWidth * .32), Math.abs(dy) / (stage.clientHeight * .22)));
+          const angle = Math.max(-8, Math.min(8, dx / stage.clientWidth * 17));
+          stage.style.setProperty('--dx', `${dx}px`); stage.style.setProperty('--dy', `${dy}px`); stage.style.setProperty('--angle', `${angle}deg`); stage.style.setProperty('--progress', progress.toFixed(3));
+          stage.style.setProperty('--tilt-x', `${dx * .82}px`); stage.style.setProperty('--tilt-y', `${dy * .24}px`); stage.style.setProperty('--move-x', `${dx * .45}px`);
+          stage.style.setProperty('--image-x', `${dx * .04}px`); stage.style.setProperty('--image-y', `${dy * .04}px`); stage.style.setProperty('--parallax-x', `${dx * -.13}px`); stage.style.setProperty('--parallax-y', `${dy * -.13}px`); stage.style.setProperty('--copy-x', `${dx * .56}px`); stage.style.setProperty('--copy-y', `${dy * .12}px`);
+          stage.style.setProperty('--back-scale', `${(.91 + progress * .09).toFixed(3)}`); stage.style.setProperty('--back-lift', `${(13 * (1 - progress)).toFixed(1)}px`); stage.style.setProperty('--back-opacity', `${(.82 + progress * .18).toFixed(3)}`); stage.style.setProperty('--glow-scale', `${(1 + progress * .025).toFixed(3)}`);
+          const feedback = Math.min(mode === 'tinder' ? .92 : mode === 'parallax' ? .84 : .96, progress * (mode === 'tinder' ? 1.3 : mode === 'parallax' ? 1.1 : 1.5));
+          stage.style.setProperty('--feedback-alpha', feedback.toFixed(3));
+          stage.style.setProperty('--halo-x', `${event.clientX - stage.getBoundingClientRect().left}px`); stage.style.setProperty('--halo-y', `${event.clientY - stage.getBoundingClientRect().top}px`);
+          stage.querySelectorAll('.direction-word').forEach(word => word.classList.toggle('active', word.classList.contains(dx < 0 ? 'left' : 'right') && Math.abs(dx) > Math.abs(dy) || word.classList.contains(dy < 0 ? 'up' : 'down') && Math.abs(dy) >= Math.abs(dx)));
+        });
+        const finish = event => {
+          if (pointer !== event.pointerId) return;
+          pointer = null;
+          const dx = event.clientX - startX, dy = event.clientY - startY;
+          stage.dataset.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+          stage.dataset.direction = stage.dataset.axis === 'x' ? (dx < 0 ? 'left' : 'right') : (dy < 0 ? 'up' : 'down');
+          const enough = Math.max(Math.abs(dx) / stage.clientWidth, Math.abs(dy) / stage.clientHeight) > .19 || Math.max(Math.abs(velocityX),Math.abs(velocityY)) > .72;
+          if (enough) advance(Math.abs(dx) > Math.abs(dy) ? { x: dx || velocityX, y: 0 } : { x: 0, y: dy || velocityY });
+          else returnToRest();
+        };
+        stage.addEventListener('pointerup', finish);
+        stage.addEventListener('pointercancel', event => { if (pointer === event.pointerId) { pointer = null; returnToRest(); } });
+        example.querySelectorAll('.baseline-controls button').forEach(button => button.addEventListener('click', () => {
+          if (busy) return;
+          sceneIndex = (sceneIndex + 1) % scenes.length;
+          setBeat(parts.current, scenes[sceneIndex], true);
+          stage.classList.remove('new-beat'); void stage.offsetWidth; stage.classList.add('new-beat');
+          window.setTimeout(() => stage.classList.remove('new-beat'), 380);
+        }));
+        example.querySelector('.reset').addEventListener('click', () => { if (busy) return; sceneIndex = 0; setBeat(parts.current, scenes[0], true); setBeat(parts.under, scenes[0], false); resetStyles(); });
+        setBeat(parts.current, scenes[sceneIndex], true); setBeat(parts.under, scenes[sceneIndex], false);
+      });
+    })();
+  </script>
+</body>
+</html>

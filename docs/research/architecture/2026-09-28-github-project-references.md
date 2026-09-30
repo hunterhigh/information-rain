@@ -17,6 +17,19 @@
 
 ## 本轮采用方向
 
+### 2026-09-30：阅读态手势反馈候选
+
+阅读态下一步需要讨论的不只是能否识别滑动，还包括“拖动时画面怎么回应、松手后如何确认已进入新段”。参考实现显示有四种值得比较的反馈：
+
+| 参考 | 可借用的交互细节 | 对信息雨的适用边界 |
+|---|---|---|
+| [Swiper Cards / Creative Effect](https://swiperjs.com/swiper-api) | 跟手位移、卡片堆叠、可调的前后层变换；目前项目已接入 Swiper。 | 可借鉴封面间的位移与落位；正文有可滚动文字和多方向分支，不能把所有手势都交给同一条滑轨。 |
+| [react-tinder-card](https://github.com/3DJakob/react-tinder-card) | MIT 许可；位置/速度阈值、未达阈值时回弹、阈值满足时的方向状态提示。 | 上游面向 React；当前是单文件 HTML，因此借鉴手势反馈模型，不为样例迁移框架。 |
+| [Motion drag](https://motion.dev/docs/react-drag) | 方向锁定、弹性边界、惯性与拖动中视觉状态。 | 有价值的是手势反馈原则；当前项目可先用现有 Swiper 和 CSS transforms，不必额外加 React 依赖。 |
+| [GSAP Draggable](https://gsap.com/docs/v3/Plugins/Draggable/) | 触摸/鼠标统一拖动、边界、速度跟随和抛掷惯性。 | 适合复杂时间轴或更复杂的空间动画；目前可能超出一个阅读舞台的需要。 |
+
+当前交互比较页 [`mobile-swipe-motion-comparison.html`](../../../products/distribution/reader-web/design/mobile-swipe-motion-comparison.html) 将这些模式翻译为当前产品的五个可操作样例：箭头基线、倾斜跟手、整屏跟手、场景视差、方向光提示。它们是讨论材料，不是已批准的产品设计。判断上优先保留正文可读性和分支方向反馈；最终选择前不改主 Demo 的移动端交互。
+
 ### 2026-09-30：复用滑动引擎的边界复核
 
 当前手机交互直接复用已集成的 Swiper v14.2.0，没有增加第二套滑动依赖。Swiper 负责封面之间的跟手竖向切换；阅读正文仍由原有页面状态和触摸事件负责，因为正文既要保留自然滚动，也要把横向/边缘竖向动作映射为剧情分支或作品切换。

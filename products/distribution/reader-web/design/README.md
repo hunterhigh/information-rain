@@ -29,3 +29,7 @@
 ## 正文过渡动画档案
 
 `text-transition-comparison.html` 是动画方案档案。主页面当前采用“轻微落位”；“原位叠化”和“柔焦叠化”留作后续备选，“逐行显现”保留为历史探索。方案决定和实施边界见[决定 0010](../../../../docs/project/decisions/0010-reading-interaction-refinement.md)。
+
+## 手机划动与场景转场
+
+`mobile-swipe-motion-comparison.html` 并列展示当前箭头点击基线、Tinder 式倾斜跟手、Reels 式整屏移动、场景视差和方向光提示。样例沿用现有 9:16 阅读画面，可直接拖动。它是供项目所有者选择的设计草案，不代表任一候选已被采纳；实现参考和适用边界见[开源项目参考](../../../../docs/research/architecture/2026-09-28-github-project-references.md)。
