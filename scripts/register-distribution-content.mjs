@@ -55,6 +55,10 @@ function hashableBytes(path) {
   return bytes;
 }
 
+function readGeneratedText(path) {
+  return readFileSync(path, 'utf8').replace(/\r\n/g, '\n');
+}
+
 function normalizedRelative(from, to) {
   return relative(from, to).split(sep).join('/');
 }
@@ -296,10 +300,10 @@ if (checkOnly) {
   assertUnique(packages);
   const order = readDisplayOrder(packages);
   const expected = registryOutputs(inDisplayOrder(packages, order));
-  if (!existsSync(registryPath) || readFileSync(registryPath, 'utf8') !== expected.registryJson) {
+  if (!existsSync(registryPath) || readGeneratedText(registryPath) !== expected.registryJson) {
     fail('registry.json 与内容包不一致，请重新运行注册器');
   }
-  if (!existsSync(generatedPath) || readFileSync(generatedPath, 'utf8') !== expected.generatedJs) {
+  if (!existsSync(generatedPath) || readGeneratedText(generatedPath) !== expected.generatedJs) {
     fail('registry.generated.js 与内容包不一致，请重新运行注册器');
   }
   console.log(`内容注册表通过：${packages.length} 部作品`);
