@@ -32,6 +32,16 @@
 - 对应仓库提交：`c892929`
 - HTTP 检查：返回 200；响应仍包含 `X-Robots-Tag: noindex, nofollow, noarchive`。
 
+### 2026-09-30 手机划动方案比较页
+
+- 统一访问入口：[Cloudflare Pages 主域名上的手机动效比较页](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)
+- 本次固定部署地址：[https://93525925.information-rain-preview.pages.dev/](https://93525925.information-rain-preview.pages.dev/)
+- 部署 ID：`93525925-6988-4f78-9db7-29d6aa5e41eb`
+- 环境/分支：Production / `main`
+- 对应仓库提交：`4ae46d2`
+- HTTP 检查：主域名页面返回 200；仍带 `noindex, nofollow, noarchive`。
+- 说明：手机和桌面访问的是同一个 Pages 项目与静态 HTML。带哈希的部署域名固定指向某次部署快照；日常访问应使用 `information-rain-preview.pages.dev` 主域名。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。
