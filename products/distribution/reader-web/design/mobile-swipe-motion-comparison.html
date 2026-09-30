@@ -279,19 +279,19 @@
             window.setTimeout(() => { stage.classList.remove('settling','new-beat'); busy = false; }, 500);
           }, 300);
         };
-        stage.addEventListener('pointerdown', event => {
-          if (busy || mode === 'baseline' || event.button > 0) return;
-          pointer = event.pointerId; startX = lastX = event.clientX; startY = lastY = event.clientY; lastTime = performance.now(); velocityX = velocityY = 0;
-          stage.setPointerCapture(pointer); stage.classList.add('dragging');
-        });
-        stage.addEventListener('pointermove', event => {
-          if (pointer !== event.pointerId) return;
+        const beginDrag = (id, x, y, capture = false) => {
+          if (busy || mode === 'baseline') return;
+          pointer = id; startX = lastX = x; startY = lastY = y; lastTime = performance.now(); velocityX = velocityY = 0;
+          if (capture) { try { stage.setPointerCapture(id); } catch {} }
+          stage.classList.add('dragging');
+        };
+        const moveDrag = (x, y) => {
           const now = performance.now(), elapsed = Math.max(1, now - lastTime);
-          const dx = event.clientX - startX, dy = event.clientY - startY;
+          const dx = x - startX, dy = y - startY;
           stage.dataset.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
           stage.dataset.direction = stage.dataset.axis === 'x' ? (dx < 0 ? 'left' : 'right') : (dy < 0 ? 'up' : 'down');
-          velocityX = (event.clientX - lastX) / elapsed; velocityY = (event.clientY - lastY) / elapsed;
-          lastX = event.clientX; lastY = event.clientY; lastTime = now;
+          velocityX = (x - lastX) / elapsed; velocityY = (y - lastY) / elapsed;
+          lastX = x; lastY = y; lastTime = now;
           const progress = Math.min(1, Math.max(Math.abs(dx) / (stage.clientWidth * .32), Math.abs(dy) / (stage.clientHeight * .22)));
           const angle = Math.max(-8, Math.min(8, dx / stage.clientWidth * 17));
           stage.style.setProperty('--dx', `${dx}px`); stage.style.setProperty('--dy', `${dy}px`); stage.style.setProperty('--angle', `${angle}deg`); stage.style.setProperty('--progress', progress.toFixed(3));
@@ -300,21 +300,37 @@
           stage.style.setProperty('--back-scale', `${(.91 + progress * .09).toFixed(3)}`); stage.style.setProperty('--back-lift', `${(13 * (1 - progress)).toFixed(1)}px`); stage.style.setProperty('--back-opacity', `${(.82 + progress * .18).toFixed(3)}`); stage.style.setProperty('--glow-scale', `${(1 + progress * .025).toFixed(3)}`);
           const feedback = Math.min(mode === 'tinder' ? .92 : mode === 'parallax' ? .84 : .96, progress * (mode === 'tinder' ? 1.3 : mode === 'parallax' ? 1.1 : 1.5));
           stage.style.setProperty('--feedback-alpha', feedback.toFixed(3));
-          stage.style.setProperty('--halo-x', `${event.clientX - stage.getBoundingClientRect().left}px`); stage.style.setProperty('--halo-y', `${event.clientY - stage.getBoundingClientRect().top}px`);
+          stage.style.setProperty('--halo-x', `${x - stage.getBoundingClientRect().left}px`); stage.style.setProperty('--halo-y', `${y - stage.getBoundingClientRect().top}px`);
           stage.querySelectorAll('.direction-word').forEach(word => word.classList.toggle('active', word.classList.contains(dx < 0 ? 'left' : 'right') && Math.abs(dx) > Math.abs(dy) || word.classList.contains(dy < 0 ? 'up' : 'down') && Math.abs(dy) >= Math.abs(dx)));
-        });
-        const finish = event => {
-          if (pointer !== event.pointerId) return;
+        };
+        const finishDrag = (x, y) => {
+          if (pointer === null) return;
           pointer = null;
-          const dx = event.clientX - startX, dy = event.clientY - startY;
+          const dx = x - startX, dy = y - startY;
           stage.dataset.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
           stage.dataset.direction = stage.dataset.axis === 'x' ? (dx < 0 ? 'left' : 'right') : (dy < 0 ? 'up' : 'down');
           const enough = Math.max(Math.abs(dx) / stage.clientWidth, Math.abs(dy) / stage.clientHeight) > .19 || Math.max(Math.abs(velocityX),Math.abs(velocityY)) > .72;
           if (enough) advance(Math.abs(dx) > Math.abs(dy) ? { x: dx || velocityX, y: 0 } : { x: 0, y: dy || velocityY });
           else returnToRest();
         };
-        stage.addEventListener('pointerup', finish);
+        stage.addEventListener('pointerdown', event => { if (event.button <= 0) beginDrag(event.pointerId, event.clientX, event.clientY, true); });
+        stage.addEventListener('pointermove', event => { if (pointer === event.pointerId) moveDrag(event.clientX, event.clientY); });
+        stage.addEventListener('pointerup', event => { if (pointer === event.pointerId) finishDrag(event.clientX, event.clientY); });
         stage.addEventListener('pointercancel', event => { if (pointer === event.pointerId) { pointer = null; returnToRest(); } });
+        stage.addEventListener('touchstart', event => {
+          if (event.touches.length !== 1 || pointer !== null) return;
+          const touch = event.touches[0]; beginDrag('touch', touch.clientX, touch.clientY);
+        }, { passive: true });
+        stage.addEventListener('touchmove', event => {
+          if (pointer !== 'touch') return;
+          if (event.touches.length !== 1) { pointer = null; returnToRest(); return; }
+          event.preventDefault(); const touch = event.touches[0]; moveDrag(touch.clientX, touch.clientY);
+        }, { passive: false });
+        stage.addEventListener('touchend', event => {
+          if (pointer !== 'touch' || event.changedTouches.length !== 1) return;
+          const touch = event.changedTouches[0]; finishDrag(touch.clientX, touch.clientY);
+        }, { passive: true });
+        stage.addEventListener('touchcancel', () => { if (pointer === 'touch') { pointer = null; returnToRest(); } }, { passive: true });
         example.querySelectorAll('.baseline-controls button').forEach(button => button.addEventListener('click', () => {
           if (busy) return;
           sceneIndex = (sceneIndex + 1) % scenes.length;
