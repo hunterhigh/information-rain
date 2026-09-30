@@ -20,6 +20,13 @@
 4. [分发产品实施路线图](docs/products/distribution/roadmap.md)
 5. [文档、归档与版本工作规则](docs/project/documentation-workflow.md)
 
+## 市场与产品形态研究（候选判断）
+
+- [产品形态、创作者动机与工具/分发关系](docs/research/2026-09-29-product-form-and-creator-strategy.md)：整理短交互故事与泛内容的边界、创作者上传的交换关系、工具 Agent 候选定位、分发和运营影响。
+- [英语市场互动短故事竞品证据](docs/research/2026-09-29-interactive-story-competitive-landscape.md)：按上架产品、可玩网页与预发布宣示分层，比较 AI、视频、竖屏、交互、商业化及证据缺口。
+
+两份研究用于后续产品讨论，不修改当前唯一实施主线，也不表示其中候选功能已获批准。
+
 ## 第一阶段
 
 - 建立本地 Git 仓库
