@@ -20,7 +20,7 @@
 - **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。Cloudflare Pages 项目 `information-rain-preview` 主地址为[预览页](https://information-rain-preview.pages.dev/)，当前部署对应 `c892929`，生产环境分支为 `main`。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制，详情见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
-- **新增讨论材料**：手机划动与动效候选集中在[可交互比较页](../../products/distribution/reader-web/design/mobile-swipe-motion-comparison.html)；箭头、Tinder 式跟手、整屏移动、视差和方向光都尚未选定。完成选择前不据此改动主 Demo。
+- **新增讨论材料**：手机划动与动效候选集中在[可交互比较页](../../products/distribution/reader-web/design/mobile-swipe-motion-comparison.html)，并可从 Cloudflare Pages 同一主域名访问 `/design/mobile-swipe-motion-comparison.html`；箭头、Tinder 式跟手、整屏移动、视差和方向光都尚未选定。完成选择前不据此改动主 Demo。
 
 ## 权威材料阅读顺序
 

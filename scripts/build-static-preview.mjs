@@ -21,6 +21,7 @@ await cp(path.join(source, 'index.html'), path.join(output, 'index.html'))
 await cp(path.join(source, 'content-pool/registry.generated.js'), path.join(output, 'content-pool/registry.generated.js'))
 await cp(path.join(source, 'images'), path.join(output, 'images'), { recursive: true })
 await cp(path.join(source, 'design/home-tab-ambient.jpg'), path.join(output, 'design/home-tab-ambient.jpg'))
+await cp(path.join(source, 'design/mobile-swipe-motion-comparison.html'), path.join(output, 'design/mobile-swipe-motion-comparison.html'))
 
 const packsRoot = path.join(source, 'content-pool/packs')
 for (const entry of await readdir(packsRoot, { withFileTypes: true })) {
