@@ -1,0 +1,46 @@
+:: battle interruptions[nobr]
+/* Special scenarios that interrupt the normal display, such as the Crystal Gems defending Steven. By default, this has margins both above and below to make it its own block (see story stylesheet). You may want to adjust this if you plan to make an interruption at a different point. */
+
+/* You may wish to make separate passages for each of these, but the example will be stored here. */
+
+<<if $scenario == "su1" and $B.event == false and $B.turn == "player" and ($target instanceof Enemy)>>
+
+/* When vs. the Crystal Gems, the Gems will take hits for Steven if you try to attack him. */
+
+<<if target().name == "Steven">>
+	<<if $enemies[1].dead is false>>
+	/* Garnet is the first to defend him */
+<<timed 0s>>
+<<replace "#interrupt">>
+@@.interruption;
+$enemies[1].name's head snaps towards you and she jumps in the way of your attack, leaving Steven unharmed.@@
+<</replace>>
+<</timed>>
+		<<set _t to 1>>
+	<<elseif $enemies[0].dead is false>>
+   	/* If Garnet is poofed, Pearl plays defense */
+<<timed 0s>>
+<<replace "#interrupt">>
+@@.interruption;
+$enemies[0].name screams, "STEVEN!!!" and throws herself into your attack without hesitation.@@
+<</replace>>
+<</timed>>
+   		<<set _t to 0>>
+  	<<elseif $enemies[2].dead is false>>
+   	/* If Garnet and Pearl are poofed, Amethyst plays defense */
+<<timed 0s>>
+<<replace "#interrupt">>
+@@.interruption;
+$enemies[2].name yells, "Pick on someone your own size!" and throws herself in front of Steven.@@
+<</replace>>
+<</timed>>
+   		<<set _t to 2>>
+  	<<else>>
+   		<<set _t to 3>> /* this is Steven's index; he is vulnerable */
+  	<</if>>
+  	<<set $target to $enemies[_t]>>
+<<else>>
+	<<set $bully to false>> /* If you didn't target Steven, lose out on Bully achievement */
+<</if>>
+
+<</if>>

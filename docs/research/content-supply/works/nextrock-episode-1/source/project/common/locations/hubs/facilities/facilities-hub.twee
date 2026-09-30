@@ -1,0 +1,15 @@
+:: Facilities Hub [location hub]
+<<location>>
+From exercise to elimination and cleaning to chow, the facilities hub has you covered.
+<</location>>
+<<nav>>
+    <<section Exits>>
+        <<action "Central Hub">>
+        <<action "Gymnasium">>
+        <<action "Natatorium">>
+        <<action "Shower Pod">>Shower
+        <<action "Toilet Pod">>Toilet
+        <<action "Laundry Pod">>Laundry
+        <<action "Mess Pod">>Mess
+    <</section>>
+<</nav>>

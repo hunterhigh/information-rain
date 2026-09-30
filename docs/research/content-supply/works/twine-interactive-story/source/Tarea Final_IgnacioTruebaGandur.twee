@@ -1,0 +1,723 @@
+:: StoryTitle
+Tarea Final
+
+
+:: StoryData
+{
+  "ifid": "1b792439-b3a0-48af-a898-de164ff1670f",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "CAMINO HACIA EL CAMPAMENTO",
+  "tag-colors": {
+    "headre": "blue",
+    "header": "blue",
+    "footer": "purple"
+  },
+  "zoom": 1
+}
+
+
+:: CAMINO HACIA EL CAMPAMENTO {"position":"800,25","size":"100,100"}
+<div class="Titulo_Pasaje">CAMINO HACIA EL CAMPAMENTO</div>
+<p>"Noreste de la península ibérica. El GPS pierde la señal justo cuando te adentras en el corazón del sistema montañoso. Estás rodeado de una inmensidad verde que será tu hogar y tu "Examen" durante los próximos dos días. Aquí, las reglas de la ciudad no sirven; solo importa tu capacidad de adaptación y tu destreza bajo presión. Cada elección cuenta. Tu aventura de exploración y supervivencia en los Pirineos comienza justo antes de llegar al campamento."</p>\
+
+<div style="text-align: center; margin:0;"> <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhlMWt2cWs5NGcxampxeTdseXJrOWlzMDNnNmlncXl0OXdwdzhqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uawAiazaBFuIYJ3mME/giphy.gif" width="300"></div>\
+
+<p style="margin-bottom: 2px;">Presiona en "Play" si quieres continuar con tu recorrido hacia el campamento, o "Abortar" para bajar del autobús.</p>\
+|interaccion>[<span class="enlace-boton">[[Play|REGISTRO EN EL LOBBY]]</span><span class="enlace-boton boton-secundario">(link: "Abortar")[(replace: ?interaccion)[<div style="text-align: center; width: 100%;"><p style="color: var(--naranja-alerta); font-weight: bold; margin-bottom: 20px;">"Muy tarde, ya estás en el bus, ponte a prueba y veamos de qué eres capaz".</p><span class="enlace-boton" style="margin: 0 auto;">[[Play|REGISTRO EN EL LOBBY]]</span></div>]]</span>]
+
+
+
+:: DESAFÍO 1 {"position":"500,400","size":"100,100"}
+<div class="Titulo_Pasaje">DESAFÍO #1 : La Niebla de los Pirineos</div>\
+            <p>Son las 3 pm Debes llegar al refugio antes de que baje la temperatura y sabes que tienes que seguir el Rumbo hacia el Norte.  </p>\
+
+{(if: $vidas <= 0) [(goto: "Final 5")]} \
+
+      ##### SELECCIONA LA RESPUESTA QUE CONSIDERES CORRECTA: <br><br>
+{
+    |cuestionario>[
+    (link-reveal: "⮚El sol está en la dirección oeste, entonces dirijo mi mano izquierda hacia este punto  y el norte me queda de frente.")[
+        (set: $puntos to it + 20)
+        (replace:?cuestionario)[
+       **¡ Correcto!**. Has ganado +20 puntos . Te estás dirigiendo correctamente. "El sol sale por el Este y se pone por el Oeste". <br><br>
+        [[Continuar el camino->DESAFÍO 2]]]
+    ] <br> <br>
+    
+    (link-reveal: "⮚El sol está en la direccion del norte. Por tanto sigo en dirección al sol.")[
+        (set: $vidas to it - 1)
+        (replace:?cuestionario)[**Error.** ¡Incorrecta!" Has perdido 1 vida. Te has desviado del sendero principal. El cansancio aumenta y el refugio ahora está más lejos". El sol se encuentra en dirección oeste, estás caminando hacia el Oeste. "El sol sale por el Este y se pone por el Oeste" <br><br>
+        [[Continuar el camino->DESAFÍO 2]]]
+    ] <br> <br>
+     
+     (link-reveal: "⮚Me debo dirigir en direccion contraria a donde se encuentra el sol.")[
+        (set: $vidas to it - 1)
+        (replace:?cuestionario)[**Error.** ¡Incorrecta!" Has perdido 1 vida . Te has desviado del sendero principal. El cansancio aumenta y el refugio ahora está más lejos". El sol se encuentra en dirección oeste, estás caminando hacia el Este. "El sol sale por el Este y se pone por el Oeste". <br><br>
+        [[Continuar el camino->DESAFÍO 2]]]
+    ] <br> <br>
+    
+    (if: $inventario contains "Brújula")[
+    (link-reveal: "⮚Usar brújula para guiarte")[
+        (set: $puntos to it + 20)
+        (set: $inventario to it - (a: "Brújula"))
+        (replace: ?cuestionario)[
+        **¡Excelente !** Has ganado +20 puntos . Es bueno disponer de una brújula en estas circunstancias. <br><br>
+        [[Continuar el camino->DESAFÍO 2]]]
+      ]
+    ]
+    ]
+}
+
+
+
+
+
+
+:: DESAFÍO 2 {"position":"825,400","size":"100,100"}
+<div class="Titulo_Pasaje">DESAFÍO #2 : El Dilema del Fuego</div>\
+          <p>Has encontrado un lugar seco, pero la hipotermia acecha. Necesitas fuego. </p>\
+{(if: $vidas <= 0) [(goto: "Final 5")]} \
+
+{
+   ##### SELECCIONA LA RESPUESTA QUE CONSIDERES CORRECTA: <br>
+    "¿Qué material usarías para iniciar el fuego en condiciones de humedad?"
+    <br><br>
+    |cuestionario>[
+    (link-reveal: "⮚Troncos gruesos de pino.")[
+        (set: $vidas to it - 1)
+        (replace:?cuestionario)[
+       **Error.** ¡Incorrecta!" Has perdido 1 vida por principio de hipotermia. Los troncos gruesos necesitan mucho calor previo para arder, y al estar humedos se complica más la situación." <br><br>
+       
+        [[Continuar el camino->DESAFÍO 3]]]
+    ] <br> <br>
+    
+    (link-reveal: "⮚Buscar resina de pino en los troncos, y usar ramas muy finas.")[
+        (set: $puntos to it + 20)
+        (replace:?cuestionario)[
+        **¡ Correcto!**. Has ganado +20 puntos . La resina de pino es un acelerante natural que arde incluso con humedad. <br><br>
+        
+        [[Continuar el camino->DESAFÍO 3]]]
+    ] <br> <br>
+     
+     (link-reveal: "⮚Frotar dos piedras de río hasta conseguir una chispa que caiga sobre un montón de hojas verdes.")[
+        (set: $vidas to it - 1)
+        (replace:?cuestionario)[**Error.** ¡Incorrecta!" Has perdido 1 vida por agotamiento. Las piedras de río mojadas no generarán chispas, y las hojas verdes solo producen humo, no fuego. <br><br>
+        
+        [[Continuar el camino->DESAFÍO 3]]]
+    ] <br> <br>
+    
+    (if: $inventario contains "Fosforera")[   
+    (link-reveal: "⮚Usar fosforera para prender una fogata")[
+        (set: $puntos to it + 20)
+        (set: $inventario to it - (a: "Fosforera"))
+        (replace: ?cuestionario)[
+        **¡Excelente !** Has ganado +20 puntos . Esa herramienta te ha salvado la noche.
+        <br><br>
+        [[Continuar el camino->DESAFÍO 3]]]
+    ]
+    ]
+    ]
+}
+
+
+:: DESAFÍO 3 {"position":"775,550","size":"100,100"}
+<div class="Titulo_Pasaje">DESAFÍO #3: Resistencia</div>\
+          <p>Estás frente a una colina empinada de 2 km de distancia o un barranco de 5 metros de altura. </p>\
+{(if: $vidas <= 0) [(goto: "Final 5")]} \
+           <p>Debes elegir que decisión tomar: </p>\
+{ 
+ |cuestionario>[
+    (link-reveal: "⮚ Bajar barranco arrastrándote entre las piedras")[
+        (set: $vidas to it - 1)
+        (replace: ?cuestionario)[
+            **Bien.** Has logrado bajar, pero perdiste 1 vida; has sufrido una pequeña lesión en la rodilla.
+            <br>[[Continuar el camino->DESAFÍO 5]]
+        ]
+    ]
+
+    <br><br>
+    
+    (if: $inventario contains "Escalera de cuerda")[
+        (link-reveal: "⮚ Usar Escalera de cuerda para bajar por el barranco")[
+            (set: $puntos to it + 20)
+            (set: $inventario to it - (a: "Escalera de cuerda"))
+            (replace: ?cuestionario)[
+                **¡Excelente!** Has ganado +20 puntos. Esa escalera ocupaba mucho espacio en la mochila, pero valió la pena.
+                <br>[[Continuar el camino->DESAFÍO 5]]
+            ]
+        ]
+        <br><br>
+    ]
+
+    (link-reveal: "⮚ Está dura esa colina, pero prefiero subirla")[
+        (if: (num: $peso) > 100)[
+            (set: $vidas to 0)
+            (goto: "Final 6")
+    ]
+        (else:)[
+            (set: $vidas to it - 1)
+            (replace: ?cuestionario)[
+                **Difícil.** Has perdido 1 vida por agotamiento. A pesar del largo camino recorrido, finalmente has superado esa colina.
+                <br>[[Continuar el camino->DESAFÍO 4]]
+            ]
+        ]
+    ]
+]
+}
+ 
+ 
+ 
+ 
+ 
+
+
+:: DESAFÍO 4 {"position":"525,650","size":"100,100"}
+<div class="Titulo_Pasaje">DESAFÍO #4:  La Tempestad y el Nudo</div>\
+           <p>El clima sestá en condiciones infernales,  el viento es feroz. Debes mantenerse seguro en un refugio. </p>\
+{(if: $vidas <= 0) [(goto: "Final 5")]} \
+       
+         ##### SELECCIONA LA RESPUESTA QUE CONSIDERES CORRECTA: 
+<p> Que nudo usarías para asegurar tu refugio, si debes atar esta cuerda a un tronco muy liso:</p>
+{ 
+ |cuestionario>[
+    (link-reveal: "⮚Usar Ballestrinque")[
+        (set: $puntos to it + 20)
+        (replace: ?cuestionario)[
+             **Correcto.** Has ganado +20 puntos. Lograste asegurar tu refugio como todo un maestro. "El Ballestrinque es un nudo de agarre, su diseño permite que la cuerda rodee el tronco y se cruce sobre si misma".
+            <br>[[Continuar el camino->Pasaje Final]]
+        ]
+    ]
+
+    <br><br>
+    
+    (if: $inventario contains "Casa de campaña")[
+        (link-reveal: "⮚ Usar Casa de campaña para refugiarte de la Tempestad")[
+            (set: $puntos to it + 20)
+            (set: $inventario to it - (a: "Casa de campaña"))
+            (replace: ?cuestionario)[
+                **¡Excelente!** Has ganado +20 puntos. La casa de campaña te ha protegido de la Nevada. Un equipo de exploración en optimas condiciones te salva la vida.
+                <br>[[Continuar el camino->Pasaje Final]]
+            ]
+        ]
+        <br><br>
+    ]
+   
+       (link-reveal: "⮚Usar Nudo Llano")[
+            (set: $vidas to 0)
+            (goto: "Final 7")
+    ]
+    
+]
+}
+
+
+:: DESAFÍO 5 {"position":"975,700","size":"100,100"}
+<div class="Titulo_Pasaje">DESAFÍO #5:  El Cruce del Río Helado</div>\
+           <p>Un río corta el camino hacia la meta. Hay piedras que sobresalen, pero están resbaladizas y separadas. </p>\
+{(if: $vidas <= 0) [(goto: "Final 5")]} \
+
+{
+   ##### SELECCIONA LA RESPUESTA QUE CONSIDERES CORRECTA:
+    |cuestionario>[
+    (link-reveal: "⮚Cruzar el río nadando.")[
+        (set: $vidas to it - 1)
+        (replace:?cuestionario)[
+       **Bien.** " Has perdido 1 vida, el agua estaba demasiado fría." <br>
+       
+        [[Continuar el camino->Pasaje Final]]]
+    ] <br> <br>
+    
+    (if:$inventario contains "Cinta gruesa" )[
+    (link-reveal: "⮚Usar Cinta gruesa para construir un puente con troncos.")[
+        (set: $puntos to it + 20)
+        (set: $inventario to it - (a: "Cinta gruesa"))
+        (replace:?cuestionario)[
+        **¡ Correcto!**. Has ganado +20 puntos . El puente esta en perfectas condiciones. Has podido cruzar el río sin ningun rasguño. <br>
+        
+        [[Continuar el camino->Pasaje Final]]]
+       ] 
+    ]<br> <br>
+     
+    (if:$inventario contains "Balsa inflable" )[
+    (link-reveal: "⮚Usar Balsa inflable para cruzar el río.")[
+        (set: $puntos to it + 20)
+        (set: $inventario to it - (a: "Balsa inflable"))
+        (replace:?cuestionario)[
+        **¡ Correcto!**. Has ganado +20 puntos . La Balsa Inflable te ha salvado la campana. Has cruzado el río sin problema. <br>
+        
+        [[Continuar el camino->Pasaje Final]]]
+       ] 
+    ]<br> <br>
+    
+    (if: (num: $altura) > 180)[   
+    (link-reveal: "⮚Considero que puedo cruzar el río saltando entre las piedras")[
+        (set: $puntos to it + 20)
+        (replace: ?cuestionario)[
+        **¡Muy Bien !** Has ganado +20 puntos . Tu altura te permitió cruzar el río con facilidad.
+        <br>
+        [[Continuar el camino->Pasaje Final]]]
+    ]
+    ]
+    ]
+}
+
+
+:: EL JEFE DE CAMPAMENTO {"position":"825,200","size":"100,100"}
+<div class="Titulo_Pasaje">EL JEFE DE CAMPAMENTO</div>\
+        <p>Unas botas pesadas resuenan contra el suelo de madera. Un hombre de piel curtida por el sol y el frío, con una cicatriz que le cruza la mejilla, entra en la recepción. Es el Capitán Aranda. Se queda frente a ti, te arrebata la ficha de las manos y la examina en silencio mientras te mide con la mirada. </p>\
+        <p>— Así que tú eres <span class="texto-continuo">$nombre</span>, ¿eh? —dice con una voz que suena como piedras chocando—espero que tus pulmones aguanten el aire fino de las montañas.</p>\
+        <p>Aranda se detiene en tus datos físicos: <span class="texto-continuo">$altura  </span> cm y <span class="texto-continuo">$peso</span> kg y acontinuación te dirige la palabra</p>\
+        <p>— No está mal. Pero aquí arriba, el peso no es solo músculo o grasa; es lastre.</p>\
+        <p>— Escucha bien, $nombre. El tiempo no espera a nadie. Despues del almuerzo vamos a subir a la Cresta del Diablo. Así que ve hacia el almacen y escoge el "Equipo" que llevarás contigo. Nos vemos. </p>\
+         [[Obtener Equipo de exploración->EQUIPO DE EXPLORACIÓN]]
+        
+
+
+:: EQUIPO DE EXPLORACIÓN {"position":"500,275","size":"100,100"}
+<div class="Titulo_Pasaje">EQUIPO DE EXPLORACIÓN</div>\
+              <p>Tienes a tu disposición una mochila, pero con capacidad para solo 3 objetos. Selecciona cual de ellos te llevas contigo. </p>\
+(set: $attempts to 0)\
+<ul>
+<li>|opcion1>[(link-reveal: "Escalera de cuerda")[
+    (set: $inventario to it + (a: "Escalera de cuerda"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion1)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+<li>|opcion2>[(link-reveal: "Brújula")[
+    (set: $inventario to it + (a: "Brújula"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion2)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+<li>|opcion3>[(link-reveal: "Casa de campaña")[
+    (set: $inventario to it + (a: "Casa de campaña"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion3)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+<li>|opcion4>[(link-reveal: "Balsa inflable")[
+    (set: $inventario to it + (a: "Balsa inflable"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion4)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+<li>|opcion5>[(link-reveal: "Fosforera")[
+    (set: $inventario to it + (a: "Fosforera"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion5)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+<li>|opcion6>[(link-reveal: "Cinta gruesa")[
+    (set: $inventario to it + (a: "Cinta gruesa"))
+    (set: $attempts to it + 1)
+    (replace: ?opcion6)[]
+    (if: $attempts is 3)[(goto: "DESAFÍO 1")]
+]]</li>
+
+</ul>
+
+
+:: Final 5 {"position":"1250,150","size":"100,100"}
+<div class="Titulo_Pasaje">Final: El Error del Novato</div>\
+    <p>Te detienes en medio del sendero, pero esta vez no es para consultar el mapa. Tus piernas ceden y una debilidad abrumadora te recorre el cuerpo; estás físicamente agotado y tu capacidad de reacción ha desaparecido. Los errores acumulados —el frío, las caídas y las malas decisiones técnicas— finalmente te han pasado factura.</p>
+    <p>Has agotado tus recursos de supervivencia. Repasa los conceptos de exploración.</p>
+    <h1 style="font-size: 24px; font-weight: bold;margin-bottom: 5px; color: var(--naranja-alerta);">¡Descansa y vuelve a intentarlo con más fuerza! </h1>\
+ (set: $juegoIniciado to false)  
+ [[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+
+
+:: Final 6 {"position":"1125,225","size":"100,100"}
+<div class="Titulo_Pasaje">Final: Abandono por Agotamiento</div>\
+    <p>El ascenso se vuelve un calvario. Cada paso que das hacia la cima de la colina se siente como si cargaras con el peso de la montaña entera. Tus pulmones arden buscando un aire que parece no ser suficiente, y tus rodillas empiezan a temblar bajo la presión de tu propio cuerpo y el equipo. </p>
+ <p>Te detienes a mitad de la pendiente, físicamente superado. El sudor se enfría rápidamente sobre tu piel y comprendes que tu corazón late con una frecuencia alarmante. No es falta de voluntad, es un límite físico real: tu peso ha convertido este sendero en un obstáculo insalvable hoy</p>
+    <h1 style="font-size: 24px; font-weight: bold;margin-bottom: 5px; color: var(--naranja-alerta);">En situaciones reales, un explorador con tu perfil debe optar por rutas de menor inclinación. Se que la proxima vez lo harás mejor </h1>\
+(set: $juegoIniciado to false)
+[[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+
+
+:: Final 7 {"position":"1025,350","size":"100,100"}
+<div class="Titulo_Pasaje">Final: Extraviado en la Nieve</div>\
+    <p>El viento ruge con una fuerza feroz, sacudiendo las paredes de tu refugio improvisado. Confiaste en el nudo llano para asegurar la estructura a aquel tronco liso, pero en plena madrugada, lo inevitable sucede: el nudo se desliza, la cuerda cede y tu protección sale volando hacia la oscuridad de los Pirineos.</p>
+   <p> Sin refugio y expuesto a una tempestad implacable, intentas buscar el sendero principal, pero la nieve ha borrado cualquier rastro. Te encuentras físicamente desorientado y el frío comienza a nublar tu juicio.</p>
+   <p>El Nudo Llano es excelente para unir dos cuerdas, pero para asegurar una cuerda a un poste o tronco liso bajo tensión, el Ballestrinque (o un Cote) es la opción técnica correcta.</p>
+    <h1 style="font-size: 24px; font-weight: bold;margin-bottom: 5px; color: var(--naranja-alerta);">¡Estudia tus nudos y vuelve a intentarlo, la montaña te espera para una revancha!</h1>\
+(set: $juegoIniciado to false)
+[[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+
+
+:: Footer [footer] {"position":"325,250","size":"100,100"}
+{
+(if: $juegoIniciado is true)[
+  <div class="footer">
+      <div class="stats">
+      <p>👤 Explorador: <span class="var">$nombre</span> | 📏 Altura: <span class="valor">$altura</span>cm  | ⚖️ Peso: <span class="valor">$peso</span>Kg | ❤️ Vidas: <span class="valor">$vidas</span> | 🏆 Puntos: <span class="valor">$puntos</span></p>
+	  <p>🎒 Mochila: <span class="valor">(if: $inventario's length is 0)[Vacía](else:)[(print: $inventario)] </span></p> 
+      </div>
+    </div>
+]
+}
+
+
+:: Header [header] {"position":"325,125","size":"100,100"}
+<div class="header">
+     <h1>CAMPAMENTO DE EXPLORACIÓN Y SUPERVIVENCIA EN PIRINEOS, ESPAÑA</h1>
+</div>
+
+
+:: Pasaje Final {"position":"725,775","size":"100,100"}
+<div class="Titulo_Pasaje">Final: LLEGADA A LA META</div>\
+{(if: $vidas <= 0) [(goto: "Final 5")]} 
+    
+{   (if:$puntos>=40 and $vidas>=2)[
+<p>Las botas del Capitán Aranda resuenan con fuerza al acercarse hacia ti.
+—"Impresionante, $nombre. Ni un rasguño", murmura con un brillo de orgullo. </p>
+
+ <p>Con un gesto firme, te hace entrega de la  <span style="font-size: 24px; font-weight: bold; color: #efb810;"> Insignia dorada de Explorador Maestro de los Pirineos  </span>. "Has demostrado que bajo esa fachada de civil latía el corazón de un guía. Bienvenido a la élite". </p>
+     (set: $juegoIniciado to false)
+    [[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+]
+
+    (if:$puntos>=40 and $vidas<2)[
+<p>El eco de las botas del Capitán Aranda se detiene frente a ti. Su mirada recorre tus heridas y tu equipo maltrecho antes de arrebatarte la ficha de control, y con la misma te dirige la palabra </p>
+
+ <p>—"Has mordido el polvo, $nombre, pero no has soltado el mapa", afirma con voz ronca. "Cometiste errores que casi te cuestan la estancia, pero tu puntería con los conocimientos básicos te mantuvo en pie".—</p>
+
+<p>Con un gesto honorable, te entrega la <span style="font-size: 24px; font-weight: bold; color: #c0c0c0;"> Insignia plateada de Explorador Amateur de los Pirineos</span> . </p>
+     (set: $juegoIniciado to false)
+    [[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+]
+
+    (if:$puntos<40 and $vidas>=2)[
+       <p>El Capitán Aranda se planta frente a ti, bloqueando el paso con su imponente figura. Te arrebata la ficha y, al ver que tus indicadores de salud están intactos pero tus puntos de conocimiento son bajos, suelta un gruñido que parece una mezcla de alivio y reproche.</p>
+       
+       <p>—"Estás entero, $nombre, eso no te lo quito", dice mientras guarda su cuchillo de monte. "Has pasado por los Pirineos como quien pasea por un parque; mucha cautela, pero te falta el instinto técnico que enseñamos aquí. H".  </p>
+       
+       <p>Con un movimiento rápido, te coloca la <span style="font-size: 24px; font-weight: bold; color: #bf8970;"> Insignia de Bronce: Supervivencia Aceptables. </span> </p>
+    (set: $juegoIniciado to false)
+    [[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+]
+
+    (if:$puntos<40 and $vidas<2)[
+       <p>El Capitán Aranda se acerca despacio, dejando que el sonido de sus botas sobre la madera marque un ritmo tranquilo. Se detiene frente a ti y, tras examinar tu ficha con detenimiento, exhala un suspiro cargado de alivio. Su mirada, endurecida por los años, se suaviza con una chispa de respeto mientras te devuelve los papeles. </p>
+
+ <p>—"Has llegado por los pelos, $nombre", dice con una voz ronca pero extrañamente amable. "Muchos se habrían rendido a mitad de camino, pero tú has demostrado que tienes el coraje necesario para sobrevivir, incluso cuando la técnica te falla". </p>
+ 
+ <p>— Con un gesto solemne, te entrega la  <span style="font-size: 24px; font-weight: bold; color: #b87f33;"> Insignia de Cobre de Supervivencia Crítica</span>.</p>
+    (set: $juegoIniciado to false)
+    [[Reiniciar Juego ->CAMINO HACIA EL CAMPAMENTO]]
+]
+
+}
+
+
+
+
+
+:: REGISTRO EN EL LOBBY {"position":"500,150","size":"100,100"}
+<div class="Titulo_Pasaje">REGISTRO EN EL LOBBY</div>\
+        <p>"El aire gélido de los Pirineos te golpea el rostro como una bofetada nada más bajar del autobús. Son las 8:00 AM y el termómetro marca 2 grados bajo cero; el vaho de tu respiración se mezcla con la niebla de la montaña. </p>\
+
+<div style="text-align: center;  margin-top:0;  margin-bottom:0;"> <img src="https://cadenaser.com/resizer/v2/ULDQUFZBE5CVZHW6FLTW4TLALY.jpg?auth=1094c63f95000f60acc22859dc42c16fd0c84c43792ea8629da985476a40a547&quality=70&width=990&height=556&smart=true" width="300"> </div>\
+
+<p>Sin pensarlo dos veces, sigues al grupo hacia una construcción de madera robusta que exhala un reconfortante olor a pino y café: la Recepción. Al cruzar el umbral, el calor del interior te devuelve el aliento.
+— ¡Bienvenidos al campamento! —exclama una guía con una sonrisa vibrante, extendiéndote una tabla con papeles—. Antes de que el Jefe de Campamento os asigne vuestro equipo de supervivencia y explique las rutas extremas, necesito que rellenes tu ficha de expedición.."</p>\
+
+<h1 style="font-size: 24px; font-weight: bold;margin-bottom: 5px;"> FICHA DE EXPEDICIONARIO</h1>\
+<p>Por favor, completa tus datos para el registro de seguridad:</p>\
+<ul>
+  <li><strong>¿Cómo te llamas?</strong>\
+  (input: bind $nombre, "")</li>
+  
+  <li><strong>Altura (cm):</strong>\
+  (input: bind $altura, "")</li>
+  
+  <li><strong>Peso (kg):</strong>\
+  (input: bind $peso, "")</li>
+</ul>
+
+
+|interaccion>[\
+  <span class="enlace-boton">\
+    (link: "Confirmar Datos")[\
+          (set: $juegoIniciado to true)\
+          (display: "inicializaciones")\
+          (replace: ?interaccion)[
+           <span class="enlace-boton">[[¡Todo listo!Buscar al Jefe de Campamento->EL JEFE DE CAMPAMENTO]]</span>\
+           ]\
+      ]\
+   </span>\
+]
+
+
+
+
+
+
+
+
+
+:: inicializaciones {"position":"325,375","size":"100,100"}
+(set: $vidas to 3)
+(set: $puntos to 0)
+(set: $inventario to (array:)) 
+
+
+
+:: StoryStylesheet [stylesheet]
+:root {
+  --verde-principal: #2d5a27; /* Verde oscuro */
+  --verde-claro: #98F527;     /* color verde claro*/
+  --naranja-alerta: #F56127;  /* Naranja de chillon */
+  --gris-piedra: #333333;     /* Gris oscuro para texto */
+  --fondo-soft: #f4f7f1;      /* Fondo claro para Background */
+  --blanco: #ffffff;
+}
+
+/* ================== */
+/* LAYOUT GENERAL     */
+/* ================== */
+tw-story {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, var(--fondo-soft) 0%, #e0eadd 100%);
+  color: var(--gris-piedra);
+  font-size: 18px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px; /* Margen superior estético */
+  padding-bottom: 20px; /* Pequeño margen antes del footer */
+  min-height: 100vh;
+  overflow-y: auto; /*Permite el scroll */
+}
+
+/* Contenedor principal de Twine */
+tw-passage {
+  background: var(--blanco);
+  border-left: 6px solid var(--verde-principal);
+  border-radius: 8px;
+  padding: 2.5rem 2.5rem 180px 2.5rem !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 85%;
+  width: 950px;
+  min-height: 70vh;
+}
+
+tw-expression {
+  border: none !important;
+  background: none !important;
+  display: inline-block;
+  width: 100%;
+}
+
+tw-expression[type="variable"] {
+    display: inline !important;
+    white-space: nowrap !important;
+}
+
+/* Listas */
+ul {
+  line-height: 0;
+}
+
+li {
+  line-height: 1.1;
+}
+
+/* Párrafos */
+tw-passage p {
+  margin-top: 1px !important; 
+  margin-bottom: 15px !important;
+}
+
+/* Clase estándar para los títulos de cada pasaje */
+.Titulo_Pasaje {
+  display: block;             
+  font-size: 1.5rem;        
+  font-weight: 800;           
+  color: var(--verde-principal);
+  text-transform: uppercase; 
+  letter-spacing: 1px;       
+  margin-top: 0;             
+  margin-bottom: 0px;        
+  border-bottom: 2px solid var(--verde-claro); 
+  padding-bottom: 2px;
+  font-weight:
+}
+
+.texto-continuo {
+  display: inline !important;
+  text-transform: uppercase;
+  font-weight:bold
+    
+}
+
+
+
+/* ===================== */
+/* CABECERA Y PIE        */
+/* ===================== */
+.header {
+  background: var(--verde-principal);
+  border-radius: 8px 8px 0 0;
+  padding: 1rem;
+  margin-bottom: 0;
+  text-align: center;
+  border-bottom: 4px solid var(--verde-claro);
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--blanco);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer {
+  position: fixed !important;
+  bottom: 20px !important; 
+  left: 50% !important;
+  transform: translateX(-50%) !important; 
+  width: 950px !important; 
+  max-width: 90% !important; 
+  background: #f1f1f1 !important;
+  border: 2px solid var(--verde-claro) !important; 
+  border-radius: 8px !important;
+  padding: 15px 25px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  z-index: 999;
+}
+
+.footer p {
+  margin-bottom:30px; !important;
+  font-size: 0.9rem !important;
+  font-weight: 800;
+  color: var(--gris-piedra);
+}
+
+.stats p {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 15px !important; 
+  margin: 0 !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.stats span {
+  margin-right: 5px;
+}
+
+
+/* Color especial para resaltar Vidas,Puntos, Edad y Altura en el footer */
+.footer span.valor {
+  color: var(--naranja-alerta) !important;
+}
+
+/* ============= */
+/* INTERACCIÓN   */
+/* ============= */
+
+/* 1. SEPARACIÓN Y CENTRADO */
+tw-hook[name="interaccion"] {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 40px !important;
+  margin-top: -15px !important; 
+  margin-bottom: 30px !important;
+  width: 100% !important;
+}
+
+/* 2. LA CAJA DEL BOTÓN */
+.enlace-boton {
+  background: var(--verde-principal) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+  display: inline-block !important; 
+  padding: 0 !important;
+  min-width: 160px !important;
+  border: none !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+/* 3. AL HACER CLIC */
+.enlace-boton tw-link, 
+.enlace-boton .link {
+  display: block !important;       
+  width: 100% !important;
+  height: 100% !important;
+  padding: 18px 35px !important;   
+  margin: 0 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. HOVER */
+.enlace-boton:hover {
+  background: var(--naranja-alerta) !important;
+  transform: translateY(-3px) !important;
+}
+
+.boton-secundario {
+  background: #666 !important;
+}
+
+/* ======================= */
+/* VARIABLES Y Inputs      */
+/* ======================= */
+input[type="text"], 
+tw-expression input {
+  border: 2px solid var(--verde-claro) !important; 
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--blanco) !important;
+  border-radius: 5px !important;
+  padding: 12px !important;
+  font-size: 1rem !important;
+  color: var(--gris-piedra) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 10px !important;
+  font-family: inherit !important;
+}
+
+input[type="text"]:focus, 
+tw-expression input:focus {
+  border: 2px solid var(--naranja-alerta) !important;
+  outline: none !important;
+}
+
+/* Color especial para resaltar Nombre en el footer */
+span.var {
+  font-weight: 700;
+  color: var(--naranja-alerta);
+  background: rgba(245, 97, 39, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* ==================== */
+/* OCULTAR ELEMENTOS    */
+/* ==================== */
+tw-sidebar, #ui-bar {
+  display: none;
+}

@@ -1,0 +1,11 @@
+:: Power Station [location surface]
+
+<<nav>>
+    <<section Destinations>>
+        <<action "Airlock">>
+        <<action "Rover Bay">>
+        <<action "Comms Station">>
+        <<action "Supply Depot">>
+        <<action "Water Pumping Station">>Pumping Station
+    <</section>>
+<</nav>>

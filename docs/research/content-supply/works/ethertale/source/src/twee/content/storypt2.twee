@@ -1,0 +1,255 @@
+:: Waiting or Sleeping Vent 2 [Vent_2 room stoptime]
+<<nobr>><<set $currentRoom to "Vent 2">><</nobr>>
+How long should I <<if $now.getHours() gte 20 or $now.getHours() lt 6>>sleep<<else>>wait<</if>> for?
+
+<<switch $now.getHours()>>
+<<case 20>>
+<span class="onlylink"><<link "Sleep for 11 hours.">><<addhrs 11>><<refresh>><</link>></span>
+<<case 21>>
+<span class="onlylink"><<link "Sleep for 10 hours.">><<addhrs 10>><<refresh>><</link>></span>
+<<case 22>>
+<span class="onlylink"><<link "Sleep for 9 hours.">><<addhrs 9>><<refresh>><</link></span>
+<<case 23>>
+<span class="onlylink"><<link "Sleep for 8 hours.">><<addhrs 8>><<refresh>><</link>></span>
+<<case 24>>
+<span class="onlylink"><<link "Sleep for 7 hours.">><<addhrs 7>><<refresh>><</link>></span>
+<<case 1>>
+<span class="onlylink"><<link "Sleep for 7 hours.">><<addhrs 7>><<refresh>><</link>></span>
+<<case 2>>
+<span class="onlylink"><<link "Sleep for 7 hours.">><<addhrs 7>><<refresh>><</link>></span>
+<<case 3>>
+<span class="onlylink"><<link "Rest for 6 hours.">><<addhrs 8>><<refresh>><</link>></span>
+<<case 4>>
+<span class="onlylink"><<link "Rest for 5 hours">><<addhrs 5>><<refresh>><</link>></span>
+<<case 5>>
+<span class="onlylink"><<link "Rest for 3 hours">><<addhrs 3>><<refresh>><</link>></span>
+<<default>>
+<span class="link1"><<link "Wait for half-an-hour.">><<addmins 30>><<refresh>><</link>></span>
+<span class="link2"><<link "Wait for an hour.">><<addhrs 1>><<refresh>><</link>></span>
+<span class="link3"><<link "Wait for two hours.">><<addhrs 2>><<refresh>><</link>></span>
+<span class="link4"><<link "Wait for three hours.">><<addhrs 3>><<refresh>><</link>></span>
+<span class="link5"><<link "Wait for four hours.">><<addhrs 4>><<refresh>><</link>></span>
+<</switch>>
+<<if $now.getHours() gte 20 or $now.getHours() lt 6>><span class="link2">[[Exit the large vent.|Engine room]]</span><<else>><span class="link6">[[Exit the large vent.|Engine room]]</span><</if>>
+
+<<if $C.Starship["Vent 3"].length is 0>>There's nothing stored here right now, but I've got extra space if I need to [[store things here.|Inventory Menu]]<<else>>I've stored, and can pick back up...
+
+<<include "Room Item List">>
+I can [[store more things here.|Inventory Menu]]<</if>>
+
+:: Gravity on ship Explain [cutscene]
+
+<<if lastVisited("Jump explain") isnot 1>>Frisk thinks, then replies, <i><span class="dtm-mono">I think I read somewhere that the gravity on ships is powered by skeletons and other monsters with the blue magic ability. To calibrate one of these things, one of those types of monsters has to target the orb and pedestal with their magic, keeping it on the ground. Then the pedestal will power the gravity on the ship, keeping everyone on the ground by their SOULs. Obviously jumping doesn't work too well, but as long as we touch anything, even the walls, it will let us move about the ship easily.</span></i><</if>>
+
+<span class="dtm-mono"><i>Any more questions about this?</i><span> I think to you.
+
+@@.pcdarklink;.link1;[[How is this ship and the grav-orb powered?|Power]]@@
+
+<span class="pcdarklink link2">[[What happens when you try to jump, or get pushed over?|Jump explain]]</span>
+
+@@.pcdarklink;.link3;[[Nope!|Questions about Grav-array and ship]]@@
+
+:: Jump explain [cutscene]
+
+<i><span class="dtm-mono">Basically we end up in zero gravity until we touch down on the ceiling or another surface. This is pretty easily remedied, though. Usually space-farers just find an empty piece of wall and walk back to the ground from there.</span></i> I grin mischieviously. <i><span class="dtm-mono">It'd likely be an easy way to prank someone, though!</span></i> I snicker quietly, trying not to create too much noise. <i><span class="dtm-mono onlylink">[[Anyway, you have any other questions about this?|Gravity on ship Explain]]</span></i>
+
+:: W.D. Gaster [cutscene slowtime]
+
+I scrunch up my nose. <i><span class="dtm-mono onlylink">[[He really scares me. Even thinking about his name might draw his attention, as he can do many strange things no one else can.|Questions about Grav-array and ship]]</span> <span class="dtm-mono">He is on this ship, I saw him get on.</span></i> I shiver. <i><span class="dtm-mono">He has microphones everywhere, and cameras that help patrol the halls. I've seen them. Honestly I'm surprised he hasn't caught me yet. My saving grace, I think, has been that I've been pretty quiet so far.</span></i>
+
+:: The non-existent Jump-ship Plan [cutscene slowtime]
+
+<<if $PC.Offline is false>><<Frisk-worried-o>><span class="dtm-mono">I-</span><</Frisk-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-worried>><span class="dtm-mono">I-</span><</Frisk-worried>>
+<</if>>
+
+I stop myself from saying anything before I get too far, then think to you, <i><span class="dtm-mono">I don't have a plan- But uh, I'm thinking of trying to sneak out before everyone's gotten down to the cargo hold, but after it's opened.</span></i> I shrug.
+
+@@.pcdarklink;.link1;[[You react with understanding.|Understanding is always good]]@@
+
+@@.pcdarklink;.link2;[[You react with frustration!|Frustrated yell]]@@
+
+:: Frustrated yell [cutscene]
+
+<span class="pcdark shudder rumble">...How have you not gotten a working plan yet?!</span> You burst out in my mind.
+
+I flinch. 
+<<if $PC.Offline is false>><<Frisk-worried-o>><span class="dtm-mono">Umm-- uh- I-I don't know! I just-</span><</Frisk-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-worried>><span class="dtm-mono">Umm-- uh- I-I don't know! I just-</span><</Frisk-worried>>
+<</if>>
+
+<<if $PC.Offline is false>><<Frisk-angry-o>><span class="dtm-mono">I needed a ride, and it was right here, so I went ahead hitched one! I needed to-</span><</Frisk-angry-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-angry>><span class="dtm-mono">I needed a ride, and it was right here, so I went ahead hitched one! I needed to-</span><</Frisk-angry>>
+<</if>>
+
+Suddenly, alarms start blaring!
+
+<<if $PC.Offline is false>><<Frisk-furious-o>><span class="dtm-mono">Crap, I shouted that out loud!</span><</Frisk-furious-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-furious>><span class="dtm-mono">Crap, I shouted that out loud!</span><</Frisk-furious>>
+<</if>>
+
+<span class="pcdarklink onlylink"><i>[[No shiz, Sherlock!|Hide!]]</i></span>
+
+:: Understanding is always good [cutscene]
+
+I can hear you taking a deep, calming breath in my mind. <span class="pcdark"><i>Frisk. You'll be the death of us yet, but if anyone can make up a plan on the spot, I'm sure both of <b>us</b> can figure something out while waiting for the ship to land.</i> You feel Frisk nod in agreement.</span>
+
+<i><b>@@.dtm-mono;.onlylink;[[Definitely.|Engine room]]@@</b></i>
+
+
+:: Power [cutscene slowtime]
+
+<span class="dtm-mono">Solar from us humans when possible, but otherwise we use fuel that was invented by the one who is listening for anyone who doesn't belong here. <<if hasVisited('W.D. Gaster') is false>>There's microphones pretty much everywhere on this ship, and cameras in the main hallways.<</if>></span>
+I pause, then ask,
+ <i><span class="dtm-mono onlylink">[[Any other questions?|Questions about Grav-array and ship]]</span></i>
+
+:: Hide! [cutscene]
+<<nobr>><<addmins 2>><<audio "bgm_Sneaking" fadeout>><<audio "bgm_Hiding" fadein play loop>><</nobr>>
+
+I jump into one of the many incredibly convenient vents, obscuring myself in shadow. Heavy footsteps, the same as those that carried the box to the cargo hold, and another set of controlled, light footsteps, walk into the engine room. I try to quiet my breathing as much as possible, breathing through my mouth rather than my nose. Two voices call out in unison in the light-flashing orange-tinged darkness.
+
+<<if $PC.Offline is false>><<G-worried-o>>@@.aster;Hello?@@<</G-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-worried>>@@.aster;Hello?@@<</G-worried>>
+<</if>>
+<<if PC.Offline is false>><<U-worried-o>>@@.dtm-sans;Hello?@@<</U-worried-o>><<elseif $PC.Offline is true>><<U-worried>>@@.dtm-sans;Hello?@@<</U-worried>><</if>>
+
+<i><span class="dtm-mono">Snap. They're on to us. And if I try to go deeper into the vents, no telling where I'll end up-</span></i>
+
+<<if $PC.Offline is false>><<G-annoyed-o>><span class="wingdings">COME OUT, YOUNG ONE. WE KNOW YOU ARE THERE.</span><</G-annoyed-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-annoyed>><span class="wingdings">COME OUT, YOUNG ONE. WE KNOW YOU ARE THERE.</span><</G-annoyed>>
+<</if>>
+The noise that the skeleton made sucked all the air out of the room. It's the language of machines- how-? <span class="pcdark">You can hear through Frisk's ears fabric flapping. The speaker must be signing. Interesting...</span>
+
+The other, more feminine voice called out, "<span class="dtm-sans">Don't make this HARDER than it has to BE, HUMAN!</span>"
+The footsteps come closer still. There's nothing I can do now. The fact that they know I'm human is bad. I panic panic panic-
+Footsteps are coming closer-
+My breathing quickens-
+
+The grate on the vent is pulled aside, and the light filters back in. Suddenly the alarms stop blaring, the light returning to normal; can they see me?
+An arm moves in, webbed fingers reaching in to grab me. What do I do?!
+
+<span class="link1">[[There's nothing I can do!|Grabbed!]]</span>
+<span class="link2 pcdarklink">[[Bite the hand, of course! Try to shove it off! Fight!|Aggression!]]</span>
+
+:: Grabbed! [cutscene]
+
+I flinch as the hands grab me, then haul me out by my arms. Blinking as the lights blind me and I'm hauled from the darkness of the vent and into the engine room, I see two monsters. One is the famous biochemist skeleton who invented the fuel for hyper-efficient space-travel, the other a fishy looking monster. The latter is the one who hauled me out.
+
+A pair of high-tech hand-cuffs are snapped onto my wrists, then skeleton man makes a speech. <<G-content-o>><span class="aster">I don't intend to harm you, however, we will need to figure out how you're going to repay us for hitching a ride uninvited. Just come along quietly, please.</span><</G-content-o>> A slight smile graces his skull, his hands shoved into his pockets.
+<<if $PC.Offline is false>><img src="https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Gaster%20smile%20by%20Jaden.png" alt="id: Image of the skeletal chemistry scientist slightly smiling, phalanges in his lab coat pockets." height="700">
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><img src="imgs/Gaster smile by Jaden.png" alt="id: Image of the skeletal chemistry scientist slightly smiling, his hands in his coat pockets." height="700">
+<</if>>
+
+How should I react, do you think?
+
+<span class="pcdark">Say...</span>
+
+<<if $PC.Offline is false>><<Frisk-embarrased-o>><span class="link1 dtm-mono">[[Sure.|Following]]</span><</Frisk-embarrased-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-embarrased>><span class="link1 dtm-mono">[[Sure.|Following]]</span><</Frisk-embarrased>><</if>>
+Then I nod meekly.
+<<if $PC.Offline is false>><<Frisk-determined-o>><span class="link2 dtm-mono">[[Yeah, whatever you say Doc.|Sassy Follow]]</span><</Frisk-determined-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-determined>><span class="link2 dtm-mono">[[Yeah, whatever you say Doc.|Sassy Follow]]</span><</Frisk-determined>><</if>> 
+Then shake my head defiantly.
+<<if $PC.Offline is false>><<Frisk-bored-o>><span class="link3 dtm-mono">[[Sure, fine.|I've got a plan, but Follow]]</span><</Frisk-bored-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<Frisk-bored>><span class="link3 dtm-mono">[[Sure, fine.|I've got a plan, but Follow]]</span><</Frisk-bored>>
+<</if>>
+ Say this, nod, then plan on escaping as soon as the cuffs come off.
+
+:: Aggression! [cutscene]
+
+I tense up, but before I can do anything to defend myself, a voice from above speaks out to my assailant.
+<<nobr>><<if $PC.Offline is false>><<G-furious-o>><span class="aster"><b>Undyne!</b></span><</G-furious-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-furious>><span class="aster"><b>Undyne!</b></span><</G-furious>><</if>><</nobr>>
+
+	The fishy woman's hand slowly withdraws. <<nobr>><<if $PC.Offline is false>><<U-angry-o>><span class="dtm-sans">What?</span><</U-angry-o>><<elseif $PC.Offline is true>><<U-angry>><span class="dtm-sans">What?</span><</U-angry>><</if>><</nobr>>
+<<nobr>><<if $PC.Offline is false>><<G-determined-o>><span class="aster">I do believe this calls for a more delicate word.</span><</G-determined-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-determined>><span class="aster">I do believe this calls for a more delicate word.</span><</G-determined>>
+<</if>><</nobr>>
+	A huff, a dismissive hand-wave, then the shadow that was cast over me withdraws, and a new one takes it's place.
+<<if $PC.Offline is false>>
+  <img src="https://64.media.tumblr.com/b7371379d889e304ec5bd10212509de1/38e5ea264066037a-50/s1280x1920/a2c253ac2192ac1a9fbd5745e5dad7ac1cabeaa1.png" alt="id: A fish lady. The bright red, long hair on her head is pulled into a high pony-tail. She is waving." height="600">
+<<elseif $PC.Offline is true or $PC.Offline is undefined>>
+  <img src="imgs/Undyne_ETHERTALE.png" alt="A" height="600">
+<</if>>
+
+A skeleton taller than the woman crouches down in front of me, keeping his balance with four phalanges on a rare patch of empty wall above him. He's wearing a dark grey turtle-neck and a white, pristine lab-coat with black slacks, along with black dress shoes. The labcoat's tails billow out behind him as he crouches down, then they rest on the floor of the engine room.
+
+I glare downwards after sizing him up and glancing into his white eyelight (his right eye must have been injured, as it droops to thepoint where his other eyelight can't form), afterwards fiddling with a stray wire sticking out of the entrance to the vent.
+He pauses to take a deep, calming breath through his nose, then explains his intentions. 
+<<if $PC.Offline is false>><<G-bored-o>><span class="aster">I don't intend to harm you, however, we will need to figure out how you're going to repay us for hitching a ride uninvited. If you try to leave through the vents- I know this ship inside and out, you'll only come upon the fans and filters that circulate and purify air inside the ship.</span><</G-bored-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-bored>><span class="aster">I don't intend to harm you, however, we will need to figure out how you're going to repay us for hitching a ride uninvited. If you try to leave through the vents- I know this ship inside and out, you'll only come upon the fans and filters that circulate and purify air inside the ship.</span><</G-bored>>
+<</if>>
+He pauses to let that sink in.
+<<if $PC.Offline is false>><<G-determined-o>><span class="aster">In other words, you're stuck. So please come out, and follow us. You can't escape on this ship, there's nowhere for you to go that we wouldn't be able to find you, now that we know you're here.</span><</G-determined-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-determined>><span class="aster">In other words, you're stuck. So please come out, and follow us. You can't escape on this ship, there's nowhere for you to go that we wouldn't be able to find you, now that we know you're here.</span><</G-determined>>
+<</if>>
+
+The skeletal man stands up and steps back, waiting for me to exit. <span class="onlylink">[[I crawl slowly out of the vent.|Caught by Gaster and Undyne]]</span>
+
+:: Caught by Gaster and Undyne [cutscene]
+
+<<if $PC.Offline is false>><<G-worried-o>>@@.aster;Now that you're up and out of there, I hope you'll forgive me...@@<</G-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-worried>>@@.aster;Now that you're up and out of there, I hope you'll forgive me...@@<</G-worried>>
+<</if>>
+He grimaces wider, pulling slightly at his turtleneck.
+<<if $PC.Offline is false>><img src="https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Gaster%20frown%20by%20Jaden.png" alt="ID: Image of the skeletal chemistry scientist turning his skull to a wide grimace, phalanges in his pockets." height="700">
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><img src="" alt="Image of the skeletal chemistry scientist turning his skull to a wide grimace, phalanges in his pockets." height="700">
+<</if>>
+
+<<nobr>><<if $PC.Offline is false>><<G-worried-o>><span class="aster">...But we need to put cuffs on you for the time being. We'll make sure they aren't too tight, isn't that right, Undyne?</span><</G-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-worried>><span class="aster">...But we need to put cuffs on you for the time being. We'll make sure they aren't too tight, isn't that right, Undyne?</span><</G-worried>>
+<</if>><</nobr>>
+
+Undyne just rolls her eyes. <<if $PC.Offline is true>><<U-determined>><span class="dtm-sans">You haven't even introduced yourself yet, you old bag of bones!</span><</U-determined>><<elseif $PC.Offline is false>><<U-determined-o>><span class="dtm-sans">You haven't even introduced yourself yet, you old bag of bones!</span><</U-determined-o>><</if>> Undyne then turns to me, while the skeleton in question's face turns indignant. Before he can get a word in edgewise, Undyne introduces him. <<if $PC.Offline is false>><<U-happy-o>><span class="dtm-sans">This skeleton is Wing Ding Gaster.</span><</U-happy-o>><<elseif $PC.Offline is true>><<U-happy-o>><span class="dtm-sans">This skeleton is Wing Ding Gaster.</span></<</U-happy-o>><</if>> 
+She gestures to him, slightly exasperated. 
+<<if $PC.Offline is false>><<U-determined-o>><span class="dtm-sans">He doesn't care much for fame, despite being FAMOUS, which is why he didn't introduce himself. You probably already know his name!</span><</U-determined-o>><<elseif $PC.Offline is true>><<U-determined>><span class="dtm-sans">He doesn't care much for fame, despite being FAMOUS, which is why he didn't introduce himself. You probably already know his name!</span><</U-determined>><</if>>
+I nod, smirking. <span class="pcdarklink"><<linkreplace "You express confusion to me...">>I explain to you in my mind that Wing Ding Gaster is the inventor of the ultra-efficient fuel that made space-travel possible. <span class="pcdark">You make a sound that is the equivalent of a nod and an impressed gasp in my mind.</span><</linkreplace>></span>
+
+During the explanation, Gaster is completely silent, an annoyed look on his face as he puts on my cuffs. A minute later the cuffs are on and I am prodded along by Undyne as I follow Gaster, exiting @@.onlylink;[[to the hallway.|Following Gaster]]@@
+
+:: Following Gaster [cutscene]
+
+In the time between learning my fate, which hasn't happened yet, and being lead along by Gaster, my arms and shoulders become stiff with tense anticipation. I try to flap my hands to expell that extra anxious energy, but remember that I'm in cuffs and end up just moving my cuffs in opposite directions, then flopping them back down against the front of my body. I expell a  long, tense sigh instead, but that doesn't do it as well as it should. I attempt to try to flap them in cuffs again, but that doesn't work too well.
+
+
+<<if $PC.Offline is false>><<G-confused-o>><span class="aster">What are you doing, child?</span><</G-confused-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-confused>><span class="aster">What are you doing, child?</span><</G-confused>><</if>>
+
+ I flinch, having to speak out loud for the first time since I got here. I hesitate for a moment before explaining.
+
+<<if $PC.Offline is false>> <<Frisk-worried-o>><span class="dtm-mono">...I'm Autistic. I'm trying to expell my nervous energy by flapping my hands... But doing that in cuffs is pretty much impossible.</span><</Frisk-worried-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>> <<Frisk-worried>><span class="dtm-mono">...I'm Autistic. I'm trying to expell my nervous energy by flapping my hands... But doing that in cuffs is pretty much impossible.</span><</Frisk-worried>>
+<</if>>
+
+Gaster nods in agreement but says, 
+<<if $PC.Offline is false>><<G-bored-o>><span class="aster">We're almost there. The <i>Bonetrousle</i> isn't that big on the inside, as it's mostly cargo space, but the dining lounge, kitchen and the computer rooms are fairly large besides. You'll be fine until we get there, then I'll take them off when everyone is around and you're in a containment chamber.</span><</G-bored-o>>
+<<elseif $PC.Offline is true or $PC.Offline is undefined>><<G-bored>><span class="aster">We're almost there. The <i>Bonetrousle</i> isn't that big on the inside, as it's mostly cargo space, but the dining lounge, kitchen and the computer rooms are fairly large besides. You'll be fine until we get there, then I'll take them off when everyone is around and you're in a containment chamber.</span><</G-bored>>
+<</if>>
+
+<i><span class="dtm-mono">Oh. Great. I'm going to jail.</span></i> I think to myself sarcastically. At least I know where I'm going now, even if it isn't going to be pleasant. I dejectedly lower my head, watching the floor as we @@.onlylink;[[walk along.|Containment Chamber]]@@ The tenseness in my arms and shoulders bleeds out into the air, following us at our heels. It then dissipates behind us. The tense energy that once was instead turns to a crestfallen, disappointed feeling.
+
+:: I've got a plan, but Follow [cutscene]
+
+End demo! Thanks for playing! :D
+
+:: Following [cutscene]
+
+End demo! Thanks for playing! :D
+
+:: Sassy Follow [cutscene]
+
+End demo! Thanks for playing! :D
+
+:: Containment Chamber [cutscene slowtime]
+
+After we arrive at the Cargo Hold, the "containment chambers" as they are evidently called, are unlocked by Gaster. Undyne prods me into one, and unlocks my cuffs. 
+But before that, Gaster stops my SOUL from moving with blue magic, then puts me into the containment chamber while he locks it back up with a keycard and the number pad.
+The chamber is big enough for me to stretch my arms out, but not up. There is a metal grate in the way of me moving. 
+I can see Gaster telepathically letting everyone on the ship know that he and Undyne have found a stowaway. His concentration is not broken by me banging on the glass. I sigh, and slump to the floor after he's done, figuring my fate is inevitable. 
+
+Undyne waits by my cell as a guard, as Gaster goes outside the sliding door to talk with his crewmates about what to do with me. I sit back, and wait, knowing I can't do much about anything at the moment.
+
+<<if $debug is true>>For later (code in comments): 
+/* @@.link1;[[Knock on Gaster's laboratory door.|Knock Knock Gaster Lab]]@@
+ @@.link2;[[Go up the ladder.|Ladder]]@@
+ Try to enter [[Alphys's Office.|Alphys's Office]]*/<</if>> 

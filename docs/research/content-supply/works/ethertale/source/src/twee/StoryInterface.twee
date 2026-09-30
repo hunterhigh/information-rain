@@ -1,0 +1,157 @@
+:: StoryTitle
+
+ETHERTALE
+
+:: Story-Display-Title [stoptime]
+
+@@.nohide;<<if $PC.Offline is false>>
+  <img src="https://64.media.tumblr.com/faa8605ab579b6873fda05032dc1cef4/a63caba7052a3a50-7a/s400x600/49e5982462a061a7f94b9a8a062538b9b9a65c8e.png" alt="ETHERTALE logo" height="200" width="290">
+<<elseif $PC.Offline is true or $PC.Offline is undefined>>
+  <img src="imgs/ETHERTALE.png" alt="ETHERTALE logo" height="200" width="290">
+<</if>>@@
+
+
+:: StorySubtitle [stoptime]
+
+Prologue: Starship Stowaway
+v0.03.01beta
+<<if $debug is true>>The passage you're in is <<print passage()>>.
+The room you're in is $currentRoom.
+You are <<if $inRoom is true>>in a room<<elseif tags().includes("cutscene") and $inRoom is false>>in a cutscene.<<elseif tags(passage()).includesAny("menuitem","menu")>>in a menu.<</if>><<else>><</if>>
+Today is <<printfulldate>>.
+It is <<printtime12hr>>
+
+<span class="pcdarklink"><<if hasVisited("Aftermath")>><<if $audio is "muted">><<link "Turn music on?">><<set $audio to "unmuted">><<masteraudio unmute>><<refresh>><</link>><<elseif $audio is "unmuted">><<link "Turn music off?">><<masteraudio mute>><<set $audio to "muted">><<refresh>><</link>>
+<<if $bgm_audio is "muted">><<link "Turn background audio on?">><<audio ":bgm" unmute>><<set $bgm_audio to "unmuted">><<refresh>><</link>><<elseif $bgm_audio is "unmuted">><<link "Turn background music off?">><<audio ":bgm" mute>><<set $bgm_audio to "muted">><<refresh>><</link>><</if>>
+<</if>><</if>></span>
+<<nobr>>/*<<if $battle_audio is "muted">><<link "Turn battle music on?">><<playlist "bgm_E-T" unmute>><<refresh>><</link>><<elseif $battle_audio is "unmuted">><<link "Turn battle music off?">><<playlist "bgm_E-T" mute>><<refresh>><</link>><</if>>*/<</nobr>>
+
+<span id="desclink">[[Character Description]]</span>
+
+@@.pcdarklink;#pcsetting;[[Player-Settings]]@@
+
+<span class="pcdarklink"><span id="ctrlslink">[[Controls]]</span></span>@@
+
+:: StoryInterface
+
+<div id="interface">
+<div id="sidebar">
+<div id="story-title" data-passage="Story-Display-Title"></div>
+	<div id="menu-story" data-passage="StoryMenu"></div>
+	<div id="story-subtitle" data-passage="StorySubtitle"></div></div><div id="passages"></div>
+	</div>
+
+:: StoryMenu [stoptime]
+
+<span class="restartlink"><<link "RESET">><<set $PC.resetcounter++>>
+<<run memorize('resets', $PC.resetcounter)>><<run UI.restart()>><</link>></span>
+<span class="pcdarklink" id="volsettinglink"><<link "Volume Settings">><<run UI.settings()>><</link>></span>
+
+<span class="save-point"><<link "SAVE/LOAD">><<run UI.saves()>><</link>></span>
+<<if hasVisited("Explore Cargo")>>@@#invlink;[[Inventory Menu]]@@<</if>>
+<<if $debug is true>>[[checkvars]]<</if>>
+
+:: checkvars [menu stoptime]
+
+<<checkvars>>
+
+:: Player-Settings [menuitem stoptime]
+
+<span class="pcdarklink link1"><<if $PC.Offline is false>>
+  <<link "Would you like to play offline?" 'Player-Settings'>><<set $PC.Offline to true>><<refresh>><</link>>
+<<else>>
+  <<link "Would you like to play online?" 'Player-Settings'>><<set $PC.Offline to false>><<refresh>><</link>>
+<</if>>
+<<nobr>>/* You can do <<run toggleImg()>> to toggle the display of images,
+		<<run toggleImg(true)>> to hide images,
+		and <<run toggleImg(false)>> to show images. */<</nobr>>
+<strong>WARNING: <i>If you're on Android, or any phone-like device, Online is the only way to play with pictures. Sorry about this.</i></strong>
+If you'd rather @@.PCdarklink.link2;<<if $PC.imagesHidden is false>><<link "disable images">><<set $PC.imagesHidden to true>><<run toggleImg(true)>><<refresh>><</link>><<elseif $PC.imagesHidden is true>><<link "enable images">><<set $PC.imageshidden to false>><<run toggleImg(false)>><<refresh>><</link>><</if>>@@, we won't<<if $PC.imagesHidden is true>> mind one iota.<<elseif $PC.imagesHidden is false>> pass any blame.<</if>>
+
+@@.link3.PCdarklink;<<if $debug is false>>
+  <<link "Turn on debug mode?" 'Player-Settings'>><<set $debug to true>><<refresh>><</link>>
+<<else>>
+  <<link "Turn off debug mode?" 'Player-Settings'>><<set $debug to false>><<refresh>><</link>>
+<</if>>@@
+If debug is on, be prepared for spoilers that are unwanted.
+
+@@.link4.PCdarklink;<<nobr>><<if hasVisited("Player inspects Grav-Arrays") is true>> [[Can I go by a different set of pronouns?|Pronouns]]<</if>><</nobr>>
+<<nobr>><<if $debug is true>>[[Test pronouns|Test pronouns room - debug]]<</if>>
+<</nobr>>@@
+
+<span class="pcdarklink link5"><<longreturn>></span>
+
+:: Test pronouns room - debug [stoptime menuitem]
+
+Here, we can test your pronouns. Hopefully, errors won't abound.
+
+<<THEY>>
+<<They>>
+<<they>>
+
+<<THEM>>
+<<Them>>
+<<them>>
+
+<<THEIR>>
+<<Their>>
+<<their>>
+
+<<THEIRS>>
+<<Theirs>>
+<<theirs>>
+
+<<THEYRE>>
+<<Theyre>>
+<<theyre>>
+
+<<THEMSELF>>
+<<Themself>>
+<<themself>>
+
+?PAL
+?Pal
+?pal
+
+?YOUNGPERSON
+?youngPerson
+
+?ADULTPERSON
+?adultPerson
+
+?GENERALPERSON
+?generalPerson
+
+
+<span class="pcdarklink onlylink" ><<longreturn>></span>
+
+:: Pronouns [menuitem stoptime]
+
+@@.dtm-mono;<i>Sure, $PC.name. What would you like to go by? You can change them or keep them the same, but why would you ask me if you wanted to keep them?</i>@@
+/* $pgen: 0 = male, 1 = female, 2 = gender neutral, 3 = no gender */
+<<listbox "$pgen">>
+	<<option "Female, she/her" 1>>
+	<<option "Male, he/him" 0>>
+	<<option "Agender, it/its" 3>>
+	<<option "Androgynous, they/them" 2>>
+<</listbox>>
+@@.pcdarklink.link2;[[I don't like any of these.|Custom Pronouns]]@@
+
+<span class="pcdarklink link1"><<link "Thanks, Frisk. I'll go by these pronouns." $return>><</link>></span>
+
+:: Custom Pronouns [menuitem stoptime]
+
+@@.dtm-mono;<i>Alright. Well, make sure you tell me which ones you <i>would</i> like then.</i>@@
+<span class="pcdarklink link1"><<cycle "$PC.custompronouns">>
+<<option "Use custom pronouns." true>>
+<<option "Don't use custom pronouns." false>>
+<</cycle>></span>
+If you want to not use custom pronouns anymore, you can tell Frisk with the link above. 
+
+<<textbox "$ne" "ne">>
+<<textbox "$nem" "nem" >>
+<<textbox "$nir" "nir">>
+<<textbox "$nirs" "nirs">>
+<<textbox "$nemself" "nemself">>
+
+<span class="pcdarklink link2"><<link "Okay, these I like. Thanks Frisk!" $return>><</link>></span>

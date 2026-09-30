@@ -1,0 +1,67 @@
+:: Helico-Alexandra-Start
+
+Alors que l'hélicoptère s'éloigne petit à petit de l'île de Nuku Hiva et progresse au-dessus de l'océan, vous jeter un regard à la jeune femme civile. Elle esquisse un sourire crispé. Tout comme vous elle porte un casque d'aviation, muni d'une visière et d'un micro. Avec le bruit des pales, difficile de s'en passer pour communiquer.
+
+//Bonjour//, dites-vous. //Je suis Émile Fresnel. Je suis physicien. Et vous ?//
+
+//Alexandra//, répond-t-elle. //Alexandra Vallée. Je suis biologiste. C'est la première fois que je vous vois. C'est votre première mission ?//
+
+[['"Oui"'|Helico-Alexandra-StartOui]]
+[["Non" (mensonge)|Helico-Alexandra-StartNon]]
+
+:: Helico-Alexandra-StartOui
+
+Alexandra sourit.
+
+//C'est ma cinquième//, dit-elle. //Vous verrez, c'est assez surprenant ! Vous n'avez pas perdu votre temps à attendre.//
+
+[[Vous lui posez des questions|Helico-Alexandra-Conversation]]
+[[Vous mettez fin à la conversation|Helico-Turbulences]]
+
+:: Helico-Alexandra-StartNon
+
+Alexandra fronce les sourcils, sceptique.
+
+//Vraiment ?// demande-t-elle. //C'est ma cinquième mission et je suis certaine de ne vous avoir jamais vu.//
+
+[['"En fait c'est ma première mission."'|Helico-Alexandra-StartNonOui]]
+[[Vous ignorez sa remarque et lui posez quelques questions|Helico-Alexandra-Conversation]]
+[['"Achetez-vous des lunettes alors !"'|Helico-Alexandra-Lunettes]]
+
+:: Helico-Alexandra-StartNonOui
+
+TODO
+
+:: Helico-Alexandra-Lunettes
+
+La jeune femme hausse les épaules et se détourne de vous pour regarder dehors. Votre conversation est terminée.
+
+[[Vous faites une sieste durant le trajet|Helico-Sieste]]
+[[Vous vous installez près de la porte latérale pour regarder dehors pendant le trajet|Helico-Fenêtre]]
+[[Vous attaquez le pilote pour prendre le contrôle de l'appareil|Helico-AttaquePilote]]
+
+:: Helico-Alexandra-Conversation
+
+* <<linkappend "//Donc vous êtes biologiste ?//">>
+//Oui. Xénobiologiste, pour être exacte.//
+    <<linkappend "AAA ?">>
+    BBB
+    <</linkappend>>\
+<</linkappend>>\
+
+* <<linkappend "AAA ?">>
+BBB
+<</linkappend>>\
+
+* <<linkappend "AAA ?">>
+BBB
+<</linkappend>>\
+
+* <<linkappend "AAA ?">>
+BBB
+<</linkappend>>\
+
+
+
+
+<!-- FIN DE CONVERSATION : RETOUR DANS 02-voyage-helico.tw -->

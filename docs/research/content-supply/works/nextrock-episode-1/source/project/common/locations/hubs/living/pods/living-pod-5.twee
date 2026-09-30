@@ -1,0 +1,7 @@
+:: Living Pod 5 [location pod]
+
+<<nav>>
+    <<section Exits>>
+        <<action "Living Hub">>
+    <</section>>
+<</nav>>

@@ -1,0 +1,136 @@
+:: Inventory Menu [menuitem stoptime]
+<<longreturn>>
+<<include "Inventory">>
+
+@@.onlylink;<<longreturn>>@@
+
+:: Inventory [menuitem battle stoptime]
+<span id="content" class="menu"><<nobr>>
+<<run console.log(inv())>>
+<<set _filter = "all">>
+<div id="itemlist">
+<<include "inventory item list">>
+</div>
+<div id="menu-display">
+<<include "inventory item display">>
+</div>
+<</nobr>>
+</span>
+
+:: inventory item list[nobr menuitem stoptime]
+<div style="display:flex; justify-content:space-evenly;">
+<<if _filter == "all">>
+	<b>All</b>
+<<else>>
+	<<link "All">>
+		<<set _filter = "all">>
+		<<replace "#itemlist">><<include "inventory item list">><</replace>>
+	<</link>>
+<</if>>
+<<if _filter == "usable">>
+	<b>Usable</b>
+<<else>>
+	<<link "Usable">>
+		<<set _filter = "usable">>
+		<<replace "#itemlist">><<include "inventory item list">><</replace>>
+	<</link>>
+<</if>>
+<<if _filter == "equipment">>
+	<b>Equipment</b>
+<<else>>
+	<<link "Equipment">>
+		<<set _filter = "equipment">>
+		<<replace "#itemlist">><<include "inventory item list">><</replace>>
+	<</link>>
+<</if>>
+</div>
+<br/>
+<div class="itemcontainer">
+<<set _p = 2>>
+<<run console.log("starting item list")>>
+<<for _item range inv("items")>>
+	<<run console.log(_item)>>
+	<<if _filter == "all" || (_filter == "usable" && _item.usable.includes("inmenu")) || (_filter == "equipment" && _item.equippable)>>
+	<<if _p == 1>>
+		<<set _p = 2>>
+	<<elseif _p == 2>>
+		<<set _p = 1>>
+	<</if>>
+	<div @class="'item'+_p">
+	<b>
+	<<capture _item>>
+	<<link _item.name>>
+		<<set _display = _item>>
+		<<replace "#menu-display">><<include "inventory item display">><</replace>>
+	<</link>>
+	<</capture>>
+	</b> <span class="itemstock">(_item.stock)</span>
+	</div>
+	<</if>>
+<</for>>
+</div>
+
+:: inventory item display[nobr menuitem stoptime]
+<<if ndef _display || _display === null>>
+	<div class="centered" style="color: gray">Click on an item to see info</div>
+<<else>>
+	<<print _display>>
+	<<if _display.usable.includes('inmenu') || _display.equippable>>
+	<div class="item-buttons">
+		<<set _b = 0>>
+		<<if _display.usable.includes('inmenu') && _display.stock > 0>>
+			<<set _b++>>
+			<span @id="'button'+_b">
+				<span id="usebutton">
+				<<include "inventory use button">>
+				</span>
+			</span>
+		<</if>>
+		<<if _display.equippable>>
+			<<set _b++>>
+			<span @id="'button'+_b">
+				<span id="equipbutton">
+				<<include "equip button">>
+				</span>
+			</span>
+		<</if>>
+	</div>
+	<</if>>
+<</if>>
+
+:: equip button[nobr menuitem stoptime]
+<<if $Player.hasEquipped(_display.name)>>
+	<<button "UNEQUIP">>
+		<<run $Player.unequip(_display.equippable.slot)>>
+		<<replace "#menu-display">><<include "inventory item display">><</replace>>
+	<</button>>
+<<elseif _display.stock > 0>>
+	<<button "EQUIP">>
+		<<run $Player.equip(_display)>>
+		<<replace "#menu-display">><<include "inventory item display">><</replace>>
+	<</button>>
+<</if>>
+
+:: inventory use button[nobr menuitem stoptime]
+<<button "USE">>
+	<<run _display.onUse()>>
+	<<unset _display>>
+	<<replace "#menu-display">><<include "inventory item display">><</replace>>
+<</button>>
+
+:: inventory cancel button[nobr menuitem stoptime]
+<span id="cancelbutton">
+<<button "CANCEL">>
+	<<if document.getElementById("usebutton")>><<replace "#usebutton">><<include "inventory use button">><</replace>><</if>>
+	<<if document.getElementById("equipbutton")>><<replace "#equipbutton">><<include "equip button">><</replace>><</if>>
+	<<replace "#itemlist">><<include "inventory item list">><</replace>>
+<</button>>
+</span>
+<span class="monospace" style="font-size:85%">[R]</span>
+
+:: inventory puppets[stoptime nobr menuitem]
+<<set _HPmeters = []>>
+<<set _MPmeters = []>>
+<<for _i, _p range puppets().filter(function(p) { return temporary().event != "equip" || (!p.lockEquipment && p.checkRestriction(temporary().display)); })>>
+	<<actorDisplay _p "inventory">>
+<</for>>

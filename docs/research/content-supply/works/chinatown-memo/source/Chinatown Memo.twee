@@ -1,0 +1,626 @@
+:: StoryTitle
+Chinatown Memo
+
+
+:: StoryData
+{
+  "ifid": "1A9B7D0F-DEAC-4974-B0DE-C07A9B4DFDA7",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "1923",
+  "zoom": 0.6
+}
+
+
+:: \ I followed Uncle Huang and the other veterans, handing out flyers on the streets of Chinatown. {"position":"1900,575","size":"100,100"}
+"Please support our movement to abolish the Chinese Exclusion Act!" I shouted, my voice still youthful but filled with strength. Passersby stopped to take flyers, and some even gave us a thumbs-up.
+
+[[Reveal ]]
+
+
+:: \ Next\  {"position":"1000,325","size":"100,100"}
+I haven't seen my mother for many days. My impressions of her are few and far between. In my memory, she was always coughing or lying in bed, and it seemed like it was always my father taking care of me. After I turned one, I saw even less of her. During that time, my father ran the tailor shop while also making trips outside, always looking exhausted. I was often left in the care of Uncle Huang, our neighbor.
+
+Until that day, in the dimly lit room, there was only the soft sound of rain tapping on the windows. On the mantelpiece, there was a white statue of Guanyin, a brass statue of Sun Wukong, an old weightlifting trophy, and a photo of my mother.
+I think, if it weren't for that remaining photo, it would be difficult for me to remember what my mother looked like.
+
+I don't have many memories of that day, perhaps because I wasn't old enough to remember things clearly. Among the few memories I do have, my father and sister hurriedly picked up the phone beside the sofa, and then my father collapsed on the sofa, while my sister stood silently by.
+
+[[Crawl towards your father, “Dada?”]]
+[[Cuddle beside your father.]]
+[[Toddling towards your sister.]]
+
+
+:: \ Reveal\  {"position":"1500,775","size":"100,100"}
+In 1945, the war ended, but the shadow of racial discrimination still loomed over Chinese Canadians. Despite the significant contributions and even sacrifices made by many Chinese Canadian youths during the war, their community remained excluded from mainstream society.
+
+For 7-year-old Stephen, this discrimination was incomprehensible. He simply wanted to play with other children and share his char siu bao, but he was ruthlessly rejected. This experience made him realize for the first time that he was "different" from others.
+However, Stephen's warm smile and kind nature did not diminish because of this. Instead, this experience made him cherish the support of his family and community even more and sowed the seeds for his future role as a community historian and writer.
+
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:45%;">
+        <img src="https://m.media-amazon.com/images/I/514wdfflUqL.jpg" style="width:100%;">
+        <figcaption>//Dim Sum Stories: A Chinatown Childhood// by Larry Wong</figcaption>
+    </figure>
+    <figure style="text-align:center; width:45%;">
+        <img src="https://vancouverguardian.com/wp-content/uploads/2024/03/1945a.jpg" style="width:100%;">
+        <figcaption>1945 – Chinese lion in Victory celebration parade in Chinatown.</figcaption>
+    </figure>
+</div>]
+
+
+[[1947]]
+
+
+:: ''The End'' {"position":"2925,1050","size":"100,100"}
+//Larry Wong suffered from dementia in his later years, gradually losing his memories. Yet, until his final moments, his warm smile never faded.
+
+We extend our deepest gratitude to Larry Wong and the Chinese Canadians of the last century for their dedication to their community. It was through their efforts that younger generations of Chinese immigrants finally gained equality, respect, rights, and freedom.
+
+— The Author
+//
+
+
+[[Citation]]
+
+
+:: (Gently push her away) {"position":"2450,375","size":"100,100"}
+Jennie was startled by the sudden movement, looking at me, I stared back at her without a word.
+
+[[Talk to Jennie]]
+
+
+:: (Nod) {"position":"2275,900","size":"100,100"}
+“Please promise me you’ll fulfill my requests and don’t take it upon yourselves to do anything extra,” I said.
+ 
+ [[Salesman continues]]
+
+
+:: ... {"position":"2000,450","size":"100,100"}
+Uncle Huang's words filled me with strength. He took my hand and led me onto the streets of Chinatown. Colorful banners hung on both sides of the street, proclaiming "Equal Rights" and "Abolish the Chinese Exclusion Act." I saw many uncles and aunties busily distributing flyers, their faces radiant with hope.
+
+"Stephen, look," Uncle Huang pointed to the crowd on the street, "these are people just like us, fighting for equality. Would you like to join us?"
+
+I nodded, feeling both excited and nervous. Uncle Huang handed me a stack of flyers and said, "Go on, little guy. Tell everyone that our voices matter."
+
+[[ I followed Uncle Huang and the other veterans, handing out flyers on the streets of Chinatown.]]
+
+[[Dad gave me a small notebook to record the stories happening in our community.]]
+
+
+:: .... {"position":"2350,1475","size":"100,100"}
+He saw the disappointment on my face, thought for a moment, and patted the young man’s knee. “As the president of the Clan Association, I can’t really tell you what to do, but on such an important occasion, I suggest you think it over carefully. Besides, who do you want to officiate the funeral? Reverend Ho is very good.”
+
+Reverend Ho? He held services at the church in Chinatown on weekends, but I didn’t know him at all, and neither did my father.
+“He’s a complete stranger to my father.”
+Mr. Chung shrugged. “You need to have a pastor at the funeral.”
+“A friend of mine’s father is a retired pastor,” I said. “He used to frequent my father’s tailor shop.”
+
+Mr. Chung closed his eyes and leaned back in his creaking chair.
+
+[[The funeral began]]
+
+
+:: 1923 {"position":"600,200","size":"100,100"}
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:100%;">
+        <img src="https://github.com/thedavidweng/Twine-Immigration-Act/blob/main/Resource/Image/0_Dad%20diary.png?raw=true" style="width:100%;">
+    </figure>
+]
+
+(align:"=><=")+(box:"X=")[[1939]]
+
+
+:: 1939 {"position":"1000,200","size":"100,100"}
+''1939.''
+
+
+[[ Next ]]
+
+
+:: 1945 {"position":"1500,200","size":"100,100"}
+By 1945, the war had ended. 
+
+Uncle Huang had not yet returned, but the aroma of sweet pastries still wafted from the bakery in Chinatown. Every morning, I could smell the fragrant egg tarts and char siu bao freshly out of the oven, like strands of warm sunlight. I loved standing in front of the bakery's display window, watching the owner skillfully knead the dough into small round balls before placing them in the oven. Whenever the oven door opened, the steamy pastries released an enticing aroma, and I couldn't help but swallow.
+
+The owner always smiled warmly; knowing my fondness for char siu bao, he would always save a freshly baked one just for me. 
+
+"Stephen, eat it while it's hot, it won't taste as good when it cools!" he would often say to me. 
+
+I would take the char siu bao, cautiously bite into it, and the sweet and savory flavors would melt in my mouth—the crispy outer layer and the delicious filling always made me involuntarily smile. Dad said my smile was the warmest thing in our home, like a little lamp, illuminating our lives.
+
+One day, holding a freshly bought char siu bao, I stepped out of Chinatown. In the park at the corner, a few foreign kids were playing. Their laughter rang out like silver bells, echoing through the air and drawing me in. They chased each other and kicked a small soccer ball, their faces brimming with carefree joy. I stood nearby, clutching the char siu bao tightly in my hand, feeling both excited and nervous.
+ 
+[[Hey... what are you playing?]]
+[[I have some char siu bao, would you like some...?]]
+[[Can I play with you...?]]
+
+
+:: 1947 {"position":"2000,200","size":"100,100"}
+1947.
+
+That year, the air in Chinatown seemed to carry a different scent, one that Dad described as the smell of hope. Uncle Huang finally returned. 
+
+He wore a faded military uniform adorned with several shining medals. His face bore more wrinkles, but his smile remained warm. He told me that the war was over, but their fight had not stopped. 
+
+"Stephen, do you know?" Uncle Huang crouched down and patted my shoulder, "We old soldiers are working on something big." 
+
+"What big thing?" I asked curiously. 
+
+"We are making sure everyone knows that Chinese Canadians are also a part of this country. We are fighting for equal rights, to abolish the unfair Chinese Exclusion Act."
+
+I nodded, not fully understanding what the Chinese Exclusion Act was, but I knew it was something that made Dad incredibly tired and that despite all the sacrifices made by Uncle Huang and other Chinese veterans during the war, they were still treated as 'outsiders.'
+
+[[What is the Chinese Exclusion Act?" I asked, furrowing my brow. ]]
+[[Uncle Huang, will you be successful?" I asked, a bit worried.]]
+
+
+:: 1960 {"position":"2375,200","size":"100,100"}
+My father has passed away.
+
+I stood in his bedroom, feeling a bit lost. For a tailor, his wardrobe was surprisingly plain, with most of the space taken up by storage.
+
+I recognized one jacket among the items, the one he wore most often when going out. I took it out of the closet and laid it on the bed, trying hard to picture my father wearing it. Strangely, I could only conjure a blurry shadow, his face indistinct.
+
+“We were just having dinner together last week,” I said to the empty room, startled by my own voice. I chuckled, then immediately felt it was inappropriate. Even though no one was watching, I forced a wry grimace to cover it up.
+
+More than sadness, I felt a sense of confusion. Was I the only one feeling this way? Is this a Canadian reaction? What reaction should a Chinese person have?
+
+Lost in thought, I had been standing for quite a while. Footsteps came from downstairs. I walked out of the room, and Jennie, my sister, and her husband, Joseph, entered.
+
+“Stephen!” Jennie cried out when she saw me and hugged me, bursting into tears.
+
+[[Are you alright, Sister?]]
+[[(Gently push her away)]]
+
+
+:: 2011 {"position":"2825,200","size":"100,100"}
+''Final Chapter: Embers of Memory
+''
+I open //Dim Sum in Chinatown// again. The copy in my room has grown so worn that its cover has turned pale.
+
+Each night, I read a few pages before bed, as if trying to etch those memories—fading with time—just a little deeper. Lately, the words on the pages have started to blur. Not because of my eyesight, but because the gears in my mind have begun to rust.
+
+[[I take out the photo album by my bedside.]]
+
+
+:: A photo of a poster {"position":"2900,650","size":"100,100"}
+It’s 1947. Uncle Huang and I are standing on a street in Chinatown, holding signs that read Abolish the Chinese Exclusion Act.
+
+The wind was strong that day, sending flyers scattering through the air. Uncle Huang’s military uniform buttons gleamed under the sunlight.
+
+He crouched down and said to me, “Go—tell them our voices deserve to be heard!”
+That was the first time I felt like I was more than just an illegal child.
+
+|images>[<div style="display:flex; gap:10px">
+    <figure style="text-align:center; width:45%;">
+        <img src="https://github.com/thedavidweng/Twine-Immigration-Act/blob/main/Resource/Image/4_photo%20of%20a%20poster.jpeg?raw=true">
+    </figure>
+</div>](text-colour:white)[//
+After World War II, the Chinese Exclusion Act was gradually abolished in various parts of Canada. The picture shows a cartoon published in a January 1947 issue of the Windsor Daily Star, where "Unwelcome" was changed to "Welcom".//]
+
+[[A photo of a street]]
+[[A photo of the tailor shop]]
+[[I close the photo album]]
+
+
+:: A photo of a street {"position":"2700,650","size":"100,100"}
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:100%;">
+        <img src="
+https://github.com/thedavidweng/Twine-Immigration-Act/blob/main/Resource/Image/3_photo%20of%20a%20street.jpeg?raw=true" style="width:100%;">
+    </figure>]
+I’m standing in front of Chen’s bakery, holding a steaming hot cha siu bao in my hands. It was 1945. I was seven years old—the same day a group of white children refused to let me play with them for the first time.
+Chen handed me the bao and said, “Smile, Stephen. A smile can break prejudice better than a fist.”
+
+[[A photo of a poster]]
+
+[[A photo of the tailor shop]]
+
+[[I close the photo album]]
+
+
+:: A photo of the tailor shop {"position":"3125,550","size":"100,100"}
+When I was twenty-five, my father called me to the workbench, gesturing at the rolls of fabric stacked against the wall. “They may look ordinary,” he said, “but if the stitches are tight enough, they can withstand decades of wear.”
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:100%;">
+        <img src="https://github.com/thedavidweng/Twine-Immigration-Act/blob/main/Resource/Image/2_photo%20of%20tailor%20shop.png?raw=true" style="width:100%;">
+    </figure>]
+I knew what he really meant: to survive in this world, I had to be like those fabrics—soft when I could be, but strong enough to keep from being torn apart.
+
+[[A photo of a street]]
+[[A photo of a poster]]
+[[I close the photo album]]
+
+
+:: Are you alright, Sister? {"position":"2300,375","size":"100,100"}
+Jennie remained silent, continuing to cry. I looked at Joseph, who nodded at me.
+
+[[Talk to Jennie]]
+
+
+:: But... isn't it good to stay here? {"position":"1000,975","size":"100,100"}
+Uncle Huang smiled and patted my head. "A good life means not being looked down upon, not being bullied, and being able to live proudly on this land. This is our chance to actively demonstrate our commitment to this land, and perhaps from then on, they will no longer look down on us."
+
+[[Reveal]]
+
+
+:: Can I play with you...? {"position":"1350,350","size":"100,100"}
+I gathered my courage and asked, still clutching the char siu bao tightly in my hand.
+One of the boys turned around, glanced at me, and before he could speak, his mother quickly approached. 
+
+"Stay away from him!" she sternly told her child, then glared at me, "Don't play with Chinese people!"
+
+[[Next →]]
+
+
+:: Citation {"position":"3250,200","size":"100,100"}
+Source Cited:
+
+Asian Canadian and Asian Migration Studies. (2023, September 6). Remembering Larry Wong. The University of British Columbia. https://acam.arts.ubc.ca/remembering-larry-wong/
+
+Dixon, T. (2024, April 4). Vintage photographs from Chinatown. Vancouver Guardian. https://vancouverguardian.com/vintage-photographs-chinatown/
+
+Galanopoulos, T. (2012). Larry Wong: His Chinatown, his story. Pacific Rim Magazine. https://sites.langara.ca/prm/2012/community/larry-wong-his-chinatown-his-story/
+
+McRae, M. (2017, May 31). The Chinese head tax and the Chinese Exclusion Act. Canadian Museum for Human Rights. https://humanrights.ca/story/chinese-head-tax-and-chinese-exclusion-act
+
+Toronto Public Library. (2023, June 1). 100th anniversary of the Chinese Exclusion Act. Local History & Genealogy. https://torontopubliclibrary.typepad.com/local-history-genealogy/2023/06/100-anniversary-of-the-chinese-exclusion-act.html
+
+Veterans Affairs Canada. (n.d.). Chinese Canadians. Government of Canada. Retrieved February 13, 2025, from https://www.veterans.gc.ca/en/remembrance/people-and-stories/chinese-canadians
+
+
+:: Crawl towards your father, “Dada?” {"position":"1000,450","size":"100,100"}
+Dad let out a deep sigh and hugged my sister and me together. 
+
+"We'll get through this together," he said softly, his voice firm yet unable to hide the deep sadness.
+
+[[Next]]
+
+
+:: Cuddle beside your father. {"position":"1125,450","size":"100,100"}
+I toddled over to my sister and reached out to grab the hem of her skirt. 
+
+She bent down, picked me up, and whispered, "I'll take care of you from now on." 
+
+Her voice was gentle and resolute, but tears twinkled at the corners of her eyes.
+
+[[Next]]
+
+
+:: Dad gave me a small notebook to record the stories happening in our community. {"position":"2100,575","size":"100,100"}
+I sat at the entrance of the bakery, listening to the uncles and aunties passing by as they shared their experiences. Some spoke of sacrifices made during the war, others talked about their hopes for the future. I wrote down these stories one by one. Although my handwriting was crooked and twisted, I knew that these words would become a part of history.
+
+[[Reveal ]]
+
+
+:: Escape {"position":"2350,1725","size":"100,100"}
+The pastor ended his speech by scattering a handful of soil onto the coffin. Mourners walked past one by one, each taking turns to say a few words to me. The funeral was over.
+
+After the crowd dispersed, I ran back to the cemetery. In the distance, Mr. Chung’s car was puffing out smoke rings, just like it always did after mediating a “family dispute.”
+
+“You held the funeral you wanted,” I said inwardly to Mr. Chung. Now let me, my father’s flesh and blood, say my last words to him. I turned my gaze to the coffin.
+
+The poem line broke free from its restraints: “And Death Shall Have No Dominion.” Wild grass seeds mixed with dust brushed against my face. In a daze, it felt like a calloused hand was stroking my brow.
+
+[[2011]]
+
+
+:: Hey... what are you playing? {"position":"1500,350","size":"100,100"}
+I held up the char siu bao, trying to bridge the gap with food. 
+
+One of the boys glanced curiously, but his mother quickly came over and said coldly, "We don't take food from strangers, especially from you."
+
+[[Next →]]
+
+
+:: I close the photo album {"position":"2925,925","size":"100,100"}
+Tonight, the moonlight is particularly beautiful. Outside the window, the maple tree rustles, its sound blending into the hum of a sewing machine from my father’s shop—if only in my mind.
+
+I curl up in my rocking chair, letting the tide of memory wash over me—my mother’s bloodstained handkerchief, my father’s closed coffin at his funeral, Uncle Huang’s flyers plastered across the streets...
+
+Irene just brought me my dinner. She found the will I wrote this afternoon, sitting on my desk.
+
+//"Bury me to the right of my father. The tombstone must be in Chinese"//
+
+I see the tears welling in her eyes, so I quickly tell her, “No fussing now. Sing me The Moon Represents My Heart, will you?”
+
+Outside, the maple leaves begin to fall again.
+
+I fumble for my reading glasses and, on the last page of my journal, I write:
+
+"My life is a patchwork quilt—my mother’s early death a tear in the fabric, discrimination a stain, resistance the golden thread. Now it is old, frayed, but every stitch is firm. Tell the children—the story isn’t over yet."
+
+The pen stops there.
+
+In the distance, I hear the chatter of the Blenheim Hotel staff. The scent of cha siu bao drifts in through the door.
+
+I take off my glasses and raise my teacup to the empty air.
+
+//"Dad, mom, — for this life, I did well enough, right?"//
+
+Moonlight spills quietly across the floor.
+
+[[''The End'']]
+
+
+:: I have some char siu bao, would you like some...? {"position":"1650,350","size":"100,100"}
+I asked cautiously, my voice tinged with hope. 
+
+One of the boys hesitated, about to speak, but his mother came over and said firmly, "No! We don't play with Chinese people."
+
+[[Next →]]
+
+
+:: I returned to the bakery and sought out the owner for a chat. {"position":"1375,625","size":"100,100"}
+"Dad, why won't they play with me?" I asked, my voice choking up. 
+
+Dad gently patted my back, was silent for a moment, and then said, "Some people still don't understand us, Stephen. But you must remember, you are just as deserving of respect and love as any other child."
+
+[[ Reveal ]]
+
+
+:: I take out the photo album by my bedside. {"position":"2825,325","size":"100,100"}
+I flip through its pages—photos of my father, my sister, and a man in military uniform. 
+I realize I no longer recognize him.
+
+When Irene from the Blenheim Hotel comes by to tidy up my room, I ask her who he is. (She knows me well—such a gentle, kind girl.) She tells me, “That’s Uncle Huang. You always said he was the one who taught you to write your first Chinese character.”
+I pause for a moment, then suddenly laugh.
+
+Dementia—what an irony. I’ve spent my whole life recording other people’s stories, yet now I can’t even hold onto my own.
+
+On the last page of the album, my CI45 card is still tucked away. It’s yellowed with age, the ink fading. 
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:100%;">
+        <img src="https://github.com/thedavidweng/Twine-Immigration-Act/blob/main/Resource/Image/1_I%20take%20out%20the%20photo%20album.png?raw=true" style="width:100%;">
+    </figure>
+]
+
+When my father held me in his arms and took me to register all those years ago, he probably never imagined that his son would treasure this scrap of paper like a keepsake.
+
+How wonderful that children today no longer have to endure this.
+
+Before my memories slip away entirely, I want to turn these pages a few more times—to hold onto as much as I can.
+
+[[A photo of the tailor shop]]
+
+[[A photo of a street]]
+
+[[A photo of a poster]]
+
+
+:: I turned and ran back home, pushing open the door of the tailor shop and throwing myself into Dad's arms. {"position":"1625,625","size":"100,100"}
+As I walked in, the owner noticed my dejected demeanor and asked with a smile, "What's wrong, little guy? Didn't you like the char siu bao today?"
+ 
+I shook my head and said softly, "They wouldn't play with me because I'm Chinese."
+
+The owner sighed and patted my head. "Stephen, the world can sometimes be unfair, but remember, your smile and kindness are the most precious things. One day, they will understand."
+
+[[ Reveal ]]
+
+
+:: I want my father’s funeral ceremony to be held in a place of my choosing {"position":"2500,1325","size":"100,100"}
+Mr. Chung was clearly not pleased that his authority was being questioned. He paused for a moment and said, “Listen, I understand your feelings, but you also need to consider the practicalities.”
+
+[[....]]
+
+
+:: Left {"position":"2375,1175","size":"100,100"}
+I sighed and left the funeral home. A few blocks away stood a dilapidated building – the Clan Association in Chinatown. I walked up the worn wooden steps, following the scent of cigar smoke towards Wah Chung’s office, the president of the Clan Association. “Come in, young Chen,” a burly figure in a swivel chair by the desk said. “Sit down.” He gestured to a chair with a fat cigar.
+“You went to the funeral home?”
+“Yes,” I said. “I spoke with the people at Woodside Funeral Home. I believe a graveside ceremony will suffice.”
+
+Mr. Chung nodded without a word. He was a balding man in his fifties, making a career out of local politics. His job involved not only actively participating in community affairs but also resolving family disputes, welcoming clansmen from Hong Kong, and upholding Chinese traditions. His presence was akin to a chieftain, meddling in everything big and small, which annoyed me greatly.
+
+Wah Chung quietly chewed on his cigar before finally saying, “That’s simply impractical. First of all, all Chinese funerals are held in the funeral home’s chapel. That’s where all the friends and pastors can pay their last respects. Secondly, it’s unfair to your father’s friends. You know Woodside is close to Chinatown, and most Chinese funerals are held there. It’s easier for most Chinese people to get there.”
+
+[[There’s no reason they can’t get a ride to the cemetery]]
+[[I want my father’s funeral ceremony to be held in a place of my choosing]]
+
+
+:: Looking at Dad {"position":"1075,725","size":"100,100"}
+I looked up at Dad, and he gently patted my shoulder. 
+
+"Let's go say goodbye to your Uncle Huang; he's joining the army," Dad said as he carried me towards the figure in the crowd.
+
+[[Next ]]
+
+
+:: Next {"position":"1000,600","size":"100,100"}
+In September of that same year, Dad pulled me out of the tailor shop, and today Chinatown was bustling with people. 
+
+The streets were crowded, and the air was filled with an indescribable tension and anticipation. Many Chinese men about the same age as my father were dressed in dark green clothes and boots, bidding farewell to the elderly, women, and children at home. Their faces bore complex emotions—determination, reluctance, and a hint of worry. 
+
+Among the crowd, there was also a familiar figure.
+
+[[Walking towards the figure]]
+[[Looking at Dad]]
+
+
+:: Next\  {"position":"1000,850","size":"100,100"}
+"What does joining the army mean? Why do you have to leave here?" I asked, puzzled.
+
+Uncle Huang pinched my cheek and said with a smile, "Joining the army means going to fight the bad guys. We go to protect the peace of the world so that little guys like you can have a good life."
+
+[[But... isn't it good to stay here?]]
+[[What is a good life...?]]
+[[There are no bad guys attacking us, so why do you have to go fight?]]
+
+
+:: Next → {"position":"1500,500","size":"100,100"}
+Her voice was like a cold knife piercing my heart. The boy was pulled away by his mother, and the other children scattered, leaving me alone in the park, still holding the now cold char siu bao.
+
+[[Standing still, I stared at the char siu bao in my hand.]]
+[[I turned and ran back home, pushing open the door of the tailor shop and throwing myself into Dad's arms.]]
+[[I returned to the bakery and sought out the owner for a chat.]]
+(text-colour:red)[~~Attempt to approach the foreign children again~~ 
+ (System prompt: Due to racial discrimination, this option cannot be continued.)]
+
+
+:: Please promise me you'll fulfill my requests. {"position":"2500,900","size":"100,100"}
+“Let the deceased have their privacy,” I said.
+
+[[Salesman continues]]
+
+
+:: Reveal {"position":"1000,1125","size":"100,100"}
+In 1939, with the outbreak of World War II, the world was plunged into turmoil. For the Chinese Canadians living in Vancouver's Chinatown, the war was not just a distant conflict but also an opportunity to change their destinies.
+
+Many young Chinese Canadians saw enlisting as a way to demonstrate their commitment to Canada, which could potentially help eliminate the racism they had long faced. However, many others questioned why they should fight for a country that seemed not to need them. This conflicting sentiment spread throughout every corner of Chinatown.
+
+Uncle Huang's decision was a reflection of these complex emotions. He hoped that by joining the military, he could gain more respect and equality for the Chinese community. His departure was not just a farewell to his family but also a gamble on the future.
+
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:45%;">
+        <img src="https://public.cdn.cloud.veterans.gc.ca/images/2019-redesign-remembrance/veterans/1000x400-women-ambulance-corps.jpg" style="width:100%;">
+        <figcaption>Canadian Chinese woman in the army</figcaption>
+    </figure>
+    <figure style="text-align:center; width:45%;">
+        <img src="https://www.veterans.gc.ca/images/hr_cdnchinese/chanp01lg.jpg" style="width:100%;">
+        <figcaption>Chilliwack Camp 1944</figcaption>
+    </figure>
+</div>]
+
+[[1945]]
+
+
+:: Reveal\  {"position":"2000,700","size":"100,100"}
+In 1947, the efforts of Chinese Canadians finally bore fruit. The Chinese Exclusion Act was abolished, and Chinese individuals gained the right to citizenship for the first time. This historic moment marked an important step forward in the fight for equal rights for Chinese Canadians.
+
+For 9-year-old Stephen, this year was not only a turning point in history but also a crucial moment in his personal development. He witnessed the efforts of Uncle Huang and other veterans firsthand and participated actively in community activities. These experiences deepened his understanding of what justice and unity mean, and laid the foundation for his future role as a community historian and writer.
+
+|images>[<div style="display:flex; gap:10px; justify-content:center;">
+    <figure style="text-align:center; width:45%;">
+        <img src="https://humanrights.ca/sites/prod/files/styles/crop%5Bwidth%5D%3D1200%26crop%5Bheight%5D%3D900%26convert%5Bformat%5D%3Dwebp%26convert%5Bextension%5D%3Dwebp/public/2018-02/g10359-L2Z3-20%20CP-1967985.jpg?itok=4WczQcaD" style="width:100%;">
+        <figcaption>Thomas Soon, 97 (left) and Charlie Quon, 99, holding the first head tax redress payments from the Government of Canada.</figcaption>
+    </figure>
+    <figure style="text-align:center; width:45%;">
+        <img src="https://torontopubliclibrary.typepad.com/.a/6a00e5509ea6a1883402c1a6cb21e6200b-800wi" style="width:100%;">
+        <figcaption>C.I. (Chinese Immigration) certificates preserved in the Chinese Canadian Archive.</figcaption>
+    </figure>
+</div>]
+
+[[1960]]
+
+
+:: Salesman continues {"position":"2375,1050","size":"100,100"}
+“Of course,” the salesman said. He seemed sympathetic and friendly, but with a condescending air. I recalled the funerals of classmates’ family members I had attended before, standard Christian ceremonies full of grand displays and formalities. Two Chinese idioms that the elders of the Clan Association often quoted were "入乡随俗" (rù xiāng suí sú) and "随遇而安" (suí yù ér ān), meaning "When in Rome, do as the Romans do" and "Content with one's situation." But I also felt that my father would have stubbornly insisted on the principles he believed in, and there was no reason for me not to do the same.
+
+I heard the roar of jet engines in the distant sky, wondering if there really was a heaven. A sob welled up in my chest, but my face remained blank.
+
+“Your requests will be fulfilled to the best of our ability,” the salesman said, “but I must ask you to consider the process. Our embalmers are highly skilled craftsmen…”
+“No, don’t touch him.”
+
+[[Left]]
+
+
+:: Standing still, I stared at the char siu bao in my hand. {"position":"1500,625","size":"100,100"}
+Its originally sweet aroma now seems bitter. I couldn't understand why they didn't want to play with me. Was it because my clothes weren't fancy enough, or because my hair was black?
+
+[[ Reveal ]]
+
+
+:: Talk to Jennie {"position":"2375,500","size":"100,100"}
+Jennie took a step back. I saw her eye makeup was completely ruined by tears. She sniffled again, wiping her eyes with her wrist. She seemed to want to say something but swallowed it back. I guessed she wanted to say something like I was now the pillar of the family, but wasn't sure if it was appropriate to put that responsibility on my shoulders.
+
+[[Talk to Joseph]]
+
+
+:: Talk to Joseph {"position":"2375,650","size":"100,100"}
+“Brother-in-law, please take care of my sister. I’ll handle Dad’s funeral arrangements.”
+
+Joseph and I exchanged glances, and he nodded.
+
+[[Time to go]]
+
+
+:: The funeral began {"position":"2350,1600","size":"100,100"}
+The funeral began.
+
+Woodside’s chapel was packed with relatives and friends. Looking at this group of relatives I hadn’t seen in years, my heart was filled with mixed emotions.
+
+A funeral home staff member approached, “If you’d like, we can open the casket.”
+
+They had embalmed my father!
+
+My heart suddenly tore open. I smelled the scent of camphor mixed with formaldehyde seeping out from the coffin. The wooden coffin reflected a cold luster under the chandeliers. The staff member’s white-gloved fingertips rested on the coffin lid, like a museum curator preparing to unveil an antique.
+
+“According to the agreement…” I managed to choke out, as if pleading for help. In the distance, Reverend Zhao’s eulogy drifted over like muffled sounds through frosted glass: “…the gift of life must eventually be returned. Mr. Chen, in his life…” I suddenly realized that all the guests were watching me, this “filial son.” I turned my head and saw Jennie sitting beside Joseph. Her eyes met mine, as if noticing that something was wrong with me. I could only force down the boiling anger in my chest.
+
+Recorded hymns played from hidden speakers. Mourners lined up to walk past the closed coffin. As the pallbearers began to move the casket, the funeral director, impeccably dressed in a suit, ghosted to my side. “Excuse me,” he whispered, “Could you please settle the remaining balance as soon as possible? Your Clan Association has already paid their share.” I felt a slight recoil, only muttering a cold “Yes” and quickly escaping.
+
+[[Escape]]
+
+
+:: There are no bad guys attacking us, so why do you have to go fight? {"position":"875,975","size":"100,100"}
+Uncle Huang fell silent for a moment, his gaze becoming distant. 
+
+He looked towards the sign at the entrance of Chinatown and said softly, "Little guy, staying here is certainly good, but sometimes, we must leave for a greater purpose. When you grow up, you'll understand. Uncle has to strive for our peace and freedom so that we can have good lives."
+
+[[Reveal]]
+
+
+:: There’s no reason they can’t get a ride to the cemetery {"position":"2225,1325","size":"100,100"}
+Mr. Chung raised his hands. “You don’t understand,” he said. “Listen, how many of your father’s friends can afford a taxi, or know someone who can give them a ride? Let’s be realistic.”
+
+[[....]]
+
+
+:: Time to go {"position":"2375,775","size":"100,100"}
+“Of course, we offer a complete package, all-inclusive until burial,” the funeral home salesman said. “We will take good care of your father.”
+
+“I don’t want embalming, and I don’t want an open casket at the funeral. This isn’t a performance.” “Of course, we offer a complete package, all-inclusive until burial,” the funeral home salesman said. “We will take good care of your father.”
+
+It's hard to imagine that just a few years ago, I was reluctant to embrace my own identity, and now I was emphasizing to the funeral home staff that they must take care of my father in the Chinese way.
+
+[[Please promise me you'll fulfill my requests.]]
+[[(Nod)]]
+
+
+:: Toddling towards your sister. {"position":"875,450","size":"100,100"}
+Dad slowly turned around, tears streaming down his cheeks. 
+
+"Mom has gone to a place without pain, Stephen," he said softly, his voice hoarse and tired. 
+
+He bent down, picked me up, and held me tightly in his arms. His chest trembled slightly, and I could feel his heartbeat, heavy and slow.
+
+[[Next]]
+
+
+:: Uncle Huang, will you be successful?" I asked, a bit worried. {"position":"2075,325","size":"100,100"}
+Uncle Huang's eyes became resolute. "We will succeed, Stephen. Because we believe that justice will eventually prevail."
+
+[[...]]
+
+
+:: Walking towards the figure {"position":"925,725","size":"100,100"}
+I slowly walked toward the familiar figure, and Uncle Huang, upon seeing me, immediately broke into a smile. 
+
+"Stephen, you're here!" he exclaimed as he crouched down and scooped me up in his arms.
+
+ "Uncle Huang is going to join the army far away! Little guy, remember to think of me!" His voice was still warm, but his gaze carried a seriousness I had never seen before.
+
+[[Next ]]
+
+
+:: What is a good life...? {"position":"1125,975","size":"100,100"}
+Uncle Huang sighed and his gaze became resolute. 
+
+"Little guy, the bad guys might not come to attack us directly, but they make the world unfair. We join the army to make the world fairer, so that children like you can grow up in a better place."
+
+[[Reveal]]
+
+
+:: What is the Chinese Exclusion Act?" I asked, furrowing my brow.\  {"position":"1925,325","size":"100,100"}
+Uncle Huang sighed and said softly, "It's an unfair law that prevents our families from being reunited and causes many people to look down on us. But now, we are going to change all that."
+
+[[...]]
+
+
+:: StoryStylesheet [stylesheet]
+tw-story {
+    background-image: url("https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

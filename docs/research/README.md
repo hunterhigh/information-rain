@@ -9,6 +9,7 @@
 | [`market/`](market/) | 竞品、市场与内容形态。 |
 | [`architecture/`](architecture/) | 开源项目、框架和系统架构参考。 |
 | [`compliance/`](compliance/) | 内容权利、平台规则与地域合规。 |
+| [`content-supply/`](content-supply/README.md) | 自供给分发内容的作品资料、结构数据与思考。 |
 
 ## 当前资料
 
@@ -17,5 +18,6 @@
 - [开源项目参考](architecture/2026-09-28-github-project-references.md)
 - [平台架构参考调查](architecture/2026-09-29-platform-architecture-reference-survey.md)
 - [全球内容分发合规初探](compliance/2026-09-28-distribution-compliance.md)
+- [自供给分发内容资料库](content-supply/README.md)
 
 商业结论见 [`docs/business/`](../business/README.md)，分发产品实现计划见 [`docs/products/distribution/`](../products/distribution/README.md)。

@@ -1,0 +1,10 @@
+:: Natatorium [location pod]
+<<location>>
+A vigorous swim is just what you need.
+<</location>>
+<<nav>>
+    <<section Exits>>
+        <<action "Facilities Hub">>
+        <<action "Shower Pod">>Shower
+    <</section>>
+<</nav>>

@@ -1,0 +1,265 @@
+:: User-defined variables [nobr]
+<<set $puppets to [$Frisk]>>
+<<run customMods()>>
+<<set $PtagsInit to []>>
+<<set $PC to {}>>
+<<set $PC.resetcounter to recall('resets', 0)>>
+<<set $PC.Offline to true>>
+<<set $PC.imagesHidden to false>>
+<<set $PC.custompronouns to false>>
+<<set $now = new Date(2031, 4, 1, 14, 30, 0)>>
+/* Dukemz: In case my inventory system for some reason doesn't work as it should, I can re-paste it here in a script tag. */
+/*
+Jaden here. In Opera the shortcut for the Developer Console is Ctrl-Shift-J, but you can add more shortcuts through the settings.
+All I did was go to the settings and search up "keyboard" without the quotes, and it should find it. If that doesn't work, try "shortcuts," again without the quotes.
+---
+ Irin's code below*/
+
+<<set setup.DEFAULT_EQUIP_SLOTS = {
+  "Weapon": 1,
+  "Head": 1,
+  "Torso": 1,
+  "Legs": 1,
+	"Feet": 1
+ }>>
+/*Irin's Code End */
+/*Jaden's code start */
+<<set $Frisk = new Puppet("Frisk")>>
+<<set $Player = $Frisk>>
+<<set $Frisk.age to 16>>
+<<set $Frisk.Gold to 10>>
+<<set $Frisk.LV to 0>>
+<<set $Frisk.EXP to 0>>
+<<set $Frisk.inv = new Inventory([],10)>>
+<<set $Frisk.bday = new Date('April 22, 2015')>>
+<<set $Frisk.equip(new Item("Dark Brown Pants"))>>
+<<set $Frisk.equip(new Item("Blue and Purple Striped Sweater"))>>
+<<set $Frisk.equip(new Item("Dark Brown Sneakers"))>>
+<<run console.log("$Player:"); console.log($Player)>>
+/*Jaden's Item Controller Object*/
+<<set $currentArea to "Starship">>
+<<set $C to {
+  "Starship": {
+    "Cargo Hold": ["High Tech Knife", "Beast Jerky", "Beast Jerky", "Beast Jerky", "Beast Jerky", "Beast Jerky"],
+    "Engine Room": ["Metal"],
+	"Kitchen": ["Apple", "M&M Cake", "Beast Jerky"],
+	"Dining_Lounge":[],
+	"Gaster's Lab": [],
+	"Alphys' Office":[],
+	"Navigation Room":[],
+	"Alphys' Bedroom":[],
+	"Gaster and Papyrus's Bedroom":[],
+	"Sans' Bedroom":["Cloth"],
+	"Undyne's Training Room/Bedroom":[],
+	"Asgore's Bedroom":[],
+	"Toriel's Bedroom":[],
+	"Latrine":["Cloth"],
+	"Linen Closet":["Cloth", "Cloth", "Cloth"],
+	"1st Floor Corridor":[],
+	"2nd Floor Corridor":[],
+	"Vent 2":[],
+	"Vent 1":[],
+	"Ladder":[]
+  }
+}>>
+/* */
+/*  Jaden's Item Controller end
+	Jaden's talk macro setup
+ Sans talk macros*/
+<<character "sans-thoughtful" "Sans" "imgs/Talk/Sans/thoughtful.png">>
+<<character "sans-bluemagic" "Sans" "imgs/Talk/Sans/angry-bluemagic.png">>
+<<character "sans-smile" "Sans" "imgs/Talk/Sans/smile.png">>
+<<character "sans-winkysmile" "Sans" "imgs/Talk/Sans/wink~.png">>
+<<character "sans-blushy" "Sans" "imgs/Talk/Sans/blush.png">>
+<<character "sans-serious" "Sans" "imgs/Talk/Sans/serious.png">>
+/* Online Talk heads for sans*/
+<<character "sans-thoughtful-o" "Sans" "https://1.bp.blogspot.com/-Eg9Ykka4KgU/X9FReLD9NvI/AAAAAAAAAQM/NZoqnRHuHxYsOdwRzQy64NE5ulfj06lWACLcBGAsYHQ/s450/thoughtful.png">>
+<<character "sans-bluemagic-o" "Sans" "https://1.bp.blogspot.com/-X9jL_BrXIVo/X9FRdlp6sgI/AAAAAAAAAQA/IJ7GA_Bnv3gk66xUDwxPhTasEQPRcxe5QCLcBGAsYHQ/s450/angry-bluemagic.png">>
+<<character "sans-smile-o" "Sans" "https://1.bp.blogspot.com/-4CQLrDcCzrM/X9FRd44pPFI/AAAAAAAAAQI/pVuPgvoBC0k8fjhXjyr6HV3-mAyBv0VUACLcBGAsYHQ/s450/smile.png">>
+<<character "sans-winkysmile-o" "Sans" "https://1.bp.blogspot.com/-exMXd8kROWQ/X9FRe7UYzHI/AAAAAAAAAQQ/yFJDTVoSIMAX4vj69yYRu3eo-rpIcUjbwCLcBGAsYHQ/s450/wink%257E.png">>
+<<character "sans-blushy-o" "Sans" "https://1.bp.blogspot.com/-WU2lvQS6mPE/X9FRdh6ugII/AAAAAAAAAQE/BlqHJ96JVWsmy-9LcOn0a9KUW9VWvVe-gCLcBGAsYHQ/s450/blush.png">>
+<<character "sans-serious-o" "Sans" "https://1.bp.blogspot.com/-SlrS2jPwGPI/X9FRdp5L9MI/AAAAAAAAAP8/avxbP2VI6tg6Yb8m28wXk19yggVWFNM5ACLcBGAsYHQ/s450/serious.png.png">>
+/* Gaster talk macros  */
+<<character "G-annoyed" "Gaster" "imgs/Talk/Gaster/annoyed.png">>
+<<character "G-bored" "Gaster" "imgs/Talk/Gaster/bored.png">>
+<<character "G-determined" "Gaster" "imgs/Talk/Gaster/determined.png">>
+<<character "G-furious" "Gaster" "imgs/Talk/Gaster/furious.png">>
+<<character "G-content" "Gaster" "imgs/Talk/Gaster/satisfied.png">>
+<<character "G-confused" "Gaster" "imgs/Talk/Gaster/confused.png">>
+<<character "G-surprise-confused" "Gaster" "imgs/Talk/Gaster/surprised-confused.png">>
+<<character "G-surprised" "Gaster" "imgs/Talk/Gaster/surprised.png">>
+<<character "G-worried" "Gaster" "imgs/Talk/Gaster/worried.png">>
+<<character "G-blush" "Gaster" "imgs/Talk/Gaster/blushy.png">>
+<<character "G-embarrased" "Gaster" "imgs/Talk/Gaster/embarrassed.png">>
+ /*Online Gaster heads*/
+<<character "G-annoyed-o" "Gaster" "https://1.bp.blogspot.com/-JqZCDI0-hqc/X9FUjBlJVEI/AAAAAAAAASA/bd9UQhyrIh0Ru1kLFJoLJdB2dDSY9AWbQCLcBGAsYHQ/s700/annoyed.png">>
+<<character "G-bored-o" "Gaster" "https://1.bp.blogspot.com/-k_AkWP-oM5E/X9FUjMWty0I/AAAAAAAAASE/KOEGCdLZ_vUibGOztY-FqAIuYo3UBFt3QCLcBGAsYHQ/s700/bored.png">>
+<<character "G-determined-o" "Gaster" "https://1.bp.blogspot.com/-LaKSCS9yhNU/X9FUkTx1O8I/AAAAAAAAASU/kAZFYYRJbR4Hf7TJdM2XlJ90-gvkZlgtACLcBGAsYHQ/s700/determined.png">>
+<<character "G-furious-o" "Gaster" "https://1.bp.blogspot.com/-TfMuXLrEujc/X9FUkwq43fI/AAAAAAAAASc/9V_yVAWxFiMCALUJ5K8mFm3pc4Qufd-WACLcBGAsYHQ/s700/furious.png">>
+<<character "G-content-o" "Gaster" "https://1.bp.blogspot.com/-ExPdOYClZkw/X9FUlQoQfkI/AAAAAAAAASg/zch3WQd39LUQjiacv0DU4GBR1iu-9Ul4QCLcBGAsYHQ/s700/satisfied.png">>
+<<character "G-confused-o" "Gaster" "https://1.bp.blogspot.com/-Mu0-28dkjX4/X9FUj-yz61I/AAAAAAAAASQ/5zjjbHz5yG0um-Cq9sJrDXzzUeUn0CCPQCLcBGAsYHQ/s892/confused.png">>
+<<character "G-surprise-confused-o" "Gaster" "https://1.bp.blogspot.com/-Xil9DIKgsk4/X9FUmQHElGI/AAAAAAAAASo/6NjYMNEfNlIxcqJnfDpqB4A04WIR-WoJQCLcBGAsYHQ/s892/surprised-confused.png">>
+<<character "G-surprised-o" "Gaster" "https://1.bp.blogspot.com/-gVFuVjDC9gM/X9FUmhEXctI/AAAAAAAAASs/fxhmzJ18NKMKYQl4FDM0UcGjzNFnWhXhACLcBGAsYHQ/s892/surprised.png">>
+<<character "G-worried-o" "Gaster" "https://1.bp.blogspot.com/-GKnY2LhSmEU/X9FUmjhBFyI/AAAAAAAAASw/0Pz3mdDZDl4JX7cfEs1B4sCu3QOPVtaiQCLcBGAsYHQ/s700/worried.png">>
+<<character "G-blush-o" "Gaster" "https://1.bp.blogspot.com/-rtzq9bEnjtg/X9FUjd5nyNI/AAAAAAAAASI/HNVBANbULhMwEJIZFzFz8f6b96PWj5LMwCLcBGAsYHQ/s700/blushy.png">>
+<<character "G-embarrased-o" "Gaster" "https://1.bp.blogspot.com/-PCmW3q6-KS4/X9FUkuvVPPI/AAAAAAAAASY/R8OCMEQXmOYBkHqip48jS5kEc-6lDrOngCLcBGAsYHQ/s700/embarrassed.png">>
+/*Frisk Talk macros*/
+<<character "Frisk-determined" "Frisk" "imgs/Talk/Frisk/Frisk_Determined.png">>
+<<character "Frisk-furious" "Frisk" "imgs/Talk/Frisk/Frisk_Furious.png">>
+<<character "Frisk-angry" "Frisk" "imgs/Talk/Frisk/Frisk_Angry.png">>
+<<character "Frisk-bored" "Frisk" "imgs/Talk/Frisk/Frisk_Bored.png">>
+<<character "Frisk-happy" "Frisk" "imgs/Talk/Frisk/Frisk_Happy.png">>
+<<character "Frisk-flirty" "Frisk" "imgs/Talk/Frisk/Frisk_Flirty.png">>
+<<character "Frisk-sad" "Frisk" "imgs/Talk/Frisk/Frisk_Sad.png">>
+<<character "Frisk-embarrased" "Frisk" "imgs/Talk/Frisk/Frisk_Embarrased.png">>
+<<character "Frisk-worried" "Frisk" "imgs/Talk/Frisk/Frisk_Worried.png">>
+<<character "Frisk-surprised" "Frisk" "imgs/Talk/Frisk/Frisk_Surprised.png">>
+<<character "Frisk-confuzzled" "Frisk" "imgs/Talk/Frisk/Frisk_Confused.png">>
+/*Frisk Online Talk heads*/
+<<character "Frisk-determined-o" "Frisk" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Frisk/Frisk_Determined.png">>
+<<character "Frisk-furious-o" "Frisk" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Frisk/Frisk_Furious.png">>
+<<character "Frisk-angry-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Angry.png?raw=true">>
+<<character "Frisk-bored-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Bored.png?raw=true">>
+<<character "Frisk-happy-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Happy.png?raw=true">>
+<<character "Frisk-flirty-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Flirty.png?raw=true">>
+<<character "Frisk-sad-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Sad.png?raw=true">>
+<<character "Frisk-embarrased-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Embarrased.png?raw=true">>
+<<character "Frisk-worried-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Worried.png?raw=true">>
+<<character "Frisk-surprised-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Surprised.png?raw=true">>
+<<character "Frisk-confuzzled-o" "Frisk" "https://github.com/Techy-Nature/ETHERTALE/blob/master/src/imgs/Talk/Frisk/Frisk_Confused.png?raw=true">>
+/* Undyne speech widgets */
+/* Undyne in offline mode */
+<<character "U-determined" "Undyne" "imgs/Talk/Undyne/U-Determined.png">>
+<<character "U-angry" "Undyne" "imgs/Talk/Undyne/U-Angry.png">>
+<<character "U-worried" "Undyne" "imgs/Talk/Undyne/U-Worried.png">>
+<<character "U-furious" "Undyne" "imgs/Talk/Undyne/U-Furious.png">>
+<<character "U-happy" "Undyne" "imgs/Talk/Undyne/U-Happy.png">>
+/* Undyne in online mode */
+<<character "U-determined-o" "Undyne" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Undyne/U_Determined.png">>
+<<character "U-angry-o" "Undyne" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Undyne/U_Angry.png">>
+<<character "U-worried-o" "Undyne" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Undyne/U_Worried.png">>
+<<character "U-furious-o" "Undyne" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Undyne/U_Furious.png">>
+<<character "U-happy-o" "Undyne" "https://raw.githubusercontent.com/Techy-Nature/ETHERTALE/master/src/imgs/Talk/Undyne/U_Happy.png">>
+/*HP Meter setup*/
+<<newmeter "PC-HP" $PC.HP>>
+<<sizing 10% 10em>>
+<<animation false>>
+<<colors #fff200 darkred white>>
+<<label "HP: $Frisk.HP" white left>>
+<</newmeter>>
+/*Music setup time! Sincerely, Jaden */
+<<cacheaudio "bgm_OUAET" "sounds/bgm/Once_Upon_An_EtherTale.mp3">>
+<<cacheaudio "bgm_Friendly" "sounds/bgm/Friendly.mp3">>
+<<cacheaudio "bgm_M-Space" "sounds/bgm/Mysterious_Space.mp3">>
+<<cacheaudio "bgm_Sneaking" "sounds/bgm/Sneaking.mp3">>
+<<cacheaudio "bgm_Star_Ship_B" "sounds/bgm/Star_Ship_B.mp3">>
+<<cacheaudio "bgm_Ship_Ruins" "sounds/bgm/Ship_Ruins.mp3">>
+<<cacheaudio "bgm_Hiding" "sounds/bgm/Hiding.mp3">>
+<<cacheaudio "bgm_DTM" "sounds/bgm/Determination.mp3">>
+/*Music setup end */
+/*sfx setup below -Jaden */
+<<cacheaudio "sfx_broken" "sounds/sfx/broken-sfx.mp3">>
+/*more sfx later, rn it'll just be this one -Jaden */
+/*Setting up audio groups. Written by Jaden */
+<<createaudiogroup ":bgm">>
+	<<track "bgm_Hiding">>
+	<<track "bgm_DTM">>
+	<<track "bgm_Friendly">>
+	<<track "bgm_M-Space">>
+	<<track "bgm_Sneaking">>
+	<<track "bgm_Star_Ship_B">>
+	<<track "bgm_Ship_Ruins">>
+	<<track "bgm_OUAET">>
+<</createaudiogroup>>
+<<createaudiogroup ":battlebgm">>
+	<<track "bgm_DTM">>
+<</createaudiogroup>>
+<<set $audio to "muted">><<set $bgm_audio to "muted">><<masteraudio mute>><<audio ":bgm" mute>><<audio ":battlebgm" mute>>
+/* Will add more songs and sfx later -Jaden */
+/* Chapelr's code below */
+<<set
+	window.GameDays to [
+		"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+	];
+	window.GameMonths to [
+		"January", "Februrary", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"
+	];>>
+	/* Chapelr's code end */
+	/* Keyboard Event setup by Jaden*/
+	<<event click ".linkcheck">>
+	<<set $linkclicked to true>>
+	<<which 01>>
+	<<set $linkclicked to true>>
+	<</event>>
+	<<event keyup ".linkcheck">>
+	<<which 49>>
+	<<set $linkclicked to true>>
+	<<which 13>>
+	<</event>>
+	<<event click '.linkcheck2 a'>>
+	<<which 01>>
+	<<set $linkclicked2 to true>>
+	<</event>>
+	<<event keydown '.linkcheck2 a'>>
+	<<which 51>>
+	<<set $linkclicked2 to true>>
+	<</event>>
+	<<event keyup 'linkcheck2 a'>>
+	<<which 51>>
+	<<set $linkclicked2 to true>>
+	<</event>>
+	<<event keydown>>
+	<<which 49>>
+	<<trigger 'click' '.link1 a'>>
+	<</event>>
+	<<event keydown>>
+	<<which 13>>
+	<<trigger 'click' '.link1 a'>>
+	<<trigger 'click' '.onlylink a '>>
+	<<which 32>>
+	<<trigger 'click' '.onlylink a'>>
+		<<trigger 'click' '.link1 a'>>
+	<</event>>
+	<<event keydown>>
+	<<which 50>>
+	<<trigger 'click' '.link2 a'>>
+	<<which 51>>
+	<<trigger 'click' '.link3 a'>>
+	<<which 52>>
+			<<trigger 'click' '.link4 a'>>
+		<<which 53>>
+			<<trigger 'click' '.link5 a'>>
+		<<which 54>>
+			<<trigger 'click' '.link6 a'>>
+		<<which 55>>
+			<<trigger 'click' '.link7 a'>>
+		<<which 56>>
+			<<trigger 'click' '.link8 a'>>
+		<<which 57>>
+			<<trigger 'click' '.link9 a'>>
+	<</event>>
+	<<event keydown>>
+	<<which 115>>
+	<<trigger 'click' '#desclink a'>>
+	<<which 186>>
+	<<trigger 'click' '#invlink a'>>
+	<<which 17>>
+	<<trigger 'click' '#ctrlslink a'>>
+	<<which 18>>
+	<<trigger 'click' '#restartlink a'>>
+	<<which 113>>
+	<<trigger 'click' '#volsettinglink a'>>
+	<<which 118>>
+	<<trigger 'click' '#pcsetting a'>>
+	<</event>>
+	/* Event setup finished */
+
+:: StoryData
+
+{
+		"ifid": "2FBC0655-AEE8-4AE6-AEA1-FE7A9EED763E",
+		"start": "Start-Intro",
+		"format": "SugarCube",
+		"format-version": "2.35.0"
+}

@@ -1,0 +1,272 @@
+:: Widget: actorDisplay [widget nobr]
+<<widget "actorDisplay">>
+/* Standard display code for a single character. By default, shows their name and stats on the left, and their equipment on the right. Modifiers can be used to change specific parts.
+
+ARG 0 = character to be displayed
+ARG 1 = special case modifier [optional]
+
+Be VERY CAREFUL about labeling your temporary variables. This widget uses a lot of loops, and errors can occur if they overwrite temporary variables used elsewhere. */
+
+<<run console.assert($args[0] instanceof Puppet,"ERROR: No puppet passed to actorDisplay")>>
+
+<<set _puppet = $args[0]>>
+<<set _displayModel = $args[1]>>
+<<set _style = "">>
+<<if def _displayModel && _displayModel !== "standard">>
+	<<set _classMod = " small-display">>
+<<else>>
+	<<set _classMod = "">>
+<</if>>
+<<if ndef _i>>
+	<<set _i = 0>>
+<</if>>
+
+<<if _puppet !== null>>
+	<div @class="'menuactor'+_classMod" @id="_i">
+	/* container for the entire actor box */
+		<<switch _displayModel>>
+			<<default>>
+			/* Default display makes room for a portrait on the left-hand side, if they're enabled. */
+				<<if setup.PORTRAITS === true>>
+					<div class="portrait">[img[setup.ImagePath+_p.portrait]]</div>
+					<<set _style = "left:96px">>
+				<</if>>
+		<</switch>>
+		<div @class="'menuactor-nameblock'+_classMod" @style=_style>
+		/* container for the left-hand side of the box, typically containing the puppet's name */
+			<div class="menuactor-name" id="toggle">
+			/* Container for the puppet's name. This is a point of interaction in most menus, so there is a switch here for different menu functionalities. */
+				<<actorNameLink>>
+			</div> /* close name display */
+			<<switch _displayModel>>
+				<<case "action" "inventory" "decurse" "equipment">>
+				/* In these menus, the character's stats are displayed below their name. */
+					<div @class="'menuactor-stats monospace'+_classMod">
+					<<for _k, _v range _puppet.stats>>
+						<<include "menu stat display">>
+					<</for>>
+					</div>
+				<<default>>
+				/* In the default display, the character's level is displayed below their name. */
+					<div class="menuactor-level">LEVEL _puppet.level</div>
+			<</switch>>
+		</div> /* close name block */
+			<<actorRightDisplay>>
+	</div> /* close actor box */
+<</if>>
+
+<</widget>>
+
+:: Widget: actorNameLink [widget nobr]
+<<widget "actorNameLink">>
+/* Switch for different functionalities tied to the character's name in actorDisplay. */
+
+<<capture _puppet>>
+<<switch _displayModel>>
+	<<case "inventory">>
+	/* On the inventory screen, characters may be displayed when EQUIPPING or USING items. In both cases, the character name is clicked to perform the relevant function. The inventory screen must be updated afterwards to reflect the change. */
+		<<switch _event>>
+			<<case "equip">>
+					<<link _puppet.name>>
+						<<run _puppet.equip(_display)>>
+						<<unset _display>><<unset _event>>
+						<<update>>
+						<<replace "#itemlist">><<include "inventory item list">><</replace>>
+					<</link>>
+			<<case "use">>
+					<<link _puppet.name>>
+						<<notify "menu" 3s>><<print _display.onUse(_puppet)>><</notify>>
+						<<unset _display>><<unset _event>>
+						<<update>>
+						<<replace "#itemlist">><<include "inventory item list">><</replace>>
+					<</link>>
+			<<default>>
+				<<print _puppet.name>>
+		<</switch>>
+	<<case "action">>
+		<<link _puppet.name>>
+			<<notify "menu" 3s>><<print $action.onUse(_puppet)>><</notify>>
+			<<unset $subject, $action>>
+			<<replace "#partydisplay">>
+				<<include "status party display">>
+			<</replace>>
+		<</link>>
+	<<case "decurse">>
+	/* In the decurse menu, the name has no special functionality. Just display it normally. */
+		<<print _puppet.name>>
+	<<case "equipment">>
+	/* In the equipment menu, the character name serves two functionalities: When the full party is displayed, clicking it will select the character; if a character is selected, clicking it will deselect them and return to the full party display. */
+		<<if def $subject>> /* if selector already defined, deselect and refresh screen */
+			<<link _puppet.name>>
+				<<unset $subject>>
+				<<replace "#puppets">><<include "equip manager puppets">><</replace>>
+				<<replace "#equipment-list">><<include "equipment list">><</replace>>
+			<</link>>
+		<<else>> /* if no one selected, select this character and refresh screen */
+			<<capture _i>>
+			<<link _puppet.name>>
+				<<set $subject = _puppet>>
+				<<replace "#puppets">><<include "equip manager puppets">><</replace>>
+				<<replace "#equipment-list">><<include "equipment list">><</replace>>
+			<</link>>
+			<</capture>>
+		<</if>>
+	<<default>>
+	/* In the default display, the character name serves two functionalities: When the full party is displayed, clicking it will select the character; if a character is selected, clicking it will deselect them and return to the full party display. */
+		<<if def $subject>>
+		/* If _display exists, a character has already been selected. Clicking the name again will deselect the character. */
+			<span id="toggle">
+			<<link "_puppet.name">>
+				<<unset $subject>>
+				<<replace "#partydisplay">><<include "status party display">><</replace>>
+			<</link>>
+			</span>
+		<<else>>
+		/* If no character is selected, clicking the name will select this character. */
+			<span @id=_i>
+			<<link "_puppet.name">>
+				<<set $subject = _puppet>>
+				<<set _stScreen = 1>>
+				<<replace "#partydisplay">><<include "status party display">><</replace>>
+			<</link>>
+			</span>
+		<</if>>
+<</switch>>
+<</capture>>
+
+<</widget>>
+
+:: Widget: actorRightDisplay [widget nobr]
+<<widget "actorRightDisplay">>
+/* Branch for determining what is displayed on the right-hand side of the actor display. */
+
+<<if (_displayModel == "inventory" && _event == "use") || (ndef _displayModel || _displayModel == "standard" || _displayModel == "action")>>
+/* By default or if we're using an item on the inventory screen, we want to display HP and MP on the right-hand side. */
+	<<set _id = 'hp'+_i>>
+	<<run _HPmeters.push(_id)>>
+	<<newmeter _id 1>>
+		<<colors setup.PLAYER_BAR_COLOR>>
+		<<animation false>>
+		<<sizing 100% 0.5em>>
+	<</newmeter>>
+	<<set _id = 'mp'+_i>>
+	<<run _MPmeters.push(_id)>>
+	<<newmeter _id 1>>
+		<<colors setup.MP_BAR_COLOR>>
+		<<animation false>>
+		<<sizing 100% 0.5em>>
+	<</newmeter>>
+	<div @class="'menuactor-hpmpblock'+_classMod">
+		<div class="hpmp">
+			HP: <span style="float:right">
+				<div class="hpmpvalue">_puppet.hp</div>/<div class="hpmpvalue">_puppet.maxhp</div>
+				</span>
+		</div>
+		<<showmeter _HPmeters[puppets().indexOf(_puppet)] `_puppet.hp / _puppet.maxhp`>>
+		<<if setup.SHOW_MP === true>>
+			<div class="hpmp">
+				MP: <span style="float:right">
+					<div class="hpmpvalue">_puppet.en</div>/<div class="hpmpvalue">_puppet.maxen</div>
+					</span>
+			</div>
+			<<showmeter _MPmeters[puppets().indexOf(_puppet)] `_puppet.en / _puppet.maxen`>>
+		<</if>>
+	</div>
+<<else>>
+/* In all other cases, display equipment on the right-hand side. */
+	<div class="menuactor-equipment small-display">
+	<<for _name, _slot range _puppet.equipment>>
+		<<for _subslot, _item range _slot>>
+			<div class="menuactor-equipment-slot">_name</div>
+			<<equipSlotDisplay _item>>
+		<</for>>
+	<</for>>
+	</div>
+<</if>>
+<<if ndef _displayModel || _displayModel == "standard">>
+/* In the standard display, an additional XP block is displayed to the right of the previous block. */
+	<div class="menuactor-xpblock">
+		<div style="font-weight:bold">Experience</div>
+		<div style="float:right">_puppet.xp</div>
+		<br/>
+		<div style="font-weight:bold">To next level</div>
+		<<set _toNext = _puppet.XPtoNext()>>
+		<div style="float:right"><<if typeof(_toNext) == 'number'>><<print (_toNext-_puppet.xp)>><<else>><<print _toNext>><</if>></div>
+	</div>
+<</if>>
+
+<</widget>>
+
+:: Widget: equipSlotDisplay [widget nobr]
+<<widget "equipSlotDisplay">>
+/* Standardized display for a single instance of character equipment. By default, this displays below the slot name itself. Assume called within actorDisplay, and uses _displayModel for modular functionality.
+
+ARG 0 = equipped item
+*/
+
+<<run console.assert($args[0] instanceof Item || $args[0] === null || $args[0] instanceof Filler,"ERROR in equipSlotDisplay: no item passed")>>
+
+<<set _item = $args[0]>>
+
+<<if _item === null>><span class="menuactor-equipment-name">&nbsp;</span> /* if slot empty, display blank space */
+<<elseif _item instanceof Filler>><span class="menuactor-equipment-name">_item</span>
+<<else>>
+	<div class="menuactor-equipment-name">_item.name<br/>
+	<span class="action-desc">_item.info</span>
+	</div>
+	<span class="unequip-button">
+	<<switch _displayModel>>
+	/* Unequip button displayed here. By default, this is an "[X]" link at the far right of the item name. */
+		<<case "inventory">>
+		/* no unequip feature; display nothing */
+		<<case "decurse">>
+		/* In Decurse, only display unequip if the item is sticky and player can pay the cost. Deduct the cost and refresh the shop screen after click. */
+			<<if $currency >= _decurseCost && !_puppet.lockEquipment && _item.sticky>>
+				<<capture _puppet, _name, _subslot>>
+				<<link "[X]">>
+					<<run _puppet.unequip(_name,_subslot,{unsticky:true})>>
+					<<set $currency -= _decurseCost>>
+					<<update>>
+					<<replace "#business-area" t8n>><<include "decurse-remove">><</replace>>
+				<</link>>
+				<</capture>>
+			<</if>>
+		<<default>>
+		/* Default is party equipment screen. Only display unequip if the item is not sticky and the puppet does not have locked equipment. Remember to pass the subslot index too for subslot equipment. */
+			<<if !_puppet.lockEquipment && !_item.sticky>>
+				<<capture _puppet, _name, _subslot>>
+				<<link "[X]">>
+					<<run _puppet.unequip(_name,_subslot)>>
+					<<replace "#equipment-list">><<include "equipment list">><</replace>>
+					<<replace "#puppets">><<include "equip manager puppets">><</replace>>
+				<</link>>
+				<</capture>>
+			<</if>>
+	<</switch>>
+	</span>
+<</if>>
+
+<</widget>>
+
+:: menubar[nobr]
+<span id="status">
+<span class="menunav monospace">
+[A] ↑<br/>
+[D] ↓
+</span>
+<<for _n, _option range setup.MENU_OPTIONS>>
+<<if _n != $menu_screen>>
+<<capture _n, _option>>
+<span @id="'menu'+_n">
+<<link _option>>
+	<<set $menu_screen = _n>>
+	<<print '<<goto \"Menu: '+_option+'\">>'>>
+<</link>></span><</capture>>
+<<else>>
+<b>_option</b>
+<</if>>
+<br/>
+<</for>>
+<span id="menu-return"><<longreturn>></span>
+<div class="GPdisplay monospace"><<print setup.CURRENCY_NAME>>: $currency</div>
+</span>

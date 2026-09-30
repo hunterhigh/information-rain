@@ -1,0 +1,128 @@
+:: Menu: Formation[menu battle noreturn]
+<div id="content" class="menu"><<nobr>>
+<<set $grid = []>>
+<<for _r = 0; _r < setup.COLUMN_SIZE; _r++>>
+    <<set _row to []>>
+    <<for _c to 0; _c < setup.ROW_SIZE; _c++>>
+        /* Create the object used to store the default properties of a map cell. */
+        <<set _cell to {
+            id: ("cell_r" + _r + "_c" + _c),
+            contents: null,
+            movement: []
+        }>>
+        <<run _row.push(_cell)>>
+    <</for>>
+    <<run $grid.push(_row)>>
+<</for>>
+<<for _puppet range puppets()>>
+	<<set $grid[_puppet.row-1][_puppet.col-1].contents = _puppet>>
+<</for>>
+<<liveblock>>
+<div id="puppets" class="actors grid">
+<<include "formation puppets">>
+</div>
+<</liveblock>>
+<</nobr>>
+
+Click on a character to select them, then click on another space to move or swap.
+</div>
+
+:: ActorBox formation[nobr]
+<div>
+	<<if ndef _subj>>
+		<<capture _actor>>
+		<<link "_actor.name">>
+			<<set _subj = _actor>>
+			<<update>>
+		<</link>>
+		<</capture>>
+	<<elseif _subj !== _actor>>
+		<<capture _actor>>
+		<<link "_actor.name">>
+			<<set _subj.position = [_actor.row,_actor.col]>>
+			<<unset _subj>>
+			<<update>>
+		<</link>>
+		<</capture>>
+	<<else>>
+		<span class="actorname" style="font-weight:bold">_actor.name</span>
+	<</if>>
+</div>
+
+:: formation puppets[nobr]
+<<for _r, _row range $grid>>
+	<<for _c, _cell range _row>>
+		<<if _cell.contents instanceof Actor>>
+			<<actorBox _cell.contents "flex-center" "formation">>
+		<<elseif def _subj>>
+			<div class="actor grid flex-center empty">
+				<<capture _r, _c, _cell>>
+				<<link "[MOVE]">>
+					<<set _subj.position = [_r+1,_c+1]>>
+					<<unset _subj>>
+					<<update>>
+				<</link>>
+				<</capture>>
+			</div>
+		<<else>>
+			<div class="actor grid flex-center empty">
+				/* no content; empty box */
+			</div>
+		<</if>>
+	<</for>>
+<</for>>
+
+
+/*
+<div class="leaderlabel formation-label">Front Row</div>
+<div class="frontrowlabel formation-label">Middle Row</div>
+<div class="backrowlabel formation-label">Back Row</div>
+	<<for _i, _puppet range $puppets>>
+		<<set _puppet_class = "actor grid">>
+		<div @class="_puppet_class" @id="'p'+_i">
+			<<if _puppet !== null>>
+				<div style="display: flex;  justify-content: center;  align-items: center; height: -webkit-fill-available">
+				<span @id="'pname'+_i">
+				<<if ndef _s>>
+					<<capture _i, _puppet>>
+					<<link "_puppet.name">>
+						<<set _s = _i>>
+						<<replace "#puppets">><<include "formation puppets">><</replace>>
+					<</link>>
+					<</capture>>
+				<<elseif $puppets[_s] !== _puppet>>
+					<<capture _i, _puppet>>
+					<<link "_puppet.name">>
+						<<set _holder = _puppet>>
+						<<set $puppets[_i] = $puppets[_s]; $puppets[_s] = _holder>>
+						<<unset _s>>
+						<<replace "#puppets">><<include "formation puppets">><</replace>>
+					<</link>>
+					<</capture>>
+				<<else>>
+					<span class="actorname" style="font-weight:bold">_puppet.name</span>
+				<</if>>
+				</span>
+				</div>
+			<<elseif _puppet == null>>
+				<<if def _s>>
+				<div style="display: flex;  justify-content: center;  align-items: center; height: -webkit-fill-available">
+				<<link "[MOVE]">>
+					<<set _holder = _puppet>>
+					<<set $puppets[_i] = $puppets[_s]; $puppets[_s] = _holder>>
+					<<unset _s>>
+					<<replace "#puppets">><<include "formation puppets">><</replace>>
+				<</link>>
+				</div>
+				<</if>>
+			<</if>>
+		</div>
+	<</for>>
+*/
+<<timed 0s>>
+	<<script>>
+	$("#puppets.actors.grid").css({
+	  "grid-template-columns": `repeat(${setup.ROW_SIZE},1fr)`
+	});
+	<</script>>
+<</timed>>

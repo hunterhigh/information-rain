@@ -1,0 +1,13 @@
+:: Rover Bay [location pod]
+
+<<nav>>
+    <<section Rovers>>
+        <<action "Rover 1">>
+        <<action "Rover 2">>
+        <<action "Rover 3">>
+    <</section>>
+    <<section Exits>>
+        <<action "Airlock">>
+        <<action "Surface on Foot">>
+    <</section>>
+<</nav>>

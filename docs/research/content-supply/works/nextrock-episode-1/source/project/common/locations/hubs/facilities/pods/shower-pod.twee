@@ -1,0 +1,11 @@
+:: Shower Pod [location pod]
+<<location>>
+Wash your filthy self, for Glorb's sake.
+<</location>>
+<<nav>>
+    <<section Exits>>
+        <<action "Facilities Hub">>
+        <<action "Natatorium">>
+        <<action "Toilet Pod">>Toilet
+    <</section>>
+<</nav>>

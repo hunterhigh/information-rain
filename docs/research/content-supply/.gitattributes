@@ -1,0 +1,2 @@
+# Keep external source snapshots byte-for-byte on Windows and Unix.
+works/**/source/** -text
