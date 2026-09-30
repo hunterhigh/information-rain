@@ -13,6 +13,7 @@
 ## 活动状态
 
 - **有效代码基线**：[`products/distribution/reader-web/`](../../products/distribution/reader-web/)；读者页面、运行时内容池和页面专属资源位于此处。
+- **内容来源**：23 部作品统一存于 [`content-pool/packs/`](../../products/distribution/reader-web/content-pool/README.md)；HTML 只读取生成目录，顺序由 `display-order.json` 管理。见[决定 0014](decisions/0014-unified-distribution-content-pool.md)。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
 - **当前分发产品代码基线**：目录与文档治理已提交并推送至 GitHub `main`，提交为 `01236f6`；后续工作基于远端 `main`。`demo-v0.1.0` 仍是已标记的历史私有基线。

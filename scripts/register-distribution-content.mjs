@@ -12,30 +12,30 @@ import {
 import { createHash } from 'node:crypto';
 import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { runInNewContext } from 'node:vm';
 
 const scriptFolder = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(scriptFolder, '..');
-const demoRoot = join(projectRoot, 'experiments', 'round-01', 'distribution-demo');
+const demoRoot = join(projectRoot, 'products', 'distribution', 'reader-web');
 const poolRoot = join(demoRoot, 'content-pool');
 const packsRoot = join(poolRoot, 'packs');
 const registryPath = join(poolRoot, 'registry.json');
 const generatedPath = join(poolRoot, 'registry.generated.js');
-const indexPath = join(demoRoot, 'index.html');
+const orderPath = join(poolRoot, 'display-order.json');
 const allowedDirections = new Set(['left', 'right', 'up', 'down']);
 
 const args = process.argv.slice(2);
 const replace = args.includes('--replace');
 const checkOnly = args.includes('--check');
+const rebuild = args.includes('--rebuild');
 const sources = args.filter(arg => !arg.startsWith('--')).map(source => resolve(source));
 
-if (args.some(arg => arg.startsWith('--') && !['--replace', '--check'].includes(arg))) {
-  fail('未知选项。可用选项：--check、--replace');
+if (args.some(arg => arg.startsWith('--') && !['--replace', '--check', '--rebuild'].includes(arg))) {
+  fail('未知选项。可用选项：--check、--replace、--rebuild');
 }
-if (checkOnly && (replace || sources.length)) {
-  fail('--check 不能与内容来源或 --replace 同时使用');
+if ((checkOnly && (replace || rebuild || sources.length)) || (rebuild && (replace || sources.length))) {
+  fail('--check 或 --rebuild 不能与内容来源及其他选项同时使用');
 }
-if (!checkOnly && !sources.length) {
+if (!checkOnly && !rebuild && !sources.length) {
   fail('请提供至少一个已解压的内容包目录；ZIP 请使用 register-distribution-content.ps1');
 }
 
@@ -150,12 +150,7 @@ function validatePackage(entryPath) {
   }
   if (!['.jpg', '.jpeg', '.png'].includes(extname(imagePath).toLowerCase())) fail(`${world.id}: 封面只支持 JPEG/PNG`);
   const dimensions = readImageDimensions(imagePath);
-  if (Math.abs(dimensions.width / dimensions.height - 9 / 16) > 0.002) {
-    fail(`${world.id}: 封面必须为 9:16，当前是 ${dimensions.width}×${dimensions.height}`);
-  }
-  for (const doc of ['DEMO-BRIEF.md', 'CONTENT-DRAFT.md']) {
-    if (!existsSync(join(root, doc))) fail(`${world.id}: 内容包缺少 ${doc}`);
-  }
+  if (!dimensions.width || !dimensions.height) fail(`${world.id}: 封面尺寸无效`);
 
   const nodeIds = Object.keys(world.data);
   if (!nodeIds.length || !world.data[world.startNode]) fail(`${world.id}: 起点不存在`);
@@ -210,21 +205,36 @@ function validatePackage(entryPath) {
   };
 }
 
-function readBuiltInIds() {
-  const html = readFileSync(indexPath, 'utf8');
-  const start = html.indexOf('const worlds = [');
-  const end = html.indexOf('\n        ];', start);
-  if (start < 0 || end < 0) fail('找不到内置作品数据区');
-  const source = html.slice(start + 'const worlds = '.length, end + '\n        ]'.length);
-  return new Set(runInNewContext(`(${source})`, {}, { timeout: 1000 }).map(world => world.id));
-}
-
 function readRegisteredPackages() {
   if (!existsSync(packsRoot)) return [];
   return readdirSync(packsRoot, { withFileTypes: true })
     .filter(entry => entry.isDirectory())
-    .map(entry => validatePackage(join(packsRoot, entry.name, 'world-entry.js')))
+    .map(entry => {
+      const item = validatePackage(join(packsRoot, entry.name, 'world-entry.js'));
+      if (entry.name !== item.world.id) fail(`${entry.name}: 目录名与作品 ID 不一致`);
+      return item;
+    })
     .sort((a, b) => a.world.id.localeCompare(b.world.id));
+}
+
+function readDisplayOrder(packages, appendMissing = false) {
+  if (!existsSync(orderPath)) fail('缺少 display-order.json');
+  const order = JSON.parse(readFileSync(orderPath, 'utf8'));
+  if (order.schemaVersion !== 1 || !Array.isArray(order.worldIds)) fail('display-order.json 格式无效');
+  const ids = new Set(packages.map(item => item.world.id));
+  const seen = new Set();
+  for (const id of order.worldIds) {
+    if (typeof id !== 'string' || seen.has(id) || !ids.has(id)) fail(`展示顺序中存在重复或未知作品：${id}`);
+    seen.add(id);
+  }
+  const missing = packages.map(item => item.world.id).filter(id => !seen.has(id));
+  if (missing.length && !appendMissing) fail(`展示顺序缺少作品：${missing.join(', ')}`);
+  return { schemaVersion: 1, worldIds: [...order.worldIds, ...missing] };
+}
+
+function inDisplayOrder(packages, order) {
+  const byId = new Map(packages.map(item => [item.world.id, item]));
+  return order.worldIds.map(id => byId.get(id));
 }
 
 function registryOutputs(packages) {
@@ -264,36 +274,45 @@ function writeAtomically(path, content) {
   renameSync(temporary, path);
 }
 
-function assertUnique(packages, builtInIds) {
+function assertUnique(packages) {
   const seen = new Set();
   for (const item of packages) {
     const id = item.world.id;
-    if (builtInIds.has(id)) fail(`${id}: 与内置作品 ID 重复`);
     if (seen.has(id)) fail(`${id}: 内容池中存在重复 ID`);
     seen.add(id);
   }
 }
 
-const builtInIds = readBuiltInIds();
-
 if (checkOnly) {
   const packages = readRegisteredPackages();
-  assertUnique(packages, builtInIds);
-  const expected = registryOutputs(packages);
+  assertUnique(packages);
+  const order = readDisplayOrder(packages);
+  const expected = registryOutputs(inDisplayOrder(packages, order));
   if (!existsSync(registryPath) || readFileSync(registryPath, 'utf8') !== expected.registryJson) {
     fail('registry.json 与内容包不一致，请重新运行注册器');
   }
   if (!existsSync(generatedPath) || readFileSync(generatedPath, 'utf8') !== expected.generatedJs) {
     fail('registry.generated.js 与内容包不一致，请重新运行注册器');
   }
-  console.log(`内容注册表通过：${packages.length} 个外部内容包`);
+  console.log(`内容注册表通过：${packages.length} 部作品`);
+  process.exit(0);
+}
+
+if (rebuild) {
+  const packages = readRegisteredPackages();
+  assertUnique(packages);
+  const order = readDisplayOrder(packages);
+  const outputs = registryOutputs(inDisplayOrder(packages, order));
+  writeAtomically(registryPath, outputs.registryJson);
+  writeAtomically(generatedPath, outputs.generatedJs);
+  console.log(`已按展示顺序生成 ${packages.length} 部作品`);
   process.exit(0);
 }
 
 const entryFiles = [...new Set(sources.flatMap(source => findEntryFiles(source)))];
 if (!entryFiles.length) fail('没有找到 world-entry.js');
 const incoming = entryFiles.map(validatePackage);
-assertUnique(incoming, builtInIds);
+assertUnique(incoming);
 const incomingIds = new Set();
 for (const item of incoming) {
   if (incomingIds.has(item.world.id)) fail(`${item.world.id}: 本次输入中重复`);
@@ -317,8 +336,10 @@ for (const item of incoming) {
 }
 
 const registered = readRegisteredPackages();
-assertUnique(registered, builtInIds);
-const outputs = registryOutputs(registered);
+assertUnique(registered);
+const order = readDisplayOrder(registered, true);
+const outputs = registryOutputs(inDisplayOrder(registered, order));
+writeAtomically(orderPath, `${JSON.stringify(order, null, 2)}\n`);
 writeAtomically(registryPath, outputs.registryJson);
 writeAtomically(generatedPath, outputs.generatedJs);
-console.log(`注册完成：内容池现有 ${registered.length} 个外部内容包`);
+console.log(`注册完成：内容池现有 ${registered.length} 部作品`);

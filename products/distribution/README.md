@@ -5,6 +5,7 @@
 | 位置 | 职责 |
 | --- | --- |
 | [`reader-web/`](reader-web/) | 当前读者网页、运行时注册表、作品包、封面和页面专属设计资源；构成一个独立的静态部署单元。 |
+| [`reader-web/content-pool/`](reader-web/content-pool/README.md) | 所有作品的唯一编辑来源、独立展示顺序及生成目录的维护规则。 |
 | [`reader-web/CHANGELOG.md`](reader-web/CHANGELOG.md) | 面向读者体验的未发布与版本变更。 |
 | [`scripts/build-static-preview.mjs`](../../scripts/build-static-preview.mjs) | 从网页源码构建精简的静态发布包；输出到仓库根 `dist/cloudflare-preview/`。 |
 

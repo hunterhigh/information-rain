@@ -3,17 +3,26 @@ param(
     [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
     [string[]]$Source,
     [switch]$Replace,
-    [switch]$Check
+    [switch]$Check,
+    [switch]$Rebuild
 )
 
 $ErrorActionPreference = 'Stop'
 $nodeScript = Join-Path $PSScriptRoot 'register-distribution-content.mjs'
 
 if ($Check) {
-    if ($Replace -or $Source.Count -gt 0) {
-        throw '-Check cannot be combined with content sources or -Replace.'
+    if ($Replace -or $Rebuild -or $Source.Count -gt 0) {
+        throw '-Check cannot be combined with content sources or other options.'
     }
     & node $nodeScript --check
+    exit $LASTEXITCODE
+}
+
+if ($Rebuild) {
+    if ($Replace -or $Source.Count -gt 0) {
+        throw '-Rebuild cannot be combined with content sources or -Replace.'
+    }
+    & node $nodeScript --rebuild
     exit $LASTEXITCODE
 }
 
