@@ -21,7 +21,7 @@
 - **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前部署对应 `a028997`，生产环境分支为 `main`。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制，详情见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
-- **新增讨论材料**：手机划动与动效候选集中在[可交互比较页](../../products/distribution/reader-web/design/mobile-swipe-motion-comparison.html)，也可从 Cloudflare Pages 同一主域名访问；箭头、Tinder 式跟手、整屏移动、视差和方向光都尚未选定。完成选择前不据此改动主 Demo。
+- **手机划动方案已选定**：采用 TikTok 式整屏滑动切换作品；阅读中的左右分支保留对应箭头和分支名称，手指横向移动时提示目标，松手后整屏沿方向滑出。五种方案 GIF 对比页作为设计档案保留，详见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)。
 
 ## 权威材料阅读顺序
 
@@ -35,4 +35,4 @@
 
 ## 当前下一步
 
-先由项目所有者查看手机划动动效比较页并选择方向，再决定是否进入主 Demo 实施；随后核验线上页面的手机端核心流程，并决定是否恢复 Access 受控访问、配置 GitHub Actions 自动部署及演练回退。工具 Agent 保持预留，不进入分发产品的构建与部署。
+核验手机端整屏滑动与左右分支在真实设备上的手感和辨识度；随后检查主要阅读流程，并决定是否恢复 Access 受控访问、配置 GitHub Actions 自动部署及演练回退。工具 Agent 保持预留，不进入分发产品的构建与部署。

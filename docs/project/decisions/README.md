@@ -18,3 +18,4 @@
 | [0012](0012-single-repository-product-boundaries.md) | 单仓库中的产品、文档和部署边界 | 当前仓库结构依据 |
 | [0013](0013-public-cloudflare-preview.md) | Cloudflare Pages 临时公开预览 | 当前部署范围与访问决定 |
 | [0014](0014-unified-distribution-content-pool.md) | 分发作品统一内容池与展示顺序 | 当前内容组织依据 |
+| [0015](0015-full-screen-swipe-and-branch-navigation.md) | 整屏作品切换与左右分支导航 | 当前手机交互依据 |

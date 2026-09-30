@@ -17,6 +17,7 @@
     article { min-width: 0; }
     h2 { margin: 0; font-size: 15px; font-weight: 550; }
     .num { margin-right: 7px; color: #dfc995; font-size: 10px; letter-spacing: .08em; }
+    .selected { margin-left: 7px; color: #dfc995; font-size: 10px; font-weight: 400; }
     article p { min-height: 46px; margin: 6px 0 11px; color: #9da5b0; font-size: 11px; line-height: 1.65; }
     img { display: block; width: min(100%,270px); height: auto; margin: 0 auto; background: #11151b; }
     .note { margin: 24px 0 0; color: #858e99; font-size: 12px; line-height: 1.8; }
@@ -29,16 +30,16 @@
     <header>
       <div class="eyebrow">信息雨 · 阅读交互探索</div>
       <h1>五种划动转场，直接看动画</h1>
-      <p class="intro">每个动画都会自动循环播放，无需拖动、触摸或点击。请比较“画面怎么移动”以及“下一段如何出现”，再决定要把哪种方向带进产品。</p>
+      <p class="intro">每个动画都会自动循环播放，无需拖动、触摸或点击。当前已选择整屏推入：作品之间上下整屏切换，故事内部的左右分支仍通过明确的箭头和分支名称选择。</p>
     </header>
     <section class="grid" aria-label="五种自动播放的划动动画">
       <article><h2><span class="num">01</span>轻微落位</h2><p>当前点击切换的参考基线：旧内容淡出，新文字轻轻落位。</p><img src="mobile-swipe-motion-gifs/01-arrow-baseline.gif" alt="轻微落位动画：文字淡出后新内容落位" autoplay></article>
       <article><h2><span class="num">02</span>卡片跟手</h2><p>当前画面向侧边倾斜离场，下一张画面从后方显露。</p><img src="mobile-swipe-motion-gifs/02-card-tilt.gif" alt="卡片跟手动画：画面倾斜并向侧边离场"></article>
-      <article><h2><span class="num">03</span>整屏推入</h2><p>新场景从下方推入，阅读舞台整体移动，方向清楚直接。</p><img src="mobile-swipe-motion-gifs/03-full-screen-slide.gif" alt="整屏推入动画：下一段场景从下方进入"></article>
+      <article><h2><span class="num">03</span>整屏推入<span class="selected">已选</span></h2><p>作品之间整屏上下切换；阅读时横向划动进入对应分支，松手后整屏沿方向滑出。</p><img src="mobile-swipe-motion-gifs/03-full-screen-slide.gif" alt="整屏推入动画：下一段场景从下方进入"></article>
       <article><h2><span class="num">04</span>轻视差</h2><p>图片与文字分层移动，保留空间感，同时让文字更稳定。</p><img src="mobile-swipe-motion-gifs/04-parallax.gif" alt="轻视差动画：背景与文字以不同速度移动"></article>
       <article><h2><span class="num">05</span>方向光提示</h2><p>场景少移动，以柔和光感和短暂方向文字回应动作。</p><img src="mobile-swipe-motion-gifs/05-direction-glow.gif" alt="方向光提示动画：场景出现柔光和方向提示"></article>
     </section>
-    <p class="note">这些是基于现有作品封面和阅读界面制作的视觉示意，不代表已经选定方案，也不改变当前 Demo。手机和电脑打开后都会直接播放。</p>
+    <p class="note">动画示意沿用现有作品封面和阅读界面。当前选定方向已用于 Demo；其余方案仍作为后续迭代资料保留。手机和电脑打开后都会直接播放。</p>
   </main>
 </body>
 </html>
