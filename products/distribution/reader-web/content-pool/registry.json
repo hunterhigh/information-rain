@@ -218,9 +218,9 @@
       "image": "packs/ashduel/images/ashduel.jpg",
       "width": 1080,
       "height": 1920,
-      "entrySha256": "42ea6105bb087b3abdfd0a4718a45b967ae5757ef6d090d230b2800dafe7ea3a",
+      "entrySha256": "d95e402076c6624a8d51f51e095dc20084eb5712fb41b8df4d494aa8c54cf14e",
       "coverSha256": "c8ad38580c8a44557c855ab5064edf866ef7b1a11d758bc22e4854ea494093a4",
-      "packageSha256": "2f7915316ed372fcf25c47f61f57d8b8f2b8196795051ae8c6b49f9bf348fc14"
+      "packageSha256": "8d8231270aa1a3fb57021c4143227c511add34d701106482952b3c2bb2048738"
     },
     {
       "id": "lastferry",
@@ -229,9 +229,9 @@
       "image": "packs/lastferry/images/lastferry.jpg",
       "width": 1080,
       "height": 1920,
-      "entrySha256": "82bd8b00b2be382557257f3726f36536131245ac6a91c67a872ad6c9d6976823",
+      "entrySha256": "01fd94ec7909a7ea95609d81ace5d312d30eec7c70cf61c05c3b64441bf0bda2",
       "coverSha256": "b347120de975a5a413a651c19160795697581f77ddf58c815d03b9f231222235",
-      "packageSha256": "a7a3dfe4d8257d727970fffd1b18b3e523f9991362d1bc44caf1cc5e059ddcf7"
+      "packageSha256": "1e945104a388c5111b38eca8a9d3b141553abd88c9bf2f23f0feca204d3c709c"
     },
     {
       "id": "seventhinterview",
@@ -240,9 +240,9 @@
       "image": "packs/seventhinterview/images/seventhinterview.jpg",
       "width": 1080,
       "height": 1920,
-      "entrySha256": "735fcc5ca0a5397bc7b4c45752a230026855330cbbf3d394d79e708f8f874d6d",
+      "entrySha256": "213b34b95f59b706070b4be5934b66c881ea6c157c360f00227162e1b3ca47c5",
       "coverSha256": "9a9d7d0cdb151ac543cd151c6a55c1e49412e34ca58f49cf3132cebb16ea08c6",
-      "packageSha256": "c8be0c64dbed238466104294aa0527ef0a453732e6c0c9005cf682730631866e"
+      "packageSha256": "ffef90a83daba77b937414fb49f35f9b27154e11c9be19e62e9ad581bfc1821a"
     },
     {
       "id": "whitehour",
@@ -251,9 +251,9 @@
       "image": "packs/whitehour/images/whitehour.jpg",
       "width": 1080,
       "height": 1920,
-      "entrySha256": "5edce0f951f1ecd14f3a1591b9b8a5ffd1985d6b5a3e8b56f7951e2b35ce8b19",
+      "entrySha256": "110a5422ce1f303e4a6e2750ae166fd3e0c6443dcaafd7d2b5bc33a1f9f70cf4",
       "coverSha256": "a940a098aa9b405de19e887f370ea20be943fab441f3f889711f6ffdef182991",
-      "packageSha256": "df0b89d3ee1f12b5a52c2c37dff233afd60a8070597155542c61c3bb39203b6b"
+      "packageSha256": "b9f419cbce35e8bffbcea27e4c99f8a05c037df9dea6d90aea852bfb922b6ed4"
     }
   ]
 }

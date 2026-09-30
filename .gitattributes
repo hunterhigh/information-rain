@@ -1,0 +1,6 @@
+# Generated content manifests must compare byte-for-byte on Windows and Linux.
+products/distribution/reader-web/content-pool/registry.json text eol=lf
+products/distribution/reader-web/content-pool/registry.generated.js text eol=lf
+products/distribution/reader-web/content-pool/display-order.json text eol=lf
+products/distribution/reader-web/content-pool/packs/**/world-entry.js text eol=lf
+products/distribution/reader-web/content-pool/packs/**/*.md text eol=lf

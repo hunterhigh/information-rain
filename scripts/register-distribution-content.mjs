@@ -47,6 +47,14 @@ function sha256(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
 }
 
+function hashableBytes(path) {
+  const bytes = readFileSync(path);
+  if (['.js', '.json', '.md'].includes(extname(path).toLowerCase())) {
+    return Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n'));
+  }
+  return bytes;
+}
+
 function normalizedRelative(from, to) {
   return relative(from, to).split(sep).join('/');
 }
@@ -117,7 +125,7 @@ function packageHash(root) {
   for (const file of files) {
     hash.update(normalizedRelative(root, file));
     hash.update('\0');
-    hash.update(readFileSync(file));
+    hash.update(hashableBytes(file));
     hash.update('\0');
   }
   return hash.digest('hex');
@@ -199,7 +207,7 @@ function validatePackage(entryPath) {
     imagePath,
     imageRelative,
     dimensions,
-    entrySha256: sha256(readFileSync(entryPath)),
+    entrySha256: sha256(hashableBytes(entryPath)),
     coverSha256: sha256(readFileSync(imagePath)),
     packageSha256: packageHash(root),
   };
