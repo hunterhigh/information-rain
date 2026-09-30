@@ -468,7 +468,8 @@
         }
         .gesture-feedback.left { left: 10px; transform: translateY(-50%); }
         .gesture-feedback.right { right: 10px; transform: translateY(-50%); }
-        .world-stage.is-branch-dragging .gesture-feedback { opacity: var(--gesture-opacity, 0); }
+        /* 分支拖动只用故事画面里的光流回应，不再弹出独立的文字提示框。 */
+        .world-stage.is-branch-dragging .gesture-feedback { display: none; }
         .world-stage.is-branch-dragging > #nodeLayer { opacity: 0; }
         .world-stage.is-branch-dragging > #mobileBranchHints { opacity: 0; }
         .world-stage.is-branch-dragging > :not(.screen-snapshot):not(.gesture-feedback),
@@ -498,6 +499,26 @@
             animation-fill-mode: forwards;
             will-change: transform, opacity;
         }
+        .screen-snapshot.is-light-flow { overflow: hidden !important; }
+        .screen-snapshot.is-light-flow::after {
+            content: "";
+            position: absolute;
+            z-index: 80;
+            top: 50%;
+            left: 50%;
+            width: 76%;
+            height: 25%;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: var(--flow-opacity, 0);
+            background:
+                radial-gradient(ellipse at center, rgba(255,246,215,.58) 0%, rgba(255,222,160,.32) 22%, rgba(255,205,128,.12) 48%, transparent 76%),
+                linear-gradient(90deg, transparent 27%, rgba(255,227,175,.03) 42%, rgba(255,226,167,.20) 49%, rgba(255,249,222,.42) 50%, rgba(255,221,157,.16) 53%, transparent 70%);
+            mix-blend-mode: screen;
+            transform: translate3d(var(--flow-x, 0px), var(--flow-y, 0px), 0) translate(-50%, -50%) rotate(var(--flow-rotation, 0deg));
+            will-change: transform, opacity;
+        }
+        .screen-snapshot.is-light-flow[data-gesture-direction="up"]::after { width: 48%; height: 38%; }
         .screen-snapshot-left { animation-name: screen-swipe-left; }
         .screen-snapshot-right { animation-name: screen-swipe-right; }
         .screen-snapshot-up { animation-name: screen-swipe-up; }
@@ -2662,6 +2683,8 @@
             let touchStartedInText = false;
             let touchStartTextScrollTop = 0;
             let touchSnapshot = null;
+            let touchStageWidth = 0;
+            let touchStageHeight = 0;
 
             el.stage.addEventListener('touchstart', (e) => {
                 if (e.touches.length !== 1) {
@@ -2677,6 +2700,9 @@
                 touchIgnored = Boolean(touchTarget?.closest('button, input, textarea, select'));
                 touchStartedInText = Boolean(touchTarget?.closest('.node-text'));
                 touchStartTextScrollTop = touchStartedInText ? el.nodeText.scrollTop : 0;
+                const stageBounds = el.stage.getBoundingClientRect();
+                touchStageWidth = stageBounds.width;
+                touchStageHeight = stageBounds.height;
             }, { passive: true });
 
             el.stage.addEventListener('touchmove', (e) => {
@@ -2714,7 +2740,19 @@
                 if (!touchSnapshot) touchSnapshot = createScreenSnapshot();
                 el.stage.classList.add('is-branch-dragging');
                 el.stage.dataset.gestureDirection = direction;
-                el.stage.style.setProperty('--gesture-opacity', String(Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / 100)));
+                if (direction === 'down') {
+                    touchSnapshot.classList.remove('is-light-flow');
+                    touchSnapshot.removeAttribute('data-gesture-direction');
+                    ['--flow-opacity', '--flow-x', '--flow-y', '--flow-rotation'].forEach(property => touchSnapshot.style.removeProperty(property));
+                } else {
+                    const progress = Math.min(1, Math.max(Math.abs(dx), Math.abs(dy)) / Math.max(1, Math.min(touchStageWidth, touchStageHeight) * .58));
+                    touchSnapshot.classList.add('is-light-flow');
+                    touchSnapshot.dataset.gestureDirection = direction;
+                    touchSnapshot.style.setProperty('--flow-opacity', String(progress * .92));
+                    touchSnapshot.style.setProperty('--flow-x', `${direction === 'left' ? -touchStageWidth * .54 * progress : direction === 'right' ? touchStageWidth * .54 * progress : 0}px`);
+                    touchSnapshot.style.setProperty('--flow-y', `${direction === 'up' ? -touchStageHeight * .54 * progress : 0}px`);
+                    touchSnapshot.style.setProperty('--flow-rotation', direction === 'up' ? '90deg' : '0deg');
+                }
                 touchSnapshot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
                 document.getElementById('btnLeft').classList.toggle('is-gesture-target', direction === 'left');
                 document.getElementById('btnRight').classList.toggle('is-gesture-target', direction === 'right');

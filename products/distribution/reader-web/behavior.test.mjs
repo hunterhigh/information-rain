@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const folder = dirname(fileURLToPath(import.meta.url));
 const html = readFileSync(join(folder, 'index.html'), 'utf8');
-const start = html.indexOf('function handleDirection(dir) {');
+const start = html.indexOf('function handleDirection(');
 const end = html.indexOf('// 结局展示', start);
 assert.ok(start >= 0 && end > start, '找不到方向处理函数');
 
@@ -24,7 +24,11 @@ const context = {
   currentNodeId: 'start',
   pathHistory: ['start'],
   stats: { totalSteps: 0 },
-  el: { nodeLayer: { style: {} } },
+  el: { nodeLayer: { style: {} }, stage: { classList: { add() {}, remove() {} } } },
+  createScreenSnapshot: () => ({}),
+  clearSwipeFeedback: () => {},
+  createNodeTextExitCopy: () => {},
+  animateScreenSnapshot: () => {},
   showToast: message => events.push(['toast', message]),
   saveStats: () => events.push(['saved']),
   renderNode: nodeId => events.push(['render', nodeId]),
@@ -65,7 +69,13 @@ const renderNodeEnd = html.indexOf('function updateDirBtn(', renderNodeStart);
 assert.ok(renderNodeStart >= 0 && renderNodeEnd > renderNodeStart, '找不到节点渲染函数');
 assert.match(html.slice(renderNodeStart, renderNodeEnd), /el\.nodeText\.textContent\s*=\s*node\.text/, '节点正文应一次性完整显示');
 assert.match(html, /content-pool\/registry\.generated\.js/, '页面必须加载内容注册表');
-assert.match(html, /worlds\.push\(world\)/, '注册内容必须进入统一作品池');
+assert.match(html, /window\.InformationRainContentRegistry\?\.worlds/, '页面必须从内容注册表读取作品');
+assert.match(html, /\.screen-snapshot\.is-light-flow::after/, '拖动快照应承载画面内的光流');
+assert.match(html, /touchSnapshot\.classList\.add\('is-light-flow'\)/, '触摸分支拖动应启用光流效果');
+assert.match(html, /--flow-x/, '光流应随横向拖动方向移动');
+assert.match(html, /--flow-y/ , '上滑分支应沿纵向牵引光流');
+assert.match(html, /if \(direction === 'down'\) \{[\s\S]*?remove\('is-light-flow'\)/, '下滑切换作品不得套用分支光流');
+assert.match(html, /\.world-stage\.is-branch-dragging \.gesture-feedback \{ display: none; \}/, '拖动时不应出现浮动文字提示框');
 
 const profileStart = html.indexOf('function updateProfileStats() {');
 const profileEnd = html.indexOf('function toggleTextSize() {', profileStart);
