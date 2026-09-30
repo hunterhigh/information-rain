@@ -62,8 +62,11 @@
 
 - 发布范围：五个划动转场 GIF 与自动播放比较页；无需依赖设备触摸/拖动事件。
 - 页面入口：[同域名动效比较页](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)
+- 本次固定部署地址：[https://6d332fa0.information-rain-preview.pages.dev/](https://6d332fa0.information-rain-preview.pages.dev/)
+- 部署 ID：`6d332fa0-9a84-4fd3-864d-6dd3bdda4829`
+- 对应仓库提交：`ea735a0`
 - GIF 路径：`/design/mobile-swipe-motion-gifs/01-arrow-baseline.gif` 至 `05-direction-glow.gif`。
-- 本次发布对应提交和部署 ID 在完成推送后补录。
+- Wrangler 已报告部署完成；本机网络未能完成外部 HTTP 探测，故不记录为已验证 HTTP 状态。
 
 ## 复核条件
 
