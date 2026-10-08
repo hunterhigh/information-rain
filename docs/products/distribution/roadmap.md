@@ -21,9 +21,9 @@
 - 当前唯一主动演进版本是现有分发 Demo；不继续并行组合测试旧 Demo。
 - 当前分发网页源码已迁入 `products/distribution/reader-web/`；跨产品文档分属 `docs/vision/`、`docs/products/`、`docs/business/` 和 `docs/research/`，对应入口由各层 README 管理。
 - 当前先推进阶段 1：Cloudflare Pages 静态预览已部署，随后核验当前 Demo 的手机端核心流程；这不代表已开始正式产品后端建设。部署账号为项目所有者确认的 `raoz...@163.com`。
-- 项目所有者已接受临时公开预览。当前 Pages 地址任何人均可访问，`noindex` 只降低搜索收录可能；Cloudflare Access 尚未配置，恢复受控访问前不得把链接当作私密链接。当前作品已通过审查；新增作品仍须单独审查。详情见[决定 0013](../../project/decisions/0013-public-cloudflare-preview.md)。
+- 项目所有者已接受临时公开预览。当前 Pages 地址任何人均可访问，`noindex` 只降低搜索收录可能；Cloudflare Access 尚未配置，恢复受控访问前不得把链接当作私密链接。原有 23 部曾获审查确认；本轮新增 38 部按所有者明确指示作为短篇预览上线，完整逐路径审稿仍未完成。详情见[决定 0013](../../project/decisions/0013-public-cloudflare-preview.md)与[发布准备记录](story-production/DEPLOYMENT-READINESS.md)。
 - 阶段 1 不接账号、读者数据、内容 API 或 AI 生成服务；页面仍是静态内容，浏览器本地状态不等于云端保存。
-- 现有 23 部作品已统一整理为静态内容池，展示顺序由独立文件管理；这只是后续内容服务的输入边界，不代表阶段 4 的内容 API 或数据库已建成。见[决定 0014](../../project/decisions/0014-unified-distribution-content-pool.md)。
+- 静态内容池现有 61 部作品：原有 23 部保持不变，新增 38 部按本轮所有者指示作为短篇预览内容进入；展示顺序由独立文件管理。这只是后续内容服务的输入边界，不代表阶段 4 的内容 API 或数据库已建成。见[决定 0014](../../project/decisions/0014-unified-distribution-content-pool.md)与[发布准备记录](story-production/DEPLOYMENT-READINESS.md)。
 - 阶段 0 的文档治理和产品术语工作继续进行，但不必等完整后端架构确定后才准备线上预览。
 - 动画对比页作为方案档案保留；主 Demo 已采用轻微落位，`UT-01` 已关闭。其他方案仅供未来新迭代参考，不进入当前未决事务。
 - 手机分支反馈已选择“光流牵引”并接入：左/右/上选择节点分支，下滑整屏切换下一部作品；页面文字与画面整体移动，不弹拖动文字框。正文滚动与手势交接、多点触摸清理及切换世界的快照绘制已修复；真实手机上的整段流程仍待验收。没有上方分支时的反馈和返回上一部作品的方式仍待决定。其他两种效果保留为设计参考，详见[手机滑动方向提示参考](mobile-swipe-review/README.md)和[决定 0015](../../project/decisions/0015-full-screen-swipe-and-branch-navigation.md)。

@@ -15,7 +15,7 @@ packs/<作品 ID>/
   CONTENT-DRAFT.md     可选；创作草稿
 ```
 
-`world-entry.js` 必须声明稳定且唯一的 `id`、标题、作者、简介、时长、标签、主题、起点、节点图及封面的相对路径。封面必须位于本包的 `images/`。原有 19 部作品使用 1344×768 横幅原图，新增四部作品使用 1080×1920 竖图；页面统一在 9:16 舞台中按原有规则裁切。推荐新作品交付 9:16 封面，注册器记录实际尺寸，不改动原图。
+`world-entry.js` 必须声明稳定且唯一的 `id`、标题、作者、简介、时长或当前短篇类别、标签、主题、起点、节点图及封面的相对路径。封面必须位于本包的 `images/`。原有 19 部作品使用 1344×768 横幅原图，随后四部作品使用 1080×1920 竖图；本轮 38 部使用 941×1672 竖图。页面统一在 9:16 舞台中按原有规则裁切。推荐新作品交付 9:16 封面，注册器记录实际尺寸，不改动原图。
 
 `nodes` 是非结局节点数，`ends` 是结局数。每个非结局节点要有至少一个合法方向及对应选项文案；所有节点与结局必须从起点可达。
 
@@ -34,5 +34,7 @@ powershell -ExecutionPolicy Bypass -File scripts/register-distribution-content.p
 powershell -ExecutionPolicy Bypass -File scripts/register-distribution-content.ps1 -Check
 powershell -ExecutionPolicy Bypass -File scripts/register-distribution-content.ps1 -Rebuild
 ```
+
+已解压内容包可先运行 `node scripts/register-distribution-content.mjs --validate <内容包目录>`，只检查字段、图、封面与 ID，不注册或改动展示顺序。制作区的草案包可用此命令做格式检查；通过不代表已完成内容审稿。
 
 注册器也接受已解压目录或多个来源。相同包重复注册会跳过；同一 ID 但内容不同会停止，明确传入 `-Replace` 才会替换。注册时检查压缩包路径、字段、重复 ID、节点和结局计数、路径可达性、方向、选项文案及封面格式。`-Check` 校验源文件、顺序与两份生成文件是否一致；静态发布构建会先执行这项检查。

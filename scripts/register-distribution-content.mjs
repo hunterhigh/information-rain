@@ -26,16 +26,19 @@ const allowedDirections = new Set(['left', 'right', 'up', 'down']);
 const args = process.argv.slice(2);
 const replace = args.includes('--replace');
 const checkOnly = args.includes('--check');
+const validateOnly = args.includes('--validate');
 const rebuild = args.includes('--rebuild');
 const sources = args.filter(arg => !arg.startsWith('--')).map(source => resolve(source));
 
-if (args.some(arg => arg.startsWith('--') && !['--replace', '--check', '--rebuild'].includes(arg))) {
-  fail('未知选项。可用选项：--check、--replace、--rebuild');
+if (args.some(arg => arg.startsWith('--') && !['--replace', '--check', '--validate', '--rebuild'].includes(arg))) {
+  fail('未知选项。可用选项：--check、--validate、--replace、--rebuild');
 }
-if ((checkOnly && (replace || rebuild || sources.length)) || (rebuild && (replace || sources.length))) {
-  fail('--check 或 --rebuild 不能与内容来源及其他选项同时使用');
+if ((checkOnly && (replace || rebuild || validateOnly || sources.length)) ||
+    (rebuild && (replace || validateOnly || sources.length)) ||
+    (validateOnly && (replace || !sources.length))) {
+  fail('--check、--validate 或 --rebuild 的选项组合无效');
 }
-if (!checkOnly && !rebuild && !sources.length) {
+if (!checkOnly && !rebuild && !validateOnly && !sources.length) {
   fail('请提供至少一个已解压的内容包目录；ZIP 请使用 register-distribution-content.ps1');
 }
 
@@ -329,6 +332,10 @@ const incomingIds = new Set();
 for (const item of incoming) {
   if (incomingIds.has(item.world.id)) fail(`${item.world.id}: 本次输入中重复`);
   incomingIds.add(item.world.id);
+}
+if (validateOnly) {
+  console.log(`内容包校验通过：${incoming.length} 部作品（未注册）`);
+  process.exit(0);
 }
 
 mkdirSync(packsRoot, { recursive: true });
