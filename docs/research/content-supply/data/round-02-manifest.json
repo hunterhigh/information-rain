@@ -1,0 +1,56 @@
+{
+  "round": 2,
+  "screened_at": "2026-10-08",
+  "works": [
+    {
+      "id": "hydrohaven--who-stole-my-heart",
+      "title": "Who Stole My Heart?",
+      "repo": "Hydrohaven/Who-Stole-My-Heart",
+      "revision": "7d8594d3b9a5cfe9e09f9241aff09538ae92d694",
+      "files": ["source/main.twee"],
+      "scope": "complete branching romance",
+      "selection_note": "从入学、两段关系到情人节，选择累积后到 Ram、Rolex 或独处三个结局。",
+      "conversion_note": "含 Harlowe 变量、JavaScript 和 SendData；转换前须排除遥测脚本并人工核对条件分支。"
+    },
+    {
+      "id": "kikayang--wunderkammer",
+      "title": "Wunderkammer: Plague",
+      "repo": "KikaYang/Wunderkammer",
+      "revision": "4e0af3ab74a43ccca122b1a9cced901a803c1604",
+      "files": ["Plague_4th.twee"],
+      "scope": "complete historical branching story",
+      "selection_note": "1629 年博洛尼亚瘟疫处境，经官员、医生与掩盖真相等选择进入 The End 和 Epilogue。",
+      "conversion_note": "含 Harlowe 宏、延时转场与外部图片；需人工复核可达路径。"
+    },
+    {
+      "id": "sannyaa--mystery-forest",
+      "title": "Mystery Forest",
+      "repo": "Sannyaa/Branched-Narrative-Game",
+      "revision": "0b32136b5aed4c91607c308b40d4a2ef9bf15b85",
+      "files": ["Forest_of_Echoes.twee"],
+      "scope": "complete forest branching story",
+      "selection_note": "迷途、物件与守护者选择通往离开、留下、被森林吞没等多个明确终局。",
+      "conversion_note": "部分结局无外链，循环结局会回到起点；转换时需区分终局与重玩入口。"
+    },
+    {
+      "id": "mcaitsmith--i-dont-think-of-you-anymore",
+      "title": "I Dont Think of You Anymore",
+      "repo": "mcaitsmith/breakup-simulator",
+      "revision": "79c0831a426c9fca32e68caf75250b6f43b8ff32",
+      "files": ["I Dont Think of You Anymore.twee"],
+      "scope": "complete breakup loop story",
+      "selection_note": "分手对话的多次选择逐渐揭示循环，最终可抵达放手的 moment. 收束。",
+      "conversion_note": "SugarCube 条件与 timed 宏控制揭示节奏；最终致谢需等待 180 秒，不能将其当作阅读时长证据。"
+    },
+    {
+      "id": "hugofmramos--withering-tears",
+      "title": "WITHERING_TEARS",
+      "repo": "HugoFMRamos/NI_G04_WITHERINGTEARS",
+      "revision": "185885859e559388956aebd1bc53202c3762c199",
+      "files": ["WITHERING_TEARS.twee"],
+      "scope": "complete multi-ending suspense story",
+      "selection_note": "记忆、行动与人物关系分支通往多个 THE END，包括悲剧、秘密和主线结局。",
+      "conversion_note": "长篇且依赖 Harlowe 音轨、状态与脚本；含自伤主题警告，转换前需逐路径及内容复核。"
+    }
+  ]
+}

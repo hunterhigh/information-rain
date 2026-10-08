@@ -1,0 +1,1009 @@
+:: StoryTitle
+I Dont Think of You Anymore
+
+
+:: StoryData
+{
+  "ifid": "5664E4DA-427E-4E45-B8C7-FA889F0147EE",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Intro",
+  "zoom": 0.6
+}
+
+
+:: "Bullshit. You lied to me." {"position":"200,900","size":"100,100"}
+<<set $options to $options + 1>>
+"I really didn't." 
+
+But they did. They never cared about you. All that time they stole from you was just a way of biding their time until someone better came along. That's got to be it.
+
+[["There's someone else isn't there?"]]
+
+[[Stay silent.]] 
+
+
+:: "But I see a future with you." {"position":"0,700","size":"100,100"}
+<<set $options to $options + 1>>
+"I know." They avoid making eye contact with you. "We both said a lot of things about the future, about living together and getting married. I meant those things when I said them."
+
+They said quite a bit more than that. They told you that your souls were forever enmeshed. They said it in a poem written on a piece of notebook paper. It was folded into an origami crane and left on your pillow one morning. The crane is still in a little box in your closet. 
+
+[["So, what changed?"]]
+[["Bullshit. You lied to me."]]
+
+
+
+:: "Did I do something wrong?" {"position":"475,525","size":"100,100"}
+<<set $options to $options+1>>
+"No. No, you haven't done anything wrong. I swear, if you had, I would've told you. I want to make sure you know that there wasn't anything you could've done differently." Their voice is shaking as they say this. 
+
+You can't tell if this is the truth or a fabrication to get themselves out of the situation as quickly as possible. The partner you knew would never do something like this, but the partner you knew would never leave in the first place. Clearly this is someone...else.
+
+Even though they say that you didn't do anything wrong, you can't help but imagine all the times you were short with them. You picture every time you got annoyed with them, every eye roll, every 'I think I need some space today' that you requested. In doing so, you doubt that they're telling the truth. Somewhere along the way, you did something that made them lose faith in you. 
+
+In other words, it's your fault, but maybe that faith can be restored?
+
+[[I don't know who you are anymore.|"You aren't telling me something"]]
+
+[["You aren't telling me something"]]
+
+[[I can win them back.|Stay silent.]]
+
+[[It is what it is.|Stay silent.]]
+
+
+:: "Do you still love me?" {"position":"0,1100","size":"100,100"}
+<<set $options to $options + 1>>
+"Yes." They say this quickly, then just as quickly mutter, "I don't know."
+
+[["You still love me."]]
+
+[["How can you not know?"|"You still love me."]]
+
+
+:: "Do you think there's any chance of us...being together again?" {"position":"900,0","size":"100,100"}
+<<set $options to $options + 1>>
+"I don't want to make any promises. Maybe." They clench their fists. "No. The answer has to be no."
+
+[["Please just say maybe. Give me something."]]
+
+[["Make up your mind."]]
+
+
+
+:: "Do you think we can still be friends?" {"position":"1300,400","size":"100,100"}
+<<set $options to $options + 1>>
+You can tell they aren't sure what the answer to this question is.
+
+"Maybe." Their eyes trail around the room, looking at everything except you. 
+
+They have no intention of being friends with you or even having contact with you. They don't want to see you ever again. 
+
+They're disgusted by the thought of even being around you.
+
+[["Why not?]]
+
+[[Let them go]]
+
+
+:: "Fuck you." {"position":"375,775","size":"100,100"}
+<<set $options to $options + 1>>
+The words surprise you as they pass your lips. Each syllable is like a stone being hurled at your partner. How dare they do this to you?
+
+If you're clever, you can deal as much damage to them as they've dealt to you. Maybe then they'll see how horrible what they're doing is and change their mind.
+
+"Look, I-I know I'm blindsiding you here, I know this is shitty, but can we try to at least be mature adults?"
+
+[["No, seriously, fuck you."]]
+
+[["Sorry, I don't know what came over me."]]
+
+
+:: "I don't think that'll be an issue. We can be civil." {"position":"1600,225","size":"100,100"}
+<<set $options to $options + 1>>
+"No," they say resolutely. "It's not about 'being civil'. I don't think my life can move forward with you in it."
+
+[["Please try. I don't want to live without you."|Persist]]
+
+[["If you know that we'll end up together, then why fight that?"|Persist]]
+
+[["Whatever."|Let them go]]
+
+
+:: "I understand." {"position":"450,200","size":"100,100"}
+<<set $options to $options + 1>>
+"Y-you do?" They seem surprised and a bit relieved. It seems clear that they don't want to hurt you. But at the same time it seems like they're not sacrificing any more of their happiness to protect your feelings. 
+
+You could say that's cruel.
+
+You could say it's even more cruel to let you live a lie, thinking you had a partner who was happy when you don't. 
+
+Either way, it's all over now. It was over a while ago. You're just getting the memo now. Better now than in a year. 
+
+Or ten years. 
+
+[["I guess."|Stay silent.]] 
+
+[["It's better this way."]]
+
+
+:: "If you were sorry then you wouldn't leave." {"position":"1550,50","size":"100,100"}
+<<set $options to $options + 1>>
+"Is that really what you'd prefer? You'd rather I stay even if I'm unhappy? Are you so afraid to be alone that you'd hold me prisoner?"
+
+[["Yes."]]
+
+[[ "No." |say no]]
+
+
+:: "It's better this way." {"position":"600,175","size":"100,100"}
+<<set $options to $options + 1>>
+"I'm really glad to hear you say that." 
+
+They take your hand and squeeze it tightly. 
+
+"Believe me when I say this was the hardest thing I've ever had to do."
+
+Do you actually understand or is this just another ploy to make them change their mind?
+
+[[I mean it.]]
+
+[[I'm still holding on to hope.|"Yeah, it's fine. You do you."]]
+
+
+:: "Make up your mind." {"position":"1025,150","size":"100,100"}
+<<set $options to $options + 1>>
+"I wish I could, believe me. There are so many things in my life that I am constatly uncertain about. My job isn't going anywhere, I don't have any friends, it  feels like I'm going nowhere. I need to be alone for a while, figure out what I want, that much I know."
+
+You detect uncertainty in their voice. Part of them suspects that they will live to regret this decision, at least you surmise from their tone. They could be swayed if you're clever. 
+
+[["Throwing me away won't fix your life. You don't have to be alone."]]
+
+[["If that's what you want."|Stay silent.]]
+
+
+:: "No, seriously, fuck you." {"position":"650,875","size":"100,100"}
+<<set $options to $options + 1>>
+Your (now ex) partner begins to cry. If your goal was to do more damage to them than they can do to you, this is your opportunity.
+
+Otherwise, I'd wager you've made your point.
+
+[[Go in on them. Mention every terrible thing they ever did. Utilize every weakness they ever showed to make them regret crossing you.|Toxic]]
+
+[[Say nothing more.|Stay silent.]]
+
+
+:: "No." {"position":"1700,700","size":"100,100"}
+<<set $options to $options + 1>>
+"Fine." As they stand up to leave they drop your key on the floor. "I won't be held hostage." They say something ugly under their breath as they leave.
+
+No. You can hold them here if you try. Just try harder.
+
+[["Wait. Don't go."|You're helpless to stop it.]]
+
+
+:: "Oh, not at all. Honestly, you deserve better." {"position":"675,75","size":"100,100"}
+<<set $options to $options + 1>>
+"That's a way to put it, I guess. I think we both deserve better. You deserve someone who is sure about being with you. I deserve...I don't know. Maybe to just be by myself for a while."
+
+[["Do you think there's any chance of us...being together again?"]]
+
+[["Good luck with that!"|Let them go]]
+
+
+:: "Okay! No Problem!" {"position":"300,100","size":"100,100"}
+<<set $options to $options + 1>>
+"W-what?" They seem a bit caught off guard by your response. 
+
+As am I. What are you doing? Is this reverse psychology?
+
+[["Yeah, it's fine. You do you."]]
+
+[["I was getting sort of bored with you too anyway!"|"Yeah, it's fine. You do you."]]
+
+
+:: "Please just say maybe. Give me something." {"position":"1250,25","size":"100,100"}
+"That wouldn't be fair to you. We have to leave it at 'no' for now."
+
+Fair to you?! This whole thing has been unfair to you. Pulling the rug out from under you was unfair. They want to talk about 'fair'? Bullshit.
+
+[["Fine."|Let them go]]
+
+[["Fuck you."|Let them go]]
+
+
+:: "So, what changed?" {"position":"0,900","size":"100,100"}
+<<set $options to $options + 1>>
+"I don't know. Nothing. Everything." 
+
+A vague response. 
+
+"There was a moment where I loved you and then there was a moment where I didn't. I don't know what triggered the switch. It could've been nothing at all. That happens to people sometimes."
+
+'Nothing at all'? Can people just stop loving you overnight? They go to bed with a full heart and wake up with an empty one?
+
+Perhaps the answer to this question exists elsewhere.
+
+[["Do you still love me?"]]
+
+[["What the hell does that even mean?!"|"You still love me."]]
+
+[["Don't spare my feelings. Just say if you still love me."|"Do you still love me?"]]
+
+
+:: "Sorry, I don't know what came over me." {"position":"725,725","size":"100,100"}
+<<set $options to $options + 1>>
+"It's fine. You have a right to be angry."
+
+You look at their hands and see that their fingers are red and scarred. They've been picking at their nails incessantly for days. 
+
+This is an old habit of theirs. Something they do when they have something they need to do but keep putting it off, like sending a senstive email, or calling their parents. In the past you wrapped bandages around their fingers and held them until they got over whatever hurdle they were faced with.
+
+But not today. Today the hurdle is you. And you proved their fears warranted.
+
+"I never wanted to blindside you," they say. 
+
+[[Continue|Stay silent.]]
+
+
+:: "There's someone else isn't there?" {"position":"300,1100","size":"100,100"}
+<<set $options to $options + 1>>
+"No. There isn't."
+
+They're lying to you. I've never been more certain. Infidelity. Betrayal. Make them admit there is someone else and prove that you're superior to them. You can stop this breakup.
+
+[["They'll never make you as happy as I did."]]
+
+[["Stop lying. Tell me who it is."|"They'll never make you as happy as I did."]]
+
+[[Stay silent.]] 
+
+
+:: "They'll never make you as happy as I did." {"position":"475,1125","size":"100,100"}
+<<set $options to $options + 1>>
+"There isn't anyone, I told you." They clench their fists and raise their voice. Whatever sentimentality was keeping them gentle towards you, it isn't endless. There is a limit. If you keep pushing this, you may regret it.
+
+"I just don't see the point in being together anymore. We don't have much in common."
+
+[[Believe them|Stay silent.]]
+
+[["What do you mean that we don't have anything in common? How did you randomly decide that now?"|push]]
+
+
+:: "Throwing me away won't fix your life. You don't have to be alone." {"position":"975,300","size":"100,100"}
+<<set $options to $options + 1>>
+"I'm not throwing you away." 
+
+You notice their hands shaking. 
+
+What's this? 
+
+Guilt? Shame? An opening in their armor?
+
+[["Yes you are."]]
+
+[["Whatever."|Stay silent.]]
+
+[["Do you think we can still be friends?"]]
+
+
+:: "Why not? {"position":"1450,250","size":"100,100"}
+<<set $options to $options + 1>>
+"I'm afraid that if we stay friends we might...relapse."
+
+What does that mean? 'Relapse'?
+
+They mean, if they continue to talk to you, they will effortlessly find their way back into your arms. They can't trust themselves to not want you. 
+
+This is good. THIS is how you stay with them. You play the long game. 
+
+[["I don't think that'll be an issue. We can be civil."]]
+
+[["You might be right."|Let them go]]
+
+
+:: "Why not?" {"position":"525,350","size":"100,100"}
+<<set $options to $options + 1>>
+"I-I don't know. Believe me, I've been trying really hard to make things work between us. But when I try to imagine my future, and I picture you there, it just doesn't feel right."
+
+You recall having the same experience, imagining your future together, except you couldn't imagine your future WITHOUT them. To hear that they couldn't imagine it WITH you...
+
+This is not the same person you've loved for the past two years. Something has changed. There has to have been something.
+
+[["Did I do something wrong?"]]
+<<if $options gte 20>>
+[["I understand."]]
+<<else>>
+<</if>>
+[[Stay silent.]]
+
+
+
+:: "Yeah, it's fine. You do you." {"position":"500,0","size":"100,100"}
+<<set $options to $options + 1>>
+"Y-you're cool with us breaking up?...That's great, actually. I was worried this would be a whole dragged out thing."
+
+[["Oh, not at all. Honestly, you deserve better."]]
+
+[["Oh, not at all. Honestly, I deserve better."|"Oh, not at all. Honestly, you deserve better."]]
+
+
+:: "Yes you are." {"position":"1125,200","size":"100,100"}
+<<set $options to $options + 1>>
+They choke on their own words for a second. 
+
+"I don't mean to hurt you. I'm sorry, I really am."
+
+You found it: an opening. 
+
+[["If you were sorry then you wouldn't leave."]]
+
+[[Back off.|Stay silent.]]
+
+
+:: "Yes." {"position":"1750,0","size":"100,100"}
+<<set $options to $options + 1>>
+"Then I don't know who the fuck you are...And this isn't a relationship anymore, it's a hostage situation."
+
+[[Just tell me what it will take to make you love me.]]
+
+[["No it isn't, we're in love."|Let them go]]
+
+[[Let them go]]
+
+
+:: "You aren't telling me something" {"position":"650,550","size":"100,100"}
+<<set $options to $options + 1>>
+They sigh.
+
+"I wish it was something we could fix together," they say. "If it was, I promise I would stay here with you and fight to keep what we have, but it isn't. There isn't a future for us and that's that."
+
+Your stomach is in knots. 'that's that' they insist. 
+You look over at the TV, still frozen in place. 'One episode to go' the screen says at the top.
+
+[[Stay silent.]]
+
+[[They're abandoning you|Stay silent.]]
+
+[[The whole relationship was a farce|Stay silent.]]
+<<if $options gte 15>>
+[["Fuck you."|"Fuck you."]] 
+<<else>>
+<</if>>
+
+
+:: "You still love me." {"position":"250,1300","size":"100,100"}
+<<set $options to $options + 1>>
+"I still love you. The feeling is still there, but I don't feel like I belong with you anymore. I don't feel like we have anything in common anymore."
+
+[["How could we not have anything in common? That doesn't make any sense!"|"You aren't telling me something"]]
+
+[["This is normal for a healthy relationship! Attraction is meant to ebb and flow!"|Attraction]]
+
+[[Reluctantly accept what they're saying to you as truth.|Stay silent.]]
+
+
+:: Attraction {"position":"450,1300","size":"100,100"}
+<<set $options to $options + 1>>
+"Have you not made your way around the dialogue tree enough to understand yet?"
+
+[[Understand what?]]
+
+[[I think so.|Understand what?]]
+
+
+:: Beg {"position":"1300,150","size":"100,100"}
+<<set $options to $options +1>>
+You start pleading with them to stay. You offer change, growth, even the possibility that they don't need to spend the 'future' with you, just a few more months. A few more weeks. Just one more day. They can have anything as long as they stay.
+
+"Please don't make this difficult," they say. "Just let me go."
+
+There's a million more things you want to say, but as you try, the words are stopped by the fear that anything you say will just make your situation worse. 
+
+You look down and see that you're handing the key to them. 
+
+You have no choice. You have to[[Let them go]].
+
+<<if $options gte 10>>
+[["Do you think we can still be friends?"]]
+<<else>>
+<</if>>
+
+
+:: Focus. {"position":"1400,1400","size":"100,100"}
+Sorry. I get carried away sometimes. 
+<<timed 10s>>
+I told you before but in case it wasn't clear, there was never any winning this game. I lied to you from the first moment we spoke. But can you blame me? I think I just wanted someone to share in this feeling with me, even if just for a moment:
+<</timed>>
+<<timed 15s>>
+I was in love once. They left unexpectedly. It wasn't some explosive fight or violent betrayal. It was just the slow decay of a neurochemical that brought two incompatible people together for a brief period.
+<</timed>>
+<<timed 18s>>
+And once it was gone it was gone, as all things inevitably are.
+<</timed>>
+<<timed 20s>>
+There was nothing that could be done. No matter how many times I played out the infinite possibilities in my head, no matter how I wracked my brain for what could've been different, how I could've been different, what was done was done. There was no saving things. 
+<</timed>>
+<<timed 25s>>
+I've been trapped in this loop for as long as I can remember, trying to find the mistake I [[made.|loop]] 
+<</timed>>
+
+
+:: I am Entropy. {"position":"2525,100","size":"100,100"}
+<<timed 5s>>
+You saw a future with them.
+<</timed>>
+<<timed 10s>>
+Then something changed.
+<</timed>>
+<<timed 15s>>
+They still love you.
+<</timed>>
+<<timed 20s>>
+But not even love is immune to [[entropy|Intro part 3]].
+<</timed>>
+<<timed 23s>>
+I'm so glad we get to share the pain together.
+<</timed>>
+
+
+:: I mean it. {"position":"800,175","size":"100,100"}
+You understand what this will mean though, right? They will be gone forever. It'll just be you in a sea of silence.
+
+Does that not terrify you?
+
+[[I can handle it.|Yes, but I want this anyway.]]
+
+[["Do you think we can still be friends?"]]
+
+
+:: Intro {"position":"0,200","size":"100,100"}
+<<set $ending to 1>>
+
+It's Saturday morning and you're sitting on the couch with your partner of two years, holding hands as you watch the latest binge-worthy show. The sun is shining through the window into your shabby yet cozy apartment. The both of you worked hard to pick out the furniture, the wall art, the rugs. This place is the emboidment of your love, your time spent together. It isn't perfect, but it feels like home. 
+
+You initially planned to spend the day cleaning, but when you came into the room to see your partner on the couch, when their face lit up as you made eye contact, you knew that you weren't going to do anything productive today. How could you? Not with them sitting there, being perfect.
+
+As you feel their palm in yours, you look over and think to yourself 'I've never been so happy in my entire life.'
+
+Your partner takes a breath. They reach over to the remote and pause the show.
+
+[[Continue|Intro part 2]]
+
+
+:: Intro part 2 {"position":"125,275","size":"100,100"}
+<<set $ending to 1>>
+<<set $options to 1>>
+
+As the TV is abruptly muted, your partner slides a few inches away from you on the couch. Their eyes are glued to the floor, avoiding yours like the plague. When you reach to take their hand again, their arm reluctantly goes limp.
+
+Finally, they say it:
+
+"I think we should break up."
+
+Somewhere in the world, a semi-truck merges into the next lane without looking, causing a six car collision. 
+
+[["Why?"|Intro part 3]]
+
+[[Stay silent|Intro part 3]]
+
+
+:: Intro part 3 {"position":"300,375","size":"100,100"}
+<<if $ending gte 2>>
+You blink and suddenly they're here again. You've been given another chance to get it right this time.
+<<else>>
+<</if>>
+
+"I've been thinking for a while and..." Their voice trails off. They're clearly trying to find the words to soften the blow. But the more they search, the less it seems like they can find them. Something changes in their face. You assume this means they're accepting their role. They have no choice but to hurt you.
+
+"I don't see a future with you." 
+
+And there it is. You never saw it coming. Not in a million years. But there it is anyway.
+
+[["What changed?"|"Why not?"]]
+[["Did I do something wrong?"]]
+<<if $options gte 10>>
+[["Okay! No Problem!"]]
+<<else>>
+<</if>>
+<<if $options gte 5>>
+[["But I see a future with you."]]
+<<else>>
+<</if>>
+<<if $options gte 15>>
+[["Fuck you."]]
+<<else>>
+<</if>>
+<<if $options gte 5>>
+[[Stay silent.]]
+<<else>>
+<</if>>
+<<if $options gte 20>>
+[["I understand."]]
+<<else>>
+<</if>>
+
+
+
+
+:: Just tell me what it will take to make you love me. {"position":"1925,25","size":"100,100"}
+"I won't," they say plainly. Their face goes blank, looking completely different from the way you remember it.
+
+You can relive this memory as many times as you like, imagine all the different things you want to say, imagine all the things I might have said in response, but it doesn't change reality. I left. You didn't do anything wrong, you didn't miss any important cues, I just left because I felt like it. There was nothing you could do. 
+
+Why do you keep torturing yourself like this? Are you hoping you'll learn an important lesson, playing out scenario after scenario, hoping to find the key to stopping this from ever happening again? 
+
+[[Yes.]]
+
+
+:: Keep going {"position":"850,1125","size":"100,100"}
+<<set $options to $options + 1>>
+In a moment of glorious precision, you assemble a verbal dronestrike comprised of every insecurity, every fear, every vulnerability, and you unleash it upon them in a single sentence. 
+
+As they hear you say it, your ex becomes nearly catatonic.
+
+The two of you sit in silence.
+<<timed 5s>>
+You aren't sure anymore if what you did here was right, but you did what felt necessary in the moment. 
+<</timed>>
+<<timed 10s>>
+[[And yet.|You're helpless to stop it.]]
+<</timed>>
+
+
+:: Key {"position":"1100,575","size":"100,100"}
+<<set $options to $options + 1>>
+You reach into your pocket and get your keychain. You twirl the keys around and remove the matching spare key to their apartment. 
+
+At one point in the past you had a pretty nasty fight. After saying your apologies, you handed them this key and said 'give this back to me when I've earned it.' 
+
+They ended up giving you the key back after a few hours.
+
+They hold out their palm. If you give up this key you'll never be able to enter that place again. It'll be closed off from you forever. Never to open again.
+
+
+You have to [[give up the key]]
+
+[[No. I'm keeping this.]]
+
+
+:: Let them go {"position":"1500,400","size":"100,100"}
+<<set $options to $options + 1>>
+You watch as they stand up to leave. There's a moment where you consider if maybe one more word would change their mind. There has to be some sequence of sounds uttered from your pathetic ape mouth that will convince them not to leave. But by the time you find them, they're already at the door.
+
+[[You're helpless to stop it.]]
+
+
+:: No. I'm keeping this. {"position":"1300,900","size":"100,100"}
+<<set $options to $options + 1>>
+Your ex looks at you with a twinge of frustration. 
+
+"Please. Can I have my key back?"
+
+[[Give up.|give up the key]]
+
+[[Refuse to give up.]]
+
+
+:: Persist {"position":"1750,200","size":"100,100"}
+<<set $options to $options + 1>>
+"I don't want that!"
+
+That may have been the wrong option. Far far too desparate sounding to be worthy of love. Maybe you'll get it on the next go around? 
+
+
+"God! This is why I can't be around you! This is why we can't be friends!"
+
+As they shout this, they quickly stand up and move towards the door.
+
+"I can't see you anymore. Ever."
+
+[["Wait, please, just talk to me."|You're helpless to stop it.]]
+
+[["Fine, I don't need you anyway."|You're helpless to stop it.]]
+
+[["Please stay. Please please stay."|You're helpless to stop it.]]
+
+[["FUCK YOU!"|You're helpless to stop it.]]
+
+[["Don't say that don't say that please for the love of God don't say that."|You're helpless to stop it.]]
+
+
+:: Refuse to give up. {"position":"1600,900","size":"100,100"}
+<<set $options to $options + 1>>
+You realize that as long as this key is in your hand they won't leave. You can hold on forever. You can keep them prisoner in this moment in time forever.
+
+"You're making this so much harder than it needs to be. Please, just give me the key."
+
+[[give up the key]] 
+
+[["No."]]
+
+
+:: Stay silent. {"position":"1100,400","size":"100,100"}
+<<set $options to $options + 1>>
+"I can't tell you how sorry I really am. You mean so much to me, and the time we've spent together has meant the world. But I think this is what's best for both of us." 
+
+No matter how they try to sugarcoat their words, they continue to feel like daggers.
+
+They reach into their pocket and hand you the spare key to your apartment. You remember having spare keys made over a year ago. You were together on a trip to the hardware store and saw the key copying machine by the checkout line. It was a sweet spur of the moment gesture that demonstrated the trust they had in you. You could go to their place and they could come to yours. It meant your lives were truly becoming enmeshed. 
+
+[[Give them the key to their apartment|Key]]
+
+[[Start begging|Beg]]
+
+
+:: Toxic {"position":"700,1050","size":"100,100"}
+<<set $options to $options + 1>>
+A flood of insults begins to pour from you. Every frustration you've ever had with this person is unleashed in a volley of hatred and vitriol. 
+
+After two years of loving this person, you know exactly what their weak points are. They made the mistake of betraying you, the one person in the world who can target their insecurities with laser precision. You are going to WIN this. 
+
+As you lay into this person, you surprise even yourself with the level of cruelty you show.
+
+After several minutes of taking your verbal abuse, your ex partner just sits there. Hollow. 
+
+"I deserve that," they say, holding back tears. 
+
+Damn right. 
+
+They want to leave? Fine. Say something that will haunt them forever.
+
+[[Say the most grotesque thing you can imagine.|Keep going]]
+
+[[That's enough.|Stay silent.]]
+
+
+:: Understand what? {"position":"675,1300","size":"100,100"}
+<<set $options to $options + 1>>
+"You're not the problem here." 
+
+Impossible. If that were true you wouldn't be stuck here. You'd be somewhere else.
+
+"What I am...I can't do what you want me to do. It isn't in my nature."
+
+[[What are you?]]
+
+<<if $entropy is 1>>
+[[You're Entropy]]
+<<else>>
+<</if>>
+
+
+:: What are you? {"position":"1000,1200","size":"100,100"}
+<<set $options to $options + 1>>
+"It might be easier for you if you stopped digging, accepted that this is a game you were never meant to win."
+
+It stands up to leave once again.
+
+"If you're truly desperate, then keep scurrying through this labyrinth of despair. You'll find your answer."
+
+It reaches for the door handle, then turns back to you.
+
+"When you have the answer, come visit me here once more. We can be more honest with each other then."
+
+[[Where?]] 
+
+
+:: Where? {"position":"1300,1125","size":"100,100"}
+<<timed 5s>>
+"Let your ex be as they are."
+<</timed>>
+<<timed 10s>>
+"Broach the possibility of friendship."
+<</timed>>
+<<timed 15s>>
+"Find the opening in their armor and don't hold back."
+<</timed>>
+<<timed 20s>>
+"That's where you'll find [[me.|Intro part 3]]"
+<</timed>>
+<<timed 23s>>
+Maybe we can escape together.
+<</timed>>
+
+
+:: Who are you? {"position":"2275,75","size":"100,100"}
+<<set $entropy to 1>>
+The silence of a room with nobody in it. 
+
+The invisible force pulling galaxies apart from each other and towards the cold darkness of space.
+<<timed 10s>>
+I am Entropy.
+<</timed>>
+You've always known me. I was with you before birth and I'll reclaim you when your time comes. 
+<<timed 10s>>
+[[I am Entropy.]]
+<</timed>>
+<,timed 15s>>
+This place is just a playground for you to ping around, toy with, and ultimately hide from the world. 
+<</timed>>
+
+
+:: Yes, but I want this anyway. {"position":"800,400","size":"100,100"}
+<<set $options to $options + 1>>
+Maybe you have learned something after all. 
+
+I'll be sad to see you leave too, when the time comes of course. 
+
+[[Continue.|Let them go]]
+
+
+:: Yes. {"position":"2075,50","size":"100,100"}
+You can't. Nothing you can do in a sea of infinite choices will prevent the inevitability that eventually everyone drifts apart. Claw at people all you want, sink your teeth into them like the animal starved for love that you are, it changes nothing. Whether it's from a slow loss of communication, a sudden termination of a relationship, or an unexpected death, eventually there will only be you and I.
+
+[[Who are you?]]
+
+
+:: You're Entropy {"position":"1000,1400","size":"100,100"}
+So. How long have you been here for?
+
+How many pages have you clicked through? ..... $options ?
+
+That many? 
+
+How many times have you gone through this entire loop?..... $ending ?
+
+A glutton for punishment aren't you?
+
+[[Yes.|punish]]
+
+
+:: You're helpless to stop it. {"position":"1700,400","size":"100,100"}
+<<set $options to $options + 1>>
+As they leave the apartment, it's just you and 
+
+<<if $ending is 1>>
+[[the silence they've left behind.]]
+<<else>>
+<</if>>
+<<if $ending is 2>>
+[[the silence they've left behind.|ending 2]]
+<<else>>
+<</if>>
+<<if $ending is 3>>
+[[the silence they've left behind.|ending 3]]
+<<else>>
+<</if>>
+<<if $ending is 4>>
+[[the silence they've left behind.|ending 4]]
+<<else>>
+<</if>>
+<<if $ending is 5>>
+[[the silence they've left behind.|ending 5]]
+<<else>>
+<</if>>
+
+<<if $ending is 6>>
+[[the silence they've left behind.|ending 6]]
+<<else>>
+<</if>>
+
+<<if $ending is 7>>
+[[the silence they've left behind.|ending 7]]
+<<else>>
+<</if>>
+
+<<if $ending is 8>>
+[[the silence they've left behind.|ending 8]]
+<<else>>
+<</if>>
+
+
+:: ending 2 {"position":"2100,400","size":"100,100"}
+<<set $ending to 3>>
+<<timed 5s>>
+You did it wrong. 
+<</timed>>
+<<timed 10s>>
+I don't know what it was that you said, but somewhere in there you said the wrong thing.
+<</timed>>
+<<timed 15s>>
+If you lose them, you will die alone and you will deserve it. 
+<</timed>>
+<<timed 20s>>
+Go back. [[Find the correct path.|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+You CAN make them stay.
+<</timed>>
+
+
+:: ending 3 {"position":"2300,400","size":"100,100"}
+<<set $ending to 4>>
+
+<<timed 5s>>
+No. No. No. That can't be it.
+<</timed>>
+<<timed 10s>>
+Stop fucking this up.
+<</timed>>
+<<timed 15s>>
+We can win this, I promise. Everything will be just like it was before. Just keep holding on, keep trying, keep going through different possibilities.
+</timed>>
+<<timed 20s>>
+Don't fucking stop. Don't you ever [[stop.|Intro part 3]]
+<</timed>>
+<timed 25s>>
+You're a loser.
+<</timed>>
+
+
+:: ending 4 {"position":"2500,400","size":"100,100"}
+<<set $ending to 5>>
+<<timed 5s>>
+You were close that time.
+<</timed>>
+<<timed 10s>>
+Did they seem angry? Sad? Nostalgic? Did they say anything about me?
+<</timed>>
+<<timed 15s>>
+Play harder into those feelings. Press as many buttons as you can.
+<</timed>>
+<<timed 20s>>
+If you try hard enough you can keep them [[forever.|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+Everything will be perfect.
+<</timed>>
+
+
+:: ending 5 {"position":"2700,400","size":"100,100"}
+<<set $ending to 6>>
+<<timed 5s>>
+Round and around we go.
+<</timed>>
+<<timed 10s>>
+Breaking up and getting back together again.
+<</timed>>
+<<timed 15s>>
+This is better than being alone, no?
+<</timed>>
+<<timed 20s>>
+I'll let you in on a secret though
+<</timed>>
+<<timed 23s>>
+There is a way to [[break the loop.|Intro part 3]]
+<</timed>>
+
+
+:: ending 6 {"position":"2900,400","size":"100,100"}
+<<set $ending to 7>>
+<<timed 5>>
+You saw a future?
+<</timed>>
+<<timed 10s>>
+There is no future. Not if they don't love you anymore
+<</timed>>
+<<timed 15s>>
+Can someone wake up and just stop loving you?
+<</timed>>
+<<timed 20s>>
+Or is it just natural for attraction to ebb and [[flow?|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+I want to forget so badly but I can't. It never stops. 
+<</timed>>
+
+
+:: ending 7 {"position":"3100,400","size":"100,100"}
+<<set $ending to 8>>
+<<timed 5s>>
+Have you considered that the problem is just who you are?
+<</timed>>
+<<timed 10s>>
+There is something innately wrong with you.
+<</timed>>
+<<timed 15s>>
+The only way someone would stay with you is if you held them prisoner.
+<</timed>>
+<<timed 20s>>
+What does it take to make someone [[love you?|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+Do you remember what their face looked like anymore?
+<</timed>>
+
+
+:: ending 8 {"position":"3300,400","size":"100,100"}
+<<timed 5s>>
+You're not alone in here.
+<</timed>>
+<<timed 10s>>
+Have you found them already?
+<</timed>>
+<<timed 15s>>
+Keep looking.
+<</timed>>
+<<timed 20s>>
+There may not be a way to win, but you can still [[break the loop|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+Find me.
+<</timed>>
+
+
+:: give up the key {"position":"1500,700","size":"100,100"}
+<<set $options to $options + 1>>
+As you press the key into the palm of their hand, you feel a part of yourself disappear forever. 
+
+You have to [[Let them go]]
+
+
+:: loop {"position":"1600,1400","size":"100,100"}
+There wasn't one, at least that's what I've been told. By them, by everyone. I haven't been able to believe it yet, or leave this place, since it happened.
+<<timed 5s>>
+I know that you'll leave the loop soon, likely already planning on it, but do you think you could do me a favor?
+<</timed>>
+<<timed 10s>>
+Stay with me for just a [[moment.]] Share the silence with me for as long as you can. Then leave when you're ready. I promise I'll do what I have never been able to do before.
+<</timed>>
+<<timed 15s>>
+I'll let you go.
+<</timed>>
+
+
+:: moment. {"position":"1800,1400","size":"100,100"}
+<<timed 180s>>
+Thank You.
+<</timed>>
+
+
+:: punish {"position":"1200,1400","size":"100,100"}
+That's okay. I am too. I've no business judging.
+
+If you would just let go of the past, you'd be free. You know that, right? Will you let yourself believe that?
+
+<<timed 10s>>
+You don't get to answer that one. No more choices. No more branches.
+<</timed>>
+<<13s>>
+Most people are afraid of me. They think I'm here to rob them of their joy. 
+<</timed>>
+<<timed 15s>>
+Absurd.
+<</timed>>
+<<timed 20s>>
+I give their joy essence. They don't know it but it's the fleeting nature of joy that gives it such zest. Instead they fight me, try desperatyely to hold onto what was never theirs to begin with. Gluttons.
+<</timed>>
+<<timed 22s>>
+They should thank ME.
+<</timed>>
+<<timed 25s>>
+[[But they don't.|Focus.]]
+<</timed>>
+
+
+:: push {"position":"500,950","size":"100,100"}
+<<set $options to $options + 1>>
+"It wasn't 'random', I've felt this way for a while now." 
+
+Bullshit. This is all some sadistic game to them. Good people don't just throw other people away so flippantly. 
+
+[["Fuck you."]]
+
+[[Stop pushing this.|Stay silent.]]
+
+
+:: say no {"position":"1975,225","size":"100,100"}
+"Then you have to [[let me go.|Let them go]]"
+
+
+:: the silence they've left behind. {"position":"1900,400","size":"100,100"}
+<<set $ending to 2>>
+<<timed 5s>>
+You know it's your fault, right?
+<</timed>>
+<<timed 10s>>
+There was a way to make them stay.
+<</timed>>
+<<timed 15s>>
+You just need to find the right thing to say that will make them love you again.
+<</timed>>
+<<timed 20s>>
+Go back. [[Try again.|Intro part 3]]
+<</timed>>
+<<timed 23s>>
+Get it right this time.
+<</timed>>

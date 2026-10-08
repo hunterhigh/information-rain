@@ -1,0 +1,623 @@
+:: StoryTitle
+Plague Council
+
+
+:: StoryData
+{
+  "ifid": "CE60AAAF-A3FD-418F-8B8A-960829ED7F0E",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: Burial {"position":"375,1225","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_839d9b64625143d8a841e70ce6ef4b3d~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**YOU:** “How do you bury people these days?”  
+
+**PAOLO:** “No more church burials. Before, families walked them to holy ground. Now? A priest and two of us toss them in pits, quicklime on top, and that’s it. No prayers, no farewells.”  
+
+[[Back|Gravedigger]]
+
+
+:: Chapter1 {"position":"650,775","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_416c693b59614b3db07c57f2617d3ea7~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+''Piazza Maggiore — Early December 1629''
+
+Ribbons and banners in red and white lie soggy in the mud of the square. Once bright and proud, they now droop on broken wooden frames, their paint washed away by rain. Market stalls sit overturned, with old fruit rotting on the ground and pottery shards scattered around. Hand-painted posters still read “Padiglione Fair – Procession and Prayers for Bologna,” but below them someone has scrawled “Faith or Folly?” and “Holy Prayer = Death!” in rough black ink.
+
+Wax dripped from spent candles dots the cobblestones, and a single lute with snapped strings lies forgotten in the dirt. A hint of incense still lingers, mixed now with the smell of decay. A chorus of wet coughs echoes from dark doorways, the scrape of mule carts hauling covered bodies toward the Meloncello pits, and overhead the death bell tolls as the Litany of the Saints drifts from St. Petronio’s.
+
+Cardinal-legate Spada steps down from his litter into this smoky, sorrowful scene. Soldiers and purgatori move like ghosts between straw pyres—iron baskets of burning pitch glowing in the dusk—tapping lime-caked canes on doors sealed with wax and red crosses. Families are trapped inside: one man vomits into the gutter; another helper’s tears stain a fresco of the Virgin.  
+
+[[Go to the Grave|Gravedigger]]  
+(if: $thanks >= 1)[[[Go to the alley|Doctor]]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_02b6df3f9f484ce7bff9d36644d82aa7.mp3" autoplay></audio>
+
+<audio src="https://static.wixstatic.com/mp3/d94946_a67fd078a4084225b0a9e8b7c104a94a.mp3" autoplay></audio>
+
+
+:: Doctor {"position":"900,1025","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_4c30f7d74ef644d6a50aaef1d2fabc09~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+''Just outside the ruins of a scorched alley near Via Castiglione''
+
+Spada steps away from the gravedigger, his boots still dusted with lime. He follows the choking stench of vinegar and pitch until he sees a man in a waxed white coat hunched over a basin of smoking liquid. The figure coughs violently, then straightens with effort, revealing blistered skin beneath the edge of his soaked hood.
+
+[[Next|Recognize]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_a67fd078a4084225b0a9e8b7c104a94a.mp3" autoplay></audio>
+
+
+:: Duty {"position":"900,1675","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_6d56c193c99245daa468a2e446987779~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**SPADA:**  
+Tell me what you need.
+
+**ZAZIO (after a pause):**  
+Not money. Not thanks. Just let us finish the job. Don’t let the Senate cancel the next round. Let us go to the slums too—not just the homes that pay.
+
+**SPADA:**  
+You have my word. And may God grant you strength.
+
+**ZAZIO (quietly):**  
+We burn everything except hope.
+
+[[Next|The End]]
+
+
+:: Epilogue {"position":"1125,1825","size":"100,100"}
+
+<div id="epilogue">
+  <p class="fadeInLn" style="--delay:2.5s">
+    Bologna lost 15,000 souls in 1630.
+  </p>
+  <p class="fadeInLn" style="--delay:5s">
+    But no ledger recorded the true cost:
+  </p>
+  <p class="fadeInLn" style="--delay:7.5s">
+    The blindness of those who chose to see nothing.
+  </p>
+  <p class="fadeInLn" style="--delay:10s">
+    The silence of those who chose to say nothing.
+  </p>
+  <p class="fadeInLn" style="--delay:12.5s">
+    (link: "Thank you for playing")[(goto: "Start")]
+  </p>
+</div>
+
+
+:: Fear {"position":"625,1225","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_84309b16c1454b51807a784171b88a0b~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**YOU:** “Aren’t you afraid?”  
+
+**PAOLO:** “Fear’s wasted. We’ve lost twenty-three men in July and August alone—me breathing lime and rot all day. The air here tastes of decay and quicklime; that’s your sign that Meloncello’s not just a place name but ten thousand souls crying out from the dirt.”  
+
+[[Back|Gravedigger]]
+
+
+:: Grada {"position":"250,1225","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_aaeaf1838f0f4bc99081ac33bac6bd63~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**YOU:** “What happened at Grada?”  
+
+**PAOLO:** “Early July, first pit near the sluice filled in days. They hauled corpses until it was buried under its own dead. Then they opened the Reno and Savena sites.”  
+
+[[Back|Gravedigger]]
+
+
+:: Gravedigger {"position":"575,975","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_683387487b544a20a40eee720e45cc23~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+''Grada sluice gate — fading light''
+
+In the fading light, you spot a lone figure kneeling at the edge of the sluice—where the first mass grave overflowed weeks ago. Lime-dust coats his shoulders and beard.
+
+**PAOLO (Gravedigger):**  
+“Name’s Paolo, one of the gravediggers they pressed into service. Grada’s full as you see—couldn’t keep up with the bodies after the procession. They had to dig two more pits by the Reno River and down by the Savena torrent. Twenty-five per cart, they say. No coffins, no names… just lime to speed it up and hide the smell.”
+
+**You can ask him：**  
+[[What happened at Grada?|Grada]]  
+[[How do you bury people these days?|Burial]]  
+[[Who pays for burials?|Pay]]  
+[[Aren’t you afraid?|Fear]]
+[[Thank him and move on.|Thank]]
+
+
+:: Helpless {"position":"900,1550","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_dd1310e2c91246dfa5921c222a1fb409~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**SPADA:**  
+And the people?
+
+**ZAZIO (bitter):**  
+They call us ghouls. Throw stones at us. Some priests even say we're going against God's will, interfering with divine punishment. But we—  
+*(pauses, wiping his eyes)*  
+We do this because no one else will. This is our martyrdom. Of the sixty men, nine friars are dead. And I—  
+*(he blinks rapidly)*  
+The lime burned my eyes last week. I can't see properly anymore. Still, I lead them. I must.
+
+**SPADA (softly):**  
+You shouldn't be out here.
+
+**ZAZIO:**  
+If I stop now, they stop. And the city dies faster. We’ve cleaned over three thousand houses. We boil our gloves in pitch after every visit. Still, the stench sticks. It’s in our lungs. Our clothes. Our prayers.
+
+[[Next|Duty]]
+
+
+:: Hide {"position":"50,575","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_8141129f15414ab9a68e3d020b817dba~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Hide">
+
+(set: $failCount to $failCount + 1)
+
+''You advise silence.''
+
+Spada nods; Ambrosini slams his fist on the table  
+> “This will drown us in blood!”
+
+|fade>[<div class="screenFade"></div>]
+
+(after: 6s)[(goto: "WrongChoice")]
+
+
+:: Pay {"position":"500,1225","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_22e63734fd334a2a9383ba8c95bea1e1~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**YOU:** “Who pays for burials?”  
+
+**PAOLO:** “Rich folk pay eleven lire for burial, plus five more for a lead coffin filled with lime. The Senate’s making a killing—over 120,000 lire in fees, they say. The poor get tossed like rotten fruit. Yesterday I shoveled one babe still clinging to its mother…”  
+
+[[Back|Gravedigger]]
+
+
+:: People {"position":"425,175","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_b884bc43361945678c1f72c4b5e67b93~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Start">
+''4 persons are in the chamber''
+
+CARDINAL-LEGATE BERNARDINO SPADA, stern in scarlet robes, fingers steepled as if in prayer—or suppression.
+
+DR. BARTOLOMEO AMBROSINI, physician, clutching notes that reek of vinegar.
+
+SENATOR OTTAVIO DI ANTONIO, silk sleeves rustling like dried leaves, face a mask of patrician calm.
+
+THE HEAD OF THE ASSUNTERIA DI SANITÀ, a bureaucrat’s ink-stained hands smoothing a ledger.
+
+[[Enter the chamber->Prologue_1]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_02b6df3f9f484ce7bff9d36644d82aa7.mp3" autoplay></audio>
+
+
+:: Prologue_1 {"position":"650,200","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_e88c9cd2f5ab4c29925af62f8db3f94f~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Prologue">
+''Council Chamber — Moments later''
+
+ASSUNTERIA HEAD: (Tapping Modena on the map)
+"Four hundred dead. Plague signs confirmed: buboes, black vomit. The Lansquenet troops brought it from Mantua’s siege. It moves faster than the Po in flood."
+
+DR. AMBROSINI: (Leaning forward, urgent)
+"Your Eminence, we must act! Close the gates. Isolate the sick. The canals reek of decay—miasma thickens in this unseasonable warmth. If it enters Bologna…"
+
+SENATOR OTTAVIO: (Coolly interrupting)
+"‘If’ is a beggar’s word, Doctor. We are a city of commerce. Close the gates, and what then? No grain from Ferrara. No cloth from Florence. The people will starve before the plague even touches them."
+(He gestures to the Senate’s coat of arms—a lion clutching a sheaf of wheat.)
+
+ASSUNTERIA HEAD: (Nodding)
+"The Senator speaks wisely. Panic is deadlier than disease. Recall 1527? A ‘plague’ that killed a few hundred paupers in Borgo San Pietro—yet we called it a fever. Trade thrived. The city survived."
+
+[[Next->Prologue_2]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_755a947aba03441c9a32f2734ab63b18.mp3" autoplay></audio>
+
+
+
+:: Prologue_2 {"position":"425,375","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_ffabc1f1139a46a38250e01bf4af91c9~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Prologue">
+
+''Council Chamber — Moments later''
+
+SPADA: (Eyes sharp as flint)
+"You propose deception?"
+
+OTTAVIO: (Spreading jeweled hands)
+"Prudence, Eminence. Deny nothing publicly… but delay. No quarantine notices. No flight of merchants. Let the Assunteria handle ‘isolated incidents’ quietly."
+
+AMBROSINI: (Appalled)
+"People will die in the shadows! This is not 1527—this pestilence devours cities whole! Milan burns while its governors whisper lies!"
+
+ASSUNTERIA HEAD: (Scoffing)
+"Milan lacks our discipline. A few deaths in the slums? Wall off Borgo dell’Oro. Burn the corpses at night. The Senate will fund ‘sanitation improvements.’"
+
+SPADA: (Staring into the fire)
+Silence hangs thick. Rain drums like distant funeral march.
+"And if it spreads beyond the slums?"
+
+OTTAVIO: (Softly)
+"Then God’s will be done. But if we cripple Bologna now? Famine will come. Riots will come. The Papal States will blame us. Better a silent plague than a starving mob."
+
+AMBROSINI: (To Spada, pleading)
+"Your Eminence—!"
+
+
+''What do you advise?''
+
+* [[Hide the plague|Hide]]
+* [[Reveal the truth|Reveal]]
+
+(if: $failCount >= 1)[
+* [[Hide… but prepare in secret|SecretPrepare]]
+]
+
+
+:: Recognize {"position":"950,1250","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_3c1f9cd8a7d14aa7a36d7cc5199e79e7~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**SPADA:**  
+Brother Zazio?
+
+**ZAZIO (hoarse):**  
+Your Eminence. Didn't expect to see you out here... in hell.
+
+**SPADA:**  
+They say you're leading the purgatori. Sixty men, is that true?
+
+**ZAZIO:**  
+More or less. Laymen and Camillian friars. Most of them still breathing—though barely. Two more collapsed yesterday. Resin fumes, I think. Ate through their lungs like fire through paper.
+
+[[Next|Situation]]
+
+
+:: Reveal {"position":"300,575","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_60045480ab8943bb9602856f2dbde295~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+(set: $failCount to $failCount + 1)
+
+''You urge the council to sound the alarm.''
+
+Spada orders bells to ring to warn the city.
+Crowds riot, looting grain warehouses.
+
+|fade>[<div class="screenFade"></div>]
+(after: 6s)[(goto: "WrongChoice_2")]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_88a856e6c123480c877cbd536b60e087.mp3" autoplay></audio>
+
+
+
+:: SecretPrepare {"position":"1125,550","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_cf9daf2bda01443fac190841bcda4bda~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Secret Prepare">
+SPADA: "...The Senator is correct. For now."
+(Ambrosini sinks back, defeated. Spada’s jaw tightens—a cardinal weighing souls against silver.)
+"But mark this: when the bodies overflow the canals, this silence will damn us all."
+
+ASSUNTERIA HEAD:
+"Then it is settled. We record nothing. We announce nothing. The Assunteria will ‘manage’ the sick. Dr. Ambrosini, your Theriaca will soothe symptoms… and doubts."
+
+
+[[Continue|Chapter1]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_a1a701de882f4423985d6078bb9f02be.mp3" autoplay></audio>
+
+
+
+:: Situation {"position":"900,1425","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_c15caa6dab4a45fbb674c2006663e796~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**SPADA (grimacing):**  
+God have mercy. And the work?
+
+**ZAZIO:**  
+Relentless. First we mark the dead houses with the red cross. Some streets are sealed off entirely. We scrape walls down to brick, douse them with lime-water. Beds, clothes—burnt in the open. If it smells foul, we torch it. Even the letters are washed in zinc before a courier touches them.
+
+**SPADA:**  
+And the cost?
+
+**ZAZIO (dry laugh):**  
+Ask the Senate. They say we’re draining the treasury—200 lire a day. They'd rather fund grain subsidies than stop the plague. But you should see the nobles—paying off officials to keep their doors unmarked while servants rot inside.
+
+[[Next|Helpless]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_a1a701de882f4423985d6078bb9f02be.mp3" autoplay></audio>
+
+
+
+:: Start {"position":"400,25","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_69192752d7af43d7ac86aa4f5eb7032c~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Start">
+''November, 1629 — Palazzo Pubblico, Bologna''
+
+Rain lashes against leaded windows, casting watery shadows across the Council Chamber. A fire gutters in the hearth, failing to dispel the damp chill seeping from marble floors. Maps of Northern Italy lie strewn across an oak table, marked with ominous red crosses near Modena and Mantua. The air smells of ink, wet wool, and fear.
+
+[[Meet the members->People]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_02b6df3f9f484ce7bff9d36644d82aa7.mp3" autoplay></audio>
+
+
+:: StoryFormat 3.3.9   <!-- Harlowe 3.x --> {"position":"25,25","size":"100,100"}
+
+
+
+:: StoryInit {"position":"275,25","size":"100,100"}
+(set: $failCount to 0)
+(set: $thanks to 0)
+
+
+:: StoryStylesheet {"position":"150,25","size":"100,100"}
+@keyframes fadeToBlack{
+  from{opacity:0;} to{opacity:1;}
+}
+.screenFade{
+  position:fixed;inset:0;background:#000;
+  opacity:0;animation:fadeToBlack 6s forwards;
+  pointer-events:none;z-index:9998;
+}
+
+.wrongRed{
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:4em;font-weight:bold;color:#c00;
+  text-align:center;
+}
+
+
+:: Thank {"position":"775,1225","size":"100,100"}
+<img src="https://static.wixstatic.com/media/d94946_0a9c16f079894c4da31b62ef880d12fd~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+**YOU:** “Thank you, Paolo. I’ll remember what you’ve told me.” 
+
+**PAOLO(nodding):** “Remember Bologna’s dying. And those bells… they never stop tolling.”  
+
+[[Continue|Chapter1]]
+
+<audio src="https://static.wixstatic.com/mp3/d94946_7c9698d30e834138a79f3d4b2f4c5df8.mp3" autoplay></audio>
+
+(set: $thanks to $thanks + 1)
+
+
+:: The End {"position":"900,1800","size":"100,100"}
+(hook: "overlay")[]
+
+<img src="https://static.wixstatic.com/media/d94946_5a4fca0f5acd49feb91695b3d49d850d~mv2.png"
+     style="
+       display: block;
+       margin: 0 auto 1em;
+       max-width: 70%;
+       height: auto;
+     " alt="Reveal">
+
+Spada stands atop the Asinelli Tower at dawn. Below, Bologna stirs: market carts return, children chase rats, lime-scarred purgatori shuffle home. He opens a ledger—page after page of the dead—then tears it out, letting wind scatter the names over the rooftops.
+
+**SPADA:**  
+"We built lazarettos to contain the sick, and walls to contain the truth. But the dead needed no containment. They were Bologna’s silent witnesses. Let them speak now."
+
+(link: "Next")[
+  (append: ?overlay)[<div class="screenFade" style="--fade-duration:1s;"></div>]
+  (live: 1s)[
+    (goto: "Epilogue")
+    (stop:)
+  ]
+]
+
+
+:: WrongChoice {"position":"525,550","size":"100,100"}
+<audio src="https://static.wixstatic.com/mp3/d94946_5285bda850914430bffc433c9fefe448.mp3" autoplay></audio>
+
+<div class="wrongWrap">
+  <div class="wrongRed">WRONG&nbsp;CHOICE</div>
+
+  <div class="wrongInfo">
+    The plague spread unchecked.<br>
+    2,000 died in weeks.<br>
+    [[↩ Return to the council|Prologue_2]]
+  </div>
+</div>
+
+
+
+:: WrongChoice_2 {"position":"675,575","size":"100,100"}
+<audio src="https://static.wixstatic.com/mp3/d94946_a040620d19384a8eb48b222a95634ba1.mp3" autoplay loop
+       ontimeupdate="
+         if (this.currentTime >= 5) {
+           const fadeStart = 5, fadeDuration = 2;
+           const elapsed = this.currentTime - fadeStart;
+           if (elapsed <= fadeDuration) {
+             this.volume = 1 - (elapsed / fadeDuration);
+           } else {
+             this.pause();
+             this.volume = 1;
+           }
+         }
+       "></audio>
+
+<div class="wrongWrap">
+  <div class="wrongRed">WRONG&nbsp;CHOICE</div>
+
+  <div class="wrongInfo">
+    Famine began before the plague struck.<br>
+    [[↩ Return to the council|Prologue_2]]
+  </div>
+</div>
+
+
+
+:: StoryStylesheet 1 [stylesheet]
+
+@keyframes fadeToBlack{
+  from{opacity:0;} to{opacity:1;}
+}
+.screenFade{
+  position:fixed;inset:0;background:#000;
+  opacity: 0; animation: fadeToBlack var(--fade-duration, 11s) forwards;
+  pointer-events: none; z-index: 9997;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;} to{opacity:1;}
+}
+
+
+.wrongWrap{
+  position:fixed;inset:0;background:#000;   
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;
+  color:#fff;
+  z-index:9999;          
+}
+
+
+.wrongRed{
+  font-size:4em;font-weight:bold;color:#c00;
+  opacity:0;animation:fadeIn 3s 1s forwards;   
+  margin-bottom:1rem;
+}
+
+
+.wrongInfo{
+  max-width:90vw;font-size:1.2em;line-height:1.4;
+  opacity:0;animation:fadeIn 1s 4.5s forwards; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.fadeInLn {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-delay: var(--delay, 0s);
+  animation-fill-mode: forwards;
+  font-size: 1.2em;          
+  margin: 0.2em 0;        
+  text-align: center;
+}
+
+body      { background: #000; color: #eee; }
+tw-passage{ background: transparent; }
+
+#epilogue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  margin: 0;
+}

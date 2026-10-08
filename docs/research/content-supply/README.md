@@ -9,15 +9,17 @@
 | 位置 | 内容 |
 | --- | --- |
 | [data/catalog.json](data/catalog.json) | 作品级索引、固定来源版本、原始路径、文件校验值及可机械读取的节点/链接计数。 |
+| [data/round-02-manifest.json](data/round-02-manifest.json) | 第二轮入选作品的固定来源与筛选说明。 |
 | [works/](works/) | 一部作品一个目录；保留作者原始源文件路径，每部作品有来源说明。 |
 | [notes/](notes/) | 此资料库的范围、整理判断和后续思考。 |
 | [collect_twine_sources.py](collect_twine_sources.py) | 按已选作品清单重新获取公开文件的脚本；只用 Python 标准库。 |
+| [round_02_pipeline.py](round_02_pipeline.py) | 按第二轮清单获取固定提交文件并离线校验；流程见[处理管线](notes/2026-10-08-round-02-pipeline.md)。 |
 
 ## 首批范围
 
-2026-09-30 的初始快照从 48 个带 `twine` 和 `interactive-fiction` 标签的 GitHub 仓库开始，初收 24 个作品或样本、223 个源文件。重审后，活动资料区现有 **7 部作品、25 个源文件**；逐项取舍见[清洗记录](notes/2026-09-30-quality-screening.md)。文件数不等于故事篇数或可玩分支数。
+2026-09-30 的初始快照从 48 个带 `twine` 和 `interactive-fiction` 标签的 GitHub 仓库开始，初收 24 个作品或样本、223 个源文件。重审后保留 7 部作品、25 个文件；逐项取舍见[首轮清洗记录](notes/2026-09-30-quality-screening.md)。2026-10-08 定向读取 18 个新候选源文件，再保留 5 部作品、5 个文件；见[第二轮清洗记录](notes/2026-10-08-round-02-screening.md)。活动资料区现有 **12 部作品、30 个源文件**。文件数不等于故事篇数或可玩分支数。
 
-本批只覆盖这个明确的 GitHub 搜索样本，不代表网络上 Twine 作品总量。保留素材保持字节不变；每个文件的 SHA-256 在目录中。重新获取时使用 `python docs/research/content-supply/collect_twine_sources.py`；脚本的作品清单与路径范围已同步缩减，并锁定目前归档的来源提交，避免上游新文件未经筛选混入。《凌霄錄》仅保留 `src/story/`，因此不能单独运行原游戏。
+这两轮只覆盖各自明确的 GitHub 搜索样本，不代表网络上 Twine 作品总量。保留素材保持字节不变；每个文件的 SHA-256 在目录中。首轮重新获取仍可用 `collect_twine_sources.py`，第二轮用 `round_02_pipeline.py ingest`；两者均锁定归档的来源提交，避免上游新文件未经筛选混入。第二轮的离线核验命令见[处理管线](notes/2026-10-08-round-02-pipeline.md)。《凌霄錄》仅保留 `src/story/`，因此不能单独运行原游戏。
 
 ## 命名规则
 

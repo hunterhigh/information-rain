@@ -1,0 +1,449 @@
+:: StoryTitle
+Who Stole My Heart?
+
+
+:: StoryData
+{
+  "ifid": "C2479CF5-BCA9-4718-8A26-7E75D526C07E",
+  "format": "Harlowe",
+  "format-version": "3.3.1",
+  "start": "IntroductionScreen",
+  "zoom": 1
+}
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sawarabi+Gothic&display=swap');
+
+tw-link {
+  line-height: 2;
+  color:rgb(53, 161, 224)
+}
+
+tw-link:hover {
+  color:rgb(152, 212, 247);
+}
+
+tw-story {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+/* tw-icon[title="Undo"], tw-icon[title="Redo"] {
+  display: none;
+} */
+
+.introduction-screen {
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+:: Story JavaScript [script]
+window.GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx7ULEbYtLKYXYE3wqjScoWn5D9CSNWh-CTL0To59_T9p6FF5xL9SWiEV7oHDBwJVLx/exec';
+
+window.sendToSheet = function(payload) {
+  if (!window.GOOGLE_SHEET_WEB_APP_URL) return;
+  if (!payload.player_id || String(payload.player_id).trim() === '') {
+    window.__playerId = window.__playerId || Math.floor(1000000 + Math.random() * 9000000);
+    payload.player_id = window.__playerId;
+  }
+  fetch(window.GOOGLE_SHEET_WEB_APP_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function() {});
+};
+
+:: IntroductionScreen
+(if: $statsInited is not 1)[(set: $statsInited to 1)(set: $playerId to (random: 1000000, 9999999))(set: $sessionStarts to 0)(set: $replayCount to 0)(set: $completionCount to 0)(set: $timesChoseRam to 0)(set: $timesChoseRolex to 0)(set: $timesAlone to 0)](else:)[(set: $replayCount to $replayCount + 1)]
+<div class="introduction-screen">
+  <h1>Who Stole My Heart!?</h1>
+  <h2 style="margin-bottom: 0;">[[Start Game->PlayerIntro]]</h2>
+  <!-- <h4 style="margin-top: 0; color: orange">[[Debug Mode->PlayerIntroDebug]]</h4> -->
+</div>
+
+<div style="line-height: 0 !important;">
+  (set: $ramPoints to 0)
+  (set: $rolexPoints to 0)
+  (set: $readRamLetter to 0)
+  (set: $readRolexLetter to 0)
+</div>
+:: PlayerIntro [reset] {"position":"100,100","size":"100,100"}
+(set: $sessionStarts to $sessionStarts + 1)
+Lina Nguyen turns to herself in the mirror, really. She's a highschool girl who's had better days.
+
+"Ugh. It's almost Valentine's Day and I have no one. Everyone's so couple-y and I'm just… here. I really want a Valentine this year!"
+
+She sighs dramatically.
+
+"At least I already know everyone at school. Ram, Rolex… Maybe one of them will finally notice me?"
+
+[[Begin the day->RamClass1Start]]
+
+:: PlayerIntroDebug [debug]
+(display: "PlayerIntro")
+
+
+:: RamClass1Start {"position":"225,100","size":"100,100"}
+<i>2/11 — 1st Period (Homeroom)</i>
+
+Ram Soberts walks into the room. <i>Golden retriever energy, class president, team captain of the soccer team. Your childhood friend.</i>
+
+Ram makes the morning announcement—something about Valentine's Day coming up—and looks dead straight at Lina.
+
+[[*Blushes and giggles* Looks away all gushy->RamClass1P1]]
+[[Make a disgusted face->RamClass1N1]]
+
+:: RamClass1P1 {"position":"475,100","size":"100,100"}
+(set: $ramPoints to (min: 5, $ramPoints + 1))
+Ram smiles warmly at you.
+
+The teacher hands everyone their test results. Ram finishes the announcement, goes to Lina's desk, and asks her how the test was. He got a 100. Lina got a 40.
+
+<img src="img/bad_exam.png" alt="Bad Exam" style="width: 30%; height: 100%; object-fit: cover;">
+
+Ram is standing at your desk with a warm smile. "Do you want me to tutor you? How does this weekend sound?"
+
+[[I would love your help! Thanks Ram!->RamClass1P2]]
+[[No! Do you think I'm stupid!?->RamClass1N2]]
+
+:: RamClass1N1 {"position":"600,100","size":"100,100"}
+Ram is taken aback and whimpers.
+
+The teacher hands everyone their test results. Ram finishes the announcement, goes to Lina's desk, and asks her how the test was. He got a 100. Lina got a 40.
+
+<img src="img/dog_happy.png" alt="Happy Dog" style="width: 20%; height: 100%; object-fit: cover;">
+
+Ram is standing at your desk with a warm smile. "Do you want me to tutor you? How does this weekend sound?"
+
+[[I would love your help! Thanks Ram!->RamClass1P2]]
+[[No! Do you think I'm stupid!?->RamClass1N2]]
+
+:: RamClass1P2 {"position":"475,100","size":"100,100"}
+(set: $ramPoints to (min: 5, $ramPoints + 1))
+<img src="img/dog_excited.png" alt="Excited Dog" style="width: 20%; height: 100%; object-fit: cover;">
+
+Ram's face lights up. "Really? Then… wanna study together on the weekend? Just us?"
+
+He's very happy. Your heart does a little skip.
+
+[[Continue to 2nd period->RamClass2Start]]
+
+:: RamClass1N2 {"position":"600,100","size":"100,100"}
+<img src="img/dog_sad.png" alt="Sad Dog" style="width: 20%; height: 100%; object-fit: cover;">
+
+Ram's smile fades. "Oh—no, I didn't mean—I'm sorry, Lina." He looks sad and apologizes. He's mopey the rest of first period.
+
+[[Continue to 2nd period->RamClass2Start]]
+
+
+
+:: RamClass2Start {"position":"975,100","size":"100,100"}
+<i>2/11 — 2nd Period</i>
+<img src="img/lina_sleepy.png" alt="Sleepy Lina" style="width: 30%; height: 100%; object-fit: cover;">
+
+Lina's dozing off during class, she's so bored. Suddenly Ram nudges her to wake up.
+
+"You looked really cute while sleeping," he says quietly.
+
+Lina wakes up, surprised.
+
+[[*Blushes* Acts flustered and says "You too!" accidently->RamClass2P3]]
+[[*Angry* "Why did you wake me up!? I was having a nice dream!"->RamClass2N3]]
+
+:: RamClass2P3 {"position":"1100,100","size":"100,100"}
+(set: $ramPoints to (min: 5, $ramPoints + 1))
+You both start laughing.
+
+Ram asks if you got any sleep last night, since you dozed off. Lina says she didn't—she was thinking about how she's so single and surrounded by tons of couples. Ram laughs. "Don't worry, I know you'll be someone's Valentine!" He blushes.
+
+[["Aww thanks, you're so sweet Ram! I really hope so."->RamClass2P3P4]]
+[["True! I hope it's not you! Haha."->RamClass2P3N4]]
+
+:: RamClass2N3 {"position":"1225,100","size":"100,100"}
+Oh... I'm sorry Lina, I didn't mean to wake you up.
+
+Ram asks if you got any sleep last night. Lina says she didn't—she was thinking about being single. Ram laughs. "Don't worry, I know you'll be someone's Valentine!" He blushes and gazes into your eyes.
+
+[["Aww thanks, you're so sweet Ram! I really hope so."->RamClass2P3P4]]
+[["True! I hope it's not you! Haha."->RamClass2P3N4]]
+
+:: RamClass2P3P4 {"position":"100,225","size":"100,100"}
+(set: $ramPoints to (min: 5, $ramPoints + 1))
+Class continues. 
+
+You drop your pencil between your desk and Ram's. You both reach down at the same time—your hands touch!
+<img src="img/pencil.png" alt="Pencil" style="width: 30%; height: 100%; object-fit: cover;">
+
+[[*Blushes* Inner monologue: 'OMG he touched my hand!' "Aww thank you so much Ram, you're so sweet!"->RamClass2EndP5]]
+[[*Slap his hand* "I can pick up my own pencil!"->RamClass2EndN5]]
+
+:: RamClass2P3N4 {"position":"225,225","size":"100,100"}
+Class continues. 
+
+You drop your pencil between your desk and Ram's. You both reach down at the same time—your hands touch!
+<img src="img/pencil.png" alt="Pencil" style="width: 30%; height: 100%; object-fit: cover;">
+
+
+[[*Blushes* "Aww thank you so much Ram, you're so sweet!"->RamClass2EndP5]]
+[[*Slap his hand* "I can pick up my own pencil!"->RamClass2EndN5]]
+
+:: RamClass2EndP5 {"position":"600,225","size":"100,100"}
+(set: $ramPoints to (min: 5, $ramPoints + 1))
+The lunch bell rings.
+
+[[Go to lunch->RolexLunchStart]]
+
+:: RamClass2EndN5 {"position":"725,225","size":"100,100"}
+The lunch bell rings.
+
+[[Go to lunch->RolexLunchStart]]
+
+
+
+
+
+:: RolexLunchStart {"position":"850,225","size":"100,100"}
+<i>2/11 — Lunch</i>
+
+You head to the cafeteria and sit at a table outside in a more isolated spot. You open your packed lunch.
+
+<img src="img/bento_box.png" alt="Bento Box" style="width: 30%; height: 100%; object-fit: cover;">
+
+<i>This is Rolex Hornton. International student, doesn't get social cues, really attractive. All the girls fawn over him. A bit of a bad boy. Very rash. And he has a Rolex.</i>
+
+Rolex pulls up and sits next to Lina out of nowhere. She's surprised. He's very flirty. "You saved this spot for me?"
+
+[[Heyy Rolex *blushes*->RolexLunchP1]]
+[[*Scooches away* Hi Rolex, what do you want?->RolexLunchN1]]
+
+:: RolexLunchP1 {"position":"975,225","size":"100,100"}
+(set: $rolexPoints to (min: 5, $rolexPoints + 1))
+"You made this? You'd make an amazing wife." He leans over. "Lemme try some." He's eyeing your octopus sausage.
+<img src="img/octopus_sausage.png" alt="Octopus Sausage" style="width: 20%; height: 70%; object-fit: cover;">
+
+[[*Feed him and prompt him to say ahhh*->RolexLunchP1P2]]
+[[*Slap him in the face* Get your own food Rolex!->RolexLunchP1N2]]
+
+:: RolexLunchN1 {"position":"1100,225","size":"100,100"}
+"You made this? You'd make an amazing wife." He leans over. "Lemme try some." He's eyeing your octopus sausage.
+<img src="img/octopus_sausage.png" alt="Octopus Sausage" style="width: 20%; height: 70%; object-fit: cover;">
+
+[[*Feed him and prompt him to say ahhh*->RolexLunchP1P2]]
+[[*Slap him* Get your own food Rolex!->RolexLunchP1N2]]
+
+:: RolexLunchP1P2 {"position":"225,350","size":"100,100"}
+(set: $rolexPoints to (min: 5, $rolexPoints + 1))
+*You feed him.* He grins. You finish your meal together.
+
+<img src="img/dog_excited.png" alt="Excited Dog" style="width: 20%; height: 100%; object-fit: cover;">
+
+You continue to finish your meal together, then the bell rings and lunch is over. Everyone heads to 3rd period.
+
+[[Head to 3rd period->RolexHallwayStart]]
+
+:: RolexLunchP1N2 {"position":"100,350","size":"100,100"}
+*Slap him in the face* "Get your own food Rolex!" 
+
+He whimpers like a little puppy and continues to eat his own food.
+
+<img src="img/dog_sad.png" alt="Sad Dog" style="width: 20%; height: 100%; object-fit: cover;">
+
+The bell rings and lunch is over.
+
+[[Head to 3rd period->RolexHallwayStart]]
+
+
+:: RolexHallwayStart {"position":"475,350","size":"100,100"}
+<i>2/11 — Hallway → 3rd Period</i>
+
+Lina is walking to class with Rolex when suddenly he pushes her against the wall. Your face heats up.
+
+<img src="img/kabedon_plus.png" alt="Kabedon" style="width: 30%; height: 100%; object-fit: cover;">
+
+"You busy on the 14th? I can take you anywhere you want."
+
+[[*Blushes* "Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?"->RolexHallwayP3]]
+[[*Scoffs* "Why don't you do this to one of your other girls!"->RolexHallwayN3]]
+
+:: RolexHallwayP3 {"position":"600,350","size":"100,100"}
+(set: $rolexPoints to (min: 5, $rolexPoints + 1))
+*Blushes* "Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?"
+
+"This can't wait! I only have one girl in mind for Valentine's, Lina. And you know her really well."
+
+[["I better not see you with someone else then." *giggles*->RolexHallwayP3P4]]
+[["Leave me alone. That girl better not be me." *hmph!*->RolexHallwayP3N4]]
+
+:: RolexHallwayN3 {"position":"725,350","size":"100,100"}
+*Scoffs* "Why don't you do this to one of your other girls!"
+
+"This can't wait. I only have one girl in mind for Valentine's, Lina. And you know her really well."
+
+[["I better not see you with someone else then." *giggles*->RolexHallwayP3P4]]
+[["Leave me alone. That girl better not be me." *hmph!*->RolexHallwayP3N4]]
+
+:: RolexHallwayP3P4 {"position":"850,350","size":"100,100"}
+(set: $rolexPoints to (min: 5, $rolexPoints + 1))
+"I better not see you with someone else then." *giggles*
+
+Lina's friend sees her from down the hall and calls her over. Rolex grabs her hand. "No. She's with me." He snarls.
+
+[["You guys go on ahead without me!" *signals just this once*->RolexHallwayEndP5]]
+[[*Shakes off his hand and runs to her friends*->RolexHallwayEndN5]]
+
+:: RolexHallwayP3N4 {"position":"975,350","size":"100,100"}
+"Leave me alone. That girl better not be me." *hmph!*
+
+Lina's friend calls her over. Rolex grabs her hand. "No. She's with me." He snarls.
+
+[["You guys go on ahead without me!" *signals just this once*->RolexHallwayEndP5]]
+[[*Shakes off his hand and runs to her friends*->RolexHallwayEndN5]]
+
+
+:: RolexHallwayEndP5 {"position":"100,475","size":"100,100"}
+(set: $rolexPoints to (min: 5, $rolexPoints + 1))
+"You guys go on ahead without me!" You signal to your friends—just this once. Rolex and Lina enter class together and sit with each other.
+
+The rest of the day flies by. And before you know it, it's the day before Valentine's.
+
+[[Open your locker->LockerStart]]
+
+:: RolexHallwayEndN5 {"position":"225,475","size":"100,100"}
+*Shake off his hand and run to your friends.* Lina and her friends enter class together and sit with each other. Rolex sulks.
+
+The rest of the day flies by. And before you know it, it's the day before Valentine's.
+
+[[Open your locker->LockerStart]]
+
+
+:: LockerStart {"position":"350,475","size":"100,100"}
+<i>Day before Valentine's Day</i>
+
+You open your locker and find (if: $ramPoints >= 3 and $rolexPoints >= 3)[two love letters! One from Ram, one from Rolex.](else-if: $ramPoints >= 3)[one love letter—from Ram!](else-if: $rolexPoints >= 3)[one love letter—from Rolex!](else:)[zero love letters…]
+
+(if: $ramPoints >= 3 or $rolexPoints >= 3)[
+<img src="img/love_letter.png" alt="Love Letter" style="width: 30%; height: 100%; object-fit: cover;">
+]
+
+(if: $ramPoints >= 3 or $rolexPoints >= 3)[
+[[View your letters->LockerHasLetters]]
+](else:)[
+[[Valentine's Day, alone... Once again...->EpilogueAlone]]
+]
+
+:: LockerHasLetters {"position":"475,475","size":"100,100"}
+You're holding your letter(s). Read them, then decide who you want to spend Valentine's with.
+
+(if: $ramPoints >= 3)[
+[[View Ram's letter->ViewRamLetter]](if: $readRamLetter > 0)[
+  [[Continue to Valentine's with Ram->EpilogueRam]]
+]](if: $rolexPoints >= 3)[ <!-- Weird spacing cuz twee spacing is odd -->
+[[View Rolex's letter->ViewRolexLetter]] (if: $readRolexLetter > 0)[
+  [[Continue to Valentine's with Rolex->EpilogueRolex]]
+]]
+
+
+:: ViewRamLetter {"position":"600,475","size":"100,100"}
+(set: $readRamLetter to 1)
+<i>Ram's letter</i>
+
+<i>Lina, I've liked you for a long time. You're my best friend and every moment has been so cherishing. I'd love to spend Valentines with someone I admire the most, you. — Ram</i>
+
+(if: $rolexPoints >= 3)[
+[[View Rolex's letter->ViewRolexLetter]]
+[[Back to your letters->LockerHasLetters]]
+](else:)[
+[[Continue to Valentine's with Ram->EpilogueRam]]
+]
+
+
+:: ViewRolexLetter {"position":"725,475","size":"100,100"}
+(set: $readRolexLetter to 1)
+<i>Rolex's letter</i>
+
+<i>Lina. Valentine's Day. You. Me. I'm taking you somewhere nice. Don't bother making other plans. — R.</i>
+
+(if: $ramPoints >= 3)[
+[[View Ram's letter->ViewRamLetter]]
+[[Back to your letters->LockerHasLetters]]
+](else:)[
+[[Continue to Valentine's with Rolex->EpilogueRolex]]
+]
+
+
+:: EpilogueRam {"position":"850,475","size":"100,100"}
+<i>2/14 — Valentine's Day!</i>
+
+Ram picks you up with a packed basket and a blanket. "Just us," he says, and he means it.
+
+You have a picnic in the park, nothing fancy, but he remembered everything you like. Afterward he pulls out a box of Legos. "We never finished that set. Wanna do it today?" You build together until the pieces blur, then he drives you to the beach. You watch the sunset side by side. He doesn't fill the silence; he just smiles and bumps your shoulder. It's the kind of Valentine's you could've had a hundred times as friends, except this time he holds your hand and it feels like the start of something new.
+
+[[Play again->IntroductionScreen]]
+(set: $timesChoseRam to $timesChoseRam + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to "EpilogueRam")(set: $choseThisRun to "ram")
+(display: "SendData")
+
+:: EpilogueRolex {"position":"975,475","size":"100,100"}
+<i>2/14 — Valentine's Day!</i>
+
+Rolex shows up with a bouquet, a small velvet box, and a smirk. "You're underdressed. We're fixing that."
+
+Dinner is at a place where the menu has no prices. He orders for both of you. Between courses he slides the box across the table, fine jewelry, something that catches the light. "Wear it. Next week we're going to China. I want you to see where I'm from." You're still reeling when he pushes a second box toward you. Inside: a Rolex. "So you're never late for me." He says it like a joke, but his eyes are serious. You laugh, flustered, and he leans back, satisfied. "You're worth it, Lina."
+
+[[Play again->IntroductionScreen]]
+(set: $timesChoseRolex to $timesChoseRolex + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to "EpilogueRolex")(set: $choseThisRun to "rolex")
+(display: "SendData")
+
+:: EpilogueAlone {"position":"1100,475","size":"100,100"}
+<i>2/14 - Valentine's Day...</i>
+
+You spend Valentine's by yourself. No letters, no dates. Just you and a tub of ice cream. (Or maybe next playthrough you'll be sweeter to someone!)
+
+[[Play again->IntroductionScreen]]
+(set: $timesAlone to $timesAlone + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to "EpilogueAlone")(set: $choseThisRun to "alone")
+(display: "SendData")
+
+:: SendData
+<div id="analytics-payload" style="display:none">
+  <span id="payload-player-id">(print: $playerId)</span>
+  <span id="payload-ram-pts">(print: $ramPoints)</span>
+  <span id="payload-rolex-pts">(print: $rolexPoints)</span>
+  <span id="payload-total-pts">(print: $ramPoints + $rolexPoints)</span>
+  <span id="payload-times-ram">(print: $timesChoseRam)</span>
+  <span id="payload-times-rolex">(print: $timesChoseRolex)</span>
+  <span id="payload-times-alone">(print: $timesAlone)</span>
+  <span id="payload-replays">(print: $replayCount)</span>
+  <span id="payload-last-passage">(print: $lastPassage)</span>
+  <span id="payload-completions">(print: $completionCount)</span>
+  <span id="payload-session-starts">(print: $sessionStarts)</span>
+  <span id="payload-chose">(print: $choseThisRun)</span>
+</div>
+<script>
+(function(){
+  var root = document.getElementById('analytics-payload');
+  if (!root || typeof window.sendToSheet !== 'function') return;
+  function text(id) { var el = document.getElementById(id); return el ? el.textContent : ''; }
+  window.sendToSheet({
+    player_id: text('payload-player-id'),
+    ram_pts: text('payload-ram-pts'),
+    rolex_pts: text('payload-rolex-pts'),
+    total_pts: text('payload-total-pts'),
+    times_chose_ram: text('payload-times-ram'),
+    times_chose_rolex: text('payload-times-rolex'),
+    times_alone: text('payload-times-alone'),
+    replays: text('payload-replays'),
+    last_passage: text('payload-last-passage'),
+    completions: text('payload-completions'),
+    session_starts: text('payload-session-starts'),
+    chose_this_run: text('payload-chose')
+  });
+})();
+</script>

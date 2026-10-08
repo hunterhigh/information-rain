@@ -239,6 +239,96 @@
           "bracket_links": 28
         }
       ]
+    },
+    {
+      "id": "hydrohaven--who-stole-my-heart",
+      "title": "Who Stole My Heart?",
+      "scope": "complete branching romance",
+      "round": 2,
+      "retrieved_at_utc": "2026-10-08T06:17:56+00:00",
+      "source_repository": "https://github.com/Hydrohaven/Who-Stole-My-Heart",
+      "source_commit": "7d8594d3b9a5cfe9e09f9241aff09538ae92d694",
+      "source_files": [
+        {
+          "path": "source/main.twee",
+          "bytes": 19056,
+          "sha256": "277ca1f07179010676a9f287126296d069b8e5bdd0248d050b8f48fd67b79b86",
+          "passages": 39,
+          "bracket_links": 58
+        }
+      ]
+    },
+    {
+      "id": "kikayang--wunderkammer",
+      "title": "Wunderkammer: Plague",
+      "scope": "complete historical branching story",
+      "round": 2,
+      "retrieved_at_utc": "2026-10-08T06:17:56+00:00",
+      "source_repository": "https://github.com/KikaYang/Wunderkammer",
+      "source_commit": "4e0af3ab74a43ccca122b1a9cced901a803c1604",
+      "source_files": [
+        {
+          "path": "Plague_4th.twee",
+          "bytes": 21239,
+          "sha256": "35b37f167ed20090f180cf5aa2257af80911a32666865ec51b37d524c83b072b",
+          "passages": 29,
+          "bracket_links": 26
+        }
+      ]
+    },
+    {
+      "id": "sannyaa--mystery-forest",
+      "title": "Mystery Forest",
+      "scope": "complete forest branching story",
+      "round": 2,
+      "retrieved_at_utc": "2026-10-08T06:17:56+00:00",
+      "source_repository": "https://github.com/Sannyaa/Branched-Narrative-Game",
+      "source_commit": "0b32136b5aed4c91607c308b40d4a2ef9bf15b85",
+      "source_files": [
+        {
+          "path": "Forest_of_Echoes.twee",
+          "bytes": 15634,
+          "sha256": "2811c2f8a5082003c2294730c4d4957d75d42a5f75db93505d9e6d7bf66bc23f",
+          "passages": 43,
+          "bracket_links": 59
+        }
+      ]
+    },
+    {
+      "id": "mcaitsmith--i-dont-think-of-you-anymore",
+      "title": "I Dont Think of You Anymore",
+      "scope": "complete breakup loop story",
+      "round": 2,
+      "retrieved_at_utc": "2026-10-08T06:17:56+00:00",
+      "source_repository": "https://github.com/mcaitsmith/breakup-simulator",
+      "source_commit": "79c0831a426c9fca32e68caf75250b6f43b8ff32",
+      "source_files": [
+        {
+          "path": "I Dont Think of You Anymore.twee",
+          "bytes": 34602,
+          "sha256": "23640dbb2fe54bd9ed363c7d42756eda4325d09de3bcceeb0b9e67b53b35a31e",
+          "passages": 70,
+          "bracket_links": 133
+        }
+      ]
+    },
+    {
+      "id": "hugofmramos--withering-tears",
+      "title": "WITHERING_TEARS",
+      "scope": "complete multi-ending suspense story",
+      "round": 2,
+      "retrieved_at_utc": "2026-10-08T06:17:56+00:00",
+      "source_repository": "https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS",
+      "source_commit": "185885859e559388956aebd1bc53202c3762c199",
+      "source_files": [
+        {
+          "path": "WITHERING_TEARS.twee",
+          "bytes": 105814,
+          "sha256": "f2f8ec2d3c0c18d6396143de7a33163195d478b3ffc243d1022a04609d6c4a5a",
+          "passages": 137,
+          "bracket_links": 190
+        }
+      ]
     }
   ]
 }

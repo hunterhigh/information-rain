@@ -1,0 +1,306 @@
+:: StoryTitle
+Mystery Forest
+
+
+:: StoryData
+{
+  "ifid": "DFC6120A-9E44-434F-8676-3465E25A6C30",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Introduction",
+  "zoom": 0.3
+}
+
+
+:: A Bond Forged with Nature {"position":"1000,2600","size":"100,100"}
+The pendant’s power merges with the tree, connecting you to the forest. You are invited to stay as its guardian, living forever as part of its magic.
+
+(text-colour:lime)[The forest feels like home, and you sense that your journey has come to a natural, transformative end, where you choose to stay and protect the forest.]
+
+
+:: A Clear Path {"position":"3400,1300","size":"100,100"}
+The path opens up, and you arrive at a central clearing. A massive tree stands tall, its roots covering the ground like veins. The Echo Keeper waits here.
+
+[[Approach the Echo Keeper |Facing the Echo Keeper]]
+
+
+:: A Peaceful Surrender {"position":"2975,2100","size":"100,100"}
+Exhausted, you close your eyes and let the sounds of the forest lull you to sleep. As you drift off, the world around you seems to melt away. When you wake up, you're lying on soft moss once again. The tall trees loom above you, and everything looks strangely familiar. In the distance, you hear a voice calling your name, as if for the first time.
+
+(text-colour:magenta)[[[The forest resets, bringing you back to the beginning, lost in an endless loop.|Awakening in the Forest]]]
+
+
+:: Awakening in the Forest {"position":"2375,375","size":"100,100"}
+You wake up on soft moss, surrounded by tall trees. It's quiet except for a faint voice calling your name from deeper in the forest.
+
+[[Follow the voice |The Voice]]
+[[Look around before moving |Exploring the Forest]]
+
+
+:: Blooming Change {"position":"1200,2600","size":"100,100"}
+The tree absorbs the seed, and immediately the forest springs to life. Flowers bloom, animals appear, and the forest seems to glow with renewed energy. The Echo Keeper looks at you with gratitude, and a path out of the forest opens.
+
+(text-colour:yellow)[You leave the forest with a sense of fulfillment, knowing that you've made a lasting change.]
+
+
+:: Bound to the Forest {"position":"1875,2400","size":"100,100"}
+"A shadow,” you say, thinking about how the forest has hidden so many things from view. The Keeper frowns, and the forest grows darker around you. “You see only what is hidden, but not what lies within,” the Keeper intones. The ground beneath you trembles, and vines wrap around your feet, dragging you down into the earth.
+
+(text-colour:red)[You become one with the forest, unable to leave, destined to remain in its embrace.]
+
+
+:: Challenging the Keeper {"position":"1675,2200","size":"100,100"}
+You step up to the Echo Keeper and demand answers. The Keeper challenges you to a final test: a riddle that will shape your destiny.
+
+(b4r:"solid","none")+(b4r-colour:white)[//"I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?"//]
+
+[[An Echo |The Forest’s Blessing]]
+[[A Whisper |The Keeper’s Approval]]
+[[A Shadow |Bound to the Forest]]
+
+
+:: Choosing the Safer Route {"position":"650,1500","size":"100,100"}
+You avoid the symbols and stick to a clearer path. Eventually, you reach the base of the massive tree, feeling its power surrounding you.
+
+[[Climb the tree |Climbing the Tree]]
+[[Sit down at its roots |Facing the Echo Keeper]]
+
+
+:: Climbing the Tree {"position":"425,1900","size":"100,100"}
+You climb up the ancient tree, and from its branches, you can see the entire forest below. At the center is a massive clearing, the heart of everything.
+
+[[Climb down and head to the clearing|Facing the Echo Keeper]]
+
+
+:: Compass’s Guidance {"position":"3600,900","size":"100,100"}
+The compass pulls you towards a hidden archway covered in moss and vines. Something feels important about it.
+
+[[Go through the archway |A Clear Path]]
+[[Look for another way |The Tunnel of Whispers]]
+
+
+:: Exploring the Forest {"position":"3225,475","size":"100,100"}
+You explore the woods. The trees sway even without wind, and glowing mushrooms light up your path. You spot a small, locked chest half-buried in vines.
+
+[[Open the chest |What’s in the Chest?]]
+[[Ignore the chest and walk away|Moving Forward]]
+
+
+:: Facing the Echo Keeper {"position":"1100,1900","size":"100,100"}
+All paths have led you here—to the heart of the forest. The Echo Keeper stands before you, asking for your final decision. Your choices, the items you’ve collected, and your actions will shape the forest’s fate—and your own.
+
+[[Path 1: Offer an item to the tree|Offering the Item]]
+[[Path 2: Confront the Echo Keeper |Challenging the Keeper]]
+[[Path 3: Refuse to interact and find your own way |Finding Your Own Path]]
+
+
+:: Finding Your Own Path {"position":"550,2200","size":"100,100"}
+You refuse to choose and instead look for another way. After wandering, you find a hidden, barely visible path leading to the edge of the forest.
+
+[[Follow the path |The Quiet Exit]]
+[[Ignore it and keep wandering |The Wander]]
+
+
+:: Following the Glow {"position":"2375,1250","size":"100,100"}
+The glowing trail feels safe, lighting your way. The flowers around you seem to hum softly, and the air smells sweet.
+
+[[Pick a glowing flower |Resting in the Grove]]
+[[Leave the flowers alone |Hidden Treasure]]
+
+
+:: Following the Symbols {"position":"1175,1200","size":"100,100"}
+The symbols guide you down a hidden path to a cave. Inside, echoes fill the air, and on a pedestal sits a book with glowing runes.
+
+[[Read the book |The Book of Echoes]]
+[[Leave the cave |Choosing the Safer Route]]
+
+
+:: Forest's Reaction {"position":"800,2600","size":"100,100"}
+The shard darkens the tree, corrupting the forest. Darkness spreads, and everything becomes hostile. You’re overwhelmed by the chaos and vanish into the forest.
+
+(text-colour:red)[An ending where the forest becomes corrupted, and you find yourself lost within its darkness, with no way to escape.]
+
+
+:: Hidden Treasure {"position":"2000,1900","size":"100,100"}
+As you explore deeper into the forest, a soft glow catches your eye. You uncover a hidden item—a pendant, warm to the touch, and pulsing with energy. It seems to respond to the forest around you. You feel as though this item could be significant, but how it will affect your journey is still unclear.
+
+[[Take the pendant |Holding the Pendant]]
+[[Leave it alone |Resting in the Grove]]
+
+
+:: Holding the Pendant {"position":"1700,1900","size":"100,100"}
+You feel power from the pendant and sense that it can change your fate. You hold it close and let it guide you to the center of the forest.
+
+[[Go to the heart of the forest |Facing the Echo Keeper]]
+
+
+:: Introduction {"position":"2375,200","size":"100,100"}
+You wake up in the middle of a giant forest, with trees so tall you can’t see the sky. The air smells fresh and earthy, and you can hear faint whispers through the leaves—like the forest is trying to tell you something. This is the Forest of Echoes, a place full of mysteries, memories, and hidden paths. You’re a traveler who’s gotten lost here, searching for a way out... or maybe even something more. Every choice you make changes the forest in some way, leading you closer to its secrets or deeper into its shadows. The way you navigate this place will decide whether you find your way out, uncover the forest’s secrets, or stay lost forever.
+
+Are you ready to explore and see where the forest takes you?
+
+[[Start my Journey |Awakening in the Forest]]
+
+<!--</style>
+<img src=https://i.imgur.com/lQT5ZMp.jpeg width="75%" height="75%">
+</div>-->
+
+
+
+
+
+:: Item to Offer {"position":"1000,2400","size":"100,100"}
+You step up to the ancient tree and offer the item you hold. The forest around you shifts, reacting to the energy of your gift. //(You can only offer what you've gathered during your journey. If you have all three items, the choice is yours)//
+
+[[Offer the seed |Blooming Change]]
+[[Offer the shard |Forest's Reaction]]
+[[Offer the pendant |A Bond Forged with Nature]]
+
+
+:: Moving Forward {"position":"3000,650","size":"100,100"}
+You ignore the chest and keep walking. Soon, you come to a fork in the path: a shadowy tunnel to the left, and a faintly glowing trail to the right.
+
+[[Enter the tunnel |The Tunnel of Whispers]]
+[[Take the glowing trail |Following the Glow]]
+
+
+:: Offer your own Spirit {"position":"1250,2400","size":"100,100"}
+Having no special item to offer, you kneel before the tree, opening yourself to the forest’s power. You close your eyes and focus on your breath, offering your presence and spirit as a final act of respect. The forest accepts your offering gently, and you feel a wave of calm pass through you. A path opens, leading you quietly out of the forest, like a friend letting you go.
+(text-colour:yellow)[You leave the forest safely, but the details of your journey slip away. All that remains is the sense of having changed, as if waking from a dream.]
+
+
+:: Offering the Item {"position":"1100,2200","size":"100,100"}
+Have you gathered any special items during your journey?
+
+[[Yes|Item to Offer]]
+[[No|Offer your own Spirit]]
+
+
+
+:: Resting in the Grove {"position":"2800,1900","size":"100,100"}
+You sit down to rest in the peaceful grove, letting the soft sounds of the forest wash over you. The whispers grow louder, almost like they're telling you a story. You start to feel drowsy as vines slowly creep closer to where you're sitting.
+
+[[Embrace the whispers and let the vines surround you |The Forest’s Embrace]]
+[[Close your eyes and let sleep take over |A Peaceful Surrender]]
+
+
+:: The Book of Echoes {"position":"1425,1500","size":"100,100"}
+You open the book and see images of the forest’s past—its joys, struggles, and secrets. Everything makes sense for a moment.
+
+[[Embrace what you’ve learned |Facing the Echo Keeper]]
+[[Close the book and walk away |Hidden Treasure]]
+
+
+:: The Echo’s Warning {"position":"1200,600","size":"100,100"}
+The ghostly figure whispers that the forest remembers everything. It holds out two items: a seed of light and a shard of shadow, asking you to choose one.
+
+[[Take the seed |The Seed’s Light]]
+[[Take the shard  |The Shadow’s Power]]
+
+
+:: The Forest’s Blessing {"position":"1500,2400","size":"100,100"}
+“An echo,” you say confidently. The Keeper’s eyes flash with light, and the forest hums in agreement. “You understand the forest’s true nature,” the Keeper says, smiling. A golden path opens up, leading you out of the forest. You walk away with the Keeper's blessing and a newfound understanding of the world around you.
+
+(text-colour:lime)[Your understanding of the forest allows you to leave with a sense of peace and purpose.]
+
+
+:: The Forest’s Embrace {"position":"2625,2100","size":"100,100"}
+You close your eyes and listen to the whispers, letting the vines weave around you. They grow tighter, pulling you into the earth until the grove consumes you entirely. You feel yourself slowly fading into the forest, your thoughts blending with its whispers, your body becoming part of its roots. The last thing you sense is the forest's quiet acceptance of your surrender.
+
+(text-colour:red)[You are absorbed into the forest, becoming part of its memory, never to be seen again.]
+
+
+:: The Keeper’s Approval {"position":"1700,2400","size":"100,100"}
+“A whisper,” you reply, hoping to match the forest's quiet sounds. The Keeper tilts their head, considering your answer. “Not quite,” they say gently, “but close enough.” The forest shifts and a path opens, leading you to the edge of the woods. You leave the forest, feeling both relieved and slightly uncertain about what could have been.
+
+(text-colour:yellow)[You’re allowed to leave, but without truly understanding the forest’s deeper secrets.]
+
+
+:: The Quiet Exit {"position":"675,2400","size":"100,100"}
+You follow the hidden trail, which leads you through untouched parts of the forest. It’s quiet and serene, and you feel like you're in harmony with everything around you. Eventually, you find yourself at the forest’s edge, ready to step back into the outside world.
+
+(text-colour:yellow)[You've escaped the forest, but the details of your journey slip away. All that remains is the sense of having changed, as if waking from a dream.]
+
+
+:: The Seed’s Light {"position":"1425,875","size":"100,100"}
+The seed of light feels warm in your hand. As you walk, it makes a path for you, parting the vines and revealing hidden trails.
+
+[[Follow the path revealed by the seed |A Clear Path]]
+[[Search for hidden treasures |Hidden Treasure]]
+
+
+:: The Shadow’s Power {"position":"925,925","size":"100,100"}
+The shard is cold, and suddenly the world around you looks sharper, clearer, but darker. You see hidden symbols carved into the trees and stones.
+
+[[Follow the symbols |Following the Symbols]]
+[[Ignore them and take a safer route |Choosing the Safer Route]]
+
+
+:: The Sunlit Grove {"position":"2125,1250","size":"100,100"}
+The grove is peaceful, with warm sunlight streaming down. At its center stands a massive tree with a hollow trunk.
+
+[[Explore the tree |The Book of Echoes]]
+[[Sit down and rest |Resting in the Grove]]
+
+
+:: The Thicket of Shadows {"position":"1600,1250","size":"100,100"}
+The thicket is tough to walk through, with branches clawing at you. You see tiny lights flickering in the dark, moving further into the dense brush.
+
+[[Follow the lights |Hidden Treasure]]
+[[Find a way through the thicket |Climbing the Tree]]
+
+
+:: The Tunnel of Whispers {"position":"3800,1300","size":"100,100"}
+The tunnel is dark, and strange whispers surround you. The path is hard to see, and it feels like you're being watched.
+
+[[Keep moving forward |Choosing the Safer Route]]
+[[Turn back |A Clear Path]]
+
+
+:: The Voice {"position":"1550,400","size":"100,100"}
+The voice leads you to a small clearing with a glowing pond. A ghostly figure hovers above the water, waving you over.
+
+[[Approach the figure |The Echo’s Warning]]
+[[Hide and watch |Watching from Afar]]
+
+
+:: The Wander {"position":"400,2400","size":"100,100"}
+You decide to keep wandering, ignoring the trail. As you walk, everything seems to repeat itself, and no matter which way you turn, you find yourself back at familiar places. Slowly, you realize you’re going in circles.
+
+(text-colour:red)[[[The forest traps you in a continuous loop, and the cycle starts all over again.|Awakening in the Forest]]]
+
+
+:: Wandering Without a Guide {"position":"3325,900","size":"100,100"}
+You drop the compass and keep walking. Eventually, you reach a cliff with a steep path leading down.
+
+[[Climb down the path |Following the Symbols]]
+[[Stay on the top and find another route |Following the Glow]]
+
+
+:: Watching from Afar {"position":"1875,575","size":"100,100"}
+You stay hidden. The figure slowly vanishes, leaving ripples on the pond’s surface. You notice two paths: one leading to a sunlit grove, the other going into a thick, dark area.
+
+[[Head to the grove |The Sunlit Grove]]
+[[Go into the dark thicket |The Thicket of Shadows]]
+
+
+:: What’s in the Chest? {"position":"3450,675","size":"100,100"}
+The chest opens to reveal a broken compass. The needle spins wildly, but when you face deeper into the forest, it points steadily in one direction.
+
+[[Take the compass |Compass’s Guidance]]
+[[Leave the compass behind |Wandering Without a Guide]]
+
+
+:: StoryStylesheet [stylesheet]
+tw-story{
+background:linear-gradient(0deg, rgba(60,60,60, 0.7), rgba(60,60,60,0.7)), url("https://i.imgur.com/lQT5ZMp.jpeg");
+background-size:cover;
+}
+
+tw-link{
+  color: #8bca84;
+}
+
+.enchantment-link:hover, tw-link:hover {
+ color: yellow;
+}
