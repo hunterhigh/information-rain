@@ -9,4 +9,5 @@
 - [第二轮补全与清洗](2026-10-08-round-02-screening.md)
 - [第二轮资料处理管线](2026-10-08-round-02-pipeline.md)
 - [第二轮节点与路径结构复核](2026-10-08-round-02-structure-review.md)
+- [资料库作品的世界剧情裂变评估](2026-10-08-fission-candidate-audit.md)
 
