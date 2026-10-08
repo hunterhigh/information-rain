@@ -29,7 +29,7 @@
 - 手机分支反馈已选择“光流牵引”并接入：左/右/上选择节点分支，下滑整屏切换下一部作品；页面文字与画面整体移动，不弹拖动文字框。正文滚动与手势交接、多点触摸清理及切换世界的快照绘制已修复；真实手机上的整段流程仍待验收。没有上方分支时的反馈和返回上一部作品的方式仍待决定。其他两种效果保留为设计参考，详见[手机滑动方向提示参考](mobile-swipe-review/README.md)和[决定 0015](../../project/decisions/0015-full-screen-swipe-and-branch-navigation.md)。
 - 产品验证是后续打磨和上线过程的一部分；“暂缓 Demo 测试”表示当前不安排体验试验，不表示未来产品不验证。
 - 项目所有者于 2026-09-30 确认当前作品已通过审查。作品审查不替代目标市场的平台规则、地域合规和运营条件核对。
-- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、运行时注册表、被引用图片和独立的手机划动动效比较页；源码仓库内的内容草稿、来源与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `291b7dd`（部署 ID `debf5c7c-1905-48c0-8d95-2d45bf224dc3`）。
+- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、运行时注册表、被引用图片和独立的手机划动动效比较页；源码仓库内的内容草稿、来源与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `69c6de6`（部署 ID `217e2c93-8af6-46e3-aefc-8a282e7f603a`）。
 
 ## 如何更新路线图
 
