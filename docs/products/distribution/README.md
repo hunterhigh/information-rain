@@ -7,6 +7,7 @@
 | [业务语言本体](ontology.md) | 统一读者、作品、节点、路径等产品术语，区分已确认与待讨论概念。 |
 | [Twine → 内容包转换契约](twine-content-conversion.md) | 规定源文件解析、编辑转换、节点映射与内容包验收。 |
 | [世界故事制作计划](story-production/PLAN.md) | 从资料库选题发展为独立、可审读的完整分支故事；封面与注册另批处理。 |
+| [世界故事叙事编辑标准](story-production/EDITORIAL-STANDARD.md) | 约定文笔选择、沉浸感、段落牵引与模型常见写作问题的审稿方法。 |
 | [手机滑动方向提示参考](mobile-swipe-review/README.md) | 对照分支方向 GIF，并按完整阅读流程定义体验验收标准。 |
 | [实施路线图](roadmap.md) | 记录从当前 Demo 到完整产品的阶段、交付和退出依据。 |
 | [读者网页源码](../../../products/distribution/reader-web/) | 当前活动实现；发布构建见 [`products/distribution/README.md`](../../../products/distribution/README.md)。 |

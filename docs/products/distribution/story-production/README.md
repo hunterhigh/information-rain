@@ -2,7 +2,7 @@
 
 状态：活动工作索引｜适用产品：分发产品｜建立：2026-10-08
 
-按[执行计划](PLAN.md)把[资料库候选](../../../research/content-supply/notes/2026-10-08-fission-expanded-audit.md)发展为独立故事。此处保存制作过程；正式运行内容仍只进入[内容池](../../../../products/distribution/reader-web/content-pool/README.md)。封面后续批量制作，不作为「故事就绪」的前置条件。
+按[执行计划](PLAN.md)与[叙事编辑标准](EDITORIAL-STANDARD.md)，把[资料库候选](../../../research/content-supply/notes/2026-10-08-fission-expanded-audit.md)发展为独立故事。此处保存制作过程；正式运行内容仍只进入[内容池](../../../../products/distribution/reader-web/content-pool/README.md)。封面后续批量制作，不作为「故事就绪」的前置条件。
 
 | 候选 | 工作单元 | 状态 | 当前停点 |
 | --- | --- | --- | --- |
