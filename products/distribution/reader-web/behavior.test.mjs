@@ -17,6 +17,7 @@ const world = {
   },
 };
 const events = [];
+let swipeCleanupCount = 0;
 let experienceState = 'worlds.reading.ready';
 const context = {
   worlds: [world],
@@ -26,7 +27,7 @@ const context = {
   stats: { totalSteps: 0 },
   el: { nodeLayer: { style: {} }, stage: { classList: { add() {}, remove() {} } } },
   createScreenSnapshot: () => ({}),
-  clearSwipeFeedback: () => {},
+  clearSwipeFeedback: () => { swipeCleanupCount++; },
   createNodeTextExitCopy: () => {},
   animateScreenSnapshot: () => {},
   showToast: message => events.push(['toast', message]),
@@ -47,18 +48,41 @@ assert.equal(context.currentNodeId, 'start', '失效方向不能改变当前位�
 assert.deepEqual([...context.pathHistory], ['start'], '失效方向不能写入足迹');
 assert.equal(context.stats.totalSteps, 0, '失效方向不能计入步数');
 assert.deepEqual(events, [['toast', '此方向暂不可进入']], '失效方向应给出即时反馈');
+context.handleDirection('left', {});
+assert.equal(swipeCleanupCount, 1, '松手时分支目标失效，必须清除拖动快照');
+experienceState = 'worlds.reading.typing';
+context.handleDirection('right', {});
+assert.equal(swipeCleanupCount, 2, '页面状态不再允许选择时，必须清除拖动快照');
+experienceState = 'worlds.reading.ready';
 
 context.handleDirection('right');
 assert.equal(context.currentNodeId, 'next', '有效方向应正常进入目标节点');
 assert.deepEqual([...context.pathHistory], ['start', 'next']);
 assert.equal(context.stats.totalSteps, 1);
-assert.deepEqual(events.slice(1), [
+assert.deepEqual(events.slice(2), [
   ['state', 'MOVE'],
   ['saved'],
   ['state', 'NODE_READY'],
   ['render', 'next'],
 ]);
 
+const scrollStart = html.indexOf('function resolveTextTouchScroll(');
+const scrollEnd = html.indexOf('\n        }', scrollStart) + '\n        }'.length;
+assert.ok(scrollStart >= 0 && scrollEnd > scrollStart, '找不到正文手势滚动判定');
+const scrollContext = {};
+runInNewContext(html.slice(scrollStart, scrollEnd), scrollContext);
+const scrollIntoText = scrollContext.resolveTextTouchScroll(120, -60, 300);
+assert.equal(scrollIntoText.handled, true, '正文未到边界时，上划应继续滚动正文');
+assert.equal(scrollIntoText.scrollTop, 180);
+assert.equal(scrollContext.resolveTextTouchScroll(300, -60, 300).handled, false, '正文到底后，上划应交给上方分支');
+assert.equal(scrollContext.resolveTextTouchScroll(0, 60, 300).handled, false, '正文到顶后，下划应交给作品切换');
+assert.equal(scrollContext.resolveTextTouchScroll(120, 60, 300).scrollTop, 60, '正文中下划应滚回前文');
+assert.match(html, /\.node-text \{ max-height: min\(58%, calc\(100% - 7rem\)\); touch-action: none; \}/, '手机正文需要由应用接管纵向触摸，避免浏览器吞掉分支手势');
+assert.match(html, /mobileUpChoice/, '手机界面必须显示上方分支的具体出口文案');
+assert.match(html, /snapshotSlides\.replaceChildren\(currentSlide\)/, '过场快照只保留当前作品，避免复制整组封面');
+assert.match(html, /snapshot\.querySelectorAll\('#particlesLayer \.particle'\)/, '过场快照不应复制持续动画的粒子');
+assert.match(html, /animateScreenSnapshot\(swipeTransition\.snapshot, swipeTransition\.direction, \(\) => \{/, '世界切换的模糊背景与粒子应延后到过场结束');
+assert.match(html, /hidden = !\(leftExit \|\| rightExit \|\| upExit\)/, '只有上方分支时也必须显示方向提示');
 assert.match(html, /aspect-ratio:\s*9\s*\/\s*16/, '作品舞台必须保留 9:16 竖屏比例');
 assert.match(html, /swiper@14\.2\.0/, 'Swiper 必须固定到已核验版本');
 assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
@@ -76,6 +100,8 @@ assert.match(html, /--flow-x/, '光流应随横向拖动方向移动');
 assert.match(html, /--flow-y/ , '上滑分支应沿纵向牵引光流');
 assert.match(html, /if \(direction === 'down'\) \{[\s\S]*?remove\('is-light-flow'\)/, '下滑切换作品不得套用分支光流');
 assert.match(html, /\.world-stage\.is-branch-dragging \.gesture-feedback \{ display: none; \}/, '拖动时不应出现浮动文字提示框');
+assert.match(html, /e\.changedTouches\.length !== 1 \|\| e\.touches\.length !== 0/, '多点触摸结束时应取消当前导航手势');
+assert.match(html, /const clearTouchGesture = \(\) => \{[\s\S]*?clearSwipeFeedback\(\);[\s\S]*?\};/, '取消/失效手势应统一清理拖动快照和状态');
 
 const profileStart = html.indexOf('function updateProfileStats() {');
 const profileEnd = html.indexOf('function toggleTextSize() {', profileStart);

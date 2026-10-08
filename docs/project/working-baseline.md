@@ -22,7 +22,7 @@
 - **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `d70d9a0`（Cloudflare 部署 `f8c9eefd`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
-- **手机分支视觉已选定并接入**：左/右/上滑分别选择当前节点对应分支；下滑整屏进入下一部作品。分支采用“光流牵引”：整张阅读画面跟随手指，柔和光流随位移牵引到选择边缘，拖动时不出现独立文字框；标题、作者和正文随页面一起移动。代码已实现，需继续完成浏览器流程检查与所有者真机体验。其余两种提示动画作为后续参考归档。无上分支时的行为、上一部作品的返回方式和正文滚动交接仍待解决。依据见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)及[手机滑动方向提示参考](../products/distribution/mobile-swipe-review/README.md)。
+- **手机分支视觉已选定并接入**：左/右/上滑分别选择当前节点分支；下滑整屏进入下一部作品。分支采用“光流牵引”，整张阅读画面跟随手指，不出现拖动文字框。手机正文滚动由应用控制：未到边界时滑动正文，到顶部/底部后下一次相应方向手势才切换世界/分支。上方出口提示显示具体文案。最近本地修复还包括多点触摸清理，以及切换世界时减少快照内容、延后模糊背景和粒子更新；自动检查通过，真实手机体验仍待核验。改动尚未推送或部署。无上方分支时的反馈和返回上一部作品的方式仍待决定。依据见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)及[手机滑动方向提示参考](../products/distribution/mobile-swipe-review/README.md)。
 
 ## 权威材料阅读顺序
 
