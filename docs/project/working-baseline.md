@@ -15,6 +15,7 @@
 - **有效代码基线**：[`products/distribution/reader-web/`](../../products/distribution/reader-web/)；读者页面、运行时内容池和页面专属资源位于此处。
 - **内容来源**：23 部作品统一存于 [`content-pool/packs/`](../../products/distribution/reader-web/content-pool/README.md)；HTML 只读取生成目录，顺序由 `display-order.json` 管理。见[决定 0014](decisions/0014-unified-distribution-content-pool.md)。
 - **外部内容资料**：[自供给分发内容资料库](../research/content-supply/README.md)现有两轮共 12 部、30 个 Twine 源文件；第二轮 5 部已生成节点、选项、跳转和结局的来源结构图，并记录静态断链及条件待验路径。它是未来内容生产的参考资料，与当前读者内容池分开；目前没有将这些作品转为产品内容。
+- **自供给故事制作**：资料库现有[扩展候选清单](../research/content-supply/notes/2026-10-08-fission-expanded-audit.md)列出 33 个同作方向及 5 个跨作实验；[故事制作计划](../products/distribution/story-production/PLAN.md)规定先完成可独立审读的故事与路径，封面后续批量制作。当前尚无按该计划完成的故事，首个建议试作 S02；不会因故事草稿而自动改动运行内容池。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
 - **当前分发产品代码基线**：目录与文档治理提交 `01236f6`；当前产品版本为 `demo-v0.2.0`，已标记并推送至 GitHub `main`。后续工作基于远端 `main`。
@@ -38,3 +39,5 @@
 ## 当前下一步
 
 核验手机端整屏滑动与左右分支在真实设备上的手感和辨识度；随后检查主要阅读流程，并决定是否恢复 Access 受控访问、配置 GitHub Actions 自动部署及演练回退。工具 Agent 保持预留，不进入分发产品的构建与部署。
+
+内容供给并行从 S02 的独立世界故事简报开始；按[制作计划](../products/distribution/story-production/PLAN.md)形成完整故事和路径审稿后再安排封面批次。此工作不改变上述手机端验收或预览部署状态。
