@@ -108,6 +108,16 @@
 - 发布内容：手机阅读态由应用接管上下手势；只预加载当前作品及相邻作品封面，减少一次性请求全部封面。
 - HTTP 检查：固定部署地址和主域名均返回 200；线上页面包含触摸接管与相邻封面预加载代码。真实手机体验仍待项目所有者核验。
 
+### 2026-10-08 `demo-v0.3.0` 短篇内容预览
+
+- 部署地址：[https://107e70ea.information-rain-preview.pages.dev/](https://107e70ea.information-rain-preview.pages.dev/)
+- 主地址：[https://information-rain-preview.pages.dev/](https://information-rain-preview.pages.dev/)
+- 部署 ID：`107e70ea-e83f-4a3c-a47c-f2375251b362`
+- 对应 GitHub 版本：`demo-v0.3.0`，提交 `b48f5321f520b5a8829598452c8254526e303e89`
+- 环境/分支：Production / `main`
+- 发布内容：新增 38 篇带封面的短篇分支故事，内容池合计 61 部。署名暂用「信息雨」，体验时长显示「短篇」。项目所有者明确要求直接进入公开预览；完整独立审稿和人类走读计时仍未完成，具体记录见[发布准备记录](../../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
+- HTTP 检查：主域名及固定部署地址返回 200；线上注册表下载返回 200，含 61 个作品 ID 和新增作品 `s02-salt-lamp`；固定部署地址上的新封面返回 200。响应仍带 `noindex, nofollow, noarchive`。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。
