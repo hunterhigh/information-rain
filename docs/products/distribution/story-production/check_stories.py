@@ -34,6 +34,8 @@ def inspect_story(folder: Path) -> list[str]:
         graph[name] = targets
         if name.startswith("n") and not targets:
             errors.append(f"{name}: ordinary node without choices")
+        if name.startswith("n") and len(targets) < 2:
+            errors.append(f"{name}: fewer than two choices")
         if name.startswith("e") and targets:
             errors.append(f"{name}: ending has choices")
         if len(targets) > 4:
@@ -61,6 +63,27 @@ def inspect_story(folder: Path) -> list[str]:
         for name in graph:
             if name not in visited:
                 errors.append(f"{name}: unreachable")
+        stack: list[tuple[str, tuple[str, ...], int]] = [(start, (), 0)]
+        completed = 0
+        while stack:
+            current, seen, decision_count = stack.pop()
+            if current in seen:
+                errors.append(f"{current}: cycle in a static story path")
+                continue
+            if current not in graph:
+                continue
+            if current.startswith("e"):
+                completed += 1
+                if decision_count < 2:
+                    errors.append(f"{current}: path has fewer than two decisions")
+                continue
+            if len(seen) > len(graph):
+                errors.append("path exceeds graph size")
+                break
+            for target in graph[current]:
+                stack.append((target, seen + (current,), decision_count + 1))
+        if completed == 0:
+            errors.append("no complete path")
     return errors
 
 
