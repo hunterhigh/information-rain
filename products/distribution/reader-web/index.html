@@ -248,6 +248,11 @@
             box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
         }
 
+        @media (max-width: 768px) {
+            /* 阅读中的纵向手势由页面统一判定；正文滚动也由触摸处理器管理。 */
+            .world-stage.is-reading { touch-action: none; overscroll-behavior: none; }
+        }
+
         .world-stage[data-text-size="sm"] { --reading-font-size: 14px; --reading-line-height: 1.88; --reading-shade-start: 80%; }
         .world-stage[data-text-size="md"] { --reading-font-size: 16px; --reading-line-height: 1.78; --reading-shade-start: 84%; }
         .world-stage[data-text-size="lg"] { --reading-font-size: 18px; --reading-line-height: 1.68; --reading-shade-start: 88%; }
@@ -1332,6 +1337,7 @@
         let fallbackExperienceState = 'worlds.cover';
         let worldSwiper = null;
         let pendingWorldGesture = null;
+        const worldImagePreloads = new Map();
         const HOME_BATCH_SIZE = 8;
         const HOME_CARD_ASPECT = 9 / 16;
         let homeQuery = '';
@@ -1552,10 +1558,50 @@
 
                 const image = document.createElement('div');
                 image.className = 'world-slide-image';
-                image.style.backgroundImage = world.image ? `url(${world.image})` : '';
+                if (world.image) image.dataset.imageSource = world.image;
                 slide.appendChild(image);
                 el.worldSlides.appendChild(slide);
             });
+        }
+
+        function preloadWorldImage(index) {
+            const world = worlds[index];
+            if (!world?.image) return Promise.resolve();
+
+            const cached = worldImagePreloads.get(index);
+            if (cached?.source === world.image) return cached.promise;
+
+            const image = new Image();
+            image.decoding = 'async';
+            image.src = world.image;
+            const promise = typeof image.decode === 'function'
+                ? image.decode().catch(() => undefined)
+                : new Promise(resolve => {
+                    image.addEventListener('load', resolve, { once: true });
+                    image.addEventListener('error', resolve, { once: true });
+                });
+            worldImagePreloads.set(index, { source: world.image, image, promise });
+
+            // 只保留当前作品及相邻作品的解码引用，避免手机长期占用全部封面内存。
+            for (const [preloadedIndex] of worldImagePreloads) {
+                if (Math.abs(preloadedIndex - index) > 1) worldImagePreloads.delete(preloadedIndex);
+            }
+            return promise;
+        }
+
+        function prepareWorldImageWindow(index) {
+            const slides = el.worldSlides.children;
+            for (let slideIndex = 0; slideIndex < slides.length; slideIndex++) {
+                const image = slides[slideIndex].querySelector('.world-slide-image');
+                const shouldLoad = Math.abs(slideIndex - index) <= 1;
+                if (!image) continue;
+                if (shouldLoad && image.dataset.imageSource) {
+                    image.style.backgroundImage = `url("${image.dataset.imageSource}")`;
+                    preloadWorldImage(slideIndex);
+                } else {
+                    image.style.removeProperty('background-image');
+                }
+            }
         }
 
         function initWorldSwiper() {
@@ -1606,6 +1652,7 @@
                     }
                 }
             });
+            prepareWorldImageWindow(currentWorldIndex);
             el.stage.classList.add('swiper-ready');
         }
 
@@ -2139,6 +2186,7 @@
         function loadWorld(index, direction = 'next') {
             const world = worlds[index];
             const swipeTransition = pendingWorldGesture;
+            prepareWorldImageWindow(index);
             el.stage.classList.remove('is-reading');
             clearSwipeFeedback(!swipeTransition);
             el.stage.classList.toggle('is-screen-swap-pending', Boolean(swipeTransition));
