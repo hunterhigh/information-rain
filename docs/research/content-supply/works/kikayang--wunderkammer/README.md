@@ -9,4 +9,6 @@
 
 转换提醒：含 Harlowe 宏、延时转场与外部图片；需人工复核可达路径。
 
+节点、选项、跳转与结局见[结构数据](structure.json)；其解析范围和限制见[结构复核](../../notes/2026-10-08-round-02-structure-review.md)。
+
 详细取舍见[第二轮清洗记录](../../notes/2026-10-08-round-02-screening.md)。

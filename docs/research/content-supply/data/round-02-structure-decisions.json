@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "works": {
+    "hydrohaven--who-stole-my-heart": {
+      "start": "IntroductionScreen",
+      "narrativeStart": "PlayerIntro",
+      "endings": ["EpilogueRam", "EpilogueRolex", "EpilogueAlone"],
+      "excludeFromNarrativeGraph": ["PlayerIntroDebug", "SendData"],
+      "note": "三个情人节尾声为故事收束；Play again 是重玩。SendData 是遥测依赖，不作为剧情节点。"
+    },
+    "kikayang--wunderkammer": {
+      "start": "Start",
+      "narrativeStart": "Start",
+      "endings": ["Epilogue"],
+      "excludeFromNarrativeGraph": [],
+      "note": "The End 之后仍有自动转入 Epilogue 的宏；最终收束按 Epilogue 计。"
+    },
+    "sannyaa--mystery-forest": {
+      "start": "Introduction",
+      "narrativeStart": "Introduction",
+      "endings": ["A Bond Forged with Nature", "Blooming Change", "Bound to the Forest", "Forest's Reaction", "Offer your own Spirit", "The Forest’s Blessing", "The Forest’s Embrace", "The Keeper’s Approval", "The Quiet Exit"],
+      "excludeFromNarrativeGraph": [],
+      "note": "A Peaceful Surrender 回到 Awakening in the Forest，是循环结果，不作为终局。"
+    },
+    "mcaitsmith--i-dont-think-of-you-anymore": {
+      "start": "Intro",
+      "narrativeStart": "Intro",
+      "endings": ["moment."],
+      "excludeFromNarrativeGraph": [],
+      "note": "ending 2–8 仍回到对话循环；moment. 是放手后的静默收束，180 秒后出现致谢。"
+    },
+    "hugofmramos--withering-tears": {
+      "start": "Disclaimer",
+      "narrativeStart": "TitleScreen",
+      "endings": ["BADEnding", "DuckENDING", "Keep on walking down", "KillENDING", "Kiss her", "RunENDING"],
+      "excludeFromNarrativeGraph": [],
+      "note": "以 THE END 文案与实际收束确定终局；Shoot her and take the book 虽有 ENDING 标签，仍通往 BADEnding1–5，不能截断。返回 TitleScreen 的链接视作重玩。"
+    }
+  }
+}

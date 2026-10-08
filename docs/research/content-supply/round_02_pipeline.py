@@ -118,6 +118,8 @@ def ingest() -> None:
             "[总目录](../../data/catalog.json)。\n\n"
             f"保留依据：{spec['selection_note']}\n\n"
             f"转换提醒：{spec['conversion_note']}\n\n"
+            "节点、选项、跳转与结局见[结构数据](structure.json)；其解析范围和限制见"
+            "[结构复核](../../notes/2026-10-08-round-02-structure-review.md)。\n\n"
             "详细取舍见[第二轮清洗记录](../../notes/2026-10-08-round-02-screening.md)。\n",
             encoding="utf-8",
         )

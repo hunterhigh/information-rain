@@ -1,0 +1,1290 @@
+{
+  "schemaVersion": 1,
+  "sourceWorkId": "hydrohaven--who-stole-my-heart",
+  "sourceCommit": "7d8594d3b9a5cfe9e09f9241aff09538ae92d694",
+  "storyFormat": "Harlowe",
+  "declaredStart": "IntroductionScreen",
+  "reviewedStart": "IntroductionScreen",
+  "narrativeStart": "PlayerIntro",
+  "reviewNote": "三个情人节尾声为故事收束；Play again 是重玩。SendData 是遥测依赖，不作为剧情节点。",
+  "specialPassages": [
+    {
+      "name": "StoryTitle",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryData",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryStylesheet",
+      "tags": [
+        "stylesheet"
+      ],
+      "sourceFile": "source/main.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "Story JavaScript",
+      "tags": [
+        "script"
+      ],
+      "sourceFile": "source/main.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "PlayerIntroDebug",
+      "tags": [
+        "debug"
+      ],
+      "sourceFile": "source/main.twee",
+      "reason": "excluded_by_review"
+    },
+    {
+      "name": "SendData",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "reason": "excluded_by_review"
+    }
+  ],
+  "passages": [
+    {
+      "name": "IntroductionScreen",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(if: $statsInited is not 1)[(set: $statsInited to 1)(set: $playerId to (random: 1000000, 9999999))(set: $sessionStarts to 0)(set: $replayCount to 0)(set: $completionCount to 0)(set: $timesChoseRam to 0)(set: $timesChoseRolex to 0)(set: $timesAlone to 0)](else:)[(set: $replayCount to $replayCount + 1)]\n<div class=\"introduction-screen\">\n  <h1>Who Stole My Heart!?</h1>\n  <h2 style=\"margin-bottom: 0;\">[[Start Game->PlayerIntro]]</h2>\n  <!-- <h4 style=\"margin-top: 0; color: orange\">[[Debug Mode->PlayerIntroDebug]]</h4> -->\n</div>\n\n<div style=\"line-height: 0 !important;\">\n  (set: $ramPoints to 0)\n  (set: $rolexPoints to 0)\n  (set: $readRamLetter to 0)\n  (set: $readRolexLetter to 0)\n</div>",
+      "choices": [
+        {
+          "label": "Start Game",
+          "target": "PlayerIntro",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Debug Mode",
+          "target": "PlayerIntroDebug",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "PlayerIntro",
+      "tags": [
+        "reset"
+      ],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $sessionStarts to $sessionStarts + 1)\nLina Nguyen turns to herself in the mirror, really. She's a highschool girl who's had better days.\n\n\"Ugh. It's almost Valentine's Day and I have no one. Everyone's so couple-y and I'm just… here. I really want a Valentine this year!\"\n\nShe sighs dramatically.\n\n\"At least I already know everyone at school. Ram, Rolex… Maybe one of them will finally notice me?\"\n\n[[Begin the day->RamClass1Start]]",
+      "choices": [
+        {
+          "label": "Begin the day",
+          "target": "RamClass1Start",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass1Start",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/11 — 1st Period (Homeroom)</i>\n\nRam Soberts walks into the room. <i>Golden retriever energy, class president, team captain of the soccer team. Your childhood friend.</i>\n\nRam makes the morning announcement—something about Valentine's Day coming up—and looks dead straight at Lina.\n\n[[*Blushes and giggles* Looks away all gushy->RamClass1P1]]\n[[Make a disgusted face->RamClass1N1]]",
+      "choices": [
+        {
+          "label": "*Blushes and giggles* Looks away all gushy",
+          "target": "RamClass1P1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Make a disgusted face",
+          "target": "RamClass1N1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass1P1",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $ramPoints to (min: 5, $ramPoints + 1))\nRam smiles warmly at you.\n\nThe teacher hands everyone their test results. Ram finishes the announcement, goes to Lina's desk, and asks her how the test was. He got a 100. Lina got a 40.\n\n<img src=\"img/bad_exam.png\" alt=\"Bad Exam\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\nRam is standing at your desk with a warm smile. \"Do you want me to tutor you? How does this weekend sound?\"\n\n[[I would love your help! Thanks Ram!->RamClass1P2]]\n[[No! Do you think I'm stupid!?->RamClass1N2]]",
+      "choices": [
+        {
+          "label": "I would love your help! Thanks Ram!",
+          "target": "RamClass1P2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "No! Do you think I'm stupid!?",
+          "target": "RamClass1N2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass1N1",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "Ram is taken aback and whimpers.\n\nThe teacher hands everyone their test results. Ram finishes the announcement, goes to Lina's desk, and asks her how the test was. He got a 100. Lina got a 40.\n\n<img src=\"img/dog_happy.png\" alt=\"Happy Dog\" style=\"width: 20%; height: 100%; object-fit: cover;\">\n\nRam is standing at your desk with a warm smile. \"Do you want me to tutor you? How does this weekend sound?\"\n\n[[I would love your help! Thanks Ram!->RamClass1P2]]\n[[No! Do you think I'm stupid!?->RamClass1N2]]",
+      "choices": [
+        {
+          "label": "I would love your help! Thanks Ram!",
+          "target": "RamClass1P2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "No! Do you think I'm stupid!?",
+          "target": "RamClass1N2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass1P2",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $ramPoints to (min: 5, $ramPoints + 1))\n<img src=\"img/dog_excited.png\" alt=\"Excited Dog\" style=\"width: 20%; height: 100%; object-fit: cover;\">\n\nRam's face lights up. \"Really? Then… wanna study together on the weekend? Just us?\"\n\nHe's very happy. Your heart does a little skip.\n\n[[Continue to 2nd period->RamClass2Start]]",
+      "choices": [
+        {
+          "label": "Continue to 2nd period",
+          "target": "RamClass2Start",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass1N2",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<img src=\"img/dog_sad.png\" alt=\"Sad Dog\" style=\"width: 20%; height: 100%; object-fit: cover;\">\n\nRam's smile fades. \"Oh—no, I didn't mean—I'm sorry, Lina.\" He looks sad and apologizes. He's mopey the rest of first period.\n\n[[Continue to 2nd period->RamClass2Start]]",
+      "choices": [
+        {
+          "label": "Continue to 2nd period",
+          "target": "RamClass2Start",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass2Start",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/11 — 2nd Period</i>\n<img src=\"img/lina_sleepy.png\" alt=\"Sleepy Lina\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\nLina's dozing off during class, she's so bored. Suddenly Ram nudges her to wake up.\n\n\"You looked really cute while sleeping,\" he says quietly.\n\nLina wakes up, surprised.\n\n[[*Blushes* Acts flustered and says \"You too!\" accidently->RamClass2P3]]\n[[*Angry* \"Why did you wake me up!? I was having a nice dream!\"->RamClass2N3]]",
+      "choices": [
+        {
+          "label": "*Blushes* Acts flustered and says \"You too!\" accidently",
+          "target": "RamClass2P3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Angry* \"Why did you wake me up!? I was having a nice dream!\"",
+          "target": "RamClass2N3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass2P3",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $ramPoints to (min: 5, $ramPoints + 1))\nYou both start laughing.\n\nRam asks if you got any sleep last night, since you dozed off. Lina says she didn't—she was thinking about how she's so single and surrounded by tons of couples. Ram laughs. \"Don't worry, I know you'll be someone's Valentine!\" He blushes.\n\n[[\"Aww thanks, you're so sweet Ram! I really hope so.\"->RamClass2P3P4]]\n[[\"True! I hope it's not you! Haha.\"->RamClass2P3N4]]",
+      "choices": [
+        {
+          "label": "\"Aww thanks, you're so sweet Ram! I really hope so.\"",
+          "target": "RamClass2P3P4",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"True! I hope it's not you! Haha.\"",
+          "target": "RamClass2P3N4",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass2N3",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "Oh... I'm sorry Lina, I didn't mean to wake you up.\n\nRam asks if you got any sleep last night. Lina says she didn't—she was thinking about being single. Ram laughs. \"Don't worry, I know you'll be someone's Valentine!\" He blushes and gazes into your eyes.\n\n[[\"Aww thanks, you're so sweet Ram! I really hope so.\"->RamClass2P3P4]]\n[[\"True! I hope it's not you! Haha.\"->RamClass2P3N4]]",
+      "choices": [
+        {
+          "label": "\"Aww thanks, you're so sweet Ram! I really hope so.\"",
+          "target": "RamClass2P3P4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"True! I hope it's not you! Haha.\"",
+          "target": "RamClass2P3N4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass2P3P4",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $ramPoints to (min: 5, $ramPoints + 1))\nClass continues. \n\nYou drop your pencil between your desk and Ram's. You both reach down at the same time—your hands touch!\n<img src=\"img/pencil.png\" alt=\"Pencil\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\n[[*Blushes* Inner monologue: 'OMG he touched my hand!' \"Aww thank you so much Ram, you're so sweet!\"->RamClass2EndP5]]\n[[*Slap his hand* \"I can pick up my own pencil!\"->RamClass2EndN5]]",
+      "choices": [
+        {
+          "label": "*Blushes* Inner monologue: 'OMG he touched my hand!' \"Aww thank you so much Ram, you're so sweet!\"",
+          "target": "RamClass2EndP5",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Slap his hand* \"I can pick up my own pencil!\"",
+          "target": "RamClass2EndN5",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass2P3N4",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "Class continues. \n\nYou drop your pencil between your desk and Ram's. You both reach down at the same time—your hands touch!\n<img src=\"img/pencil.png\" alt=\"Pencil\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\n\n[[*Blushes* \"Aww thank you so much Ram, you're so sweet!\"->RamClass2EndP5]]\n[[*Slap his hand* \"I can pick up my own pencil!\"->RamClass2EndN5]]",
+      "choices": [
+        {
+          "label": "*Blushes* \"Aww thank you so much Ram, you're so sweet!\"",
+          "target": "RamClass2EndP5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Slap his hand* \"I can pick up my own pencil!\"",
+          "target": "RamClass2EndN5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RamClass2EndP5",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $ramPoints to (min: 5, $ramPoints + 1))\nThe lunch bell rings.\n\n[[Go to lunch->RolexLunchStart]]",
+      "choices": [
+        {
+          "label": "Go to lunch",
+          "target": "RolexLunchStart",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RamClass2EndN5",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "The lunch bell rings.\n\n[[Go to lunch->RolexLunchStart]]",
+      "choices": [
+        {
+          "label": "Go to lunch",
+          "target": "RolexLunchStart",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexLunchStart",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/11 — Lunch</i>\n\nYou head to the cafeteria and sit at a table outside in a more isolated spot. You open your packed lunch.\n\n<img src=\"img/bento_box.png\" alt=\"Bento Box\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\n<i>This is Rolex Hornton. International student, doesn't get social cues, really attractive. All the girls fawn over him. A bit of a bad boy. Very rash. And he has a Rolex.</i>\n\nRolex pulls up and sits next to Lina out of nowhere. She's surprised. He's very flirty. \"You saved this spot for me?\"\n\n[[Heyy Rolex *blushes*->RolexLunchP1]]\n[[*Scooches away* Hi Rolex, what do you want?->RolexLunchN1]]",
+      "choices": [
+        {
+          "label": "Heyy Rolex *blushes*",
+          "target": "RolexLunchP1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Scooches away* Hi Rolex, what do you want?",
+          "target": "RolexLunchN1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexLunchP1",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $rolexPoints to (min: 5, $rolexPoints + 1))\n\"You made this? You'd make an amazing wife.\" He leans over. \"Lemme try some.\" He's eyeing your octopus sausage.\n<img src=\"img/octopus_sausage.png\" alt=\"Octopus Sausage\" style=\"width: 20%; height: 70%; object-fit: cover;\">\n\n[[*Feed him and prompt him to say ahhh*->RolexLunchP1P2]]\n[[*Slap him in the face* Get your own food Rolex!->RolexLunchP1N2]]",
+      "choices": [
+        {
+          "label": "*Feed him and prompt him to say ahhh*",
+          "target": "RolexLunchP1P2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Slap him in the face* Get your own food Rolex!",
+          "target": "RolexLunchP1N2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RolexLunchN1",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "\"You made this? You'd make an amazing wife.\" He leans over. \"Lemme try some.\" He's eyeing your octopus sausage.\n<img src=\"img/octopus_sausage.png\" alt=\"Octopus Sausage\" style=\"width: 20%; height: 70%; object-fit: cover;\">\n\n[[*Feed him and prompt him to say ahhh*->RolexLunchP1P2]]\n[[*Slap him* Get your own food Rolex!->RolexLunchP1N2]]",
+      "choices": [
+        {
+          "label": "*Feed him and prompt him to say ahhh*",
+          "target": "RolexLunchP1P2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Slap him* Get your own food Rolex!",
+          "target": "RolexLunchP1N2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexLunchP1P2",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $rolexPoints to (min: 5, $rolexPoints + 1))\n*You feed him.* He grins. You finish your meal together.\n\n<img src=\"img/dog_excited.png\" alt=\"Excited Dog\" style=\"width: 20%; height: 100%; object-fit: cover;\">\n\nYou continue to finish your meal together, then the bell rings and lunch is over. Everyone heads to 3rd period.\n\n[[Head to 3rd period->RolexHallwayStart]]",
+      "choices": [
+        {
+          "label": "Head to 3rd period",
+          "target": "RolexHallwayStart",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RolexLunchP1N2",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "*Slap him in the face* \"Get your own food Rolex!\" \n\nHe whimpers like a little puppy and continues to eat his own food.\n\n<img src=\"img/dog_sad.png\" alt=\"Sad Dog\" style=\"width: 20%; height: 100%; object-fit: cover;\">\n\nThe bell rings and lunch is over.\n\n[[Head to 3rd period->RolexHallwayStart]]",
+      "choices": [
+        {
+          "label": "Head to 3rd period",
+          "target": "RolexHallwayStart",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayStart",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/11 — Hallway → 3rd Period</i>\n\nLina is walking to class with Rolex when suddenly he pushes her against the wall. Your face heats up.\n\n<img src=\"img/kabedon_plus.png\" alt=\"Kabedon\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n\n\"You busy on the 14th? I can take you anywhere you want.\"\n\n[[*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"->RolexHallwayP3]]\n[[*Scoffs* \"Why don't you do this to one of your other girls!\"->RolexHallwayN3]]",
+      "choices": [
+        {
+          "label": "*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"",
+          "target": "RolexHallwayP3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Scoffs* \"Why don't you do this to one of your other girls!\"",
+          "target": "RolexHallwayN3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayP3",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $rolexPoints to (min: 5, $rolexPoints + 1))\n*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"\n\n\"This can't wait! I only have one girl in mind for Valentine's, Lina. And you know her really well.\"\n\n[[\"I better not see you with someone else then.\" *giggles*->RolexHallwayP3P4]]\n[[\"Leave me alone. That girl better not be me.\" *hmph!*->RolexHallwayP3N4]]",
+      "choices": [
+        {
+          "label": "\"I better not see you with someone else then.\" *giggles*",
+          "target": "RolexHallwayP3P4",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Leave me alone. That girl better not be me.\" *hmph!*",
+          "target": "RolexHallwayP3N4",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayN3",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "*Scoffs* \"Why don't you do this to one of your other girls!\"\n\n\"This can't wait. I only have one girl in mind for Valentine's, Lina. And you know her really well.\"\n\n[[\"I better not see you with someone else then.\" *giggles*->RolexHallwayP3P4]]\n[[\"Leave me alone. That girl better not be me.\" *hmph!*->RolexHallwayP3N4]]",
+      "choices": [
+        {
+          "label": "\"I better not see you with someone else then.\" *giggles*",
+          "target": "RolexHallwayP3P4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Leave me alone. That girl better not be me.\" *hmph!*",
+          "target": "RolexHallwayP3N4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayP3P4",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $rolexPoints to (min: 5, $rolexPoints + 1))\n\"I better not see you with someone else then.\" *giggles*\n\nLina's friend sees her from down the hall and calls her over. Rolex grabs her hand. \"No. She's with me.\" He snarls.\n\n[[\"You guys go on ahead without me!\" *signals just this once*->RolexHallwayEndP5]]\n[[*Shakes off his hand and runs to her friends*->RolexHallwayEndN5]]",
+      "choices": [
+        {
+          "label": "\"You guys go on ahead without me!\" *signals just this once*",
+          "target": "RolexHallwayEndP5",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Shakes off his hand and runs to her friends*",
+          "target": "RolexHallwayEndN5",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayP3N4",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "\"Leave me alone. That girl better not be me.\" *hmph!*\n\nLina's friend calls her over. Rolex grabs her hand. \"No. She's with me.\" He snarls.\n\n[[\"You guys go on ahead without me!\" *signals just this once*->RolexHallwayEndP5]]\n[[*Shakes off his hand and runs to her friends*->RolexHallwayEndN5]]",
+      "choices": [
+        {
+          "label": "\"You guys go on ahead without me!\" *signals just this once*",
+          "target": "RolexHallwayEndP5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "*Shakes off his hand and runs to her friends*",
+          "target": "RolexHallwayEndN5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayEndP5",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $rolexPoints to (min: 5, $rolexPoints + 1))\n\"You guys go on ahead without me!\" You signal to your friends—just this once. Rolex and Lina enter class together and sit with each other.\n\nThe rest of the day flies by. And before you know it, it's the day before Valentine's.\n\n[[Open your locker->LockerStart]]",
+      "choices": [
+        {
+          "label": "Open your locker",
+          "target": "LockerStart",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "RolexHallwayEndN5",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "*Shake off his hand and run to your friends.* Lina and her friends enter class together and sit with each other. Rolex sulks.\n\nThe rest of the day flies by. And before you know it, it's the day before Valentine's.\n\n[[Open your locker->LockerStart]]",
+      "choices": [
+        {
+          "label": "Open your locker",
+          "target": "LockerStart",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "LockerStart",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>Day before Valentine's Day</i>\n\nYou open your locker and find (if: $ramPoints >= 3 and $rolexPoints >= 3)[two love letters! One from Ram, one from Rolex.](else-if: $ramPoints >= 3)[one love letter—from Ram!](else-if: $rolexPoints >= 3)[one love letter—from Rolex!](else:)[zero love letters…]\n\n(if: $ramPoints >= 3 or $rolexPoints >= 3)[\n<img src=\"img/love_letter.png\" alt=\"Love Letter\" style=\"width: 30%; height: 100%; object-fit: cover;\">\n]\n\n(if: $ramPoints >= 3 or $rolexPoints >= 3)[\n[[View your letters->LockerHasLetters]]\n](else:)[\n[[Valentine's Day, alone... Once again...->EpilogueAlone]]\n]",
+      "choices": [
+        {
+          "label": "View your letters",
+          "target": "LockerHasLetters",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Valentine's Day, alone... Once again...",
+          "target": "EpilogueAlone",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "LockerHasLetters",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "You're holding your letter(s). Read them, then decide who you want to spend Valentine's with.\n\n(if: $ramPoints >= 3)[\n[[View Ram's letter->ViewRamLetter]](if: $readRamLetter > 0)[\n  [[Continue to Valentine's with Ram->EpilogueRam]]\n]](if: $rolexPoints >= 3)[ <!-- Weird spacing cuz twee spacing is odd -->\n[[View Rolex's letter->ViewRolexLetter]] (if: $readRolexLetter > 0)[\n  [[Continue to Valentine's with Rolex->EpilogueRolex]]\n]]",
+      "choices": [
+        {
+          "label": "View Ram's letter",
+          "target": "ViewRamLetter",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Continue to Valentine's with Ram",
+          "target": "EpilogueRam",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "View Rolex's letter",
+          "target": "ViewRolexLetter",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Continue to Valentine's with Rolex",
+          "target": "EpilogueRolex",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ViewRamLetter",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $readRamLetter to 1)\n<i>Ram's letter</i>\n\n<i>Lina, I've liked you for a long time. You're my best friend and every moment has been so cherishing. I'd love to spend Valentines with someone I admire the most, you. — Ram</i>\n\n(if: $rolexPoints >= 3)[\n[[View Rolex's letter->ViewRolexLetter]]\n[[Back to your letters->LockerHasLetters]]\n](else:)[\n[[Continue to Valentine's with Ram->EpilogueRam]]\n]",
+      "choices": [
+        {
+          "label": "View Rolex's letter",
+          "target": "ViewRolexLetter",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Back to your letters",
+          "target": "LockerHasLetters",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Continue to Valentine's with Ram",
+          "target": "EpilogueRam",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ViewRolexLetter",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "(set: $readRolexLetter to 1)\n<i>Rolex's letter</i>\n\n<i>Lina. Valentine's Day. You. Me. I'm taking you somewhere nice. Don't bother making other plans. — R.</i>\n\n(if: $ramPoints >= 3)[\n[[View Ram's letter->ViewRamLetter]]\n[[Back to your letters->LockerHasLetters]]\n](else:)[\n[[Continue to Valentine's with Rolex->EpilogueRolex]]\n]",
+      "choices": [
+        {
+          "label": "View Ram's letter",
+          "target": "ViewRamLetter",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Back to your letters",
+          "target": "LockerHasLetters",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Continue to Valentine's with Rolex",
+          "target": "EpilogueRolex",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "EpilogueRam",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/14 — Valentine's Day!</i>\n\nRam picks you up with a packed basket and a blanket. \"Just us,\" he says, and he means it.\n\nYou have a picnic in the park, nothing fancy, but he remembered everything you like. Afterward he pulls out a box of Legos. \"We never finished that set. Wanna do it today?\" You build together until the pieces blur, then he drives you to the beach. You watch the sunset side by side. He doesn't fill the silence; he just smiles and bumps your shoulder. It's the kind of Valentine's you could've had a hundred times as friends, except this time he holds your hand and it feels like the start of something new.\n\n[[Play again->IntroductionScreen]]\n(set: $timesChoseRam to $timesChoseRam + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to \"EpilogueRam\")(set: $choseThisRun to \"ram\")\n(display: \"SendData\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Play again",
+          "target": "IntroductionScreen",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": true,
+      "includes": [
+        "SendData"
+      ]
+    },
+    {
+      "name": "EpilogueRolex",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/14 — Valentine's Day!</i>\n\nRolex shows up with a bouquet, a small velvet box, and a smirk. \"You're underdressed. We're fixing that.\"\n\nDinner is at a place where the menu has no prices. He orders for both of you. Between courses he slides the box across the table, fine jewelry, something that catches the light. \"Wear it. Next week we're going to China. I want you to see where I'm from.\" You're still reeling when he pushes a second box toward you. Inside: a Rolex. \"So you're never late for me.\" He says it like a joke, but his eyes are serious. You laugh, flustered, and he leans back, satisfied. \"You're worth it, Lina.\"\n\n[[Play again->IntroductionScreen]]\n(set: $timesChoseRolex to $timesChoseRolex + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to \"EpilogueRolex\")(set: $choseThisRun to \"rolex\")\n(display: \"SendData\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Play again",
+          "target": "IntroductionScreen",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": true,
+      "includes": [
+        "SendData"
+      ]
+    },
+    {
+      "name": "EpilogueAlone",
+      "tags": [],
+      "sourceFile": "source/main.twee",
+      "sourceBody": "<i>2/14 - Valentine's Day...</i>\n\nYou spend Valentine's by yourself. No letters, no dates. Just you and a tub of ice cream. (Or maybe next playthrough you'll be sweeter to someone!)\n\n[[Play again->IntroductionScreen]]\n(set: $timesAlone to $timesAlone + 1)(set: $completionCount to $completionCount + 1)(set: $lastPassage to \"EpilogueAlone\")(set: $choseThisRun to \"alone\")\n(display: \"SendData\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Play again",
+          "target": "IntroductionScreen",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": true,
+      "includes": [
+        "SendData"
+      ]
+    }
+  ],
+  "audit": {
+    "narrativePassages": 33,
+    "specialPassages": 6,
+    "staticEdges": 55,
+    "reviewedEndings": [
+      "EpilogueRam",
+      "EpilogueRolex",
+      "EpilogueAlone"
+    ],
+    "staticPathsToEndings": {
+      "EpilogueRam": [
+        "IntroductionScreen",
+        "PlayerIntro",
+        "RamClass1Start",
+        "RamClass1P1",
+        "RamClass1P2",
+        "RamClass2Start",
+        "RamClass2P3",
+        "RamClass2P3P4",
+        "RamClass2EndP5",
+        "RolexLunchStart",
+        "RolexLunchP1",
+        "RolexLunchP1P2",
+        "RolexHallwayStart",
+        "RolexHallwayP3",
+        "RolexHallwayP3P4",
+        "RolexHallwayEndP5",
+        "LockerStart",
+        "LockerHasLetters",
+        "EpilogueRam"
+      ],
+      "EpilogueRolex": [
+        "IntroductionScreen",
+        "PlayerIntro",
+        "RamClass1Start",
+        "RamClass1P1",
+        "RamClass1P2",
+        "RamClass2Start",
+        "RamClass2P3",
+        "RamClass2P3P4",
+        "RamClass2EndP5",
+        "RolexLunchStart",
+        "RolexLunchP1",
+        "RolexLunchP1P2",
+        "RolexHallwayStart",
+        "RolexHallwayP3",
+        "RolexHallwayP3P4",
+        "RolexHallwayEndP5",
+        "LockerStart",
+        "LockerHasLetters",
+        "EpilogueRolex"
+      ],
+      "EpilogueAlone": [
+        "IntroductionScreen",
+        "PlayerIntro",
+        "RamClass1Start",
+        "RamClass1P1",
+        "RamClass1P2",
+        "RamClass2Start",
+        "RamClass2P3",
+        "RamClass2P3P4",
+        "RamClass2EndP5",
+        "RolexLunchStart",
+        "RolexLunchP1",
+        "RolexLunchP1P2",
+        "RolexHallwayStart",
+        "RolexHallwayP3",
+        "RolexHallwayP3P4",
+        "RolexHallwayEndP5",
+        "LockerStart",
+        "EpilogueAlone"
+      ]
+    },
+    "pathStepsToEndings": {
+      "EpilogueRam": [
+        {
+          "from": "IntroductionScreen",
+          "label": "Start Game",
+          "to": "PlayerIntro",
+          "condition": "needs_review"
+        },
+        {
+          "from": "PlayerIntro",
+          "label": "Begin the day",
+          "to": "RamClass1Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1Start",
+          "label": "*Blushes and giggles* Looks away all gushy",
+          "to": "RamClass1P1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass1P1",
+          "label": "I would love your help! Thanks Ram!",
+          "to": "RamClass1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1P2",
+          "label": "Continue to 2nd period",
+          "to": "RamClass2Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2Start",
+          "label": "*Blushes* Acts flustered and says \"You too!\" accidently",
+          "to": "RamClass2P3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass2P3",
+          "label": "\"Aww thanks, you're so sweet Ram! I really hope so.\"",
+          "to": "RamClass2P3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2P3P4",
+          "label": "*Blushes* Inner monologue: 'OMG he touched my hand!' \"Aww thank you so much Ram, you're so sweet!\"",
+          "to": "RamClass2EndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2EndP5",
+          "label": "Go to lunch",
+          "to": "RolexLunchStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchStart",
+          "label": "Heyy Rolex *blushes*",
+          "to": "RolexLunchP1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexLunchP1",
+          "label": "*Feed him and prompt him to say ahhh*",
+          "to": "RolexLunchP1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchP1P2",
+          "label": "Head to 3rd period",
+          "to": "RolexHallwayStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayStart",
+          "label": "*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"",
+          "to": "RolexHallwayP3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexHallwayP3",
+          "label": "\"I better not see you with someone else then.\" *giggles*",
+          "to": "RolexHallwayP3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayP3P4",
+          "label": "\"You guys go on ahead without me!\" *signals just this once*",
+          "to": "RolexHallwayEndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayEndP5",
+          "label": "Open your locker",
+          "to": "LockerStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "LockerStart",
+          "label": "View your letters",
+          "to": "LockerHasLetters",
+          "condition": "needs_review"
+        },
+        {
+          "from": "LockerHasLetters",
+          "label": "Continue to Valentine's with Ram",
+          "to": "EpilogueRam",
+          "condition": "needs_review"
+        }
+      ],
+      "EpilogueRolex": [
+        {
+          "from": "IntroductionScreen",
+          "label": "Start Game",
+          "to": "PlayerIntro",
+          "condition": "needs_review"
+        },
+        {
+          "from": "PlayerIntro",
+          "label": "Begin the day",
+          "to": "RamClass1Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1Start",
+          "label": "*Blushes and giggles* Looks away all gushy",
+          "to": "RamClass1P1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass1P1",
+          "label": "I would love your help! Thanks Ram!",
+          "to": "RamClass1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1P2",
+          "label": "Continue to 2nd period",
+          "to": "RamClass2Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2Start",
+          "label": "*Blushes* Acts flustered and says \"You too!\" accidently",
+          "to": "RamClass2P3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass2P3",
+          "label": "\"Aww thanks, you're so sweet Ram! I really hope so.\"",
+          "to": "RamClass2P3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2P3P4",
+          "label": "*Blushes* Inner monologue: 'OMG he touched my hand!' \"Aww thank you so much Ram, you're so sweet!\"",
+          "to": "RamClass2EndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2EndP5",
+          "label": "Go to lunch",
+          "to": "RolexLunchStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchStart",
+          "label": "Heyy Rolex *blushes*",
+          "to": "RolexLunchP1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexLunchP1",
+          "label": "*Feed him and prompt him to say ahhh*",
+          "to": "RolexLunchP1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchP1P2",
+          "label": "Head to 3rd period",
+          "to": "RolexHallwayStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayStart",
+          "label": "*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"",
+          "to": "RolexHallwayP3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexHallwayP3",
+          "label": "\"I better not see you with someone else then.\" *giggles*",
+          "to": "RolexHallwayP3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayP3P4",
+          "label": "\"You guys go on ahead without me!\" *signals just this once*",
+          "to": "RolexHallwayEndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayEndP5",
+          "label": "Open your locker",
+          "to": "LockerStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "LockerStart",
+          "label": "View your letters",
+          "to": "LockerHasLetters",
+          "condition": "needs_review"
+        },
+        {
+          "from": "LockerHasLetters",
+          "label": "Continue to Valentine's with Rolex",
+          "to": "EpilogueRolex",
+          "condition": "needs_review"
+        }
+      ],
+      "EpilogueAlone": [
+        {
+          "from": "IntroductionScreen",
+          "label": "Start Game",
+          "to": "PlayerIntro",
+          "condition": "needs_review"
+        },
+        {
+          "from": "PlayerIntro",
+          "label": "Begin the day",
+          "to": "RamClass1Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1Start",
+          "label": "*Blushes and giggles* Looks away all gushy",
+          "to": "RamClass1P1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass1P1",
+          "label": "I would love your help! Thanks Ram!",
+          "to": "RamClass1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass1P2",
+          "label": "Continue to 2nd period",
+          "to": "RamClass2Start",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2Start",
+          "label": "*Blushes* Acts flustered and says \"You too!\" accidently",
+          "to": "RamClass2P3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RamClass2P3",
+          "label": "\"Aww thanks, you're so sweet Ram! I really hope so.\"",
+          "to": "RamClass2P3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2P3P4",
+          "label": "*Blushes* Inner monologue: 'OMG he touched my hand!' \"Aww thank you so much Ram, you're so sweet!\"",
+          "to": "RamClass2EndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RamClass2EndP5",
+          "label": "Go to lunch",
+          "to": "RolexLunchStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchStart",
+          "label": "Heyy Rolex *blushes*",
+          "to": "RolexLunchP1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexLunchP1",
+          "label": "*Feed him and prompt him to say ahhh*",
+          "to": "RolexLunchP1P2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexLunchP1P2",
+          "label": "Head to 3rd period",
+          "to": "RolexHallwayStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayStart",
+          "label": "*Blushes* \"Noo Rolex, let's talk later! We have class in a bit! And don't you have other girls you wanna take?\"",
+          "to": "RolexHallwayP3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "RolexHallwayP3",
+          "label": "\"I better not see you with someone else then.\" *giggles*",
+          "to": "RolexHallwayP3P4",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayP3P4",
+          "label": "\"You guys go on ahead without me!\" *signals just this once*",
+          "to": "RolexHallwayEndP5",
+          "condition": "needs_review"
+        },
+        {
+          "from": "RolexHallwayEndP5",
+          "label": "Open your locker",
+          "to": "LockerStart",
+          "condition": "needs_review"
+        },
+        {
+          "from": "LockerStart",
+          "label": "Valentine's Day, alone... Once again...",
+          "to": "EpilogueAlone",
+          "condition": "needs_review"
+        }
+      ]
+    },
+    "unreachableByStaticLinks": [],
+    "nonEndingDeadEnds": [],
+    "missingTargets": [],
+    "runtimeControlPassages": [
+      "EpilogueAlone",
+      "EpilogueRam",
+      "EpilogueRolex",
+      "IntroductionScreen",
+      "LockerHasLetters",
+      "LockerStart",
+      "PlayerIntro",
+      "RamClass1P1",
+      "RamClass1P2",
+      "RamClass2EndP5",
+      "RamClass2P3",
+      "RamClass2P3P4",
+      "RolexHallwayEndP5",
+      "RolexHallwayP3",
+      "RolexHallwayP3P4",
+      "RolexLunchP1",
+      "RolexLunchP1P2",
+      "ViewRamLetter",
+      "ViewRolexLetter"
+    ]
+  }
+}

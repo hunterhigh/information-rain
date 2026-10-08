@@ -1,0 +1,384 @@
+{
+  "method": "bounded_source_condition_probe",
+  "target": "moment.",
+  "timedLinks": "available_after_delay",
+  "optionsCappedAt": 20,
+  "statesVisited": 1348,
+  "steps": [
+    {
+      "from": "Intro",
+      "label": "Continue",
+      "to": "Intro part 2",
+      "stateAfterFrom": {
+        "options": 0,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Intro part 2",
+      "label": "\"Why?\"",
+      "to": "Intro part 3",
+      "stateAfterFrom": {
+        "options": 1,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Intro part 3",
+      "label": "\"What changed?\"",
+      "to": "\"Why not?\"",
+      "stateAfterFrom": {
+        "options": 1,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Why not?\"",
+      "label": "\"Did I do something wrong?\"",
+      "to": "\"Did I do something wrong?\"",
+      "stateAfterFrom": {
+        "options": 2,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Did I do something wrong?\"",
+      "label": "I don't know who you are anymore.",
+      "to": "\"You aren't telling me something\"",
+      "stateAfterFrom": {
+        "options": 3,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"You aren't telling me something\"",
+      "label": "Stay silent.",
+      "to": "Stay silent.",
+      "stateAfterFrom": {
+        "options": 4,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Stay silent.",
+      "label": "Give them the key to their apartment",
+      "to": "Key",
+      "stateAfterFrom": {
+        "options": 5,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Key",
+      "label": "No. I'm keeping this.",
+      "to": "No. I'm keeping this.",
+      "stateAfterFrom": {
+        "options": 6,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "No. I'm keeping this.",
+      "label": "Give up.",
+      "to": "give up the key",
+      "stateAfterFrom": {
+        "options": 7,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "give up the key",
+      "label": "Let them go",
+      "to": "Let them go",
+      "stateAfterFrom": {
+        "options": 8,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Let them go",
+      "label": "You're helpless to stop it.",
+      "to": "You're helpless to stop it.",
+      "stateAfterFrom": {
+        "options": 9,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "You're helpless to stop it.",
+      "label": "the silence they've left behind.",
+      "to": "the silence they've left behind.",
+      "stateAfterFrom": {
+        "options": 10,
+        "ending": 1,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "the silence they've left behind.",
+      "label": "Try again.",
+      "to": "Intro part 3",
+      "stateAfterFrom": {
+        "options": 10,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Intro part 3",
+      "label": "\"Okay! No Problem!\"",
+      "to": "\"Okay! No Problem!\"",
+      "stateAfterFrom": {
+        "options": 10,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Okay! No Problem!\"",
+      "label": "\"Yeah, it's fine. You do you.\"",
+      "to": "\"Yeah, it's fine. You do you.\"",
+      "stateAfterFrom": {
+        "options": 11,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Yeah, it's fine. You do you.\"",
+      "label": "\"Oh, not at all. Honestly, you deserve better.\"",
+      "to": "\"Oh, not at all. Honestly, you deserve better.\"",
+      "stateAfterFrom": {
+        "options": 12,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Oh, not at all. Honestly, you deserve better.\"",
+      "label": "\"Do you think there's any chance of us...being together again?\"",
+      "to": "\"Do you think there's any chance of us...being together again?\"",
+      "stateAfterFrom": {
+        "options": 13,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Do you think there's any chance of us...being together again?\"",
+      "label": "\"Make up your mind.\"",
+      "to": "\"Make up your mind.\"",
+      "stateAfterFrom": {
+        "options": 14,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Make up your mind.\"",
+      "label": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+      "to": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+      "stateAfterFrom": {
+        "options": 15,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+      "label": "\"Yes you are.\"",
+      "to": "\"Yes you are.\"",
+      "stateAfterFrom": {
+        "options": 16,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Yes you are.\"",
+      "label": "\"If you were sorry then you wouldn't leave.\"",
+      "to": "\"If you were sorry then you wouldn't leave.\"",
+      "stateAfterFrom": {
+        "options": 17,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"If you were sorry then you wouldn't leave.\"",
+      "label": "\"Yes.\"",
+      "to": "\"Yes.\"",
+      "stateAfterFrom": {
+        "options": 18,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "\"Yes.\"",
+      "label": "Just tell me what it will take to make you love me.",
+      "to": "Just tell me what it will take to make you love me.",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Just tell me what it will take to make you love me.",
+      "label": "Yes.",
+      "to": "Yes.",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Yes.",
+      "label": "Who are you?",
+      "to": "Who are you?",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 0
+      }
+    },
+    {
+      "from": "Who are you?",
+      "label": "I am Entropy.",
+      "to": "I am Entropy.",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "I am Entropy.",
+      "label": "entropy",
+      "to": "Intro part 3",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "Intro part 3",
+      "label": "\"But I see a future with you.\"",
+      "to": "\"But I see a future with you.\"",
+      "stateAfterFrom": {
+        "options": 19,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "\"But I see a future with you.\"",
+      "label": "\"So, what changed?\"",
+      "to": "\"So, what changed?\"",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "\"So, what changed?\"",
+      "label": "\"What the hell does that even mean?!\"",
+      "to": "\"You still love me.\"",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "\"You still love me.\"",
+      "label": "\"This is normal for a healthy relationship! Attraction is meant to ebb and flow!\"",
+      "to": "Attraction",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "Attraction",
+      "label": "Understand what?",
+      "to": "Understand what?",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "Understand what?",
+      "label": "You're Entropy",
+      "to": "You're Entropy",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "You're Entropy",
+      "label": "Yes.",
+      "to": "punish",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "punish",
+      "label": "But they don't.",
+      "to": "Focus.",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "Focus.",
+      "label": "made.",
+      "to": "loop",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    },
+    {
+      "from": "loop",
+      "label": "moment.",
+      "to": "moment.",
+      "stateAfterFrom": {
+        "options": 20,
+        "ending": 2,
+        "entropy": 1
+      }
+    }
+  ],
+  "finalState": {
+    "options": 20,
+    "ending": 2,
+    "entropy": 1
+  }
+}

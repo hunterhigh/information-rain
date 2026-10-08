@@ -9,4 +9,6 @@
 
 转换提醒：SugarCube 条件与 timed 宏控制揭示节奏；最终致谢需等待 180 秒，不能将其当作阅读时长证据。
 
+节点、选项、跳转与结局见[结构数据](structure.json)；其解析范围和限制见[结构复核](../../notes/2026-10-08-round-02-structure-review.md)。
+
 详细取舍见[第二轮清洗记录](../../notes/2026-10-08-round-02-screening.md)。

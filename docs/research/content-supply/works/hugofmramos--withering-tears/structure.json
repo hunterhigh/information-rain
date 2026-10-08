@@ -1,0 +1,3805 @@
+{
+  "schemaVersion": 1,
+  "sourceWorkId": "hugofmramos--withering-tears",
+  "sourceCommit": "185885859e559388956aebd1bc53202c3762c199",
+  "storyFormat": "Harlowe",
+  "declaredStart": "Disclaimer",
+  "reviewedStart": "Disclaimer",
+  "narrativeStart": "TitleScreen",
+  "reviewNote": "以 THE END 文案与实际收束确定终局；Shoot her and take the book 虽有 ENDING 标签，仍通往 BADEnding1–5，不能截断。返回 TitleScreen 的链接视作重玩。",
+  "specialPassages": [
+    {
+      "name": "StoryTitle",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryData",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "hal.tracks",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryScript",
+      "tags": [
+        "script"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryStylesheet",
+      "tags": [
+        "stylesheet"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "reason": "non_narrative"
+    }
+  ],
+  "passages": [
+    {
+      "name": "\\ Run6",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run6.png?raw=true\">\n</div>\nI feel weightless, my body in constant freefall, as I lose all sense of direction. The world is now a mess of indescribable colors, an infinite abyss ready to swallow me whole. And then...\n\n[[...everything went dark, and nonexistence embraced me.->RunENDING]]",
+      "choices": [
+        {
+          "label": "...everything went dark, and nonexistence embraced me.",
+          "target": "RunENDING",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Aim",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/DontShoot1,%20Aim.png?raw=true\">\n</div>\n[[Yet my finger froze on the trigger.->DontShoot1]]\n\n\n\n(align:\"<==\")+(box:\"====XXXXX=\")|text>[[[I was \"Switchblade\" and I never missed.->Kill1]]]\n\n(live: 5s)[\n\t(replace: ?text)[]\n\t(stop:)\n]\n(track: \"005_BeatingHeart1\", \"play\")",
+      "choices": [
+        {
+          "label": "Yet my finger froze on the trigger.",
+          "target": "DontShoot1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I was \"Switchblade\" and I never missed.",
+          "target": "Kill1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "BADEnding",
+      "tags": [
+        "ENDING"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[“Most people are not just comfortable in their ignorance, but hostile to anyone who points it out.” -  Plato]\n\n(align:\"=><=\")[[[Wake up, once more.->TitleScreen]]]\n(track: \"047_Ending5\", \"play\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Wake up, once more.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "BADEnding1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding1.png?raw=true\">\n</div>\nAn old, worn books finds itself in my grip. The sole reason that this world could have gone to shit. I set the gun down on the grass and slowly open the book.\n\n[[As I look through the pages, I feel... off.->BADEnding2]]",
+      "choices": [
+        {
+          "label": "As I look through the pages, I feel... off.",
+          "target": "BADEnding2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "BADEnding2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding2.png?raw=true\">\n</div>\nTorn pages, photos, poems... the more I read the more depressed I get. My hands begin to shake as my mind is overwhelmed with a rush of memories. A gasp comes off of me as my eyes widen.\n\n[[The book falls off my hands.->BADEnding3]]",
+      "choices": [
+        {
+          "label": "The book falls off my hands.",
+          "target": "BADEnding3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "BADEnding3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding3,%20Kill5.png?raw=true\">\n</div>\nI freeze, my fists clenching so hard my knuckles turn white. N-No it can't be... Did I, do that? For a book? The tears begin to fall... and the gun seems oddly warm, like a friend.\n\n[[My hand reaches for it.->BADEnding4]]",
+      "choices": [
+        {
+          "label": "My hand reaches for it.",
+          "target": "BADEnding4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "BADEnding4",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding4.png?raw=true\">\n</div>\nI look at it for a long second under blurry eyes. Every minute detail to memory. All the scratches, the little imperfections... the death it carried in my hands. Now... it would bring mine.\n\n[[I slowly brought the barrel to my temple.->BADEnding5]]",
+      "choices": [
+        {
+          "label": "I slowly brought the barrel to my temple.",
+          "target": "BADEnding5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "BADEnding5",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding5%20alternative.png?raw=true\">\n</div>\nAs I feel the cold steel on the side of my head, I begin to reflect on what I had done... I was nothing more than a monster turned puppet. All my life I had been running away, killing just to feel something... and now? The weight was just too heavy... and this? This was my release.\n\n[[I close my eyes, take a deep breath and pull the tri-->BADEnding]]",
+      "choices": [
+        {
+          "label": "I close my eyes, take a deep breath and pull the tri-",
+          "target": "BADEnding",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Back1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestRight1,%20Back1,%20Stairs1.png?raw=true\">\n</div>\nAs I make my way back, I return to the stairs that wind down into the forest. I decide to turn around and see that the path was gone. Strange... guess I can't go back there now. (set: $blockGroveTree to true)\n\n[[Go down the stairs.->Stairs1]]\n[[I return to the entrance of the forest to retrace my steps.->Forest1]]",
+      "choices": [
+        {
+          "label": "Go down the stairs.",
+          "target": "Stairs1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I return to the entrance of the forest to retrace my steps.",
+          "target": "Forest1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "BenchNoBread",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BenchNoBread,%20Bread1.png?raw=true\">\n</div>\nIt's a beautiful place, a total contrast of what was going to happen here. The ducks swam and sat lazily on the shore.\n\n[[Get up and keep investigating the lake->Lake beginning]]",
+      "choices": [
+        {
+          "label": "Get up and keep investigating the lake",
+          "target": "Lake beginning",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Bread1",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BenchNoBread,%20Bread1.png?raw=true\">\n</div>\nI tear the bread into crumbs and begin throwing it to the ducks. Some begin to swim to shore and start picking at it. An oddly warm feeling went through my chest as I saw them eat.(set:$gotBread to false)\n\n[[I look at a particular white duck.->Duck1]]\n[[Guess I did my good deed for the day.->Lake1]]\n(track: \"049_Duck1\", \"play\")",
+      "choices": [
+        {
+          "label": "I look at a particular white duck.",
+          "target": "Duck1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Guess I did my good deed for the day.",
+          "target": "Lake1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Cautiously move to the fountain",
+      "tags": [
+        "Good-deed"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestForward1,%20Draw%20the%20gun%20and%20move%20to%20the%20fountain,%20Cautiously%20move%20to%20the%20fountain.png?raw=true\">\n</div>\nAs I cautiously move toward the fountain, I notice the sun already beginning to set... The cold fingers of the night slowly coming up from the horizon. I don't have much time. I quickly scout the area, going towards some green bushes.\n\n[[I look around the bushes.->Move up behind the bushes]]\n(track: \"054_Fountain\", \"loop\", \"true\")\n(track: \"054_Fountain\", \"play\")\n(track: \"037_Lake1\", \"stop\")",
+      "choices": [
+        {
+          "label": "I look around the bushes.",
+          "target": "Move up behind the bushes",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Check the canal",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Check%20the%20canal.png?raw=true\">\n</div>\nI walk towards the small canal. Calling it a canal is an overstatement. It is more of a sad little crack in the stone than anything. It seems to lead out of the garden. At least the water is clear.\n\n(if:$foundBoatClue is true)[[[Turn back->Tree1]]](else:)[[[I follow the canal upstream.->Take a closer look]]]\n(track: \"020_Forest3\", \"stop\")\n(track: \"053_Canal\", \"loop\", true)\n(track: \"053_Canal\", \"play\")",
+      "choices": [
+        {
+          "label": "Turn back",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I follow the canal upstream.",
+          "target": "Take a closer look",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Check the piece of paper",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Check%20the%20piece%20of%20paper%20(TUNNEL).png?raw=true\">\n</div>\n\"This lake, this tree... echoes of jot (text-colour:red)[remained], scattered like leaves on the wind. And now? Nothing but a lost soul, wrapped in eternal sorrow.\"\n\n[[Go anywhere but here.->Garden2]]\n(set: $clueCounter to it + 1)\n(track: \"023_Clue1\", \"play\")",
+      "choices": [
+        {
+          "label": "Go anywhere but here.",
+          "target": "Garden2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Check the small fountain",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Check%20the%20small%20fountain.png?raw=true\">\n</div>\nThe fountain was a peaceful place, flora scattered everywhere. I squat down a look at the waters for a little bit. Taking a deep breath, I stand back up... Nothing to see here.\n\n[[I turn around to leave.->Turn around and leave]]\n(track: \"020_Forest3\", \"stop\")\n(track: \"054_Canal\", \"loop\", true)\n(track: \"054_Fountain\", \"play\")",
+      "choices": [
+        {
+          "label": "I turn around to leave.",
+          "target": "Turn around and leave",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Check the tunnel",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Check%20the%20tunnel.png?raw=true\">\n</div>\nOne step after another I approach the tunnel. The iron bars had seen better days... they were rusty and old, just like the rest of this place. Inside was damp and a pungent scent of earth and sewage invaded my nostrils.\n\n[[Maybe she's in there?->Get closer and look into the tunnel]]\n[[Nah... I don't think so.->Nah... I don't think so]]\n(track: \"021_Tunnel1\", \"play\")",
+      "choices": [
+        {
+          "label": "Maybe she's in there?",
+          "target": "Get closer and look into the tunnel",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Nah... I don't think so.",
+          "target": "Nah... I don't think so",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Choose to not shoot, but shoots anyway",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Don_t%20shoot%20her,%20Choose%20to%20not%20shoot%20but%20shoots%20anyway.png?raw=true\">\n</div>\nSeriously? You think I am just going to stand here and play second fiddle? No, you must crazy or something. This time I chose.\n\n[[I let the gun ring out in the garden.->Shoot her and take the book]]\n(track: \"005_BeatingHeart1\", \"stop\")",
+      "choices": [
+        {
+          "label": "I let the gun ring out in the garden.",
+          "target": "Shoot her and take the book",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Close my eyes and focus",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Close%20my%20eyes%20and%20focus.png?raw=true\">\n</div>\nI feel a flash of memories run behind my eyes as I feel myself leaving Plato's cave. I blink a few times and look at my hands and then at my surroundings. I've... been here before. I look back at her and speak, quietly.\n\n[[\"Y-Yeah...\"->Look at Inês]]",
+      "choices": [
+        {
+          "label": "\"Y-Yeah...\"",
+          "target": "Look at Inês",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Cock the gun and take aim",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Cock%20the%20gun%20and%20take%20aim.png?raw=true\">\n</div>\nUnholstering the gun, I see her eyes falling on me, widening, her hand quickly reaching for her coat. Shit, it's now or never.\n\n[[I quickly, take aim and fire.->Shoot her and take the book]]\n(if: $clueCounter >= 4)[[[I don't shoot her.->Don't shoot her]]]\n(else:)[[[I don't shoot her.->Choose to not shoot, but shoots anyway]]]\n(track: \"005_BeatingHeart1\", \"play\")",
+      "choices": [
+        {
+          "label": "I quickly, take aim and fire.",
+          "target": "Shoot her and take the book",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I don't shoot her.",
+          "target": "Don't shoot her",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I don't shoot her.",
+          "target": "Choose to not shoot, but shoots anyway",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Disclaimer",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[''TRIGGER WARNING: THIS GAME GOES THROUGH TOPICS OF SUICIDE AND SELF HARM. PROCEED WITH CAUTION!'']\n\n(align:\"=><=\")[[Continue.->TitleScreen]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Don't shoot her",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Don_t%20shoot%20her.png?raw=true\">\n</div>\nBefore I realize I was too slow, she takes out an old, worn book. Is that the book I came for? The one my contractor told me to tear off her hands? W-wait... she's still smili- No. Focus on the damn mission Peter!\n\n[[\"B-But... I can't.\"->Lower the gun]]\n[[\"I'm s-sorry.\"->Shoot her and take the book]]\n(track: \"005_BeatingHeart1\", \"stop\")",
+      "choices": [
+        {
+          "label": "\"B-But... I can't.\"",
+          "target": "Lower the gun",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"I'm s-sorry.\"",
+          "target": "Shoot her and take the book",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "DontShoot1",
+      "tags": [
+        "Good-deed"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/DontShoot1,%20Aim.png?raw=true\">\n</div>\nHer icy grey eyes fall on mine for a split second and hesitation seemed to take over. My hand doesn't budge even an inch, as if locked in place. Now, she was already long gone. This never happened to me. I never... hesitated. Something about her seems... off.\n\n[[I sigh and holster the cold steel, before leaving the small grove.->Back1]]",
+      "choices": [
+        {
+          "label": "I sigh and holster the cold steel, before leaving the small grove.",
+          "target": "Back1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Draw the gun and move to the fountain",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestForward1,%20Draw%20the%20gun%20and%20move%20to%20the%20fountain,%20Cautiously%20move%20to%20the%20fountain.png?raw=true\">\n</div>\nDamn it, the sun is setting, I'm almost out of time. I need to be careful, if it's the target, she could be armed.\n\n[[Take cover behind some bushes and scout the fountain]]\n(track: \"054_Fountain\", \"loop\", \"true\")\n(track: \"054_Fountain\", \"play\")\n(track: \"037_Lake1\", \"stop\")",
+      "choices": [
+        {
+          "label": "Take cover behind some bushes and scout the fountain",
+          "target": "Take cover behind some bushes and scout the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Drink some water from the lake",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gifs/Drink%20some%20water%20from%20the%20lake.gif?raw=true\">\n</div>\nI tear my gloves off and cup my hands into the water. As the cool water hit my lower lip, I take a sip. Feeling refreshed, I shake my hands and put the gloves back on. Before I can stand up, I notice a disturbance in the water. Are those bubbles?\n\n[[I get a closer look.->Look closer]]\n[[Leave->Lake beginning]]\n(track: \"038_Bubbles\", \"play\")",
+      "choices": [
+        {
+          "label": "I get a closer look.",
+          "target": "Look closer",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Leave",
+          "target": "Lake beginning",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck1.png?raw=true\">\n</div>\nIt looked completely different from all the others, it's feathers milky white and a bright orange beak. It slowly comes out of the lake, as it let's out a quack and prunes its' plumage.\n\n[[I keep looking at the duck.->Duck2]]",
+      "choices": [
+        {
+          "label": "I keep looking at the duck.",
+          "target": "Duck2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck2.png?raw=true\">\n</div>\nFor some reason, I just keep looking at the duck. It now plops down on the ground and shakes its' wings as it gets nice and comfortable on the green grass.\n\n[[The duck slowly moves its' head.->Duck3]]",
+      "choices": [
+        {
+          "label": "The duck slowly moves its' head.",
+          "target": "Duck3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck3.png?raw=true\">\n</div>\nThe duck looks back at me. It's eyes seem to stare right through my very soul. I can't help but approach the duck, as if it was calling for my name.\n\n[[One step, another, then another.->Duck4]]\n(track: \"037_Lake1\", \"stop\")\n(track: \"049_Duck1\", \"stop\")\n(track: \"050_Duck2\", \"play\")",
+      "choices": [
+        {
+          "label": "One step, another, then another.",
+          "target": "Duck4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck4",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck4.png?raw=true\">\n</div>\nWhen I get close to the duck, I kneel down and begin petting it's head. Its' feathers feel soft to the touch. As I'm entracted by the beauty of this animal, I feel my head starting to swim.\n\n[[Then, I feel my body morph.->Duck5]]",
+      "choices": [
+        {
+          "label": "Then, I feel my body morph.",
+          "target": "Duck5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck5",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck%205.png?raw=true\">\n</div>\nI feel the world growing bigger... me becoming smaller. My clothes swallow me as I keep looking at the duck. I feel my muscles and bones stretch and deform, my skin growing quills until...\n\n[[Quack.->Duck6]]\n(track: \"050_Duck2\", \"stop\")\n(track: \"051_Duck3\", \"play\")",
+      "choices": [
+        {
+          "label": "Quack.",
+          "target": "Duck6",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Duck6",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/duck%206.png?raw=true\">\n</div>\nQuack, quack, quack...\n\n[[QUACK!->DuckENDING]]",
+      "choices": [
+        {
+          "label": "QUACK!",
+          "target": "DuckENDING",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "DuckENDING",
+      "tags": [
+        "ENDING",
+        "SECRET"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[\"Don't quack like a duck, soar like an eagle!\" -  Ken Blanchard]\n\n(align:\"=><=\")[[[Wake up, once more.->TitleScreen]]]\n(track: \"052_Duck4\", \"play\")\n(track: \"051_Duck3\", \"stop\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Wake up, once more.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Fail1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Fail1,%20Gun2.png?raw=true\">\n</div>\nAs I walk back to the outer edge of the grove, I see a silhouette of a woman out of the corner of my eye. She vanishes once I turn to look. ''Damn it!'' It was her! I let her escape... I'm such a fool.\n\n[[I pinch the bridge of nose and get out of there.->Back1]]",
+      "choices": [
+        {
+          "label": "I pinch the bridge of nose and get out of there.",
+          "target": "Back1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Forest1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Forest1.png?raw=true\">\n</div>\n(if:visits > 1)[Once again, I'm back at the entrance of the woodland. Still uncaring, unfeeling... unknowing of what is going to happen between it's greenery. Where should I go?]\n(else:)[At the entrance of the dense forest, I hear all kinds of things. Birds chirping, wind whistling through the foliage and the rustling of leaves. The path branches into different directions.]\n\n[[Take the left.->ForestLeft1]]\n[[Keep going forward.->ForestForward1]]\n[[Take the right.->ForestRight1]]\n[[Go back.->Garden2]]\n(track: \"018_Forest2\", \"stop\")\n(track: \"026_Forest4\", \"loop\", true)\n(track: \"026_Forest4\", \"play\")",
+      "choices": [
+        {
+          "label": "Take the left.",
+          "target": "ForestLeft1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Keep going forward.",
+          "target": "ForestForward1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Take the right.",
+          "target": "ForestRight1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Go back.",
+          "target": "Garden2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Forest2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Forest2,%20Get%20up%20and%20look%20around.png?raw=true\">\n</div>\nDespite the thickening woodland, something in me is telling me to keep going. Morbid curiosity getting the best of me it seems...\n\n[[I push my doubts aside and keep pushing.->Forest3]]\n[[I shake my head and go back.->ForestRight1]]\n(track: \"014_Bushes1\", \"play\")",
+      "choices": [
+        {
+          "label": "I push my doubts aside and keep pushing.",
+          "target": "Forest3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I shake my head and go back.",
+          "target": "ForestRight1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Forest3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Forest3.png?raw=true\">\n</div>\nThe vegetation begins to tug and scratch at my suit as I keep going further inside this cage of wood and bark. Morbid curiosity becomes unease. There's something in here... I feel it in my veins. Suddenly I find myself in a small grove filled with minute white flowers. In the middle stands a tall, thick tree. Despite the beauty of the place...\n\n(align:\"=><=\")[*Something doesn't feel right.*]\n\n[[I cautiously approach the tree->GroveTree1]]\n[[Nah, this place feels off, I'm leaving.(set: $blockGroveTree to true)->ForestRight1]]",
+      "choices": [
+        {
+          "label": "I cautiously approach the tree",
+          "target": "GroveTree1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Nah, this place feels off, I'm leaving.(set: $blockGroveTree to true)",
+          "target": "ForestRight1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ForestForward1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestForward1,%20Draw%20the%20gun%20and%20move%20to%20the%20fountain,%20Cautiously%20move%20to%20the%20fountain.png?raw=true\">\n</div>\n(if:visits > 1)[I come back down from the climbing path. My target is still very well at large and I won't get my cut if I stand around acting like a tourist on a sweet summer day...]\n(else:)[As I keep moving deeper into the forest, the terrain begins to grow upward. After some walking, I find myself near a tree, an old rotting bench in front of it. Getting closer to the bench shows a path on the right.]\n\n[[I sit on the bench.->Sit1]]\n[[Follow the path on the right.->ForestRight1]]\n[[Walk back to the entrance.->Forest1]]",
+      "choices": [
+        {
+          "label": "I sit on the bench.",
+          "target": "Sit1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Follow the path on the right.",
+          "target": "ForestRight1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Walk back to the entrance.",
+          "target": "Forest1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ForestLeft1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestLeft1.png?raw=true\">\n</div>\nAfter a short walk, I find myself at the entrance of a small grove. In the middle of the copse there are two tree stumps. A cozy place...\n\n(if:(history: where its name contains \"investigate\")'s length is 0)[[[I walk to the tree stumps and take a closer look->investigate]]]\n[[I leave the small grove.->Forest1]]",
+      "choices": [
+        {
+          "label": "I walk to the tree stumps and take a closer look",
+          "target": "investigate",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I leave the small grove.",
+          "target": "Forest1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ForestRight1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestRight1,%20Back1,%20Stairs1.png?raw=true\">\n</div>\n(if:(history: where its name contains \"Back1\")'s length >= 1)[I go through the path on the right. Since the tight path towards that oddly unsettling grove is... gone, I have no other choice but to take the staircase.](else-if: $blockGroveTree)[Once I return back to the staircase, the path behind me had seemingly vanished, now just a wall of trees and bushes...That's odd.](else:)[The forest slowly creeps up on me, blocking the sky in a cocoon of leaves and crooked branches. The path continues but the botanical walls are closing quickly around me like a natural coffin. Right next to me stands a set of steps that leads to the unknown.]\n\n[[Turn heel.->ForestForward1]] \n[[Go down the winding staircase.->Stairs1]]\n(if: not $blockGroveTree)[[[I push deeper into the forest.->Forest2]]]",
+      "choices": [
+        {
+          "label": "Turn heel.",
+          "target": "ForestForward1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Go down the winding staircase.",
+          "target": "Stairs1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I push deeper into the forest.",
+          "target": "Forest2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "GET OUT NOW!",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro2,%20GET%20OUT%20NOW.png?raw=true\">\n</div>\nI ain't got time to let the garden play tricks on me. I got a target to take care of. I turn away from the tunnel and just walk off. Where should I go?\n\n[[Go to the big tree instead.->Tree1]]\n[[Go to the lake.->Lake1]]\n(track: \"003_Breath1\", \"play\")",
+      "choices": [
+        {
+          "label": "Go to the big tree instead.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Go to the lake.",
+          "target": "Lake1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "GET THE HELL OUT",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GET%20THE%20HELL%20OUT.png?raw=true\">\n</div>\nJust as I'm about to haul ass, the creature's hand opens, revealling a letter. I scratch my head and my brow furrows. This place is more insane than Alice in Wonderland...\n\n[[I reach my hand out and take it...->Take the letter]]\n(track: \"039_JumpScare2\", \"stop\")",
+      "choices": [
+        {
+          "label": "I reach my hand out and take it...",
+          "target": "Take the letter",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Garden1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Garden1.png?raw=true\">\n</div>\nAs I step inside and through the arch, I feel the weight on my shoulders lift. The cold steel in my overcoat doesn't feel as heavy anymore. This is just another job, just another loan of blood money.\n\n[[Continue.->Garden2]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Garden2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Garden2",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Garden2.png?raw=true\">\n</div>\n(if:visits > 1)[I come back to the center point of the garden. I haven't found her... yet. Where should I go next?]\n(else:)[Trekking through the dense foliage and the muddy soil, I find myself at a crossroads. Which path should I go?]\n\n[[The massive tree looming over me.->Tree1]]\n[[The crystal clear lake.->Lake1]]\n[[The tight, interwoven paths of the forest.->Forest1]]\n(track: \"020_Forest3\", \"stop\")\n(track: \"026_Forest4\", \"stop\")\n(track: \"021_Tunnel1\", \"stop\")\n(track: \"037_Lake1\", \"stop\")\n(track: \"018_Forest2\", \"loop\", true)\n(track: \"018_Forest2\", \"play\")",
+      "choices": [
+        {
+          "label": "The massive tree looming over me.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "The crystal clear lake.",
+          "target": "Lake1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "The tight, interwoven paths of the forest.",
+          "target": "Forest1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Gaze into her beautiful eyes",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gaze%20into%20her%20beautiful%20eyes.png?raw=true\">\n</div>\nThe gun falls off my hands with a soft thud as it landed on the grass. Her soft voice breaks the tense silence between us- \"Pedro... Is that, finally, you? Do you remember me?\" -As I hear her words, my brain feels like it wants to crawl out of my skull.\n\n[[I close my eyes and take a deep breath.->Close my eyes and focus]]\n(track: \"048_GoodEnding2\", \"loop\", \"true\")\n(track: \"048_GoodEnding2\", \"play\")\n(track: \"054_Fountain\", \"stop\")",
+      "choices": [
+        {
+          "label": "I close my eyes and take a deep breath.",
+          "target": "Close my eyes and focus",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Gaze into her eyes",
+      "tags": [
+        "Good-deed"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gifs/Gaze%20into%20her%20eyes.gif?raw=true\">\n</div>\nAnd just like that, she had dissapeared. I blinked a few times and shook my head. Is my brain playing tricks or am I getting paranoid?\n\n[[I stand back up.->Lake beginning]] \n[[I walk to the bench to unwind.->BenchNoBread]]",
+      "choices": [
+        {
+          "label": "I stand back up.",
+          "target": "Lake beginning",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I walk to the bench to unwind.",
+          "target": "BenchNoBread",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Get closer and look into the tunnel",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GetCloserAndLookAtTunnel.png?raw=true\">\n</div>\nI don't know what kind of mad individual would put themselves inside a place like this, but some are quite... desperate. I wish I just had a something brigther than a Zippo.\n\n[[Peer into the darkness.->Peer into the darkness]]",
+      "choices": [
+        {
+          "label": "Peer into the darkness.",
+          "target": "Peer into the darkness",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Get up and look around",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Forest2,%20Get%20up%20and%20look%20around.png?raw=true\">\n</div>\nI let out a pained grunt as I get myself back on my feet, a dull ache on my arm and back already gnawing at me. Looking around, everything looks... //different//. If I walk back up I should be able to go back. But there is still a lot to go down...\n\n[[I push that thought aside and go back up.->try to walk back up]]\n[[I take a risk and keep walking down.->risk walking down]]\n(track: \"027_Grunt1\", \"play\")",
+      "choices": [
+        {
+          "label": "I push that thought aside and go back up.",
+          "target": "try to walk back up",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I take a risk and keep walking down.",
+          "target": "risk walking down",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Go to the lake",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Go%20to%20the%20lake.png?raw=true\">\n</div>\nThis lake... the water is so clear... so pure. I can see a bench over there.\n\n[[Go sit down on the bench->BenchNoBread]]\n[[Drink some water from the lake]]",
+      "choices": [
+        {
+          "label": "Go sit down on the bench",
+          "target": "BenchNoBread",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Drink some water from the lake",
+          "target": "Drink some water from the lake",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Go to the left",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Go%20to%20the%20left.png?raw=true\">\n</div>\nGoing left, I find myself in a little nook in the middle of the forest. There stood an old bench, secluded from the rest of the world... rotting away on it's own.\n\n[[I have a look around.->Have a look around]]",
+      "choices": [
+        {
+          "label": "I have a look around.",
+          "target": "Have a look around",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Go to the right",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Go%20to%20the%20right%20(TUNNEL).png?raw=true\">\n</div>\nAs I take a right I find myself back at the entrance, this abandoned world seemingly taken me in circles.(if:(history: where its name contains \"Check the tunnel\")'s length is 0)[As I look to my side I see a dark barred tunnel.] (else:)[As I look to my side I see ''the'' dark barred tunnel... ''again.'' I don't think I want to go back there.]\n\n[[Go to the large tree.->Tree1]]\n(if:(history: where its name contains \"Check the piece of paper\")'s length is 0)[[[Investigate the tunnel.->Check the tunnel]]]",
+      "choices": [
+        {
+          "label": "Go to the large tree.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Investigate the tunnel.",
+          "target": "Check the tunnel",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Go to the woman",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Keep%20observing.png?raw=true\">\n</div>\nApproaching her, a calm washes over me. My brain hurts and throbs against my skull. I feel almost... compelled to go to her. To be with her.\n\n(if:$clueCounter >= 4)[[[I gaze into her beautiful eyes.->Gaze into her beautiful eyes]]](else:)[[[I gaze into her beautiful eyes.->Choose to not shoot, but shoots anyway]]]\n[[No, it's a trap! I have to kill her before it's too late!->Shoot her and take the book]]",
+      "choices": [
+        {
+          "label": "I gaze into her beautiful eyes.",
+          "target": "Gaze into her beautiful eyes",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I gaze into her beautiful eyes.",
+          "target": "Choose to not shoot, but shoots anyway",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "No, it's a trap! I have to kill her before it's too late!",
+          "target": "Shoot her and take the book",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "GoodEnd1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Good%20end%201.png?raw=true\">\n</div>\nThe sky desintegrates, the trees burn away into wisps, the ground beneath us tears by the seams. - \"It's been so long Pedro... I missed you.\" - Inês said, a tear slowly falling off her palid, beautiful face.\n\n[[Continue.->GoodEnd2]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "GoodEnd2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "GoodEnd2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Good%20end%202.png?raw=true\">\n</div>\nMy face unclenched, finally knowing that this torture was ending. The world around us was desintegrating apart but... we would finally be together. Soon, once the entire garden was nothing but dust in an infinite wind, our bodies were dissolving too. And in that moment... in our last moment, I made our memory everlasting.\n\n[[I closed in, and our lips met... for the last time.->Kiss her]]",
+      "choices": [
+        {
+          "label": "I closed in, and our lips met... for the last time.",
+          "target": "Kiss her",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "GroveTree1",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GroveTree1,%20Leave,%20NoGun1.png?raw=true\">\n</div>\nAs I slowly make my way towards the tree, a sound overpowers the silence. My senses kick in and my body tenses up. It came from behind the tree.\n\n[[My hand instinctively drew the gun from my holster.->Gun1]]\n[[I take a deep breath and try to stay cool.->NoGun1]]\n[[Maybe I should just... leave.->Leave]]",
+      "choices": [
+        {
+          "label": "My hand instinctively drew the gun from my holster.",
+          "target": "Gun1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I take a deep breath and try to stay cool.",
+          "target": "NoGun1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Maybe I should just... leave.",
+          "target": "Leave",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Gun1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GroveTree1,%20Leave,%20NoGun1.png?raw=true\">\n</div>\nSomething was wrong in here, I knew it. I pull out my trusty Beretta with practiced ease and precision, like I was a dollar store angel of death, ready to get my hands dirty.\n\n[[I take a few steps forward, always steady->GunForward1]]\n[[I take a few steps back, slowly leaving.->Leave]]",
+      "choices": [
+        {
+          "label": "I take a few steps forward, always steady",
+          "target": "GunForward1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I take a few steps back, slowly leaving.",
+          "target": "Leave",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Gun2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Fail1,%20Gun2.png?raw=true\">\n</div>\nAs I walk back to the outer edge of the grove, I see a silhouette of a woman out of the corner of my eye. It was her, ''Ineska'', the target. I quickly turn and see her trying to make a run for it. It was too late for her...\n\n[[...my gun was already trained on her.->Aim]]",
+      "choices": [
+        {
+          "label": "...my gun was already trained on her.",
+          "target": "Aim",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "GunForward1",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GunForward,%20Inspect%20the%20hole.png?raw=true\">\n</div>\nOnce I turn to look behind the tree there was... no one? Really? I could have sworn I heard something. I let out a frustrated groan. My mind is playing tricks...\n\n[[I sigh and hoslter the gun, turning to leave.->Fail1]]\n[[I turn to leave, with the gun in hand... just in case.->Gun2]]",
+      "choices": [
+        {
+          "label": "I sigh and hoslter the gun, turning to leave.",
+          "target": "Fail1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I turn to leave, with the gun in hand... just in case.",
+          "target": "Gun2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Have a look around",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Have%20a%20look%20around.png?raw=true\">\n</div>\nAs I look around I can't help but have an eerie sense of dejá vu. This feels familiar, a small dreamscape in a hellhole. As my gaze goes downcast, I notice something under the bench.\n\n(if:$foundDollClue is false)[[[I get on my knees and look under.->Look under the bench]]]\n[[Nah, waste of time...->Take the left path]]",
+      "choices": [
+        {
+          "label": "I get on my knees and look under.",
+          "target": "Look under the bench",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Nah, waste of time...",
+          "target": "Take the left path",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Inspect the hole",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GunForward,%20Inspect%20the%20hole.png?raw=true\">\n</div>\nI clench my leather glove and press it into the hole. As it swallowed my forearm, I notice that it was quite hollow inside. I fell my hand touch something that felt like paper. Grabbing and pulling it out I see that it's a worn page from a diary.\n\n[[I unroll the paper and read it.->Read it]]",
+      "choices": [
+        {
+          "label": "I unroll the paper and read it.",
+          "target": "Read it",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro1.png?raw=true\">\n</div>\nI'm walking down a path on the street... and at the end of that street, is a garden. Inside that garden, there is a woman. I am here to kill her.\n\n[[Continue.->Intro2]]\n(track: \"001_Intro\", \"stop\")\n(track: \"020_Forest3\", \"loop\", true)\n(track: \"020_Forest3\", \"play\")",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Intro2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro2.png?raw=true\">\n</div>\nAs I approach the gate of the garden, a large and imposing arch, I can't help but have a gnawing feeling of deja vú... as if I have been here before.\n\n[[Continue.->Intro3]]\n[[I turn heel and get out of there.->Run1]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Intro3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I turn heel and get out of there.",
+          "target": "Run1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro3.png?raw=true\">\n</div>\nWhile I look around, I pull out my notebook, the silent assistant of death, to remind myself of my mission.\n\n[[Continue.->Intro4]]\n((track: \"009_NoteBook1\", \"play\")",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Intro4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro3.1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro2.png?raw=true\">\n</div>\nI shake my head. Must have been the restless night gnawing at my heels. I walk back to the gate.\n\n[[Continue.->Intro3]]\n(track: \"003_Breath1\", \"play\")\n(track: \"020_Forest3\", \"loop\", true)\n(track: \"020_Forest3\", \"play\")\n(track: \"002_Run1\", \"stop\")",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Intro3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro4",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Intro3.png?raw=true\">\n</div>\nThe worn pages told me everything that I needed to know. What should I read first?\n\n[[The fading target's photo.->Photo1]]\n[[The quickly written down notes of this place.->Location1]]\n[[No time for reading, time to act.->Garden1]]\n(track: \"009_NoteBook1\", \"play\")",
+      "choices": [
+        {
+          "label": "The fading target's photo.",
+          "target": "Photo1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "The quickly written down notes of this place.",
+          "target": "Location1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "No time for reading, time to act.",
+          "target": "Garden1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "It felt good.",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/It%20felt%20good..png?raw=true\">\n</div>\nMy mind fractured on itself like broken glass and suddenly, the grimace on my face faded, a peaceful mania took over my body... It feels good, the world revolving itself like a wicked version of an ouroborus. Everything is alright here and a wave of calmness envelops me like a warm blanket. I'm safe, I'm happy...\n\n[[Must... keep... going... down.]]\n(track: \"029_Laughter\", \"play\")",
+      "choices": [
+        {
+          "label": "Must... keep... going... down.",
+          "target": "Must... keep... going... down.",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Keep observing",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Keep%20observing.png?raw=true\">\n</div>\nAs I keep looking, her eyes land on me. I freeze for a second, my hand clenching but... the corners of her lips run up to form a small smile. Despite me thinking that she might be... dense, something was urging me to walk towards her.\n\n[[Go to the woman]]",
+      "choices": [
+        {
+          "label": "Go to the woman",
+          "target": "Go to the woman",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Keep on walking down",
+      "tags": [
+        "ENDING",
+        "SECRET"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[\"Delay is the deadliest form of denial.\" -  C. Northcote Parkinson]\n\n(align:\"=><=\")[[[Wake up, once more.->TitleScreen]]]\n(track: \"019_Walk2\", \"stop\")\n(track: \"006_FaintMusic\", \"stop\")\n(track: \"029_Laughter\", \"stop\")\n(track: \"046_Ending4\", \"play\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Wake up, once more.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Keep on walking down1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Keep%20walking%20down(1).png?raw=true\">\n</div>\nMy steps became just like everything else... a mirror, a rythym of thuds, an insane cacophonous orchestra as I keep going down this loop of lunacy. But despite this madness...\n\n[[It felt good.]]\n(track: \"006_FaintMusic\", \"play\")",
+      "choices": [
+        {
+          "label": "It felt good.",
+          "target": "It felt good.",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Keep walking down",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Keep%20walking%20down.png?raw=true\">\n</div>\nMy descent down mirrored my descent into madness. My breathing quickened, my heart was beating like a war drum and my mind was frying itself into a crisp.\n\n[[I must keep walking... down.->Keep on walking down1]]",
+      "choices": [
+        {
+          "label": "I must keep walking... down.",
+          "target": "Keep on walking down1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Kill1.png?raw=true\">\n</div>\nI pull the trigger and the pistol roars to life, disturbing the quiet of the woodlands. The bullet easily finds its' mark as it pierces through Ineska's chest. Her body goes limp and collapses into the bed of white flowers, the book hiding all of the cofidencial information falling along with her. She looks at me with shaky, teary eyes, her voice a weak whimper.\n\n\"Peter... W-why...\"\n\nI lower the gun. The life on her eyes was sucked dry.\n\n[[My job was done.->Kill2]]\n(track: \"032_GunShot\", \"play\")\n(track: \"005_BeatingHeart1\", \"stop\")",
+      "choices": [
+        {
+          "label": "My job was done.",
+          "target": "Kill2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill2",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Kill2.png?raw=true\">\n</div>\nI holster the gun and walk to the body, the blood already staining the fur of her coat and the flora with a deep crimson. Kneeling down, I tear the book away from her palid hands.\n\n[[I stand up, and begin to walk away from that grove.->Kill3]]",
+      "choices": [
+        {
+          "label": "I stand up, and begin to walk away from that grove.",
+          "target": "Kill3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Kill3.png?raw=true\">\n</div>\nAs I walk, curiosity gnaws at my heels and I open the book. The moment I open the cover, I feel a sharp pain in my lungs. The book falls off my hands as I grip my chest.\n\n[[I begin to cough violently.->Kill4]]",
+      "choices": [
+        {
+          "label": "I begin to cough violently.",
+          "target": "Kill4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill4",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Kill4.png?raw=true\">\n</div>\nMy lungs are burning, my body is a raging inferno, almost as if I had inhaled hot coals. My coughing grows more forceful as I fall to my knees, feeling the metallic tang of blood seeping out of my mouth.\n\n[[My strength is leeched away from me.->Kill5]]\n(track: \"034_Cough\", \"play\")",
+      "choices": [
+        {
+          "label": "My strength is leeched away from me.",
+          "target": "Kill5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill5",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding3,%20Kill5.png?raw=true\">\n</div>\nThe pain in my chest is agonizing, as if someone was piercing my skin with a hot needle a thousand times a second. I lose all strength and I collapse on the dirt.\n\n[[My body feels limp... I can't move.->Kill6]]",
+      "choices": [
+        {
+          "label": "My body feels limp... I can't move.",
+          "target": "Kill6",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kill6",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Kill6.png?raw=true\">\n</div>\nThis was it... After all these years of being a killer, karma finally caught up to me. This was my penance, a slow... agonizing death. Hell was burning me from the inside out...\n\n[[...and soon enough, it took me there.->KillENDING]]\n(track: \"036_Fire\", \"play\")",
+      "choices": [
+        {
+          "label": "...and soon enough, it took me there.",
+          "target": "KillENDING",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "KillENDING",
+      "tags": [
+        "ENDING"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[\"It is not death that a man should fear, but he should fear never beginning to live.\" -  Marcus Aurelius]\n\n(align:\"=><=\")[[[Wake up, once more.->TitleScreen]]]\n(track: \"035_Ending3\", \"play\")\n(track: \"026_Forest4\", \"stop\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Wake up, once more.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Kiss her",
+      "tags": [
+        "True-Ending",
+        "ENDING"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[\"The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.\" -  Albert Camus]\n\n(align:\"=><=\")[[[You may finally rest, Pedro.->TitleScreen]]]\n(track: \"044_GoodEnding1\", \"play\")\n(track: \"048_GoodEnding2\", \"stop\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "You may finally rest, Pedro.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Lake beginning",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding2.png?raw=true\">\n</div>\nI bring my head up, taking a look around the still lake until something catches the corner of my eye... some sort of, movement near the fountain.\n\n[[I draw the gun and head towards the fountain.->Draw the gun and move to the fountain]]\n[[I move towards the fountain.->Cautiously move to the fountain]]\n(track: \"010_Duda1\", \"play\")",
+      "choices": [
+        {
+          "label": "I draw the gun and head towards the fountain.",
+          "target": "Draw the gun and move to the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I move towards the fountain.",
+          "target": "Cautiously move to the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Lake1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Lake1.png?raw=true\">\n</div>\nThe lake, It's a beautiful place, a total contrast of what was going to happen here. The water looks so pure and calm and ducks are swimming and sitting lazily on the shore. There is a large tree-stump I could sit down and take a breather on.\n\n(if:$gotBread)[[[Give some bread to the ducks->Bread1]]]\n[[Drink some water from the lake.->Drink some water from the lake]] \n[[Sit down on the tree stump.->BenchNoBread]]\n(track: \"037_Lake1\", \"loop\", true)\n(track: \"037_Lake1\", \"play\")\n(track: \"018_Forest2\", \"stop\")",
+      "choices": [
+        {
+          "label": "Give some bread to the ducks",
+          "target": "Bread1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Drink some water from the lake.",
+          "target": "Drink some water from the lake",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Sit down on the tree stump.",
+          "target": "BenchNoBread",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Leave",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GroveTree1,%20Leave,%20NoGun1.png?raw=true\">\n</div>\nI shake my head and let out a frustrated sigh. I don't have time for shenanigans... I need to go kill the target, now.\n\n[[I turn heel and leave.->Back1]]",
+      "choices": [
+        {
+          "label": "I turn heel and leave.",
+          "target": "Back1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Leave the area",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Leave%20the%20area.png?raw=true\">\n</div>\nWhy the hell would I stick my hand in a hole? That's just stupid... she's a person, not a rat. I don't have time for games!\n\n[[Go back the way I came from.->Back1]]",
+      "choices": [
+        {
+          "label": "Go back the way I came from.",
+          "target": "Back1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Let it travel down the canal",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Pick%20up%20the%20boat,%20Let%20it%20travel%20down%20the%20canal.png?raw=true\">\n</div>\nI keep my hands in my pockets and just let the boat go through it's little journey. Hope it reaches the sewer...\n\n[[I walk back towards the big tree.->Tree1]]",
+      "choices": [
+        {
+          "label": "I walk back towards the big tree.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Location1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Location1.png?raw=true\">\n</div>\n\"Withering Tears\" garden... Built in 1850 by some rich snob. Now an abandoned, overgrown mess. A perfect place for a murder.\n\n[[The fading target's photo.->Photo1]]\n[[Enough reading, time to act.->Garden1]]\n(track: \"011_NoteBook2\", \"play\")",
+      "choices": [
+        {
+          "label": "The fading target's photo.",
+          "target": "Photo1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Enough reading, time to act.",
+          "target": "Garden1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Look around",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(track: \"023_Clue1\", \"play\")\n</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Look%20around%20(clue%20flower).png?raw=true\">\n</div>\n\"He was (text-colour:red)[always] good to me—not to all, but to me, he was solace. Yet I suffer for his sins, wandering still, lost and yearning for peace.\"\n\n-CLUE FOUND-\n\n[[Turn heel and keep walking.->keep moving carefully]]\n(set:$clueCounter to it + 1)\n(set:$foundCliffClue to true)",
+      "choices": [
+        {
+          "label": "Turn heel and keep walking.",
+          "target": "keep moving carefully",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Look at Inês",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Look%20at%20ines.png?raw=true\">\n</div>\nAs the two of us get closer and huddle together, the world slowly begins to tear itself apart. We had died... a long time ago, chained by the consequences of my actions, forever trapped in a loop of death. Until now\n\n[[Continue.->GoodEnd1]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "GoodEnd1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Look closer",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gifs/Drink%20some%20water%20from%20the%20lake.gif?raw=true\">\n</div>\n\n[[Oh shit!]]",
+      "choices": [
+        {
+          "label": "Oh shit!",
+          "target": "Oh shit!",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Look under the bench",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Look%20under%20the%20bench.png?raw=true\">\n</div>\nAs I look under the bench, I see a Matryoshka doll, neatly placed under the shade of the bench. Picking it up, I see the wear and tear on it and feel it's weight...\n\n[[Start opening the doll to check the inside.->Open the doll]]\n[[Place the doll back and take a left.->Take the left path]]",
+      "choices": [
+        {
+          "label": "Start opening the doll to check the inside.",
+          "target": "Open the doll",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Place the doll back and take a left.",
+          "target": "Take the left path",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Lower the gun",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Lower%20the%20gun.png?raw=true\">\n</div>\nI just... can't. I've killed, ''hundreds'', my hands drenched in others blood, sometimes mine and yet... this woman. This damn woman makes me feel... wrong about killing. W-Why? Who the hell is she?\n\n[[I gaze into her beautiful eyes.->Gaze into her beautiful eyes]]",
+      "choices": [
+        {
+          "label": "I gaze into her beautiful eyes.",
+          "target": "Gaze into her beautiful eyes",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Move up behind the bushes",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20cover%20behind%20some%20bushes%20and%20scout%20the%20fountain,%20Move%20up%20behind%20the%20bushes.png?raw=true\">\n</div>\nLooking over the bush, I see her... just sitting by the fountain, her features too at ease for a woman who is being hunted down by an American. Why is she just out in the open?\n\n[[Unholster the gun and aim at her.->Cock the gun and take aim]]\n[[Keep observing.->Keep observing]]",
+      "choices": [
+        {
+          "label": "Unholster the gun and aim at her.",
+          "target": "Cock the gun and take aim",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Keep observing.",
+          "target": "Keep observing",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Must... keep... going... down.",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Must...%20keep...%20going...%20down.png?raw=true\">\n</div>\nDown... down... down... down... down...\n\n[[And I became one with the circus band...->Keep on walking down]]",
+      "choices": [
+        {
+          "label": "And I became one with the circus band...",
+          "target": "Keep on walking down",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Nah... I don't think so",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Garden1.png?raw=true\">\n</div>\nThe more I look into the tunnel, the bigger the pit in my stomach becomes. There's no way she went through there... that would be stupid.\n\n[[I turn around and go to big tree instead.->Tree1]]",
+      "choices": [
+        {
+          "label": "I turn around and go to big tree instead.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "NoGun1",
+      "tags": [
+        "Good-deed"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/GroveTree1,%20Leave,%20NoGun1.png?raw=true\">\n</div>\nMhm... could be just a bird. No need to waste bullets for this. I clench my hand, inches from reaching the gun and then pull away.\n\n[[I slowly go around the tree.->continue]]",
+      "choices": [
+        {
+          "label": "I slowly go around the tree.",
+          "target": "continue",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Oh shit!",
+      "tags": [
+        "SECRET",
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Look%20closer%20(LAKE),%20Oh%20shit!.png?raw=true\">\n</div>\nWhat the FUCK is that!?\n\n[[I bolt to the fountain.->Run to the fountain]]\n[(after:3s)[[[The face, It's... changing.->The face, It's... changing]]]]\n(track: \"039_JumpScare2\", \"play\")",
+      "choices": [
+        {
+          "label": "I bolt to the fountain.",
+          "target": "Run to the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "The face, It's... changing.",
+          "target": "The face, It's... changing",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Open the doll",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Open%20the%20doll.png?raw=true\">\n</div>\nAs I open the doll, smaller and smaller dolls come out, a little army of porcelain, each one place on top of the bench. Inside the smallest one was a crumpled letter.\n\n[[I open it and read it.->Read the letter]]",
+      "choices": [
+        {
+          "label": "I open it and read it.",
+          "target": "Read the letter",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Peer into the darkness",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Peer%20into%20the%20darkness.png?raw=true\">\n</div>\n[[What the hell is that?->What's that...?]]\n[[I shake my head and step back->GET OUT NOW!]]",
+      "choices": [
+        {
+          "label": "What the hell is that?",
+          "target": "What's that...?",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I shake my head and step back",
+          "target": "GET OUT NOW!",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Photo1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Photo1.png?raw=true\">\n</div>\nIneska Yazov. A sight for sore eyes, no doubt...\n\n[[The quickly written down notes of this place.->Location1]]\n[[Enough reading, time to act.->Garden1]]\n(track: \"011_NoteBook2\", \"play\")",
+      "choices": [
+        {
+          "label": "The quickly written down notes of this place.",
+          "target": "Location1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Enough reading, time to act.",
+          "target": "Garden1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Pick up the boat",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Pick%20up%20the%20boat,%20Let%20it%20travel%20down%20the%20canal.png?raw=true\">\n</div>\nI place my hand in the canal and wait for the paper boat to hit it. Once it does, I gently pick it up and unfold it. Who left this here? I don't recall anybody being inside the garden...\n\n[[I read the small letter.->Read the small letter]]",
+      "choices": [
+        {
+          "label": "I read the small letter.",
+          "target": "Read the small letter",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Read it",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(track: \"023_Clue1\", \"play\")\n</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Clue%20grove.png?raw=true\">\n</div>\n\"Fate hath bound me to this place, once a haven of joy. Without him, it lies hollow—a shadow of what was. (text-colour:red)[I] dwell in memories I once cherished, now burdens I cannot flee.\"\n\n[[I place the paper on my pocket and leave the grove.->Back1]]\n(set:$clueCounter to it + 1)",
+      "choices": [
+        {
+          "label": "I place the paper on my pocket and leave the grove.",
+          "target": "Back1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Read the letter",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(track: \"023_Clue1\", \"play\")\n</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Read%20the%20letter%20(matryoska%20clue).png?raw=true\">\n</div>\n\"He was no villain—only a heart too full. He was good to me. His (text-colour:red)[love] undid him, turned to wrath for the wrongs wrought upon us.\"\n\n-CLUE FOUND-\n\n[[Turn around and take a left.->Take the left path]]\n(set:$clueCounter to it + 1)\n(set:$foundDollClue to true)",
+      "choices": [
+        {
+          "label": "Turn around and take a left.",
+          "target": "Take the left path",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Read the small letter",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(track: \"023_Clue1\", \"play\")\n</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Read%20the%20small%20letter%20(CLUE%20CANAL).png?raw=true\">\n</div>\n\"I remember it clear as day - his kiss, (text-colour:red)[our] laughter, the children's mirth\"\n\n[[I walk back towards the big tree.->Tree1]]\n(set:$clueCounter to it + 1)\n(set:$foundBoatClue to true)",
+      "choices": [
+        {
+          "label": "I walk back towards the big tree.",
+          "target": "Tree1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Return to the crossing",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(track: \"023_Clue1\", \"play\")\n\n</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Garden2.png?raw=true\">\n</div>\n\"Would that he (text-colour:red)[knew] I linger here. Would that he sought me, as once he did. My heart aches for him.\"\n\n[[I return back to the forest's entrance.->Forest1]]\n(set:$clueCounter to it + 1)",
+      "choices": [
+        {
+          "label": "I return back to the forest's entrance.",
+          "target": "Forest1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Run to the fountain",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/BADEnding2.png?raw=true\">\n</div>\nOnce I reach the fountain, I put my hands on my knees and take deep breaths, my lungs burning slightly from exertion. Did I just see that? Am I going crazy in this damned pla-\n\nMy head snaps up as I hear the sound of a twig cracking.\n\n[[I draw the gun and head towards the noise.->Draw the gun and move to the fountain]]\n[[I move towards the noise.->Cautiously move to the fountain]]\n(track: \"039_JumpScare2\", \"stop\")\n(track: \"045_TwigCracking\", \"play\")",
+      "choices": [
+        {
+          "label": "I draw the gun and head towards the noise.",
+          "target": "Draw the gun and move to the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I move towards the noise.",
+          "target": "Cautiously move to the fountain",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Run1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run1.png?raw=true\">\n</div>\nSomething in my brain told me to run... as far away as I could from this place. I didn't even process it before my body was gunning it out of there.\n\n[[I keep running.->Run2]]\n(track: \"020_Forest3\", \"stop\")\n(track: \"002_Run1\", \"loop\", true)\n(track: \"002_Run1\", \"play\")",
+      "choices": [
+        {
+          "label": "I keep running.",
+          "target": "Run2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Run2",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run2,%20Run3.png?raw=true\">\n</div>\nAs I reach the other end of the street, I suddenly find myself back at the gate of the garden. Did I just run in circle? No, it can't be.\n\n[[I try to run again.->Run3]]\n[[I snap out of it.->Intro3.1]]",
+      "choices": [
+        {
+          "label": "I try to run again.",
+          "target": "Run3",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I snap out of it.",
+          "target": "Intro3.1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Run3",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run2,%20Run3.png?raw=true\">\n</div>\nOnce again, I reach the end of the street and come right back to the gate. I keep trying, but it's like I'm in the ocean with cement shoes, trying to claw back to the surface.\n\n[[I don't stop running.->Run4]]",
+      "choices": [
+        {
+          "label": "I don't stop running.",
+          "target": "Run4",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Run4",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run4.png?raw=true\">\n</div>\nI keep bashing my head against an unbreakable wall and it remains uncaring, unfeeling. I feel the world around me begin to chip, shake and crack under my feet.\n\n[[I frantically keep running.->Run5]]\n(track: \"033_Tension4\", \"play\")",
+      "choices": [
+        {
+          "label": "I frantically keep running.",
+          "target": "Run5",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Run5",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Run5.png?raw=true\">\n</div>\nAs if made of glass, the surrondings begin to web into shards of matter, the sound of metal, dirt and stone overpowering my ears as I frantically tried to get out of this nightmare.\n\n[[And then, everything shattered. I fell. -> Run6]]",
+      "choices": [
+        {
+          "label": "And then, everything shattered. I fell.",
+          "target": "Run6",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "missing"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "RunENDING",
+      "tags": [
+        "ENDING",
+        "SECRET"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "(align:\"=><=\")[THE END]\n\n(align:\"=><=\")[\"The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown.\" -  H. P. Lovecraft]\n\n(align:\"=><=\")[[[Wake up, once more.->TitleScreen]]]\n(track: \"008_Ending1\", \"play\")\n(track: \"002_Run1\", \"stop\")\n(track: \"033_Tension4\", \"stop\")",
+      "choices": [],
+      "replayLinks": [
+        {
+          "label": "Wake up, once more.",
+          "target": "TitleScreen",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "ending": true,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Secret1",
+      "tags": [
+        "SECRET"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Secret1.png?raw=true\">\n</div>\nBehind the bench, I see some perfectly baked piece of bread. It was squeaky clean, somehow immune to the all the bugs and grime this forest held. I might be a bad man... but I'm no food waster. (set: $gotBread to true)\n\n[[I take the bread with me and get up.->ForestForward1]]\n(track: \"010_Duda1\", \"play\")",
+      "choices": [
+        {
+          "label": "I take the bread with me and get up.",
+          "target": "ForestForward1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Shoot her and take the book",
+      "tags": [
+        "ENDING"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Shoot%20her%20and%20take%20the%20book.png?raw=true\">\n</div>\nThe bullet finds it's mark, hitting her square in the heart... making her drop to the ground in a second. I feel the silence weighing down on me as I walk towards the corpse.\n\n[[I kneel down and rip the book out of her hands.->BADEnding1]]\n(track: \"032_GunShot\", \"play\")\n(track: \"054_Fountain\", \"stop\")\n(track: \"005_BeatingHeart1\", \"stop\")",
+      "choices": [
+        {
+          "label": "I kneel down and rip the book out of her hands.",
+          "target": "BADEnding1",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Sit1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Sit1.png?raw=true\">\n</div>\nI sit down on the bench, taking a deep sigh of relief. Despite being on a mission, a bit of R&R wouldn't hurt. I take a cancer stick from my inner pocket and light it up, taking nice, drawn drags on it.\n\n[[Enough smoking, time to keep going.->ForestForward1]]\n(if: not $gotBread)[(after:10s)[[[As I take in the view I find some... bread?->Secret1]]]]\n(track: \"017_Smoking\", \"play\")",
+      "choices": [
+        {
+          "label": "Enough smoking, time to keep going.",
+          "target": "ForestForward1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "As I take in the view I find some... bread?",
+          "target": "Secret1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Stairs1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/ForestRight1,%20Back1,%20Stairs1.png?raw=true\">\n</div>\nLooking at the staircase, I notice the sheen of the mud being hit by the sun. It bulldozes down through the forest and one wrong move might make me go faster than I would like.\n\n[[I go down.->go down]]\n[[I go down cautiously.->go down cautiously]]",
+      "choices": [
+        {
+          "label": "I go down.",
+          "target": "go down",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I go down cautiously.",
+          "target": "go down cautiously",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Take a closer look",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20a%20closer%20look%20(CANAL%20SECTION).png?raw=true\">\n</div>\nAs I walk a little bit, I notice a small paper boat coming towards me. It's bobbing up and down through the canal, taken by the hand of the small waves in the water.\n\n[[I stop it with my gloved hand and pick it up.->Pick up the boat]]\n[[I let it travel down the canal.->Let it travel down the canal]]",
+      "choices": [
+        {
+          "label": "I stop it with my gloved hand and pick it up.",
+          "target": "Pick up the boat",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I let it travel down the canal.",
+          "target": "Let it travel down the canal",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Take cover behind some bushes and scout the fountain",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20cover%20behind%20some%20bushes%20and%20scout%20the%20fountain,%20Move%20up%20behind%20the%20bushes.png?raw=true\">\n</div>\nThere she is! Sitting by the fountain... This is my chance.\n\n[[Cock the gun and take aim]]",
+      "choices": [
+        {
+          "label": "Cock the gun and take aim",
+          "target": "Cock the gun and take aim",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Take the left path",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20the%20left%20path.png?raw=true\">\n</div>\nHas I went through the left, the vegetation grew all around me, trying to swallow me whole. I reach the top of a cliff overlooking the cross-shaped fountain below. Looks like a small path leads down to the far side of the lake over there.\n\n(if:$foundCliffClue is false)[[[Have a look around.->have a look around]]]\n[[Head towards the lake.->Lake1]]",
+      "choices": [
+        {
+          "label": "Have a look around.",
+          "target": "have a look around",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Head towards the lake.",
+          "target": "Lake1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Take the letter",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20the%20letter%20(TUNNEL).png?raw=true\">\n</div>\nThe moment my hand takes hold of the worn letter, the creature's hand suddenly vanishes into mist... Is my mind playing tricks on me or am I going crazy?\n\n[[I open the letter and check its' contents.->Check the piece of paper]]",
+      "choices": [
+        {
+          "label": "I open the letter and check its' contents.",
+          "target": "Check the piece of paper",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Take the right path",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Take%20the%20right%20path.png?raw=true\">\n</div>\nI go through the right path, as I keep walking, I stop at yet another fork in the road. Another two paths for me to chose.\n\n[[Go to the left.->Go to the left]]\n[[Go to the right.->Go to the right]]",
+      "choices": [
+        {
+          "label": "Go to the left.",
+          "target": "Go to the left",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Go to the right.",
+          "target": "Go to the right",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "The face, It's... changing",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/The%20face,%20It_s...%20changing.png?raw=true\">\n</div>\nThe horrid face began twisting and turning, it's features deforming until it became beautiful and... hauntingly familiar. Do I know her? I feel like I should do...\n\n[[I gaze into her eyes.->Gaze into her eyes]]\n(track: \"039_JumpScare2\", \"stop\")",
+      "choices": [
+        {
+          "label": "I gaze into her eyes.",
+          "target": "Gaze into her eyes",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "TitleScreen",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/logo_witheringtears.png?raw=true\" id=\"logo\">\n</div>\n(align:\"=><=\")[“Man is the only creature who refuses to be what he is.” - Albert Camus]\n\n(align:\"=><=\")[[Step into the garden.->Intro1]]\n\n\n(set: $gotBread to false)\n(set: $blockGroveTree to false)\n(set:$allowLeave to false)\n(set:$foundBoatClue to false)\n(set:$foundCliffClue to false)\n(set:$foundDollClue to false)\n(set: $clueCounter to 0)\n(track: \"001_Intro\", \"loop\", true)\n(track: \"001_Intro\", \"play\")\n(track: \"047_Ending5\", \"stop\")\n(track: \"046_Ending4\", \"stop\")\n(track: \"035_Ending3\", \"stop\")\n(track: \"028_Ending2\", \"stop\")\n(track: \"008_Ending1\", \"stop\")\n(track: \"044_GoodEnding1\", \"stop\")",
+      "choices": [
+        {
+          "label": "Step into the garden.",
+          "target": "Intro1",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Tree1",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/TREE1.png?raw=true\">\n</div>\nI stop by the tree, looking up at it's sheer size. Massive roots burrow into the soil, keeping it sturdy. To the right, a minute fountain stands under the canopy of this massive conifer. To the left... some sort of small canal, whispers of water flowing through it.\n\n(if:(history: where its name contains \"Check the small fountain\")'s length is 0)[[[Check the small shaded fountain.->Check the small fountain]]]\n[[Inspect the small water canal.->Check the canal]]\n[[Turn around and go back.->Garden2]]\n(track: \"018_Forest2\", \"stop\")\n(track: \"020_Forest3\", \"loop\", true)\n(track: \"020_Forest3\", \"play\")\n(track: \"053_Canal\", \"stop\")",
+      "choices": [
+        {
+          "label": "Check the small shaded fountain.",
+          "target": "Check the small fountain",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Inspect the small water canal.",
+          "target": "Check the canal",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Turn around and go back.",
+          "target": "Garden2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Turn around and leave",
+      "tags": [
+        "Need-Programming"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gifs/Turn%20around%20and%20leave.gif?raw=true\">\n</div>\n\"Pedro...\"\n\n[[Huh! Who's there?!->Who's there!]]\n(track: \"054_Fountain\", \"stop\")\n(track: \"040_Ghost1\", \"play\")",
+      "choices": [
+        {
+          "label": "Huh! Who's there?!",
+          "target": "Who's there!",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "What's that...?",
+      "tags": [
+        "Need-Programming",
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Gifs/What's%20that..._.gif?raw=true\">\n</div>\n''(text-colour: blue)|text>[GET OUT OF THERE!]'' (after:4s) [[[GET OUT OF THERE!->GET THE HELL OUT]]]\n\n(live: 4s)[\n\t(replace: ?text)[]\n\t(stop:)\n]\n(track: \"039_JumpScare2\", \"play\")",
+      "choices": [
+        {
+          "label": "GET OUT OF THERE!",
+          "target": "GET THE HELL OUT",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Who's there!",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Check%20the%20small%20fountain.png?raw=true\">\n</div>\nI turn my head back to the fountain for a second and I see nothing. My eyes narrow and my fist clenches. Swear I heard something... must be sleep gnawing at me.\n\n[[I shake my head and go back.->Garden2]]\n(track: \"004_Breath2\", \"play\")",
+      "choices": [
+        {
+          "label": "I shake my head and go back.",
+          "target": "Garden2",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "and walking...",
+      "tags": [
+        "ONEWAY"
+      ],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/and%20walking....png?raw=true\">\n</div>\nAs I keep walking down, the knot in my gut seems to grow. The world around me seems to be repeating like mosaics on a wall, trees repeating periodically, bird calls in an insane rhythm, leaves falling in predictable motions.\n\n[[Call it denial but, I keep walking down.->Keep walking down]]",
+      "choices": [
+        {
+          "label": "Call it denial but, I keep walking down.",
+          "target": "Keep walking down",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "continue",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Hole%20tree%201,%20continue.png?raw=true\">\n</div>\nOnce I take a glance behind the tree, I find nothing there. A strange sense of calmness envelops me as I take a breather and look around. When I land my eyes on the tree, I see a small hole in the bark.\n\n[[I get closer and inspect the hole.->Inspect the hole]]\n[[Leave the area.->Leave the area]]",
+      "choices": [
+        {
+          "label": "I get closer and inspect the hole.",
+          "target": "Inspect the hole",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Leave the area.",
+          "target": "Leave the area",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "go down",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Go%20down%20cautiously,%20go%20down.png?raw=true\">\n</div>\nI bite my tongue and start going down the staircase. I don't have all the time in the world to find her. A few stairs shouldn't be the end of the world...\n\n[[I keep making my way down. ->keep walking down]]\n(track: \"019_Walk2\", \"play\")",
+      "choices": [
+        {
+          "label": "I keep making my way down.",
+          "target": "keep walking down",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "go down cautiously",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Go%20down%20cautiously,%20go%20down.png?raw=true\">\n</div>\nI take my time, slowly making my way down the staircase. The ground is too muddy to even try to go fast.\n\n[[I keep moving carefully.->keep moving carefully]]\n(track: \"019_Walk2\", \"play\")",
+      "choices": [
+        {
+          "label": "I keep moving carefully.",
+          "target": "keep moving carefully",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "have a look around",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/have%20a%20look%20around(1).png?raw=true\">\n</div>\nMoving towards the edge of the cliff, I can see a cross-shaped fountain below. \nAs I plant my feet on the edge of the cliff, I can see the fountain more clearly. Looking down, I notice something tied to a small flower. Looks like a piece of paper.\n\n[[I carefully pickup the note and inspect it.->Look around]]\n[[Ignore it and keep moving.->keep moving carefully]]\n(track: \"010_Duda1\", \"play\")",
+      "choices": [
+        {
+          "label": "I carefully pickup the note and inspect it.",
+          "target": "Look around",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Ignore it and keep moving.",
+          "target": "keep moving carefully",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "investigate",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/Investigate.png?raw=true\">\n</div>\nChecking out the stumps, I see a pristine piece of paper with a neat red bow nestled in one of the cracks of the stumps. Seems like Mrs. Russian Spy lost something... I untie the bow and check it's contents.\n\n[[I untie the bow and check it's contents.->Return to the crossing]]",
+      "choices": [
+        {
+          "label": "I untie the bow and check it's contents.",
+          "target": "Return to the crossing",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "keep moving carefully",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/keep%20moving%20carefully.png?raw=true\">\n</div>\nReaching the bottom of the stairs, I find two more paths for me to take, one to the left, another to the right. Where should I go?\n\n[[Take the left path.->Take the left path]]\n[[Take the right path.->Take the right path]]",
+      "choices": [
+        {
+          "label": "Take the left path.",
+          "target": "Take the left path",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Take the right path.",
+          "target": "Take the right path",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "keep walking down",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/keep%20walking%20down.png?raw=true\">\n</div>\nI accelerate my pace down the stairs. Lady luck wasn't on my side as at the end of the stairs, my foot gives way. I bang my arm against the corner of the stair as I begin to roll down the steep woodland. A sharp pain hits my back as I'm stopped by a tree. God... dammit.\n\n[[I shake my head and get up.->Get up and look around]]\n(track: \"019_Walk2\", \"stop\")\n(track: \"025_Falling1\", \"play\")",
+      "choices": [
+        {
+          "label": "I shake my head and get up.",
+          "target": "Get up and look around",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "risk walking down",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/risk%20walking%20down.png?raw=true\">\n</div>\nWell, I did fall quite a bit, I shouldn't be TOO far from the entrance. I resume walking down, this time carefully. The sky began to be swallowed whole by the foliage, plunging the world into subtle darkness.\n \n[[Keep walking down the forest->and walking...]]\n[[Try to walk back up->try to walk back up]]\n(track: \"019_Walk2\", \"loop\", true)\n(track: \"019_Walk2\", \"play\")",
+      "choices": [
+        {
+          "label": "Keep walking down the forest",
+          "target": "and walking...",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Try to walk back up",
+          "target": "try to walk back up",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "try to walk back up",
+      "tags": [],
+      "sourceFile": "WITHERING_TEARS.twee",
+      "sourceBody": "</style>\n<img\nsrc=\"https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/blob/main/assets/images/try%20to%20walk%20back%20up.png?raw=true\">\n</div>\nSomething about this staircase feels off, my gut is sending all kinds of alarms to me. I dust myself off and begin making my way up. It takes a bit, but I make it up. Looking back at the stairs I wonder how the hell I fell so far down in the first place.\n\n[[I take a breather and keep walking.->keep moving carefully]]",
+      "choices": [
+        {
+          "label": "I take a breather and keep walking.",
+          "target": "keep moving carefully",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    }
+  ],
+  "audit": {
+    "narrativePassages": 132,
+    "specialPassages": 5,
+    "staticEdges": 184,
+    "reviewedEndings": [
+      "BADEnding",
+      "DuckENDING",
+      "Keep on walking down",
+      "KillENDING",
+      "Kiss her",
+      "RunENDING"
+    ],
+    "staticPathsToEndings": {
+      "BADEnding": [
+        "Disclaimer",
+        "TitleScreen",
+        "Intro1",
+        "Intro2",
+        "Intro3",
+        "Intro4",
+        "Garden1",
+        "Garden2",
+        "Lake1",
+        "Drink some water from the lake",
+        "Lake beginning",
+        "Draw the gun and move to the fountain",
+        "Take cover behind some bushes and scout the fountain",
+        "Cock the gun and take aim",
+        "Shoot her and take the book",
+        "BADEnding1",
+        "BADEnding2",
+        "BADEnding3",
+        "BADEnding4",
+        "BADEnding5",
+        "BADEnding"
+      ],
+      "DuckENDING": [
+        "Disclaimer",
+        "TitleScreen",
+        "Intro1",
+        "Intro2",
+        "Intro3",
+        "Intro4",
+        "Garden1",
+        "Garden2",
+        "Lake1",
+        "Bread1",
+        "Duck1",
+        "Duck2",
+        "Duck3",
+        "Duck4",
+        "Duck5",
+        "Duck6",
+        "DuckENDING"
+      ],
+      "Keep on walking down": [
+        "Disclaimer",
+        "TitleScreen",
+        "Intro1",
+        "Intro2",
+        "Intro3",
+        "Intro4",
+        "Garden1",
+        "Garden2",
+        "Forest1",
+        "ForestRight1",
+        "Stairs1",
+        "go down",
+        "keep walking down",
+        "Get up and look around",
+        "risk walking down",
+        "and walking...",
+        "Keep walking down",
+        "Keep on walking down1",
+        "It felt good.",
+        "Must... keep... going... down.",
+        "Keep on walking down"
+      ],
+      "KillENDING": [
+        "Disclaimer",
+        "TitleScreen",
+        "Intro1",
+        "Intro2",
+        "Intro3",
+        "Intro4",
+        "Garden1",
+        "Garden2",
+        "Forest1",
+        "ForestRight1",
+        "Forest2",
+        "Forest3",
+        "GroveTree1",
+        "Gun1",
+        "GunForward1",
+        "Gun2",
+        "Aim",
+        "Kill1",
+        "Kill2",
+        "Kill3",
+        "Kill4",
+        "Kill5",
+        "Kill6",
+        "KillENDING"
+      ],
+      "Kiss her": [
+        "Disclaimer",
+        "TitleScreen",
+        "Intro1",
+        "Intro2",
+        "Intro3",
+        "Intro4",
+        "Garden1",
+        "Garden2",
+        "Lake1",
+        "Drink some water from the lake",
+        "Lake beginning",
+        "Cautiously move to the fountain",
+        "Move up behind the bushes",
+        "Keep observing",
+        "Go to the woman",
+        "Gaze into her beautiful eyes",
+        "Close my eyes and focus",
+        "Look at Inês",
+        "GoodEnd1",
+        "GoodEnd2",
+        "Kiss her"
+      ],
+      "RunENDING": null
+    },
+    "pathStepsToEndings": {
+      "BADEnding": [
+        {
+          "from": "Disclaimer",
+          "label": "Continue.",
+          "to": "TitleScreen",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "TitleScreen",
+          "label": "Step into the garden.",
+          "to": "Intro1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro1",
+          "label": "Continue.",
+          "to": "Intro2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro2",
+          "label": "Continue.",
+          "to": "Intro3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro3",
+          "label": "Continue.",
+          "to": "Intro4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro4",
+          "label": "No time for reading, time to act.",
+          "to": "Garden1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden1",
+          "label": "Continue.",
+          "to": "Garden2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden2",
+          "label": "The crystal clear lake.",
+          "to": "Lake1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Lake1",
+          "label": "Drink some water from the lake.",
+          "to": "Drink some water from the lake",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Drink some water from the lake",
+          "label": "Leave",
+          "to": "Lake beginning",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Lake beginning",
+          "label": "I draw the gun and head towards the fountain.",
+          "to": "Draw the gun and move to the fountain",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Draw the gun and move to the fountain",
+          "label": "Take cover behind some bushes and scout the fountain",
+          "to": "Take cover behind some bushes and scout the fountain",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Take cover behind some bushes and scout the fountain",
+          "label": "Cock the gun and take aim",
+          "to": "Cock the gun and take aim",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Cock the gun and take aim",
+          "label": "I quickly, take aim and fire.",
+          "to": "Shoot her and take the book",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Shoot her and take the book",
+          "label": "I kneel down and rip the book out of her hands.",
+          "to": "BADEnding1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "BADEnding1",
+          "label": "As I look through the pages, I feel... off.",
+          "to": "BADEnding2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "BADEnding2",
+          "label": "The book falls off my hands.",
+          "to": "BADEnding3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "BADEnding3",
+          "label": "My hand reaches for it.",
+          "to": "BADEnding4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "BADEnding4",
+          "label": "I slowly brought the barrel to my temple.",
+          "to": "BADEnding5",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "BADEnding5",
+          "label": "I close my eyes, take a deep breath and pull the tri-",
+          "to": "BADEnding",
+          "condition": "static_candidate"
+        }
+      ],
+      "DuckENDING": [
+        {
+          "from": "Disclaimer",
+          "label": "Continue.",
+          "to": "TitleScreen",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "TitleScreen",
+          "label": "Step into the garden.",
+          "to": "Intro1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro1",
+          "label": "Continue.",
+          "to": "Intro2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro2",
+          "label": "Continue.",
+          "to": "Intro3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro3",
+          "label": "Continue.",
+          "to": "Intro4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro4",
+          "label": "No time for reading, time to act.",
+          "to": "Garden1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden1",
+          "label": "Continue.",
+          "to": "Garden2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden2",
+          "label": "The crystal clear lake.",
+          "to": "Lake1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Lake1",
+          "label": "Give some bread to the ducks",
+          "to": "Bread1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Bread1",
+          "label": "I look at a particular white duck.",
+          "to": "Duck1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Duck1",
+          "label": "I keep looking at the duck.",
+          "to": "Duck2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Duck2",
+          "label": "The duck slowly moves its' head.",
+          "to": "Duck3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Duck3",
+          "label": "One step, another, then another.",
+          "to": "Duck4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Duck4",
+          "label": "Then, I feel my body morph.",
+          "to": "Duck5",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Duck5",
+          "label": "Quack.",
+          "to": "Duck6",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Duck6",
+          "label": "QUACK!",
+          "to": "DuckENDING",
+          "condition": "static_candidate"
+        }
+      ],
+      "Keep on walking down": [
+        {
+          "from": "Disclaimer",
+          "label": "Continue.",
+          "to": "TitleScreen",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "TitleScreen",
+          "label": "Step into the garden.",
+          "to": "Intro1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro1",
+          "label": "Continue.",
+          "to": "Intro2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro2",
+          "label": "Continue.",
+          "to": "Intro3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro3",
+          "label": "Continue.",
+          "to": "Intro4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro4",
+          "label": "No time for reading, time to act.",
+          "to": "Garden1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden1",
+          "label": "Continue.",
+          "to": "Garden2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden2",
+          "label": "The tight, interwoven paths of the forest.",
+          "to": "Forest1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Forest1",
+          "label": "Take the right.",
+          "to": "ForestRight1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "ForestRight1",
+          "label": "Go down the winding staircase.",
+          "to": "Stairs1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Stairs1",
+          "label": "I go down.",
+          "to": "go down",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "go down",
+          "label": "I keep making my way down.",
+          "to": "keep walking down",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "keep walking down",
+          "label": "I shake my head and get up.",
+          "to": "Get up and look around",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Get up and look around",
+          "label": "I take a risk and keep walking down.",
+          "to": "risk walking down",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "risk walking down",
+          "label": "Keep walking down the forest",
+          "to": "and walking...",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "and walking...",
+          "label": "Call it denial but, I keep walking down.",
+          "to": "Keep walking down",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Keep walking down",
+          "label": "I must keep walking... down.",
+          "to": "Keep on walking down1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Keep on walking down1",
+          "label": "It felt good.",
+          "to": "It felt good.",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "It felt good.",
+          "label": "Must... keep... going... down.",
+          "to": "Must... keep... going... down.",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Must... keep... going... down.",
+          "label": "And I became one with the circus band...",
+          "to": "Keep on walking down",
+          "condition": "static_candidate"
+        }
+      ],
+      "KillENDING": [
+        {
+          "from": "Disclaimer",
+          "label": "Continue.",
+          "to": "TitleScreen",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "TitleScreen",
+          "label": "Step into the garden.",
+          "to": "Intro1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro1",
+          "label": "Continue.",
+          "to": "Intro2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro2",
+          "label": "Continue.",
+          "to": "Intro3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro3",
+          "label": "Continue.",
+          "to": "Intro4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro4",
+          "label": "No time for reading, time to act.",
+          "to": "Garden1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden1",
+          "label": "Continue.",
+          "to": "Garden2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden2",
+          "label": "The tight, interwoven paths of the forest.",
+          "to": "Forest1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Forest1",
+          "label": "Take the right.",
+          "to": "ForestRight1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "ForestRight1",
+          "label": "I push deeper into the forest.",
+          "to": "Forest2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Forest2",
+          "label": "I push my doubts aside and keep pushing.",
+          "to": "Forest3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Forest3",
+          "label": "I cautiously approach the tree",
+          "to": "GroveTree1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "GroveTree1",
+          "label": "My hand instinctively drew the gun from my holster.",
+          "to": "Gun1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Gun1",
+          "label": "I take a few steps forward, always steady",
+          "to": "GunForward1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "GunForward1",
+          "label": "I turn to leave, with the gun in hand... just in case.",
+          "to": "Gun2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Gun2",
+          "label": "...my gun was already trained on her.",
+          "to": "Aim",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Aim",
+          "label": "I was \"Switchblade\" and I never missed.",
+          "to": "Kill1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Kill1",
+          "label": "My job was done.",
+          "to": "Kill2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Kill2",
+          "label": "I stand up, and begin to walk away from that grove.",
+          "to": "Kill3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Kill3",
+          "label": "I begin to cough violently.",
+          "to": "Kill4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Kill4",
+          "label": "My strength is leeched away from me.",
+          "to": "Kill5",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Kill5",
+          "label": "My body feels limp... I can't move.",
+          "to": "Kill6",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Kill6",
+          "label": "...and soon enough, it took me there.",
+          "to": "KillENDING",
+          "condition": "static_candidate"
+        }
+      ],
+      "Kiss her": [
+        {
+          "from": "Disclaimer",
+          "label": "Continue.",
+          "to": "TitleScreen",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "TitleScreen",
+          "label": "Step into the garden.",
+          "to": "Intro1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro1",
+          "label": "Continue.",
+          "to": "Intro2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro2",
+          "label": "Continue.",
+          "to": "Intro3",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro3",
+          "label": "Continue.",
+          "to": "Intro4",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Intro4",
+          "label": "No time for reading, time to act.",
+          "to": "Garden1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden1",
+          "label": "Continue.",
+          "to": "Garden2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Garden2",
+          "label": "The crystal clear lake.",
+          "to": "Lake1",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Lake1",
+          "label": "Drink some water from the lake.",
+          "to": "Drink some water from the lake",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Drink some water from the lake",
+          "label": "Leave",
+          "to": "Lake beginning",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Lake beginning",
+          "label": "I move towards the fountain.",
+          "to": "Cautiously move to the fountain",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Cautiously move to the fountain",
+          "label": "I look around the bushes.",
+          "to": "Move up behind the bushes",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Move up behind the bushes",
+          "label": "Keep observing.",
+          "to": "Keep observing",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Keep observing",
+          "label": "Go to the woman",
+          "to": "Go to the woman",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Go to the woman",
+          "label": "I gaze into her beautiful eyes.",
+          "to": "Gaze into her beautiful eyes",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Gaze into her beautiful eyes",
+          "label": "I close my eyes and take a deep breath.",
+          "to": "Close my eyes and focus",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Close my eyes and focus",
+          "label": "\"Y-Yeah...\"",
+          "to": "Look at Inês",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "Look at Inês",
+          "label": "Continue.",
+          "to": "GoodEnd1",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "GoodEnd1",
+          "label": "Continue.",
+          "to": "GoodEnd2",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "GoodEnd2",
+          "label": "I closed in, and our lips met... for the last time.",
+          "to": "Kiss her",
+          "condition": "static_candidate"
+        }
+      ],
+      "RunENDING": null
+    },
+    "unreachableByStaticLinks": [
+      "Go to the lake",
+      "RunENDING",
+      "\\ Run6"
+    ],
+    "nonEndingDeadEnds": [
+      "Run5"
+    ],
+    "missingTargets": [
+      "Run5 → Run6"
+    ],
+    "runtimeControlPassages": [
+      "Aim",
+      "Back1",
+      "Bread1",
+      "Check the canal",
+      "Check the piece of paper",
+      "Cock the gun and take aim",
+      "Forest1",
+      "Forest3",
+      "ForestForward1",
+      "ForestLeft1",
+      "ForestRight1",
+      "Garden2",
+      "Go to the right",
+      "Go to the woman",
+      "Have a look around",
+      "Lake1",
+      "Look around",
+      "Read it",
+      "Read the letter",
+      "Read the small letter",
+      "Return to the crossing",
+      "Secret1",
+      "Sit1",
+      "Take the left path",
+      "TitleScreen",
+      "Tree1",
+      "What's that...?"
+    ]
+  }
+}

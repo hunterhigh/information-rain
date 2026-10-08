@@ -20,3 +20,5 @@
 | [WITHERING_TEARS](hugofmramos--withering-tears/README.md) | 行动与关系分支通往多个明确标记的结局。 | 1 | [原仓库](https://github.com/HugoFMRamos/NI_G04_WITHERINGTEARS/tree/185885859e559388956aebd1bc53202c3762c199) |
 
 完整文件清单与校验值见[数据目录](../data/catalog.json)。
+
+第二轮 5 部作品各有 `structure.json`，记录源节点、选项、跳转和终局；解析方式、路径证据与尚待验证处见[结构复核](../notes/2026-10-08-round-02-structure-review.md)。

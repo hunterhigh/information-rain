@@ -1,0 +1,1940 @@
+{
+  "schemaVersion": 1,
+  "sourceWorkId": "mcaitsmith--i-dont-think-of-you-anymore",
+  "sourceCommit": "79c0831a426c9fca32e68caf75250b6f43b8ff32",
+  "storyFormat": "SugarCube",
+  "declaredStart": "Intro",
+  "reviewedStart": "Intro",
+  "narrativeStart": "Intro",
+  "reviewNote": "ending 2–8 仍回到对话循环；moment. 是放手后的静默收束，180 秒后出现致谢。",
+  "specialPassages": [
+    {
+      "name": "StoryTitle",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "reason": "non_narrative"
+    },
+    {
+      "name": "StoryData",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "reason": "non_narrative"
+    }
+  ],
+  "passages": [
+    {
+      "name": "\"Bullshit. You lied to me.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I really didn't.\" \n\nBut they did. They never cared about you. All that time they stole from you was just a way of biding their time until someone better came along. That's got to be it.\n\n[[\"There's someone else isn't there?\"]]\n\n[[Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"There's someone else isn't there?\"",
+          "target": "\"There's someone else isn't there?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stay silent.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"But I see a future with you.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I know.\" They avoid making eye contact with you. \"We both said a lot of things about the future, about living together and getting married. I meant those things when I said them.\"\n\nThey said quite a bit more than that. They told you that your souls were forever enmeshed. They said it in a poem written on a piece of notebook paper. It was folded into an origami crane and left on your pillow one morning. The crane is still in a little box in your closet. \n\n[[\"So, what changed?\"]]\n[[\"Bullshit. You lied to me.\"]]",
+      "choices": [
+        {
+          "label": "\"So, what changed?\"",
+          "target": "\"So, what changed?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Bullshit. You lied to me.\"",
+          "target": "\"Bullshit. You lied to me.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Did I do something wrong?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options+1>>\n\"No. No, you haven't done anything wrong. I swear, if you had, I would've told you. I want to make sure you know that there wasn't anything you could've done differently.\" Their voice is shaking as they say this. \n\nYou can't tell if this is the truth or a fabrication to get themselves out of the situation as quickly as possible. The partner you knew would never do something like this, but the partner you knew would never leave in the first place. Clearly this is someone...else.\n\nEven though they say that you didn't do anything wrong, you can't help but imagine all the times you were short with them. You picture every time you got annoyed with them, every eye roll, every 'I think I need some space today' that you requested. In doing so, you doubt that they're telling the truth. Somewhere along the way, you did something that made them lose faith in you. \n\nIn other words, it's your fault, but maybe that faith can be restored?\n\n[[I don't know who you are anymore.|\"You aren't telling me something\"]]\n\n[[\"You aren't telling me something\"]]\n\n[[I can win them back.|Stay silent.]]\n\n[[It is what it is.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "I don't know who you are anymore.",
+          "target": "\"You aren't telling me something\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"You aren't telling me something\"",
+          "target": "\"You aren't telling me something\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I can win them back.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "It is what it is.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Do you still love me?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Yes.\" They say this quickly, then just as quickly mutter, \"I don't know.\"\n\n[[\"You still love me.\"]]\n\n[[\"How can you not know?\"|\"You still love me.\"]]",
+      "choices": [
+        {
+          "label": "\"You still love me.\"",
+          "target": "\"You still love me.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"How can you not know?\"",
+          "target": "\"You still love me.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Do you think there's any chance of us...being together again?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I don't want to make any promises. Maybe.\" They clench their fists. \"No. The answer has to be no.\"\n\n[[\"Please just say maybe. Give me something.\"]]\n\n[[\"Make up your mind.\"]]",
+      "choices": [
+        {
+          "label": "\"Please just say maybe. Give me something.\"",
+          "target": "\"Please just say maybe. Give me something.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Make up your mind.\"",
+          "target": "\"Make up your mind.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Do you think we can still be friends?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYou can tell they aren't sure what the answer to this question is.\n\n\"Maybe.\" Their eyes trail around the room, looking at everything except you. \n\nThey have no intention of being friends with you or even having contact with you. They don't want to see you ever again. \n\nThey're disgusted by the thought of even being around you.\n\n[[\"Why not?]]\n\n[[Let them go]]",
+      "choices": [
+        {
+          "label": "\"Why not?",
+          "target": "\"Why not?",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Let them go",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Fuck you.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nThe words surprise you as they pass your lips. Each syllable is like a stone being hurled at your partner. How dare they do this to you?\n\nIf you're clever, you can deal as much damage to them as they've dealt to you. Maybe then they'll see how horrible what they're doing is and change their mind.\n\n\"Look, I-I know I'm blindsiding you here, I know this is shitty, but can we try to at least be mature adults?\"\n\n[[\"No, seriously, fuck you.\"]]\n\n[[\"Sorry, I don't know what came over me.\"]]",
+      "choices": [
+        {
+          "label": "\"No, seriously, fuck you.\"",
+          "target": "\"No, seriously, fuck you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Sorry, I don't know what came over me.\"",
+          "target": "\"Sorry, I don't know what came over me.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"I don't think that'll be an issue. We can be civil.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"No,\" they say resolutely. \"It's not about 'being civil'. I don't think my life can move forward with you in it.\"\n\n[[\"Please try. I don't want to live without you.\"|Persist]]\n\n[[\"If you know that we'll end up together, then why fight that?\"|Persist]]\n\n[[\"Whatever.\"|Let them go]]",
+      "choices": [
+        {
+          "label": "\"Please try. I don't want to live without you.\"",
+          "target": "Persist",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"If you know that we'll end up together, then why fight that?\"",
+          "target": "Persist",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Whatever.\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"I understand.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Y-you do?\" They seem surprised and a bit relieved. It seems clear that they don't want to hurt you. But at the same time it seems like they're not sacrificing any more of their happiness to protect your feelings. \n\nYou could say that's cruel.\n\nYou could say it's even more cruel to let you live a lie, thinking you had a partner who was happy when you don't. \n\nEither way, it's all over now. It was over a while ago. You're just getting the memo now. Better now than in a year. \n\nOr ten years. \n\n[[\"I guess.\"|Stay silent.]] \n\n[[\"It's better this way.\"]]",
+      "choices": [
+        {
+          "label": "\"I guess.\"",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"It's better this way.\"",
+          "target": "\"It's better this way.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"If you were sorry then you wouldn't leave.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Is that really what you'd prefer? You'd rather I stay even if I'm unhappy? Are you so afraid to be alone that you'd hold me prisoner?\"\n\n[[\"Yes.\"]]\n\n[[ \"No.\" |say no]]",
+      "choices": [
+        {
+          "label": "\"Yes.\"",
+          "target": "\"Yes.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"No.\"",
+          "target": "say no",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"It's better this way.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I'm really glad to hear you say that.\" \n\nThey take your hand and squeeze it tightly. \n\n\"Believe me when I say this was the hardest thing I've ever had to do.\"\n\nDo you actually understand or is this just another ploy to make them change their mind?\n\n[[I mean it.]]\n\n[[I'm still holding on to hope.|\"Yeah, it's fine. You do you.\"]]",
+      "choices": [
+        {
+          "label": "I mean it.",
+          "target": "I mean it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I'm still holding on to hope.",
+          "target": "\"Yeah, it's fine. You do you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Make up your mind.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I wish I could, believe me. There are so many things in my life that I am constatly uncertain about. My job isn't going anywhere, I don't have any friends, it  feels like I'm going nowhere. I need to be alone for a while, figure out what I want, that much I know.\"\n\nYou detect uncertainty in their voice. Part of them suspects that they will live to regret this decision, at least you surmise from their tone. They could be swayed if you're clever. \n\n[[\"Throwing me away won't fix your life. You don't have to be alone.\"]]\n\n[[\"If that's what you want.\"|Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+          "target": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"If that's what you want.\"",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"No, seriously, fuck you.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYour (now ex) partner begins to cry. If your goal was to do more damage to them than they can do to you, this is your opportunity.\n\nOtherwise, I'd wager you've made your point.\n\n[[Go in on them. Mention every terrible thing they ever did. Utilize every weakness they ever showed to make them regret crossing you.|Toxic]]\n\n[[Say nothing more.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "Go in on them. Mention every terrible thing they ever did. Utilize every weakness they ever showed to make them regret crossing you.",
+          "target": "Toxic",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Say nothing more.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"No.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Fine.\" As they stand up to leave they drop your key on the floor. \"I won't be held hostage.\" They say something ugly under their breath as they leave.\n\nNo. You can hold them here if you try. Just try harder.\n\n[[\"Wait. Don't go.\"|You're helpless to stop it.]]",
+      "choices": [
+        {
+          "label": "\"Wait. Don't go.\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Oh, not at all. Honestly, you deserve better.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"That's a way to put it, I guess. I think we both deserve better. You deserve someone who is sure about being with you. I deserve...I don't know. Maybe to just be by myself for a while.\"\n\n[[\"Do you think there's any chance of us...being together again?\"]]\n\n[[\"Good luck with that!\"|Let them go]]",
+      "choices": [
+        {
+          "label": "\"Do you think there's any chance of us...being together again?\"",
+          "target": "\"Do you think there's any chance of us...being together again?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Good luck with that!\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Okay! No Problem!\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"W-what?\" They seem a bit caught off guard by your response. \n\nAs am I. What are you doing? Is this reverse psychology?\n\n[[\"Yeah, it's fine. You do you.\"]]\n\n[[\"I was getting sort of bored with you too anyway!\"|\"Yeah, it's fine. You do you.\"]]",
+      "choices": [
+        {
+          "label": "\"Yeah, it's fine. You do you.\"",
+          "target": "\"Yeah, it's fine. You do you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"I was getting sort of bored with you too anyway!\"",
+          "target": "\"Yeah, it's fine. You do you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Please just say maybe. Give me something.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "\"That wouldn't be fair to you. We have to leave it at 'no' for now.\"\n\nFair to you?! This whole thing has been unfair to you. Pulling the rug out from under you was unfair. They want to talk about 'fair'? Bullshit.\n\n[[\"Fine.\"|Let them go]]\n\n[[\"Fuck you.\"|Let them go]]",
+      "choices": [
+        {
+          "label": "\"Fine.\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Fuck you.\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "\"So, what changed?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I don't know. Nothing. Everything.\" \n\nA vague response. \n\n\"There was a moment where I loved you and then there was a moment where I didn't. I don't know what triggered the switch. It could've been nothing at all. That happens to people sometimes.\"\n\n'Nothing at all'? Can people just stop loving you overnight? They go to bed with a full heart and wake up with an empty one?\n\nPerhaps the answer to this question exists elsewhere.\n\n[[\"Do you still love me?\"]]\n\n[[\"What the hell does that even mean?!\"|\"You still love me.\"]]\n\n[[\"Don't spare my feelings. Just say if you still love me.\"|\"Do you still love me?\"]]",
+      "choices": [
+        {
+          "label": "\"Do you still love me?\"",
+          "target": "\"Do you still love me?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"What the hell does that even mean?!\"",
+          "target": "\"You still love me.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Don't spare my feelings. Just say if you still love me.\"",
+          "target": "\"Do you still love me?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Sorry, I don't know what came over me.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"It's fine. You have a right to be angry.\"\n\nYou look at their hands and see that their fingers are red and scarred. They've been picking at their nails incessantly for days. \n\nThis is an old habit of theirs. Something they do when they have something they need to do but keep putting it off, like sending a senstive email, or calling their parents. In the past you wrapped bandages around their fingers and held them until they got over whatever hurdle they were faced with.\n\nBut not today. Today the hurdle is you. And you proved their fears warranted.\n\n\"I never wanted to blindside you,\" they say. \n\n[[Continue|Stay silent.]]",
+      "choices": [
+        {
+          "label": "Continue",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"There's someone else isn't there?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"No. There isn't.\"\n\nThey're lying to you. I've never been more certain. Infidelity. Betrayal. Make them admit there is someone else and prove that you're superior to them. You can stop this breakup.\n\n[[\"They'll never make you as happy as I did.\"]]\n\n[[\"Stop lying. Tell me who it is.\"|\"They'll never make you as happy as I did.\"]]\n\n[[Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"They'll never make you as happy as I did.\"",
+          "target": "\"They'll never make you as happy as I did.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Stop lying. Tell me who it is.\"",
+          "target": "\"They'll never make you as happy as I did.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stay silent.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"They'll never make you as happy as I did.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"There isn't anyone, I told you.\" They clench their fists and raise their voice. Whatever sentimentality was keeping them gentle towards you, it isn't endless. There is a limit. If you keep pushing this, you may regret it.\n\n\"I just don't see the point in being together anymore. We don't have much in common.\"\n\n[[Believe them|Stay silent.]]\n\n[[\"What do you mean that we don't have anything in common? How did you randomly decide that now?\"|push]]",
+      "choices": [
+        {
+          "label": "Believe them",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"What do you mean that we don't have anything in common? How did you randomly decide that now?\"",
+          "target": "push",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I'm not throwing you away.\" \n\nYou notice their hands shaking. \n\nWhat's this? \n\nGuilt? Shame? An opening in their armor?\n\n[[\"Yes you are.\"]]\n\n[[\"Whatever.\"|Stay silent.]]\n\n[[\"Do you think we can still be friends?\"]]",
+      "choices": [
+        {
+          "label": "\"Yes you are.\"",
+          "target": "\"Yes you are.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Whatever.\"",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Do you think we can still be friends?\"",
+          "target": "\"Do you think we can still be friends?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Why not?",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I'm afraid that if we stay friends we might...relapse.\"\n\nWhat does that mean? 'Relapse'?\n\nThey mean, if they continue to talk to you, they will effortlessly find their way back into your arms. They can't trust themselves to not want you. \n\nThis is good. THIS is how you stay with them. You play the long game. \n\n[[\"I don't think that'll be an issue. We can be civil.\"]]\n\n[[\"You might be right.\"|Let them go]]",
+      "choices": [
+        {
+          "label": "\"I don't think that'll be an issue. We can be civil.\"",
+          "target": "\"I don't think that'll be an issue. We can be civil.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"You might be right.\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Why not?\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I-I don't know. Believe me, I've been trying really hard to make things work between us. But when I try to imagine my future, and I picture you there, it just doesn't feel right.\"\n\nYou recall having the same experience, imagining your future together, except you couldn't imagine your future WITHOUT them. To hear that they couldn't imagine it WITH you...\n\nThis is not the same person you've loved for the past two years. Something has changed. There has to have been something.\n\n[[\"Did I do something wrong?\"]]\n<<if $options gte 20>>\n[[\"I understand.\"]]\n<<else>>\n<</if>>\n[[Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"Did I do something wrong?\"",
+          "target": "\"Did I do something wrong?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"I understand.\"",
+          "target": "\"I understand.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stay silent.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Yeah, it's fine. You do you.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Y-you're cool with us breaking up?...That's great, actually. I was worried this would be a whole dragged out thing.\"\n\n[[\"Oh, not at all. Honestly, you deserve better.\"]]\n\n[[\"Oh, not at all. Honestly, I deserve better.\"|\"Oh, not at all. Honestly, you deserve better.\"]]",
+      "choices": [
+        {
+          "label": "\"Oh, not at all. Honestly, you deserve better.\"",
+          "target": "\"Oh, not at all. Honestly, you deserve better.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Oh, not at all. Honestly, I deserve better.\"",
+          "target": "\"Oh, not at all. Honestly, you deserve better.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Yes you are.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nThey choke on their own words for a second. \n\n\"I don't mean to hurt you. I'm sorry, I really am.\"\n\nYou found it: an opening. \n\n[[\"If you were sorry then you wouldn't leave.\"]]\n\n[[Back off.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"If you were sorry then you wouldn't leave.\"",
+          "target": "\"If you were sorry then you wouldn't leave.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Back off.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"Yes.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Then I don't know who the fuck you are...And this isn't a relationship anymore, it's a hostage situation.\"\n\n[[Just tell me what it will take to make you love me.]]\n\n[[\"No it isn't, we're in love.\"|Let them go]]\n\n[[Let them go]]",
+      "choices": [
+        {
+          "label": "Just tell me what it will take to make you love me.",
+          "target": "Just tell me what it will take to make you love me.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"No it isn't, we're in love.\"",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Let them go",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"You aren't telling me something\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nThey sigh.\n\n\"I wish it was something we could fix together,\" they say. \"If it was, I promise I would stay here with you and fight to keep what we have, but it isn't. There isn't a future for us and that's that.\"\n\nYour stomach is in knots. 'that's that' they insist. \nYou look over at the TV, still frozen in place. 'One episode to go' the screen says at the top.\n\n[[Stay silent.]]\n\n[[They're abandoning you|Stay silent.]]\n\n[[The whole relationship was a farce|Stay silent.]]\n<<if $options gte 15>>\n[[\"Fuck you.\"|\"Fuck you.\"]] \n<<else>>\n<</if>>",
+      "choices": [
+        {
+          "label": "Stay silent.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "They're abandoning you",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "The whole relationship was a farce",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Fuck you.\"",
+          "target": "\"Fuck you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "\"You still love me.\"",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I still love you. The feeling is still there, but I don't feel like I belong with you anymore. I don't feel like we have anything in common anymore.\"\n\n[[\"How could we not have anything in common? That doesn't make any sense!\"|\"You aren't telling me something\"]]\n\n[[\"This is normal for a healthy relationship! Attraction is meant to ebb and flow!\"|Attraction]]\n\n[[Reluctantly accept what they're saying to you as truth.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"How could we not have anything in common? That doesn't make any sense!\"",
+          "target": "\"You aren't telling me something\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"This is normal for a healthy relationship! Attraction is meant to ebb and flow!\"",
+          "target": "Attraction",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Reluctantly accept what they're saying to you as truth.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Attraction",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"Have you not made your way around the dialogue tree enough to understand yet?\"\n\n[[Understand what?]]\n\n[[I think so.|Understand what?]]",
+      "choices": [
+        {
+          "label": "Understand what?",
+          "target": "Understand what?",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "I think so.",
+          "target": "Understand what?",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Beg",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options +1>>\nYou start pleading with them to stay. You offer change, growth, even the possibility that they don't need to spend the 'future' with you, just a few more months. A few more weeks. Just one more day. They can have anything as long as they stay.\n\n\"Please don't make this difficult,\" they say. \"Just let me go.\"\n\nThere's a million more things you want to say, but as you try, the words are stopped by the fear that anything you say will just make your situation worse. \n\nYou look down and see that you're handing the key to them. \n\nYou have no choice. You have to[[Let them go]].\n\n<<if $options gte 10>>\n[[\"Do you think we can still be friends?\"]]\n<<else>>\n<</if>>",
+      "choices": [
+        {
+          "label": "Let them go",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Do you think we can still be friends?\"",
+          "target": "\"Do you think we can still be friends?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Focus.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "Sorry. I get carried away sometimes. \n<<timed 10s>>\nI told you before but in case it wasn't clear, there was never any winning this game. I lied to you from the first moment we spoke. But can you blame me? I think I just wanted someone to share in this feeling with me, even if just for a moment:\n<</timed>>\n<<timed 15s>>\nI was in love once. They left unexpectedly. It wasn't some explosive fight or violent betrayal. It was just the slow decay of a neurochemical that brought two incompatible people together for a brief period.\n<</timed>>\n<<timed 18s>>\nAnd once it was gone it was gone, as all things inevitably are.\n<</timed>>\n<<timed 20s>>\nThere was nothing that could be done. No matter how many times I played out the infinite possibilities in my head, no matter how I wracked my brain for what could've been different, how I could've been different, what was done was done. There was no saving things. \n<</timed>>\n<<timed 25s>>\nI've been trapped in this loop for as long as I can remember, trying to find the mistake I [[made.|loop]] \n<</timed>>",
+      "choices": [
+        {
+          "label": "made.",
+          "target": "loop",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "I am Entropy.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<timed 5s>>\nYou saw a future with them.\n<</timed>>\n<<timed 10s>>\nThen something changed.\n<</timed>>\n<<timed 15s>>\nThey still love you.\n<</timed>>\n<<timed 20s>>\nBut not even love is immune to [[entropy|Intro part 3]].\n<</timed>>\n<<timed 23s>>\nI'm so glad we get to share the pain together.\n<</timed>>",
+      "choices": [
+        {
+          "label": "entropy",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "I mean it.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "You understand what this will mean though, right? They will be gone forever. It'll just be you in a sea of silence.\n\nDoes that not terrify you?\n\n[[I can handle it.|Yes, but I want this anyway.]]\n\n[[\"Do you think we can still be friends?\"]]",
+      "choices": [
+        {
+          "label": "I can handle it.",
+          "target": "Yes, but I want this anyway.",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Do you think we can still be friends?\"",
+          "target": "\"Do you think we can still be friends?\"",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Intro",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 1>>\n\nIt's Saturday morning and you're sitting on the couch with your partner of two years, holding hands as you watch the latest binge-worthy show. The sun is shining through the window into your shabby yet cozy apartment. The both of you worked hard to pick out the furniture, the wall art, the rugs. This place is the emboidment of your love, your time spent together. It isn't perfect, but it feels like home. \n\nYou initially planned to spend the day cleaning, but when you came into the room to see your partner on the couch, when their face lit up as you made eye contact, you knew that you weren't going to do anything productive today. How could you? Not with them sitting there, being perfect.\n\nAs you feel their palm in yours, you look over and think to yourself 'I've never been so happy in my entire life.'\n\nYour partner takes a breath. They reach over to the remote and pause the show.\n\n[[Continue|Intro part 2]]",
+      "choices": [
+        {
+          "label": "Continue",
+          "target": "Intro part 2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Intro part 2",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 1>>\n<<set $options to 1>>\n\nAs the TV is abruptly muted, your partner slides a few inches away from you on the couch. Their eyes are glued to the floor, avoiding yours like the plague. When you reach to take their hand again, their arm reluctantly goes limp.\n\nFinally, they say it:\n\n\"I think we should break up.\"\n\nSomewhere in the world, a semi-truck merges into the next lane without looking, causing a six car collision. \n\n[[\"Why?\"|Intro part 3]]\n\n[[Stay silent|Intro part 3]]",
+      "choices": [
+        {
+          "label": "\"Why?\"",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stay silent",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Intro part 3",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<if $ending gte 2>>\nYou blink and suddenly they're here again. You've been given another chance to get it right this time.\n<<else>>\n<</if>>\n\n\"I've been thinking for a while and...\" Their voice trails off. They're clearly trying to find the words to soften the blow. But the more they search, the less it seems like they can find them. Something changes in their face. You assume this means they're accepting their role. They have no choice but to hurt you.\n\n\"I don't see a future with you.\" \n\nAnd there it is. You never saw it coming. Not in a million years. But there it is anyway.\n\n[[\"What changed?\"|\"Why not?\"]]\n[[\"Did I do something wrong?\"]]\n<<if $options gte 10>>\n[[\"Okay! No Problem!\"]]\n<<else>>\n<</if>>\n<<if $options gte 5>>\n[[\"But I see a future with you.\"]]\n<<else>>\n<</if>>\n<<if $options gte 15>>\n[[\"Fuck you.\"]]\n<<else>>\n<</if>>\n<<if $options gte 5>>\n[[Stay silent.]]\n<<else>>\n<</if>>\n<<if $options gte 20>>\n[[\"I understand.\"]]\n<<else>>\n<</if>>",
+      "choices": [
+        {
+          "label": "\"What changed?\"",
+          "target": "\"Why not?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Did I do something wrong?\"",
+          "target": "\"Did I do something wrong?\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Okay! No Problem!\"",
+          "target": "\"Okay! No Problem!\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"But I see a future with you.\"",
+          "target": "\"But I see a future with you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Fuck you.\"",
+          "target": "\"Fuck you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stay silent.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"I understand.\"",
+          "target": "\"I understand.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Just tell me what it will take to make you love me.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "\"I won't,\" they say plainly. Their face goes blank, looking completely different from the way you remember it.\n\nYou can relive this memory as many times as you like, imagine all the different things you want to say, imagine all the things I might have said in response, but it doesn't change reality. I left. You didn't do anything wrong, you didn't miss any important cues, I just left because I felt like it. There was nothing you could do. \n\nWhy do you keep torturing yourself like this? Are you hoping you'll learn an important lesson, playing out scenario after scenario, hoping to find the key to stopping this from ever happening again? \n\n[[Yes.]]",
+      "choices": [
+        {
+          "label": "Yes.",
+          "target": "Yes.",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "Keep going",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nIn a moment of glorious precision, you assemble a verbal dronestrike comprised of every insecurity, every fear, every vulnerability, and you unleash it upon them in a single sentence. \n\nAs they hear you say it, your ex becomes nearly catatonic.\n\nThe two of you sit in silence.\n<<timed 5s>>\nYou aren't sure anymore if what you did here was right, but you did what felt necessary in the moment. \n<</timed>>\n<<timed 10s>>\n[[And yet.|You're helpless to stop it.]]\n<</timed>>",
+      "choices": [
+        {
+          "label": "And yet.",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Key",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYou reach into your pocket and get your keychain. You twirl the keys around and remove the matching spare key to their apartment. \n\nAt one point in the past you had a pretty nasty fight. After saying your apologies, you handed them this key and said 'give this back to me when I've earned it.' \n\nThey ended up giving you the key back after a few hours.\n\nThey hold out their palm. If you give up this key you'll never be able to enter that place again. It'll be closed off from you forever. Never to open again.\n\n\nYou have to [[give up the key]]\n\n[[No. I'm keeping this.]]",
+      "choices": [
+        {
+          "label": "give up the key",
+          "target": "give up the key",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "No. I'm keeping this.",
+          "target": "No. I'm keeping this.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Let them go",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYou watch as they stand up to leave. There's a moment where you consider if maybe one more word would change their mind. There has to be some sequence of sounds uttered from your pathetic ape mouth that will convince them not to leave. But by the time you find them, they're already at the door.\n\n[[You're helpless to stop it.]]",
+      "choices": [
+        {
+          "label": "You're helpless to stop it.",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "No. I'm keeping this.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYour ex looks at you with a twinge of frustration. \n\n\"Please. Can I have my key back?\"\n\n[[Give up.|give up the key]]\n\n[[Refuse to give up.]]",
+      "choices": [
+        {
+          "label": "Give up.",
+          "target": "give up the key",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Refuse to give up.",
+          "target": "Refuse to give up.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Persist",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I don't want that!\"\n\nThat may have been the wrong option. Far far too desparate sounding to be worthy of love. Maybe you'll get it on the next go around? \n\n\n\"God! This is why I can't be around you! This is why we can't be friends!\"\n\nAs they shout this, they quickly stand up and move towards the door.\n\n\"I can't see you anymore. Ever.\"\n\n[[\"Wait, please, just talk to me.\"|You're helpless to stop it.]]\n\n[[\"Fine, I don't need you anyway.\"|You're helpless to stop it.]]\n\n[[\"Please stay. Please please stay.\"|You're helpless to stop it.]]\n\n[[\"FUCK YOU!\"|You're helpless to stop it.]]\n\n[[\"Don't say that don't say that please for the love of God don't say that.\"|You're helpless to stop it.]]",
+      "choices": [
+        {
+          "label": "\"Wait, please, just talk to me.\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Fine, I don't need you anyway.\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Please stay. Please please stay.\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"FUCK YOU!\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"Don't say that don't say that please for the love of God don't say that.\"",
+          "target": "You're helpless to stop it.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Refuse to give up.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nYou realize that as long as this key is in your hand they won't leave. You can hold on forever. You can keep them prisoner in this moment in time forever.\n\n\"You're making this so much harder than it needs to be. Please, just give me the key.\"\n\n[[give up the key]] \n\n[[\"No.\"]]",
+      "choices": [
+        {
+          "label": "give up the key",
+          "target": "give up the key",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "\"No.\"",
+          "target": "\"No.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Stay silent.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"I can't tell you how sorry I really am. You mean so much to me, and the time we've spent together has meant the world. But I think this is what's best for both of us.\" \n\nNo matter how they try to sugarcoat their words, they continue to feel like daggers.\n\nThey reach into their pocket and hand you the spare key to your apartment. You remember having spare keys made over a year ago. You were together on a trip to the hardware store and saw the key copying machine by the checkout line. It was a sweet spur of the moment gesture that demonstrated the trust they had in you. You could go to their place and they could come to yours. It meant your lives were truly becoming enmeshed. \n\n[[Give them the key to their apartment|Key]]\n\n[[Start begging|Beg]]",
+      "choices": [
+        {
+          "label": "Give them the key to their apartment",
+          "target": "Key",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Start begging",
+          "target": "Beg",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Toxic",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nA flood of insults begins to pour from you. Every frustration you've ever had with this person is unleashed in a volley of hatred and vitriol. \n\nAfter two years of loving this person, you know exactly what their weak points are. They made the mistake of betraying you, the one person in the world who can target their insecurities with laser precision. You are going to WIN this. \n\nAs you lay into this person, you surprise even yourself with the level of cruelty you show.\n\nAfter several minutes of taking your verbal abuse, your ex partner just sits there. Hollow. \n\n\"I deserve that,\" they say, holding back tears. \n\nDamn right. \n\nThey want to leave? Fine. Say something that will haunt them forever.\n\n[[Say the most grotesque thing you can imagine.|Keep going]]\n\n[[That's enough.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "Say the most grotesque thing you can imagine.",
+          "target": "Keep going",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "That's enough.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Understand what?",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"You're not the problem here.\" \n\nImpossible. If that were true you wouldn't be stuck here. You'd be somewhere else.\n\n\"What I am...I can't do what you want me to do. It isn't in my nature.\"\n\n[[What are you?]]\n\n<<if $entropy is 1>>\n[[You're Entropy]]\n<<else>>\n<</if>>",
+      "choices": [
+        {
+          "label": "What are you?",
+          "target": "What are you?",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "You're Entropy",
+          "target": "You're Entropy",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "What are you?",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"It might be easier for you if you stopped digging, accepted that this is a game you were never meant to win.\"\n\nIt stands up to leave once again.\n\n\"If you're truly desperate, then keep scurrying through this labyrinth of despair. You'll find your answer.\"\n\nIt reaches for the door handle, then turns back to you.\n\n\"When you have the answer, come visit me here once more. We can be more honest with each other then.\"\n\n[[Where?]]",
+      "choices": [
+        {
+          "label": "Where?",
+          "target": "Where?",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Where?",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<timed 5s>>\n\"Let your ex be as they are.\"\n<</timed>>\n<<timed 10s>>\n\"Broach the possibility of friendship.\"\n<</timed>>\n<<timed 15s>>\n\"Find the opening in their armor and don't hold back.\"\n<</timed>>\n<<timed 20s>>\n\"That's where you'll find [[me.|Intro part 3]]\"\n<</timed>>\n<<timed 23s>>\nMaybe we can escape together.\n<</timed>>",
+      "choices": [
+        {
+          "label": "me.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Who are you?",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $entropy to 1>>\nThe silence of a room with nobody in it. \n\nThe invisible force pulling galaxies apart from each other and towards the cold darkness of space.\n<<timed 10s>>\nI am Entropy.\n<</timed>>\nYou've always known me. I was with you before birth and I'll reclaim you when your time comes. \n<<timed 10s>>\n[[I am Entropy.]]\n<</timed>>\n<,timed 15s>>\nThis place is just a playground for you to ping around, toy with, and ultimately hide from the world. \n<</timed>>",
+      "choices": [
+        {
+          "label": "I am Entropy.",
+          "target": "I am Entropy.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Yes, but I want this anyway.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nMaybe you have learned something after all. \n\nI'll be sad to see you leave too, when the time comes of course. \n\n[[Continue.|Let them go]]",
+      "choices": [
+        {
+          "label": "Continue.",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "Yes.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "You can't. Nothing you can do in a sea of infinite choices will prevent the inevitability that eventually everyone drifts apart. Claw at people all you want, sink your teeth into them like the animal starved for love that you are, it changes nothing. Whether it's from a slow loss of communication, a sudden termination of a relationship, or an unexpected death, eventually there will only be you and I.\n\n[[Who are you?]]",
+      "choices": [
+        {
+          "label": "Who are you?",
+          "target": "Who are you?",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "You're Entropy",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "So. How long have you been here for?\n\nHow many pages have you clicked through? ..... $options ?\n\nThat many? \n\nHow many times have you gone through this entire loop?..... $ending ?\n\nA glutton for punishment aren't you?\n\n[[Yes.|punish]]",
+      "choices": [
+        {
+          "label": "Yes.",
+          "target": "punish",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "You're helpless to stop it.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nAs they leave the apartment, it's just you and \n\n<<if $ending is 1>>\n[[the silence they've left behind.]]\n<<else>>\n<</if>>\n<<if $ending is 2>>\n[[the silence they've left behind.|ending 2]]\n<<else>>\n<</if>>\n<<if $ending is 3>>\n[[the silence they've left behind.|ending 3]]\n<<else>>\n<</if>>\n<<if $ending is 4>>\n[[the silence they've left behind.|ending 4]]\n<<else>>\n<</if>>\n<<if $ending is 5>>\n[[the silence they've left behind.|ending 5]]\n<<else>>\n<</if>>\n\n<<if $ending is 6>>\n[[the silence they've left behind.|ending 6]]\n<<else>>\n<</if>>\n\n<<if $ending is 7>>\n[[the silence they've left behind.|ending 7]]\n<<else>>\n<</if>>\n\n<<if $ending is 8>>\n[[the silence they've left behind.|ending 8]]\n<<else>>\n<</if>>",
+      "choices": [
+        {
+          "label": "the silence they've left behind.",
+          "target": "the silence they've left behind.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 2",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 4",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 5",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 6",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 7",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "the silence they've left behind.",
+          "target": "ending 8",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 2",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 3>>\n<<timed 5s>>\nYou did it wrong. \n<</timed>>\n<<timed 10s>>\nI don't know what it was that you said, but somewhere in there you said the wrong thing.\n<</timed>>\n<<timed 15s>>\nIf you lose them, you will die alone and you will deserve it. \n<</timed>>\n<<timed 20s>>\nGo back. [[Find the correct path.|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nYou CAN make them stay.\n<</timed>>",
+      "choices": [
+        {
+          "label": "Find the correct path.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 3",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 4>>\n\n<<timed 5s>>\nNo. No. No. That can't be it.\n<</timed>>\n<<timed 10s>>\nStop fucking this up.\n<</timed>>\n<<timed 15s>>\nWe can win this, I promise. Everything will be just like it was before. Just keep holding on, keep trying, keep going through different possibilities.\n</timed>>\n<<timed 20s>>\nDon't fucking stop. Don't you ever [[stop.|Intro part 3]]\n<</timed>>\n<timed 25s>>\nYou're a loser.\n<</timed>>",
+      "choices": [
+        {
+          "label": "stop.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 4",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 5>>\n<<timed 5s>>\nYou were close that time.\n<</timed>>\n<<timed 10s>>\nDid they seem angry? Sad? Nostalgic? Did they say anything about me?\n<</timed>>\n<<timed 15s>>\nPlay harder into those feelings. Press as many buttons as you can.\n<</timed>>\n<<timed 20s>>\nIf you try hard enough you can keep them [[forever.|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nEverything will be perfect.\n<</timed>>",
+      "choices": [
+        {
+          "label": "forever.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 5",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 6>>\n<<timed 5s>>\nRound and around we go.\n<</timed>>\n<<timed 10s>>\nBreaking up and getting back together again.\n<</timed>>\n<<timed 15s>>\nThis is better than being alone, no?\n<</timed>>\n<<timed 20s>>\nI'll let you in on a secret though\n<</timed>>\n<<timed 23s>>\nThere is a way to [[break the loop.|Intro part 3]]\n<</timed>>",
+      "choices": [
+        {
+          "label": "break the loop.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 6",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 7>>\n<<timed 5>>\nYou saw a future?\n<</timed>>\n<<timed 10s>>\nThere is no future. Not if they don't love you anymore\n<</timed>>\n<<timed 15s>>\nCan someone wake up and just stop loving you?\n<</timed>>\n<<timed 20s>>\nOr is it just natural for attraction to ebb and [[flow?|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nI want to forget so badly but I can't. It never stops. \n<</timed>>",
+      "choices": [
+        {
+          "label": "flow?",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 7",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 8>>\n<<timed 5s>>\nHave you considered that the problem is just who you are?\n<</timed>>\n<<timed 10s>>\nThere is something innately wrong with you.\n<</timed>>\n<<timed 15s>>\nThe only way someone would stay with you is if you held them prisoner.\n<</timed>>\n<<timed 20s>>\nWhat does it take to make someone [[love you?|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nDo you remember what their face looked like anymore?\n<</timed>>",
+      "choices": [
+        {
+          "label": "love you?",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "ending 8",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<timed 5s>>\nYou're not alone in here.\n<</timed>>\n<<timed 10s>>\nHave you found them already?\n<</timed>>\n<<timed 15s>>\nKeep looking.\n<</timed>>\n<<timed 20s>>\nThere may not be a way to win, but you can still [[break the loop|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nFind me.\n<</timed>>",
+      "choices": [
+        {
+          "label": "break the loop",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "give up the key",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\nAs you press the key into the palm of their hand, you feel a part of yourself disappear forever. \n\nYou have to [[Let them go]]",
+      "choices": [
+        {
+          "label": "Let them go",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "loop",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "There wasn't one, at least that's what I've been told. By them, by everyone. I haven't been able to believe it yet, or leave this place, since it happened.\n<<timed 5s>>\nI know that you'll leave the loop soon, likely already planning on it, but do you think you could do me a favor?\n<</timed>>\n<<timed 10s>>\nStay with me for just a [[moment.]] Share the silence with me for as long as you can. Then leave when you're ready. I promise I'll do what I have never been able to do before.\n<</timed>>\n<<timed 15s>>\nI'll let you go.\n<</timed>>",
+      "choices": [
+        {
+          "label": "moment.",
+          "target": "moment.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "moment.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<timed 180s>>\nThank You.\n<</timed>>",
+      "choices": [],
+      "replayLinks": [],
+      "ending": true,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "punish",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "That's okay. I am too. I've no business judging.\n\nIf you would just let go of the past, you'd be free. You know that, right? Will you let yourself believe that?\n\n<<timed 10s>>\nYou don't get to answer that one. No more choices. No more branches.\n<</timed>>\n<<13s>>\nMost people are afraid of me. They think I'm here to rob them of their joy. \n<</timed>>\n<<timed 15s>>\nAbsurd.\n<</timed>>\n<<timed 20s>>\nI give their joy essence. They don't know it but it's the fleeting nature of joy that gives it such zest. Instead they fight me, try desperatyely to hold onto what was never theirs to begin with. Gluttons.\n<</timed>>\n<<timed 22s>>\nThey should thank ME.\n<</timed>>\n<<timed 25s>>\n[[But they don't.|Focus.]]\n<</timed>>",
+      "choices": [
+        {
+          "label": "But they don't.",
+          "target": "Focus.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "push",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $options to $options + 1>>\n\"It wasn't 'random', I've felt this way for a while now.\" \n\nBullshit. This is all some sadistic game to them. Good people don't just throw other people away so flippantly. \n\n[[\"Fuck you.\"]]\n\n[[Stop pushing this.|Stay silent.]]",
+      "choices": [
+        {
+          "label": "\"Fuck you.\"",
+          "target": "\"Fuck you.\"",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        },
+        {
+          "label": "Stop pushing this.",
+          "target": "Stay silent.",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    },
+    {
+      "name": "say no",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "\"Then you have to [[let me go.|Let them go]]\"",
+      "choices": [
+        {
+          "label": "let me go.",
+          "target": "Let them go",
+          "syntax": "bracket",
+          "condition": "static_candidate",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": false,
+      "includes": []
+    },
+    {
+      "name": "the silence they've left behind.",
+      "tags": [],
+      "sourceFile": "I Dont Think of You Anymore.twee",
+      "sourceBody": "<<set $ending to 2>>\n<<timed 5s>>\nYou know it's your fault, right?\n<</timed>>\n<<timed 10s>>\nThere was a way to make them stay.\n<</timed>>\n<<timed 15s>>\nYou just need to find the right thing to say that will make them love you again.\n<</timed>>\n<<timed 20s>>\nGo back. [[Try again.|Intro part 3]]\n<</timed>>\n<<timed 23s>>\nGet it right this time.\n<</timed>>",
+      "choices": [
+        {
+          "label": "Try again.",
+          "target": "Intro part 3",
+          "syntax": "bracket",
+          "condition": "needs_review",
+          "resolution": "resolved"
+        }
+      ],
+      "replayLinks": [],
+      "ending": false,
+      "hasRuntimeControl": true,
+      "includes": []
+    }
+  ],
+  "audit": {
+    "narrativePassages": 68,
+    "specialPassages": 2,
+    "staticEdges": 133,
+    "reviewedEndings": [
+      "moment."
+    ],
+    "staticPathsToEndings": {
+      "moment.": [
+        "Intro",
+        "Intro part 2",
+        "Intro part 3",
+        "\"But I see a future with you.\"",
+        "\"So, what changed?\"",
+        "\"You still love me.\"",
+        "Attraction",
+        "Understand what?",
+        "You're Entropy",
+        "punish",
+        "Focus.",
+        "loop",
+        "moment."
+      ]
+    },
+    "pathStepsToEndings": {
+      "moment.": [
+        {
+          "from": "Intro",
+          "label": "Continue",
+          "to": "Intro part 2",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro part 2",
+          "label": "\"Why?\"",
+          "to": "Intro part 3",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Intro part 3",
+          "label": "\"But I see a future with you.\"",
+          "to": "\"But I see a future with you.\"",
+          "condition": "needs_review"
+        },
+        {
+          "from": "\"But I see a future with you.\"",
+          "label": "\"So, what changed?\"",
+          "to": "\"So, what changed?\"",
+          "condition": "needs_review"
+        },
+        {
+          "from": "\"So, what changed?\"",
+          "label": "\"What the hell does that even mean?!\"",
+          "to": "\"You still love me.\"",
+          "condition": "needs_review"
+        },
+        {
+          "from": "\"You still love me.\"",
+          "label": "\"This is normal for a healthy relationship! Attraction is meant to ebb and flow!\"",
+          "to": "Attraction",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Attraction",
+          "label": "Understand what?",
+          "to": "Understand what?",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Understand what?",
+          "label": "You're Entropy",
+          "to": "You're Entropy",
+          "condition": "needs_review"
+        },
+        {
+          "from": "You're Entropy",
+          "label": "Yes.",
+          "to": "punish",
+          "condition": "static_candidate"
+        },
+        {
+          "from": "punish",
+          "label": "But they don't.",
+          "to": "Focus.",
+          "condition": "needs_review"
+        },
+        {
+          "from": "Focus.",
+          "label": "made.",
+          "to": "loop",
+          "condition": "needs_review"
+        },
+        {
+          "from": "loop",
+          "label": "moment.",
+          "to": "moment.",
+          "condition": "needs_review"
+        }
+      ]
+    },
+    "unreachableByStaticLinks": [],
+    "nonEndingDeadEnds": [],
+    "missingTargets": [],
+    "runtimeControlPassages": [
+      "\"Bullshit. You lied to me.\"",
+      "\"But I see a future with you.\"",
+      "\"Did I do something wrong?\"",
+      "\"Do you still love me?\"",
+      "\"Do you think there's any chance of us...being together again?\"",
+      "\"Do you think we can still be friends?\"",
+      "\"Fuck you.\"",
+      "\"I don't think that'll be an issue. We can be civil.\"",
+      "\"I understand.\"",
+      "\"If you were sorry then you wouldn't leave.\"",
+      "\"It's better this way.\"",
+      "\"Make up your mind.\"",
+      "\"No, seriously, fuck you.\"",
+      "\"No.\"",
+      "\"Oh, not at all. Honestly, you deserve better.\"",
+      "\"Okay! No Problem!\"",
+      "\"So, what changed?\"",
+      "\"Sorry, I don't know what came over me.\"",
+      "\"There's someone else isn't there?\"",
+      "\"They'll never make you as happy as I did.\"",
+      "\"Throwing me away won't fix your life. You don't have to be alone.\"",
+      "\"Why not?",
+      "\"Why not?\"",
+      "\"Yeah, it's fine. You do you.\"",
+      "\"Yes you are.\"",
+      "\"Yes.\"",
+      "\"You aren't telling me something\"",
+      "\"You still love me.\"",
+      "Attraction",
+      "Beg",
+      "Focus.",
+      "I am Entropy.",
+      "Intro",
+      "Intro part 2",
+      "Intro part 3",
+      "Keep going",
+      "Key",
+      "Let them go",
+      "No. I'm keeping this.",
+      "Persist",
+      "Refuse to give up.",
+      "Stay silent.",
+      "Toxic",
+      "Understand what?",
+      "What are you?",
+      "Where?",
+      "Who are you?",
+      "Yes, but I want this anyway.",
+      "You're helpless to stop it.",
+      "ending 2",
+      "ending 3",
+      "ending 4",
+      "ending 5",
+      "ending 6",
+      "ending 7",
+      "ending 8",
+      "give up the key",
+      "loop",
+      "moment.",
+      "punish",
+      "push",
+      "the silence they've left behind."
+    ]
+  }
+}
