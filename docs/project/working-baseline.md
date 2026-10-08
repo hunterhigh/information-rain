@@ -18,8 +18,8 @@
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
 - **当前分发产品代码基线**：目录与文档治理已提交并推送至 GitHub `main`，提交为 `01236f6`；后续工作基于远端 `main`。`demo-v0.1.0` 仍是已标记的历史私有基线。
-- **当前有效版本记录**：私有内部基线 `demo-v0.1.0`；最新手机端滑动与舞台更新已推送到 GitHub `main`，提交 `c892929`。
-- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `0b301f2`，预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
+- **当前有效版本记录**：私有内部基线 `demo-v0.1.0`；最新手机端光流分支交互已推送到 GitHub `main`，提交 `d70d9a0`。
+- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `d70d9a0`（Cloudflare 部署 `f8c9eefd`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
 - **手机分支视觉已选定并接入**：左/右/上滑分别选择当前节点对应分支；下滑整屏进入下一部作品。分支采用“光流牵引”：整张阅读画面跟随手指，柔和光流随位移牵引到选择边缘，拖动时不出现独立文字框；标题、作者和正文随页面一起移动。代码已实现，需继续完成浏览器流程检查与所有者真机体验。其余两种提示动画作为后续参考归档。无上分支时的行为、上一部作品的返回方式和正文滚动交接仍待解决。依据见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)及[手机滑动方向提示参考](../products/distribution/mobile-swipe-review/README.md)。
