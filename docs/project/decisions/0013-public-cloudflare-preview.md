@@ -118,6 +118,15 @@
 - 发布内容：新增 38 篇带封面的短篇分支故事，内容池合计 61 部。署名暂用「信息雨」，体验时长显示「短篇」。项目所有者明确要求直接进入公开预览；完整独立审稿和人类走读计时仍未完成，具体记录见[发布准备记录](../../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
 - HTTP 检查：主域名及固定部署地址返回 200；线上注册表下载返回 200，含 61 个作品 ID 和新增作品 `s02-salt-lamp`；固定部署地址上的新封面返回 200。响应仍带 `noindex, nofollow, noarchive`。
 
+### 2026-10-09 `demo-v0.3.1` 封面传输优化
+
+- 固定部署地址：[https://01969c0b.information-rain-preview.pages.dev/](https://01969c0b.information-rain-preview.pages.dev/)
+- 部署 ID：`01969c0b-6aa4-4538-9200-dda8d48a45b0`
+- 对应 GitHub 版本：`demo-v0.3.1`，提交 `7939508`
+- 环境/分支：Production / `main`
+- 构建时将 61 张封面转换成舞台 WebP 与缩略图 WebP；原图仍保留在源码内容包。两档发布图合计约 11.4 MiB，原图合计约 107.5 MiB；剧情内容哈希未变。
+- HTTP 检查：主页面、运行时目录、新舞台图与缩略图均返回 200；示例 S02 舞台图为 283,820 字节、缩略图为 55,556 字节。设备端加载与滑动性能仍需实测。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。

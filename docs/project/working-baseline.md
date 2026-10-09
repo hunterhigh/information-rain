@@ -18,9 +18,9 @@
 - **自供给故事制作**：资料库的 38 个方向已有完整可达的分支草稿和统一规格封面，见[制作索引](../products/distribution/story-production/README.md)。38 包已经转换、格式校验并按所有者本轮指示以「短篇」标识注册到公开预览内容池；原有 23 部未改动。独立文学审读与逐路径人类计时仍未完成，不得把注册视为「故事就绪」，详见[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
-- **当前分发产品代码基线**：目录与文档治理提交 `01236f6`；当前产品版本为 `demo-v0.3.0`，内容提交 `b48f532` 已标记并推送至 GitHub `main`。后续工作基于远端 `main`。
-- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览内容及封面。
-- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `b48f532`（Cloudflare 部署 `107e70ea-e83f-4a3c-a47c-f2375251b362`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
+- **当前分发产品代码基线**：目录与文档治理提交 `01236f6`；当前产品版本为 `demo-v0.3.1`，性能修正提交 `7939508` 已标记并推送至 GitHub `main`。后续工作基于远端 `main`。
+- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览内容及封面；`demo-v0.3.1` 压缩静态预览封面。
+- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `7939508`（Cloudflare 部署 `01969c0b-6aa4-4538-9200-dda8d48a45b0`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
 - **手机分支视觉已选定并接入**：左/右/上滑分别选择当前节点分支；下滑整屏进入下一部作品。分支采用“光流牵引”，整张阅读画面跟随手指，不出现拖动文字框。手机正文滚动由应用控制：未到边界时滑动正文，到顶部/底部后下一次相应方向手势才切换世界/分支。上方出口提示显示具体文案。已修复多点触摸清理、正文手势交接和切换世界时的快照绘制；自动检查与线上 HTTP 检查通过，真实手机体验仍待核验。无上方分支时的反馈和返回上一部作品的方式仍待决定。依据见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)及[手机滑动方向提示参考](../products/distribution/mobile-swipe-review/README.md)。
