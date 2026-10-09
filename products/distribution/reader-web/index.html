@@ -1104,10 +1104,6 @@
                             <div class="icon">←</div>
                             <span class="label" id="labelLeft"></span>
                         </button>
-                        <button type="button" class="dir-btn" id="btnUp" onclick="handleDirection(&#39;up&#39;)" aria-label="向上进入">
-                            <div class="icon">↑</div>
-                            <span class="label" id="labelUp"></span>
-                        </button>
                         <button type="button" class="dir-btn" id="btnRight" onclick="handleDirection(&#39;right&#39;)" aria-label="向右进入">
                             <div class="icon">→</div>
                             <span class="label" id="labelRight"></span>
@@ -1115,11 +1111,11 @@
                     </div>
                     <div id="gestureFeedbackLeft" class="gesture-feedback left" aria-hidden="true"></div>
                     <div id="gestureFeedbackRight" class="gesture-feedback right" aria-hidden="true"></div>
-                    <div id="gestureFeedbackUp" class="gesture-feedback up" aria-hidden="true"></div>
-                    <div id="gestureFeedbackDown" class="gesture-feedback down" aria-hidden="true">下一部作品</div>
+                    <div id="gestureFeedbackUp" class="gesture-feedback up" aria-hidden="true">下一部作品</div>
+                    <div id="gestureFeedbackDown" class="gesture-feedback down" aria-hidden="true">上一部作品</div>
                     <div id="mobileBranchHints" class="mobile-branch-hints" hidden aria-live="polite">
                         <span id="mobileLeftChoice"></span>
-                        <span id="mobileUpChoice" class="mobile-swipe-instruction"></span>
+                        <span id="mobileUpChoice" class="mobile-swipe-instruction">上滑下一部 · 下滑上一部</span>
                         <span id="mobileRightChoice"></span>
                     </div>
 
@@ -1338,6 +1334,7 @@
         let worldSwiper = null;
         let pendingWorldGesture = null;
         const worldImagePreloads = new Map();
+        const storyRequests = new Map();
         const HOME_BATCH_SIZE = 8;
         const HOME_CARD_ASPECT = 9 / 16;
         let homeQuery = '';
@@ -1573,7 +1570,7 @@
 
             const image = new Image();
             image.decoding = 'async';
-            image.src = world.image;
+            image.src = world.thumbnail || world.image;
             const promise = typeof image.decode === 'function'
                 ? image.decode().catch(() => undefined)
                 : new Promise(resolve => {
@@ -2056,7 +2053,7 @@
             el.bookmarkEmpty.classList.add('hidden');
             el.bookmarkGrid.innerHTML = bookmarkedWorlds.map(world => `
                 <button type="button" class="bookmark-card" onclick="jumpToWorld('${world.id}')">
-                    <div class="w-full h-24 rounded-lg mb-3 bg-cover bg-center" style="background-image: url('${world.image}')"></div>
+                    <div class="w-full h-24 rounded-lg mb-3 bg-cover bg-center" style="background-image: url('${world.thumbnail || world.image}')"></div>
                     <h3 class="text-sm font-medium text-white/90 mb-1">${world.title}</h3>
                     <p class="text-xs text-white/40">${world.author}</p>
                     <div class="bookmark-tag">
@@ -2106,7 +2103,7 @@
                 result.className = 'w-full flex items-center gap-3 text-left p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10';
                 const image = document.createElement('span');
                 image.className = 'w-14 h-16 shrink-0 rounded-lg bg-cover bg-center';
-                image.style.backgroundImage = `url(${world.image})`;
+                image.style.backgroundImage = `url(${world.thumbnail || world.image})`;
                 const details = document.createElement('span');
                 const title = document.createElement('strong');
                 title.className = 'block text-sm text-white/90';
@@ -2185,6 +2182,11 @@
         // ============================================================
         function loadWorld(index, direction = 'next') {
             const world = worlds[index];
+            if (!world.data && world.storyUrl) {
+                const preload = () => loadStory(world).catch(() => undefined);
+                if ('requestIdleCallback' in window) requestIdleCallback(preload, { timeout: 1200 });
+                else setTimeout(preload, 250);
+            }
             const swipeTransition = pendingWorldGesture;
             prepareWorldImageWindow(index);
             el.stage.classList.remove('is-reading');
@@ -2337,8 +2339,42 @@
         // ============================================================
         // 进入世界
         // ============================================================
-        function enterWorld() {
-            const world = worlds[currentWorldIndex];
+        async function loadStory(world) {
+            if (world.data) return world.data;
+            if (!world.storyUrl) throw new Error('故事内容不可用');
+            if (!storyRequests.has(world.id)) {
+                const request = fetch(world.storyUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`故事加载失败：${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (!data || typeof data !== 'object' || !data[world.startNode]) throw new Error('故事数据无效');
+                        world.data = data;
+                        return data;
+                    })
+                    .catch(error => { storyRequests.delete(world.id); throw error; });
+                storyRequests.set(world.id, request);
+            }
+            return storyRequests.get(world.id);
+        }
+
+        async function enterWorld() {
+            const requestedIndex = currentWorldIndex;
+            const world = worlds[requestedIndex];
+            el.btnEnter.disabled = true;
+            try {
+                await loadStory(world);
+            } catch (error) {
+                showToast('故事暂时无法加载，请重试');
+                el.btnEnter.disabled = false;
+                return;
+            }
+            if (currentWorldIndex !== requestedIndex || currentPage !== 'worlds') {
+                el.btnEnter.disabled = false;
+                return;
+            }
+            el.btnEnter.disabled = false;
             sendExperience(experienceMatches('worlds.reading.ending') ? 'RESTART' : 'ENTER');
             if (worldSwiper) {
                 worldSwiper.allowTouchMove = false;
@@ -2441,8 +2477,7 @@
             const reachableExit = direction => node.exits?.[direction] && world.data[node.exits[direction]] ? node.exits[direction] : null;
             const leftExit = reachableExit('left');
             const rightExit = reachableExit('right');
-            const upExit = reachableExit('up');
-            const hasExits = leftExit || rightExit || upExit;
+            const hasExits = leftExit || rightExit;
 
             if (hasExits) {
                 el.dirControls.classList.remove('opacity-0', 'pointer-events-none');
@@ -2450,16 +2485,14 @@
 
                 // 更新按钮
                 updateDirBtn('btnLeft', 'labelLeft', leftExit, node.labels?.left);
-                updateDirBtn('btnUp', 'labelUp', upExit, node.labels?.up);
                 updateDirBtn('btnRight', 'labelRight', rightExit, node.labels?.right);
             } else {
                 el.dirControls.classList.add('opacity-0', 'pointer-events-none');
                 el.dirControls.inert = true;
                 updateDirBtn('btnLeft', 'labelLeft', null, null);
-                updateDirBtn('btnUp', 'labelUp', null, null);
                 updateDirBtn('btnRight', 'labelRight', null, null);
             }
-            document.getElementById('mobileBranchHints').hidden = !(leftExit || rightExit || upExit);
+            document.getElementById('mobileBranchHints').hidden = !(leftExit || rightExit);
 
             if (animType === 'settle') {
                 el.nodeText.classList.add('node-text-settle-in');
@@ -2479,15 +2512,13 @@
             const lbl = document.getElementById(labelId);
             if (btnId === 'btnLeft') document.getElementById('gestureFeedbackLeft').textContent = `将进入：${label || '左侧分支'}`;
             if (btnId === 'btnRight') document.getElementById('gestureFeedbackRight').textContent = `将进入：${label || '右侧分支'}`;
-            if (btnId === 'btnUp') document.getElementById('gestureFeedbackUp').textContent = `将进入：${label || '上方分支'}`;
             const mobileChoice = btnId === 'btnLeft' ? document.getElementById('mobileLeftChoice') : btnId === 'btnRight' ? document.getElementById('mobileRightChoice') : null;
             if (mobileChoice) mobileChoice.textContent = target ? `${btnId === 'btnLeft' ? '左滑' : '右滑'} · ${label || (btnId === 'btnLeft' ? '左侧分支' : '右侧分支')}` : '';
-            if (btnId === 'btnUp') document.getElementById('mobileUpChoice').textContent = target ? '上滑 · ' + (label || '上方分支') : '';
             if (target) {
                 btn.style.visibility = 'visible';
-                lbl.textContent = label || { btnLeft: '向左选择', btnUp: '向上选择', btnRight: '向右选择' }[btnId];
+                lbl.textContent = label || { btnLeft: '向左选择', btnRight: '向右选择' }[btnId];
                 btn.disabled = false;
-                btn.setAttribute('aria-label', `${label || '选择分支'}，向${{ Left: '左', Up: '上', Right: '右' }[btnId.slice(3)]}进入`);
+                btn.setAttribute('aria-label', `${label || '选择分支'}，向${{ Left: '左', Right: '右' }[btnId.slice(3)]}进入`);
             } else {
                 btn.style.visibility = 'hidden';
                 btn.disabled = true;
@@ -2710,7 +2741,7 @@
             const snapshot = swipeSnapshot || createScreenSnapshot();
             clearSwipeFeedback(false);
             el.stage.classList.add('is-screen-swap-pending');
-            pendingWorldGesture = { snapshot, direction: delta > 0 ? 'down' : 'up' };
+            pendingWorldGesture = { snapshot, direction: delta > 0 ? 'up' : 'down' };
             goToWorld(nextIndex, 0);
         }
 
@@ -2758,8 +2789,8 @@
 
                 if (e.key === 'ArrowLeft') { e.preventDefault(); handleDirection('left'); }
                 if (e.key === 'ArrowRight') { e.preventDefault(); handleDirection('right'); }
-                if (e.key === 'ArrowUp') { e.preventDefault(); handleDirection('up'); }
-                if (e.key === 'ArrowDown') { e.preventDefault(); switchWorld(1); }
+                if (e.key === 'ArrowUp') { e.preventDefault(); switchWorld(1); }
+                if (e.key === 'ArrowDown') { e.preventDefault(); switchWorld(-1); }
                 if (e.key === 'Escape') exitToCover();
             });
 
@@ -2832,8 +2863,9 @@
                     if (!textCanScroll || atTextTop) direction = 'down';
                 }
 
-                if (direction === 'down') {
-                    if (currentWorldIndex >= worlds.length - 1) direction = null;
+                if (direction === 'up' || direction === 'down') {
+                    const nextIndex = currentWorldIndex + (direction === 'up' ? 1 : -1);
+                    if (nextIndex < 0 || nextIndex >= worlds.length) direction = null;
                 } else if (!direction || !node?.exits?.[direction] || !world.data[node.exits[direction]]) {
                     direction = null;
                 }
@@ -2847,7 +2879,7 @@
                 if (!touchSnapshot) touchSnapshot = createScreenSnapshot();
                 el.stage.classList.add('is-branch-dragging');
                 el.stage.dataset.gestureDirection = direction;
-                if (direction === 'down') {
+                if (direction === 'up' || direction === 'down') {
                     touchSnapshot.classList.remove('is-light-flow');
                     touchSnapshot.removeAttribute('data-gesture-direction');
                     ['--flow-opacity', '--flow-x', '--flow-y', '--flow-rotation'].forEach(property => touchSnapshot.style.removeProperty(property));
@@ -2923,15 +2955,15 @@
                     return;
                 }
 
-                // 正文中：上划选择“上”方向；下划切换到下一部作品。
+                // 正文中：纵向手势只切换作品；故事分支只使用左右。
                 if (absDy > absDx && absDy > 52 && dy < 0) {
                     const snapshot = touchSnapshot;
                     touchSnapshot = null;
-                    handleDirection('up', snapshot);
-                } else if (absDy > absDx && absDy > 72 && dy > 0) {
+                    switchWorldByGesture(1, snapshot);
+                } else if (absDy > absDx && absDy > 52 && dy > 0) {
                     const snapshot = touchSnapshot;
                     touchSnapshot = null;
-                    switchWorldByGesture(1, snapshot);
+                    switchWorldByGesture(-1, snapshot);
                 } else {
                     clearTouchGesture();
                 }

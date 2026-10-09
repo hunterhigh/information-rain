@@ -34,11 +34,11 @@ def inspect_story(folder: Path) -> list[str]:
         graph[name] = targets
         if name.startswith("n") and not targets:
             errors.append(f"{name}: ordinary node without choices")
-        if name.startswith("n") and len(targets) < 2:
-            errors.append(f"{name}: fewer than two choices")
         if name.startswith("e") and targets:
             errors.append(f"{name}: ending has choices")
-        if len(targets) > 4:
+        if len(targets) > 2 and "--strict" in sys.argv:
+            errors.append(f"{name}: more than two choices")
+        elif len(targets) > 4:
             errors.append(f"{name}: more than four choices")
         if not body.strip().split("- →")[0].strip():
             errors.append(f"{name}: missing prose")
@@ -81,9 +81,11 @@ def inspect_story(folder: Path) -> list[str]:
                 errors.append("path exceeds graph size")
                 break
             for target in graph[current]:
-                stack.append((target, seen + (current,), decision_count + 1))
+                stack.append((target, seen + (current,), decision_count + int(len(graph[current]) > 1)))
         if completed == 0:
             errors.append("no complete path")
+    if "--strict" in sys.argv and sum(name.startswith("n") for name in graph) < 10:
+        errors.append("fewer than ten ordinary nodes")
     return errors
 
 

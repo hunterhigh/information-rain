@@ -20,6 +20,7 @@ await mkdir(output, { recursive: true })
 for (const directory of ['content-pool/packs', 'design']) {
   await mkdir(path.join(output, directory), { recursive: true })
 }
+await mkdir(path.join(output, 'content-pool/stories'), { recursive: true })
 
 await cp(path.join(source, 'index.html'), path.join(output, 'index.html'))
 const registrySource = await readFile(path.join(source, 'content-pool/registry.generated.js'), 'utf8')
@@ -31,8 +32,13 @@ const runtimeWorlds = registryContext.window.InformationRainContentRegistry.worl
     ...world,
     image,
     thumbnail: image.replace(/\.webp$/i, '-thumb.webp'),
+    storyUrl: `./content-pool/stories/${world.id}.json`,
+    data: undefined,
   }
 })
+for (const world of registryContext.window.InformationRainContentRegistry.worlds) {
+  await writeFile(path.join(output, 'content-pool/stories', `${world.id}.json`), JSON.stringify(world.data))
+}
 await writeFile(
   path.join(output, 'content-pool/registry.generated.js'),
   `window.InformationRainContentRegistry = ${JSON.stringify({ schemaVersion: 1, worlds: runtimeWorlds })};\n`,
