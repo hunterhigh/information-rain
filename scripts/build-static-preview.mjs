@@ -23,6 +23,7 @@ for (const directory of ['content-pool/packs', 'design']) {
 await mkdir(path.join(output, 'content-pool/stories'), { recursive: true })
 
 await cp(path.join(source, 'index.html'), path.join(output, 'index.html'))
+await cp(path.join(source, 'reader-utilities.css'), path.join(output, 'reader-utilities.css'))
 const registrySource = await readFile(path.join(source, 'content-pool/registry.generated.js'), 'utf8')
 const registryContext = { window: {} }
 runInNewContext(registrySource, registryContext, { timeout: 1000 })

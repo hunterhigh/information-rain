@@ -1,0 +1,225 @@
+{
+  "apocalypse": {
+    "n1_deliberate": "门外那件重物停了，金属头却又轻轻碰了一下你的门锁。",
+    "n2_door_deliberate": "你弯腰看见物资箱底的夹缝里卡着半张领用条，上面写着三楼。",
+    "n2_window_deliberate": "隔壁阳台的衣服忽然动了，阳台门内有一道影子退进屋里。",
+    "n2_peephole_deliberate": "探针碰在门板上，发出一声短促的蜂鸣，走廊里有人低头记下时间。",
+    "n3_elevator_deliberate": "轿厢门快合上时，二楼的指示灯先于你的手指亮了。",
+    "n3_stairs_deliberate": "一楼传来车轮碾过碎玻璃的声音，刚才说话的两人同时住了口。",
+    "n2_peephole_after_deliberate": "本子翻页的声音停在你的房号，探针从门板上慢慢移向门缝。",
+    "n3_elevator_second_deliberate": "电梯在二楼又停了一次，没有人进来，外面却伸进一只沾灰的手。",
+    "n3_neighbor_deliberate": "邻居把通往楼梯的门虚掩着，另一只手始终没有离开门栓。",
+    "n4_bread_deliberate": "男人的目光在面包和你握着它的手之间来回，车钥匙却没有露出来。",
+    "n4_man_deliberate": "他把两道铁门的开启顺序画在积灰的地砖上，第二笔被自己的鞋擦断。",
+    "n5_plan_deliberate": "笔尖划到最后一道门时断了墨，男人用指甲在纸上补出那一格。",
+    "n5_roof_deliberate": "对面屋顶的反光回应了两次，第三次却偏离了原来的位置。",
+    "n5_young_deliberate": "年轻人把车钥匙放在你们之间，钥匙齿上还有没擦净的机油。"
+  },
+  "garden": {
+    "n1_deliberate": "她把手机翻回正面，又立刻按灭，开口时声音比平时低了一点。",
+    "n2_wisteria_deliberate": "一片紫藤落在车票上，她没有掸掉，只用指腹按住了票角。",
+    "n2_bench_deliberate": "她站起时膝边的花影也跟着断开，走了两步又放慢脚步。",
+    "n2_silent_deliberate": "她指向花圃，手指却在半空转了一下，最后落在长椅那边。",
+    "n3_hydrangea_deliberate": "她把相机递给你，屏幕里那丛花的颜色正被下午的光慢慢洗淡。",
+    "n3_bench2_deliberate": "雨点先落在她的票面上，字迹还没化，她便把票收进了掌心。",
+    "n3_fountain_deliberate": "喷泉停水的一瞬，原来被水声盖住的车站广播远远传来。",
+    "n4_confess_deliberate": "她没替你接下半句话，只把车票放在膝上，让你看见发车时间。"
+  },
+  "building": {
+    "n1_deliberate": "电梯门的倒影里，你看见十四层走廊的灯正一盏接一盏熄灭。",
+    "n2_hall_deliberate": "门里翻纸的声音停了，桌上的台灯却仍照着门缝。",
+    "n2_elevator_deliberate": "轿厢顶传来脚步，楼层数字在十三与十四之间闪了一下。",
+    "n3_door_deliberate": "你把相册翻到最后，那里夹着一张尚未冲洗的底片。",
+    "n3_peek_deliberate": "她的目光越过你的肩膀，落在仍开着的电梯门上。",
+    "n4_album_deliberate": "抽屉缝里露出一截同色的牛皮纸，编号的最后两位被折住了。",
+    "n4_desk_deliberate": "纸袋最底下压着一枚钥匙，齿形与你家门锁并不相同。"
+  },
+  "midnight": {
+    "n1_deliberate": "老板把菜单翻到背面，背面只写了今天的日期和一行小字。",
+    "n2_counter_deliberate": "汤锅见底，老板把最后一勺盛进你的碗里，没有再问医院的事。",
+    "n2_corner_deliberate": "雨衣人的袖口滴下一滴水，落在那碗已经凉透的馄饨边。",
+    "n2_menu_deliberate": "老板端出一只空碗放在你面前，等你报菜名才开火。",
+    "n3_story_deliberate": "那张明信片被汤汽熏得卷角，背面的邮戳仍清楚。",
+    "n3_raincoat_deliberate": "雨衣人把筷子并齐放下，指尖却还压着那把钥匙。",
+    "n3_letter_deliberate": "你在纸上写下母亲的名字，第一笔刚落，手机屏幕就亮了。",
+    "n3_spicy_deliberate": "辣油沿碗沿流到你手背，老板递来纸巾，也把话留在那里。",
+    "n3_soup_deliberate": "手机在桌上震了一下，母亲发来的只有一个问号。",
+    "n4_support_deliberate": "接驳车的时刻表被油渍遮住一站，老板从抽屉找出另一张。",
+    "n4_raincoat_advice_deliberate": "雨衣人把打包盒推向老板，盒盖上落着他的车钥匙。",
+    "n4_boss_deliberate": "门外第一班清晨的车驶过，食堂的玻璃被车灯短短照亮。",
+    "n3_key_deliberate": "他把钥匙放回掌心，钥匙上的绿漆与你家那盆植物的颜色相近。"
+  },
+  "neon": {
+    "n1_deliberate": "内袋里的芯片再震一下，追踪器把你的位置更新到了这条巷口。",
+    "n2_subway_deliberate": "站台尽头亮起一盏检修灯，灯后没有人回答你的脚步声。",
+    "n2_clinic_deliberate": "医生把手术台的电源关掉，追踪器却还在你皮下微微发热。",
+    "n2_alley_deliberate": "酒吧门缝里漏出读卡器的蓝光，巷口的无人机同时转了头。",
+    "n3_tracks_deliberate": "一只检修鼠从轨道上抬头，眼里的红点停在你鞋边。",
+    "n3_surgery_deliberate": "她把新身份卡推到你面前，卡上的姓名栏仍是空白。",
+    "n3_door_deliberate": "吧台的屏蔽灯闪了两下，计时器从十分钟开始倒数。",
+    "n3_vent_deliberate": "终端吐出一张半截打印纸，母亲的姓名只露出姓氏。",
+    "n3_trade_deliberate": "候诊室的门外传来两个人交谈，医生把读卡器的声音调到最低。",
+    "n3_bar_deliberate": "后门的电子锁忽然由绿转黄，酒保看了一眼，没有替你按开。",
+    "n3_dealer_deliberate": "读卡器上跳出一条你没见过的删除记录，时间是昨夜。"
+  },
+  "wuxia": {
+    "n1_deliberate": "刀客在溪边停住，朝你肩上的血迹望了一眼，没立刻拔刀。",
+    "n2_stream_deliberate": "刀客把一枚沾泥的腰牌丢到溪边，你认出上面半个被划掉的字。",
+    "n2_hut_deliberate": "老者把茶盏推来，杯底压着一小块与你剑穗同色的玉。",
+    "n2_bridge_deliberate": "对岸的笛声断了一拍，有人把半截绳抛到断桥这边。",
+    "n3_fight_deliberate": "他的刀尖落进泥里，腰牌却仍被攥在手中。",
+    "n3_run_deliberate": "血从新缠的布里渗出，老者看见后没有再挡门。",
+    "n3_tea_deliberate": "老者翻门册的手停在缺页处，指甲下还留着新墨。",
+    "n3_jump_deliberate": "雨桐把笛子收进袖里，先替你把滑落的信封拾起。",
+    "n3_witness_deliberate": "刀客用刀鞘压住腰牌，等你看清刻在背面的旧日期。",
+    "n2_rope_deliberate": "绳结的一头还系着竹屋的门环，老者没把它解下来。",
+    "n2_hut_after_deliberate": "被裁去的册页留下细纸毛边，你的名字恰好断在那一行。"
+  },
+  "space": {
+    "n1_deliberate": "走廊的紧急灯亮了又灭，六个休眠舱的编号只剩两个还显示温度。",
+    "n2_nav_deliberate": "扬声器恢复静默，导航屏却仍在用母亲的生日作航线标记。",
+    "n2_eng_deliberate": "安全带下压着一枚工程舱钥匙，齿上沾着干涸的血。",
+    "n2_airlock_deliberate": "气闸外那组建筑又亮起一格，节奏刚好跟你的脉搏错开。",
+    "n3_log_deliberate": "录音结束后的空白里还留着一次轻敲，像有人在气闸另一侧回应。",
+    "n3_note_deliberate": "货舱的温度指示忽然跳高一格，至少还有一个休眠舱在耗电。",
+    "n3_suit_deliberate": "白色平原上的脚印通向两扇门，却没有一双朝飞船走回。",
+    "n4_cargo_deliberate": "她的休眠舱玻璃起了雾，雾里有一道刚从里面擦出的指痕。"
+  },
+  "abyss": {
+    "n1_deliberate": "敲击变成三短一长，正是母舰教给你们的紧急返航暗号。",
+    "n2_comm_deliberate": "回讯屏上的半句话自己往后延了一格，空白处出现你的舱号。",
+    "n2_dive_deliberate": "采样臂还没伸出，石壁就先落下一层细屑，像在回应舱灯。",
+    "n2_surface_deliberate": "压载阀上的封条被水压顶出一道裂口，再等一会儿它会自己漏气。",
+    "n3_church_deliberate": "旧舱门内的灯忽然亮了，你看见门边刻着上一次任务的日期。",
+    "n3_wall_deliberate": "透明囊靠近通讯线时搏动加快，屏幕上的母舰坐标跟着偏了一格。"
+  },
+  "western": {
+    "n1_deliberate": "枯树上的草人忽然转了半圈，胸前钉着你兄弟那把枪的旧套。",
+    "n2_sheriff_deliberate": "警长把证词翻过来，背面另有一行用不同墨水补上的时间。",
+    "n2_blacksmith_deliberate": "铁匠把一截绳扔到马车上，井下随即传来两下敲击。",
+    "n2_saloon_deliberate": "牌桌边的人把你的旧枪放在筹码旁，转轮里只留一颗弹。",
+    "n3_info_deliberate": "警长在地图上圈出旧教堂，井口与它只隔一条干河床。",
+    "n3_quest_deliberate": "井下的人又咳了一声，铁匠手里的绳正一点点往下滑。",
+    "n3_card_deliberate": "庄家把牌推近，你在他袖口看见兄弟枪套上那道熟悉的缝线。"
+  },
+  "campus": {
+    "n1_deliberate": "B302 的灯闪了一次，窗边有人影，却没有把头转向楼下。",
+    "n2_guard_deliberate": "备用钥匙串上少了一把，空出来的挂钩还在轻轻晃。",
+    "n2_up_deliberate": "门框上留着刚刮过的漆屑，钥匙孔里有一段细线。",
+    "n2_shout_deliberate": "楼上传来椅子拖地的一声，喊话没有得到回答。",
+    "n3_keys_deliberate": "维修单的日期与周宜失踪那晚相同，签收栏却空着。",
+    "n3_door_deliberate": "纸张的墨还湿着，写日期的人或许刚离开座位。",
+    "n3_door_with_keys_deliberate": "你把维修单翻到背面，纸上旧墨与黑板新字隔着三年对在一起。"
+  },
+  "loop": {
+    "n1_deliberate": "路口的信号灯从绿转黄，比你前六次记录的时间早了一秒。",
+    "n2_scene_deliberate": "红车司机隔着车窗向你挥手，似乎已看见你站在路中间。",
+    "n2_call_deliberate": "接线员第一次重复了骑车人的衣服颜色，你知道她终于在记录。",
+    "n2_stay_deliberate": "门外的人把纸贴在猫眼上，最下面一行写着你还没有经历的明天。",
+    "n3_bike_deliberate": "手背上那道旧笔迹旁又多了一道新伤，你确认并非每次重来都抹平身体。",
+    "n3_bus_deliberate": "车票背面沾着一滴陌生人的血，日期却又变回今天。",
+    "n3_talk_deliberate": "林皓把一处空白圈起，三个名字之后的去向第一次连到同一张图上。",
+    "n4_nextday_deliberate": "纸上的提醒被你握皱，林皓的号码仍清清楚楚留在背面。",
+    "n2_stay_revisit_deliberate": "林皓把路线图贴在门缝前，其中一条线正通往你家楼下。"
+  },
+  "dream": {
+    "n1_deliberate": "镜子里的掌柜把三张契约排开，最旧的一张留着有人反悔时的压痕。",
+    "n2_childhood_deliberate": "母亲的糖罐忽然在镜面里出现，你记得它的形状，却想不起她为什么会笑。",
+    "n2_love_deliberate": "柜台上的旧包裹寄件栏写着你的名字，日期是你们分开的那天。",
+    "n2_fear_deliberate": "门外传来急刹声，你身体先绷紧了一瞬，契约上的字还没签。",
+    "n3_eyes_deliberate": "数字浮在手机屏上的母亲名字旁，你第一次不愿看清它们。",
+    "n3_heart_deliberate": "旧包裹的封绳被重新系过，结仍是那个人惯用的打法。",
+    "n3_courage_deliberate": "架上一只不属于你的瓶子轻轻碰响，掌柜的手挡在它前面。"
+  },
+  "lotr": {
+    "n1_deliberate": "旅人们往后退了一步，只有那个孩子还盯着你脚边的灰。",
+    "n2_west_deliberate": "精灵的箭没有搭上弦，他却把守望者的通行符放在你脚前。",
+    "n2_east_deliberate": "城门的古老标记在你靠近时沉了一寸，门内的人先叫出了你失去的名字。",
+    "n2_stay_deliberate": "结晶贴上甲片，你听见一个不属于索伦的低声，像有人在灰下练习呼吸。",
+    "n3_elf_deliberate": "精灵等你回想时放低了弓，箭尖仍朝着灰港的方向。",
+    "n3_city_deliberate": "城中一排空白的石碑亮了起来，每块碑都留着可刻名字的位置。",
+    "n3_absorb_deliberate": "你甲下的碎片开始发热，远处另一道阴影因此停下脚步。",
+    "n3_destroy_deliberate": "你的手穿过结晶表面，甲里的旧名字先于你自己发出了一声。"
+  },
+  "twilight": {
+    "n1_deliberate": "书页里夹着一张未寄的借书卡，借阅日期写的是明天。",
+    "n2_book_deliberate": "他离开时没有拿走书，指尖却把书脊压出了一道浅痕。",
+    "n2_return_deliberate": "最后那行字旁有新落的铅粉，你抬头时，管理员正朝这排书架走来。",
+    "n2_read_deliberate": "纸角又翻起一页，背面还有一句没有写完的问话。",
+    "n3_follow_deliberate": "他听完你的问题后向后退了一步，鞋底碰到图书馆门槛。",
+    "n3_meet_deliberate": "食堂的空座被阳光切成两半，他把手始终留在阴影里。",
+    "n3_go_deliberate": "最后一张桌子的餐盘还没收走，他却先起身给你让出通向门口的路。",
+    "n3_ignore_deliberate": "管理员把归还日期盖在封底，印章的一角压住了他的笔迹。",
+    "n3_dont_deliberate": "你在借书卡上写下自己的名字，又停在签名的最后一笔。"
+  },
+  "meta_comic": {
+    "n1_deliberate": "黑边外落下一滴真正的雨，纸上的你却仍是干的。",
+    "n2_speak_deliberate": "那只鸽子抖了抖三根羽毛，第四根只画出一个没闭合的圈。",
+    "n2_silent_deliberate": "作者添的问号悬在你头顶，影子却落在格子外。",
+    "n2_look_deliberate": "笔尖在纸上停得太久，墨聚成一个比你还高的黑点。",
+    "n3_line_deliberate": "咖啡馆门把手第一次有了温度，你把那根错画的羽毛攥得更紧。",
+    "n3_pigeon_deliberate": "窗外的白色草稿忽然被人擦出一条窄缝，露出下一页的线。",
+    "n3_think_deliberate": "你把指尖移到没画完的角落，那里没有任何线条回应。",
+    "n3_author_deliberate": "墨点从悬着的笔尖落下，正好砸在那句你没有说完的话上。",
+    "n3_escape_deliberate": "页边传来翻纸声，黑线随着读者的手指轻轻翘起。",
+    "n4_coffee_deliberate": "其中一个没有脸的人突然向你转身，轮廓里露出半只眼睛。",
+    "n4_change_deliberate": "你脚边的沙子开始有了重量，作者画到第五格时手腕已在发抖。",
+    "n4_sleep_deliberate": "下一页的一角已经压在你手边，纸后透出一道未画完的窗。",
+    "n4_draft_deliberate": "作者拿起橡皮，窗框的一边在你眼前慢慢消失。",
+    "n4_blank_deliberate": "空白处落了一根铅笔屑，第一次没有任何旁白替你命名它。",
+    "n4_dream_deliberate": "梦里的海浪退下后，纸上留下作者没预先画过的一小块湿痕。",
+    "n4_fight_deliberate": "格线向你脚边涨过来，作者的手停在半空，等你的下一句。",
+    "n4_reader_deliberate": "橡皮屑落在你肩上，那段被擦去的边界后竟还有另一间房。",
+    "n4_author_deliberate": "废稿的餐桌旁留着一个空椅位，没有终点的路却画着你的脚印。",
+    "n4_escape_deliberate": "卧室的床沿随纸缝一抖，睡着的人翻了个身，还不知道你在这边。",
+    "n5_author2_deliberate": "截稿单的两格之间没有分隔线，作者把尺递给了你。",
+    "n5_escape2_deliberate": "背页的人抓住破裂的床沿，纸从她指下发出快要断开的响。"
+  },
+  "er": {
+    "n1_deliberate": "儿科床位的呼叫铃先响，另一端心电监护屏却同时亮了红色。"
+  },
+  "aot": {
+    "n1_deliberate": "林线里又有一匹没有骑手的马冲出，缰绳拖过你的靴边。",
+    "n2_attack_deliberate": "灌木里还插着一截断刀，巨人的影子盖住它时你才看清刻在柄上的编号。",
+    "n2_evade_deliberate": "木屋门上有一道新鲜的抓痕，深得不像普通人的指甲留下。",
+    "n2_signal_deliberate": "第二枚黑色信号弹在墙内升起，位置比第一枚低得多。",
+    "n3_fight_deliberate": "最前面的巨人并未扑来，而是等后面的队列合拢。",
+    "n3_wall_deliberate": "门轴仍在转动，有人从墙内伸手想把它关上，却被人群撞开。",
+    "n3_cabin_deliberate": "老人把木门扣上时留了一条缝，窗外的巨人从缝前慢慢经过。",
+    "n3_run_deliberate": "车辙在岔路处一分为二，较深的那条压着一片染血绷带。",
+    "n3_forest_deliberate": "瓦斯表的指针又落一格，木屋烟囱却还冒着能辨路的白烟。",
+    "n3_open_deliberate": "草地上的两骑已经下马，一人正试着把伤者拖向树影。",
+    "n3_disobey_deliberate": "车轮又陷深一寸，驾驶的人把信筒绑到你的马鞍上。"
+  },
+  "hp": {
+    "n1_deliberate": "你把空着的魔杖套放到桌上，长桌那端终于有人抬眼看你。",
+    "n2_wand_deliberate": "树枝上有一道旧刻痕，恰好落在你拇指最顺手的位置。",
+    "n2_class_deliberate": "最后一排的学生把咒语念错了，光却比前排的任何一次都稳。",
+    "n2_dorm_deliberate": "莉莉把她的课程表翻过来，背面画着通往教室的楼梯变化。",
+    "n3_carve_deliberate": "你掌心沾满木屑，第一次没有把那根木头叫作别人不要的魔杖。",
+    "n3_intent_deliberate": "羽毛笔停下后，书页上的折痕还在，你把两件事分开记进本子。",
+    "n3_prove_deliberate": "羊皮纸上被新生添了一个你没画出的岔口，你们一起改正了路线。"
+  },
+  "got": {
+    "n1_deliberate": "号角终于吹出第二声，城墙上有人提着尚未点燃的火盆跑过去。",
+    "n2_wall_deliberate": "守墙的人把弩递给你，弩弦上已经结出一层薄冰。",
+    "n2_hide_deliberate": "石像下的泥土松了一块，像曾有人在这里匆匆埋过信。",
+    "n2_wolf_deliberate": "白狼转身走了几步，又回头等你，脚印恰好避开结冰的地面。",
+    "n3_stark_deliberate": "蜡封底下还压着一小块织物，线色与你童年那件旧披风相同。",
+    "n3_fight_deliberate": "绳梯上的第一名守卫滑下去时回头看了你一眼，没有开口。",
+    "n3_run_deliberate": "马厩门被人从里面顶住，推车上的孩子已经伸手去帮你们推。",
+    "n3_name_deliberate": "狼把鼻尖贴在你的手上，远处城墙又落下一块燃着火的木板。",
+    "n3_ride_deliberate": "侧门的火油味渐浓，白狼停在即将被点燃的线外。"
+  },
+  "ashduel": {
+    "n14_deliberate": "玄的剑尖又低了一寸，台下有人第一次叫出了名单上的名字。",
+    "n15_deliberate": "短刃在玄袖口露出一线冷光，离他最近的镇民还没看见。"
+  },
+  "seventhinterview": {
+    "n12_deliberate": "执法记录仪的红灯照在雨刷上，后座那道人影正随着你的呼吸起伏。",
+    "n13_deliberate": "警员把笔放下，问了死者的名字；你握着方向盘，指节终于松开一根。"
+  },
+  "whitehour": {
+    "w12_deliberate": "墙面传来的低音忽然与光斑同频，你站的位置开始有了回声。"
+  }
+}

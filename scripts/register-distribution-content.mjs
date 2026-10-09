@@ -21,7 +21,7 @@ const packsRoot = join(poolRoot, 'packs');
 const registryPath = join(poolRoot, 'registry.json');
 const generatedPath = join(poolRoot, 'registry.generated.js');
 const orderPath = join(poolRoot, 'display-order.json');
-const allowedDirections = new Set(['left', 'right', 'up', 'down']);
+const allowedDirections = new Set(['left', 'right']);
 
 const args = process.argv.slice(2);
 const replace = args.includes('--replace');
@@ -171,6 +171,7 @@ function validatePackage(entryPath) {
   if (!nodeIds.length || !world.data[world.startNode]) fail(`${world.id}: 起点不存在`);
   const endings = nodeIds.filter(id => world.data[id]?.isEnding === true);
   if (world.nodes !== nodeIds.length - endings.length) fail(`${world.id}: nodes 元数据与非结局节点数不符`);
+  if (world.nodes < 10) fail(`${world.id}: 剧情节点不得少于 10 个`);
   if (world.ends !== endings.length || !endings.length) fail(`${world.id}: ends 元数据与结局数不符`);
 
   for (const nodeId of nodeIds) {
@@ -181,8 +182,8 @@ function validatePackage(entryPath) {
     if (node.isEnding) {
       if (exits.length) fail(`${world.id}/${nodeId}: 结局不能再有出口`);
       if (!node.title?.trim() || !node.summary?.trim()) fail(`${world.id}/${nodeId}: 结局缺少标题或摘要`);
-    } else if (!exits.length) {
-      fail(`${world.id}/${nodeId}: 非结局节点没有出口`);
+    } else if (!exits.length || exits.length > 2) {
+      fail(`${world.id}/${nodeId}: 非结局节点须有 1–2 个出口`);
     }
     for (const [direction, target] of exits) {
       if (!allowedDirections.has(direction)) fail(`${world.id}/${nodeId}: 不支持方向 ${direction}`);

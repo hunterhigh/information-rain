@@ -20,7 +20,7 @@ CATALOG = ROOT / "docs/products/distribution/story-production/PUBLISH-METADATA.j
 DEFAULT_OUTPUT = ROOT / "dist/story-production-packs"
 NODE = re.compile(r"^## ([ne]\d+) · (.+)$", re.MULTILINE)
 CHOICE = re.compile(r"^- → ([ne]\d+)：(.+)$", re.MULTILINE)
-DIRECTIONS = ("left", "right", "up", "down")
+DIRECTIONS = ("left", "right")
 
 
 def parse_story(path: Path) -> tuple[str, dict]:
@@ -50,13 +50,15 @@ def parse_story(path: Path) -> tuple[str, dict]:
                 "summary": body.split("。", 1)[0].strip() + "。",
             }
         else:
-            if not 1 <= len(choices) <= 4:
+            if not 1 <= len(choices) <= 2:
                 raise ValueError(f"{path}: {node_id} has {len(choices)} choices")
             data[node_id] = {
                 "text": body,
                 "exits": {direction: choice.group(1) for direction, choice in zip(DIRECTIONS, choices)},
                 "labels": {direction: choice.group(2).strip() for direction, choice in zip(DIRECTIONS, choices)},
             }
+    if sum(not item.get("isEnding", False) for item in data.values()) < 10:
+        raise ValueError(f"{path}: story needs at least ten non-ending nodes")
     return title, data
 
 

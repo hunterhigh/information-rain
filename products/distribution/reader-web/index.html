@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
     <title>信息雨</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.2.0/swiper-bundle.min.css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./reader-utilities.css">
     <script src="https://cdn.jsdelivr.net/npm/xstate@5.33.2/dist/xstate.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@14.2.0/swiper-bundle.min.js"></script>
     <script src="./content-pool/registry.generated.js"></script>
@@ -235,6 +235,11 @@
             .world-stage {
                 transform: translateX(calc((var(--info-rail-width) + var(--info-rail-right-gap) - 84px) / 2));
             }
+        }
+
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .sidebar-right { display: none !important; }
+            .world-stage { transform: none; }
         }
 
         .world-stage {
@@ -1014,6 +1019,7 @@
             color: rgba(255,255,255,0.6);
             margin-top: 0.5rem;
         }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body class="worlds-active flex h-screen w-screen overflow-hidden bg-[#0a0a0f]">
@@ -2591,6 +2597,10 @@
             const rejectSwipe = () => {
                 if (swipeSnapshot) clearSwipeFeedback();
             };
+            if (dir !== 'left' && dir !== 'right') {
+                rejectSwipe();
+                return;
+            }
             if (experienceMatches('worlds.reading.typing') || experienceMatches('worlds.reading.transitioning') || experienceMatches('worlds.reading.ending')) {
                 rejectSwipe();
                 return;
@@ -2756,13 +2766,21 @@
         // 事件监听
         // ============================================================
         function setupEvents() {
-            // Swiper 不可用时保留滚轮降级；正文滚动始终优先。
+            // 封面由 Swiper 处理滚轮；阅读态由正文滚动与世界切换共同处理。
             let wheelAccum = 0;
             let wheelResetTimer = null;
             document.addEventListener('wheel', (e) => {
-                if (worldSwiper) return;
                 if (currentPage !== 'worlds' || !el.stage.contains(e.target)) return;
-                if (experienceMatches('worlds.reading') && (el.nodeText.contains(e.target) || e.deltaY < 0)) return;
+                const reading = experienceMatches('worlds.reading');
+                if (!reading && worldSwiper) return;
+                if (reading && el.nodeText.contains(e.target)) {
+                    const atTop = el.nodeText.scrollTop <= 1;
+                    const atBottom = el.nodeText.scrollTop + el.nodeText.clientHeight >= el.nodeText.scrollHeight - 1;
+                    if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+                        wheelAccum = 0;
+                        return;
+                    }
+                }
                 wheelAccum += e.deltaY;
                 clearTimeout(wheelResetTimer);
                 wheelResetTimer = setTimeout(() => { wheelAccum = 0; }, 180);
