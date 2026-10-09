@@ -13,6 +13,7 @@ All notable changes follow Semantic Versioning.
 
 ## Unreleased
 
+- 发布分发预览 `demo-v0.4.0`：61 部作品统一至少 10 个可达剧情节点、每节点最多左右两个选项；封面和阅读态以上下滑切换作品，剧情按需载入。GitHub `main` 为 `1987f1d`，Cloudflare Pages 部署为 `80abd16e-dcb6-401b-b54f-b3fd2e2481da`；真机触摸与人类逐路径文学审读仍待完成。
 - 采用 TikTok 式整屏滑动方向：手机端隐藏常驻方向箭头，以左右分支文字和跟手时的目标提示说明路径；手指拖动整屏，松手后按方向完成切换。正文滚动时不抢占有效的滚动手势。
 - 将手机划动对比页改为五个自动循环 GIF，打开后无需拖动即可直接观察；沿用现有作品画面，并将 GIF 纳入 Cloudflare 静态预览构建。
 - 修复手机动效对比页的拖动事件分工：触屏优先走原生 Touch Events，鼠标/触控笔走 Pointer Events，避免两类事件抢占同一次手势。

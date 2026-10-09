@@ -1,6 +1,6 @@
 # 当前工作基线
 
-状态：活动｜最近核对：2026-10-08
+状态：活动｜最近核对：2026-10-09
 
 本文件回答“现在以什么为准、正在做什么、下一步是什么”。详细定义和证据仍由各自权威文档保存。
 
@@ -13,18 +13,18 @@
 ## 活动状态
 
 - **有效代码基线**：[`products/distribution/reader-web/`](../../products/distribution/reader-web/)；读者页面、运行时内容池和页面专属资源位于此处。
-- **内容来源**：61 部作品统一存于 [`content-pool/packs/`](../../products/distribution/reader-web/content-pool/README.md)；原有 23 部保持原文，新增 38 部由自供给故事制作区转换并追加到展示顺序。HTML 只读取生成目录，顺序由 `display-order.json` 管理。见[决定 0014](decisions/0014-unified-distribution-content-pool.md)和[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
+- **内容来源**：61 部作品统一存于 [`content-pool/packs/`](../../products/distribution/reader-web/content-pool/README.md)；原有 23 部与新增 38 部均已扩写或迁移为至少 10 个可达剧情节点、每节点至多两个选择。顺序由 `display-order.json` 管理。见[决定 0016](decisions/0016-binary-story-vertical-worlds.md)和[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
 - **外部内容资料**：[自供给分发内容资料库](../research/content-supply/README.md)现有两轮共 12 部、30 个 Twine 源文件；第二轮 5 部已生成节点、选项、跳转和结局的来源结构图，并记录静态断链及条件待验路径。它是未来内容生产的参考资料，与当前读者内容池分开；目前没有将这些作品转为产品内容。
-- **自供给故事制作**：资料库的 38 个方向已有完整可达的分支草稿和统一规格封面，见[制作索引](../products/distribution/story-production/README.md)。38 包已经转换、格式校验并按所有者本轮指示以「短篇」标识注册到公开预览内容池；原有 23 部未改动。独立文学审读与逐路径人类计时仍未完成，不得把注册视为「故事就绪」，详见[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
+- **自供给故事制作**：资料库的 38 个方向已有至少 10 个可达剧情节点的分支草稿和统一规格封面，见[制作索引](../products/distribution/story-production/README.md)。38 包已转换并作为「短篇」进入公开预览；原有 23 部也已编辑迁移。独立文学审读与逐路径人类计时仍未完成，详见[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
-- **当前分发产品代码基线**：目录与文档治理提交 `01236f6`；当前产品版本为 `demo-v0.3.1`，性能修正提交 `7939508` 已标记并推送至 GitHub `main`。后续工作基于远端 `main`。
-- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览内容及封面；`demo-v0.3.1` 压缩静态预览封面。
-- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `7939508`（Cloudflare 部署 `01969c0b-6aa4-4538-9200-dda8d48a45b0`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。项目所有者接受临时公开访问；当前没有 Cloudflare Access 限制。
+- **当前分发产品代码基线**：当前产品版本为 `demo-v0.4.0`，Git 提交 `1987f1d` 已标记并推送至 GitHub `main`。
+- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览；`demo-v0.3.1` 压缩封面；`demo-v0.4.0` 更新双选故事图、纵向作品导航与按需加载。
+- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `1987f1d`（Cloudflare 部署 `80abd16e-dcb6-401b-b54f-b3fd2e2481da`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
-- **手机分支视觉已选定并接入**：左/右/上滑分别选择当前节点分支；下滑整屏进入下一部作品。分支采用“光流牵引”，整张阅读画面跟随手指，不出现拖动文字框。手机正文滚动由应用控制：未到边界时滑动正文，到顶部/底部后下一次相应方向手势才切换世界/分支。上方出口提示显示具体文案。已修复多点触摸清理、正文手势交接和切换世界时的快照绘制；自动检查与线上 HTTP 检查通过，真实手机体验仍待核验。无上方分支时的反馈和返回上一部作品的方式仍待决定。依据见[决定 0015](decisions/0015-full-screen-swipe-and-branch-navigation.md)及[手机滑动方向提示参考](../products/distribution/mobile-swipe-review/README.md)。
-- **本轮手机优化**：阅读舞台接管触摸，上划选择上方分支、下划进入下一世界，并仅准备当前与相邻封面。作品节点数据启动时整体加载；23 张封面约 3.9 MB，旧实现会一次性引用全部封面。版本 `demo-v0.2.0` 已推送并部署；线上 HTTP 检查通过，手机真机验收仍待完成。Chrome DevTools 性能 MCP 未配置，因此卡顿的实测来源仍待确认。
+- **手机分支视觉已选定并接入**：左/右滑选择当前节点分支，上滑下一部、下滑上一部；封面与阅读态遵循相同纵向语义。正文可滚动，到边界后再交接作品切换；分支保持“光流牵引”反馈。依据见[决定 0016](decisions/0016-binary-story-vertical-worlds.md)。浏览器手机尺寸预览与线上打开通过，真实手机触摸手感仍待核验。
+- **本轮加载优化**：仅准备当前与相邻封面；静态发布把 107.5 MiB 原图压为约 11.4 MiB 的舞台图和缩略图；作品节点按需读取并预取邻近作品，本地静态 CSS 替代运行时 Tailwind CDN。尚无真实用户设备上的性能指标，卡顿改善程度仍待测量。
 
 ## 权威材料阅读顺序
 
@@ -38,6 +38,6 @@
 
 ## 当前下一步
 
-核验手机端整屏滑动与左右分支在真实设备上的手感和辨识度；随后检查主要阅读流程，并决定是否恢复 Access 受控访问、配置 GitHub Actions 自动部署及演练回退。工具 Agent 保持预留，不进入分发产品的构建与部署。
+核验手机端整屏滑动、正文滚动交接与左右分支在真实设备上的手感；收集首屏加载与切换耗时，再安排内容路径的真实读者审读。工具 Agent 保持预留。
 
 内容供给下一步是按[制作计划](../products/distribution/story-production/PLAN.md)完成 38 篇的独立审稿与实读，必要时修订预览中的内容包。当前注册与部署是所有者明确授权的短篇预览，不改变手机端真机验收状态。
