@@ -17,6 +17,7 @@
 - [Liblib/Lovart 研究草稿](market/2026-09-29-liblib-lovart-research-draft.md)
 - [开源项目参考](architecture/2026-09-28-github-project-references.md)
 - [平台架构参考调查](architecture/2026-09-29-platform-architecture-reference-survey.md)
+- [纵向内容流的加载策略参考](architecture/2026-10-09-feed-loading.md)
 - [全球内容分发合规初探](compliance/2026-09-28-distribution-compliance.md)
 - [自供给分发内容资料库](content-supply/README.md)
 

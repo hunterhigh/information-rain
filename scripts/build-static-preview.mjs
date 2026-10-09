@@ -1,7 +1,8 @@
-import { cp, mkdir, readdir, rm, stat } from 'node:fs/promises'
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { execFileSync } from 'node:child_process'
+import { runInNewContext } from 'node:vm'
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const source = path.join(repoRoot, 'products/distribution/reader-web')
@@ -21,23 +22,30 @@ for (const directory of ['content-pool/packs', 'design']) {
 }
 
 await cp(path.join(source, 'index.html'), path.join(output, 'index.html'))
-await cp(path.join(source, 'content-pool/registry.generated.js'), path.join(output, 'content-pool/registry.generated.js'))
+const registrySource = await readFile(path.join(source, 'content-pool/registry.generated.js'), 'utf8')
+const registryContext = { window: {} }
+runInNewContext(registrySource, registryContext, { timeout: 1000 })
+const runtimeWorlds = registryContext.window.InformationRainContentRegistry.worlds.map(world => {
+  const image = world.image.replace(/\.(?:jpe?g|png)$/i, '.webp')
+  return {
+    ...world,
+    image,
+    thumbnail: image.replace(/\.webp$/i, '-thumb.webp'),
+  }
+})
+await writeFile(
+  path.join(output, 'content-pool/registry.generated.js'),
+  `window.InformationRainContentRegistry = ${JSON.stringify({ schemaVersion: 1, worlds: runtimeWorlds })};\n`,
+)
 await cp(path.join(source, 'design/home-tab-ambient.jpg'), path.join(output, 'design/home-tab-ambient.jpg'))
 await cp(path.join(source, 'design/mobile-swipe-motion-comparison.html'), path.join(output, 'design/mobile-swipe-motion-comparison.html'))
 await cp(path.join(source, 'design/mobile-swipe-motion-gifs'), path.join(output, 'design/mobile-swipe-motion-gifs'), { recursive: true })
 
-const packsRoot = path.join(source, 'content-pool/packs')
-for (const entry of await readdir(packsRoot, { withFileTypes: true })) {
-  if (!entry.isDirectory()) continue
-  const sourceImages = path.join(packsRoot, entry.name, 'images')
-  try {
-    if ((await stat(sourceImages)).isDirectory()) {
-      await cp(sourceImages, path.join(output, 'content-pool/packs', entry.name, 'images'), { recursive: true })
-    }
-  } catch (error) {
-    if (error.code !== 'ENOENT') throw error
-  }
-}
+execFileSync('python', [
+  path.join(repoRoot, 'scripts/optimize-preview-images.py'),
+  path.join(source, 'content-pool/packs'),
+  path.join(output, 'content-pool/packs'),
+], { stdio: 'inherit' })
 
 await cp(path.join(repoRoot, 'scripts/cloudflare-preview-headers'), path.join(output, '_headers'))
 console.log(`Static preview prepared at ${path.relative(repoRoot, output)}`)
