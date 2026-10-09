@@ -10,3 +10,5 @@
 | [`scripts/build-static-preview.mjs`](../../scripts/build-static-preview.mjs) | 从网页源码构建精简的静态发布包；输出到仓库根 `dist/cloudflare-preview/`。 |
 
 产品本体、路线图、权利审查结论、商业判断和外部研究不在此重复，分别见 [`docs/products/distribution/`](../../docs/products/distribution/)、[`docs/business/`](../../docs/business/)、[`docs/research/`](../../docs/research/)。
+
+网页工具类样式由 `reader-web/reader-tailwind.css` 生成到 `reader-web/reader-utilities.css`。修改 HTML 中的 Tailwind 类后，执行 `npx --yes tailwindcss@3.4.17 -i products/distribution/reader-web/reader-tailwind.css -o products/distribution/reader-web/reader-utilities.css --content products/distribution/reader-web/index.html --minify`，并将生成文件一起提交；读者页面无需运行时样式 CDN。

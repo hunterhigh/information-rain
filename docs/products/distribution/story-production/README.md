@@ -4,7 +4,7 @@
 
 按[执行计划](PLAN.md)与[叙事编辑标准](EDITORIAL-STANDARD.md)，把[资料库候选](../../../research/content-supply/notes/2026-10-08-fission-expanded-audit.md)发展为独立故事。此处保存制作过程；正式运行内容仍只进入[内容池](../../../../products/distribution/reader-web/content-pool/README.md)。38 张封面已配齐，见[封面清单](COVER-GALLERY.md)与[视觉设定](COVERS.json)。封面不作为「故事就绪」的前置条件。
 
-**当前交付：38/38 个方向已有完整可达的分支正文与对应封面，全部已建路径审稿记录；尚未完成独立朗读与实读计时，所以仍标「在写」。** 结构检查是 38/38 通过，不等同于文学审稿或读者验证。
+**当前交付：38/38 个方向已有完整可达的分支正文与对应封面；每篇至少 10 个可达剧情节点、每节点最多两个选项。** 审稿记录中的代表路径已按新图重算；尚未完成独立朗读与实读计时，所以仍标「在写」。结构检查是 38/38 通过，不等同于文学审稿或读者验证。
 
 38 篇已用 [`prepare-story-production-packs.py`](../../../../scripts/prepare-story-production-packs.py) 按[展示字段表](PUBLISH-METADATA.json)转成内容包，并按所有者本轮指示以「短篇」标识注册到公开预览内容池。首轮文本核查见[编辑审查记录](EDITORIAL-AUDIT-2026-10-08.md)，未完成的审读与本次发布例外见[发布准备记录](DEPLOYMENT-READINESS.md)。注册不改变下表的「在写」审稿状态。
 

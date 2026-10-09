@@ -4,6 +4,11 @@ import { join, resolve } from 'node:path';
 import { runInNewContext } from 'node:vm';
 
 const output = resolve('dist/cloudflare-preview');
+const html = readFileSync(join(output, 'index.html'), 'utf8');
+const css = readFileSync(join(output, 'reader-utilities.css'), 'utf8');
+assert.ok(css.length > 1000, 'local reader styles missing');
+assert.match(html, /href="\.\/reader-utilities\.css"/);
+assert.doesNotMatch(html, /cdn\.tailwindcss\.com/);
 const source = readFileSync(join(output, 'content-pool/registry.generated.js'), 'utf8');
 const context = { window: {} };
 runInNewContext(source, context, { timeout: 1000 });
