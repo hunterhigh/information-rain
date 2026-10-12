@@ -1,6 +1,6 @@
 # 当前工作基线
 
-状态：活动｜最近核对：2026-10-09
+状态：活动｜最近核对：2026-10-12
 
 本文件回答“现在以什么为准、正在做什么、下一步是什么”。详细定义和证据仍由各自权威文档保存。
 
@@ -18,13 +18,13 @@
 - **自供给故事制作**：资料库的 38 个方向已有至少 10 个可达剧情节点的分支草稿和统一规格封面，见[制作索引](../products/distribution/story-production/README.md)。38 包已转换并作为「短篇」进入公开预览；原有 23 部也已编辑迁移。独立文学审读与逐路径人类计时仍未完成，详见[发布准备记录](../products/distribution/story-production/DEPLOYMENT-READINESS.md)。
 - **目录状态**：活动产品源码已从实验目录迁入正式产品边界；当前构建脚本生成根目录 `dist/cloudflare-preview/`，该产物可删除并重建。
 - **目录治理依据**：工具 Agent 与分发产品共用一个 Git 仓库，但各有独立源码和文档边界；愿景、商业策划、研究证据及项目治理分别归档。详见[决定 0012](decisions/0012-single-repository-product-boundaries.md)与[项目文档索引](README.md)。
-- **当前分发产品代码基线**：当前产品版本为 `demo-v0.4.2`，Git 提交 `0f4b7b6` 与同名标签已推送至 GitHub。
-- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览；`demo-v0.3.1` 压缩封面；`demo-v0.4.0` 更新双选故事图、纵向作品导航与按需加载；`demo-v0.4.1` 修复封面纵向切换；`demo-v0.4.2` 为 iOS Safari 提供轻量封面触摸路径。
-- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `0f4b7b6`（Cloudflare 部署 `d8f8946e-9cb1-4086-9111-9fbc9fa299a4`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
+- **当前分发产品代码基线**：当前产品版本为 `demo-v0.4.3`，Git 提交 `e73199e` 与同名标签已推送至 GitHub。
+- **当前有效版本记录**：`demo-v0.1.0` 为历史基线；`demo-v0.2.0` 汇总主页、内容池与手机导航更新；`demo-v0.3.0` 增加 38 篇短篇预览；`demo-v0.3.1` 压缩封面；`demo-v0.4.0` 更新双选故事图、纵向作品导航与按需加载；`demo-v0.4.1` 修复封面纵向切换；`demo-v0.4.2` 为 iOS Safari 提供轻量封面触摸路径；`demo-v0.4.3` 修复手机舞台被底部导航遮挡的视口高度冲突。
+- **当前工作阶段**：阶段 0 文档与仓库边界整理完成；阶段 1 静态预览已发布。手机和桌面统一使用 Cloudflare Pages [主地址](https://information-rain-preview.pages.dev/)；手机动效比较页为[同域名子页面](https://information-rain-preview.pages.dev/design/mobile-swipe-motion-comparison.html)。当前生产部署对应 `e73199e`（Cloudflare 部署 `d62bf8d6-6df0-4974-95e4-81164435e967`），预览地址与访问边界见[决定 0013](decisions/0013-public-cloudflare-preview.md)。
 - **已完成动画调整**：主 Demo 采用“轻微落位”；对比页留档，原位叠化与柔焦叠化是未来备选，逐行显现是历史探索。`UT-01` 已关闭，不属于未决事务；未来若要调整，另建新事项。见[决定 0010](decisions/0010-reading-interaction-refinement.md)。
 - **本次阅读体验改动**：节点文字切换、字体大小、舞台尺寸、桌面切换时长和手机手势/舞台适配均已实施；尚待所有者真机体验，当前不安排 Demo 试玩。以后是否试用由产品路线图阶段与所有者决定。
 - **手机分支视觉已选定并接入**：左/右滑选择当前节点分支，上滑下一部、下滑上一部；封面与阅读态遵循相同纵向语义。正文可滚动，到边界后再交接作品切换；分支保持“光流牵引”反馈。依据见[决定 0016](decisions/0016-binary-story-vertical-worlds.md)。浏览器手机尺寸预览与线上打开通过，真实手机触摸手感仍待核验。
-- **iPhone Safari 封面白屏/卡住待复验**：所有者在 `demo-v0.4.1` 的 iPhone Safari 上报告首次下滑后页面变白或卡住，未提供浏览器错误文本。`demo-v0.4.2` 让 iOS 封面避开 61 页 Swiper 轨道，使用原有舞台触摸路径，并修复该路径在移动时提前清除手势的问题；封面不再使用 Swiper 的整屏跟手动画。行为测试、内容审计与静态构建通过，线上主页面可读取新版代码；Safari 真机效果待所有者复测。长轨道是否为白屏根因仍属推断。
+- **iPhone Safari 真机反馈**：所有者确认 `demo-v0.4.2` 不再出现下滑白屏或卡住，随后报告部分阅读卡片被底部导航盖住、左右分支选项不可见。`demo-v0.4.3` 移除覆盖可视视口高度的 `h-screen` 工具类，保留底部导航空间；行为测试、内容审计、静态构建及线上 HTML 检查通过。遮挡是否完全解除，待所有者真机复验；先前白屏的确切根因没有 Safari 错误日志佐证。
 - **本轮加载优化**：仅准备当前与相邻封面；静态发布把 107.5 MiB 原图压为约 11.4 MiB 的舞台图和缩略图；作品节点按需读取并预取邻近作品，本地静态 CSS 替代运行时 Tailwind CDN。尚无真实用户设备上的性能指标，卡顿改善程度仍待测量。
 
 ## 权威材料阅读顺序
