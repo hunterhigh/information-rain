@@ -6,6 +6,10 @@ import { fileURLToPath } from 'node:url';
 
 const folder = dirname(fileURLToPath(import.meta.url));
 const html = readFileSync(join(folder, 'index.html'), 'utf8');
+const bodyTag = html.match(/<body\b[^>]*>/)?.[0] ?? '';
+assert.ok(bodyTag, '找不到页面 body 标签');
+assert.doesNotMatch(bodyTag, /\bh-screen\b/, '手机页面不能被 100vh 工具类覆盖可视视口高度');
+assert.match(html, /body\s*\{[^}]*height:\s*100svh;[^}]*height:\s*100dvh;/, '手机页面应以 Safari 可视视口高度布局');
 const start = html.indexOf('function handleDirection(');
 const end = html.indexOf('// 结局展示', start);
 assert.ok(start >= 0 && end > start, '找不到方向处理函数');
