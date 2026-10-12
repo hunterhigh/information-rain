@@ -145,6 +145,15 @@
 - 封面氛围图层不再拦截触摸；Swiper 在封面舞台可见后初始化。未改动作品内容，内容 SHA-256 仍为 `2d819d8b47d0d8d980c442feeba33f39900e8a350f4737bbbb286a9a45bab58a`。
 - Wrangler 报告部署完成；主域名页面已包含本次两项修复，页面、CSS、内容注册表及抽查的剧情 JSON 返回 200。浏览器控制连接失败，未能实际完成线上拖动；手机真机触摸仍待核验。
 
+### 2026-10-12 `demo-v0.4.2` iOS 封面触摸路径
+
+- 固定部署地址：[https://d8f8946e.information-rain-preview.pages.dev/](https://d8f8946e.information-rain-preview.pages.dev/)
+- 部署 ID：`d8f8946e-9cb1-4086-9111-9fbc9fa299a4`
+- 对应 GitHub `main` 提交：`0f4b7b6`；标签：`demo-v0.4.2`。
+- 环境/分支：Production / `main`
+- 所有者在 iPhone Safari 上报告前一版封面首次下滑后页面变白或卡住。此版为 iOS 避开 61 页 Swiper 轨道，改用舞台触摸切换并阻止浏览器原生下拉；修复备用触摸路径过早清除手势。未改动作品内容；白屏根因尚未由 Safari 错误日志确认。
+- Wrangler 报告部署完成；主域名页面返回 200 并包含新版路径。模拟触摸测试、内容审计和静态构建通过；iPhone Safari 真实滑动仍待所有者复测。
+
 ## 复核条件
 
 当 Cloudflare Access 权限可用、预览受众扩大、要接入新作品或准备正式发布时，复核本决定；更改访问范围前更新路线图和部署记录。

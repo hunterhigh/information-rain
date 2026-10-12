@@ -29,7 +29,7 @@
 - 手机阅读交互改为左/右选择故事分支、上滑下一部、下滑上一部；正文滚动到边界后才由作品切换接管。光流牵引反馈仍用于切换，真实手机上的整段流程仍待验收。详见[决定 0016](../../project/decisions/0016-binary-story-vertical-worlds.md)。
 - 产品验证是后续打磨和上线过程的一部分；“暂缓 Demo 测试”表示当前不安排体验试验，不表示未来产品不验证。
 - 项目所有者于 2026-09-30 确认当前作品已通过审查。作品审查不替代目标市场的平台规则、地域合规和运营条件核对。
-- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、拆分后的作品元数据与剧情、压缩图片和手机动效比较页；源码仓库内的内容草稿与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `3e5a3e4`（`demo-v0.4.1`，部署 ID `011af836-05dc-4b89-a288-ea52aed1f539`）；封面纵向滑动仍待实际浏览器和手机触摸复验。
+- 静态发布包由 `node scripts/build-static-preview.mjs` 生成到 `dist/cloudflare-preview/`，包含主读者页、拆分后的作品元数据与剧情、压缩图片和手机动效比较页；源码仓库内的内容草稿与评审文档不进入发布包。Cloudflare Pages 项目 `information-rain-preview` 使用 Wrangler Direct Upload，当前生产部署对应 GitHub `main` 的 `0f4b7b6`（`demo-v0.4.2`，部署 ID `d8f8946e-9cb1-4086-9111-9fbc9fa299a4`）；iPhone Safari 封面触摸仍待所有者复测。
 
 ## 如何更新路线图
 
