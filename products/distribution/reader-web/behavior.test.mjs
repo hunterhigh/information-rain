@@ -104,6 +104,7 @@ const swiperContext = {
     worldSwiper: {},
   },
   window: {
+    navigator: { userAgent: 'desktop', platform: 'Win32', maxTouchPoints: 0 },
     Swiper: class {
       constructor() {
         visibleWhenSwiperInitialized = swiperStageClasses.has('swiper-ready');
@@ -114,6 +115,65 @@ const swiperContext = {
 runInNewContext(html.slice(swiperStart, swiperEnd), swiperContext);
 swiperContext.initWorldSwiper();
 assert.equal(visibleWhenSwiperInitialized, true, 'Swiper 初始化时封面舞台必须已显示，避免按零尺寸计算滑动');
+const iosClasses = new Set();
+let iosSlidesRendered = false;
+const iosContext = {
+  renderWorldSlides: () => { iosSlidesRendered = true; },
+  el: { stage: { classList: { add: name => iosClasses.add(name) } } },
+  window: {
+    navigator: { userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)', platform: 'iPhone', maxTouchPoints: 5 },
+    Swiper: class { constructor() { throw new Error('iPhone must not initialize the long slide track'); } },
+  },
+};
+runInNewContext(html.slice(swiperStart, swiperEnd), iosContext);
+iosContext.initWorldSwiper();
+assert.equal(iosSlidesRendered, false, 'iPhone 不应构建 61 页的封面轨道');
+assert.equal(iosClasses.has('touch-cover-fallback'), true, 'iPhone 应启用封面触摸路径');
+assert.match(html, /\.world-stage\.touch-cover-fallback\s*\{[^}]*touch-action:\s*none;/, 'iPhone 封面应阻止 Safari 原生页面滚动');
+const coverSwipeStart = html.indexOf('function switchCoverByGesture(');
+const coverSwipeEnd = html.indexOf('function switchWorldByGesture(', coverSwipeStart);
+assert.ok(coverSwipeStart >= 0 && coverSwipeEnd > coverSwipeStart, '找不到封面触摸切换函数');
+const coverDeltas = [];
+const coverContext = { switchWorld: delta => coverDeltas.push(delta) };
+runInNewContext(html.slice(coverSwipeStart, coverSwipeEnd), coverContext);
+coverContext.switchCoverByGesture(0, -100);
+coverContext.switchCoverByGesture(0, 100);
+coverContext.switchCoverByGesture(100, 40);
+coverContext.switchCoverByGesture(0, 40);
+assert.deepEqual(coverDeltas, [1, -1], '封面仅在有效纵向滑动时切换，上滑下一部、下滑上一部');
+const setupStart = html.indexOf('function setupEvents() {');
+const setupEnd = html.indexOf('function toggleLike(', setupStart);
+assert.ok(setupStart >= 0 && setupEnd > setupStart, '找不到触摸监听器');
+const touchListeners = {};
+const touchOptions = {};
+const coverTouchEvents = [];
+class TouchTarget { closest() { return null; } }
+const touchContext = {
+  document: { addEventListener() {} },
+  el: {
+    stage: {
+      addEventListener: (name, callback, options) => { touchListeners[name] = callback; touchOptions[name] = options; },
+      getBoundingClientRect: () => ({ width: 300, height: 530 }),
+    },
+    searchInput: { addEventListener() {} },
+  },
+  Element: TouchTarget,
+  currentPage: 'worlds',
+  worldSwiper: null,
+  experienceMatches: () => false,
+  clearSwipeFeedback() {},
+  switchCoverByGesture: (dx, dy) => coverTouchEvents.push([dx, dy]),
+};
+runInNewContext(html.slice(setupStart, setupEnd), touchContext);
+touchContext.setupEvents();
+assert.equal(touchOptions.touchmove?.passive, false, '封面移动监听器须能阻止 Safari 原生下拉');
+const touchTarget = new TouchTarget();
+touchListeners.touchstart({ target: touchTarget, touches: [{ clientX: 100, clientY: 200 }] });
+let coverScrollPrevented = false;
+touchListeners.touchmove({ touches: [{ clientX: 100, clientY: 100 }], preventDefault() { coverScrollPrevented = true; } });
+touchListeners.touchend({ changedTouches: [{ clientX: 100, clientY: 100 }], touches: [] });
+assert.equal(coverScrollPrevented, true, 'iPhone 封面滑动应阻止 Safari 的页面滚动');
+assert.deepEqual(coverTouchEvents, [[0, -100]], '封面触摸移动后应保留手势直到松手切换');
 assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
 assert.doesNotMatch(html, /let wheelLocked\b/, '不应恢复固定时长的滚轮锁');
 assert.doesNotMatch(html, /逐字显示|typeWriter\(|finishTypewriter|typeTimer/, '正文不应再使用逐字输出效果');

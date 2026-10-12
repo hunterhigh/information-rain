@@ -257,6 +257,7 @@
             /* 阅读中的纵向手势由页面统一判定；正文滚动也由触摸处理器管理。 */
             .world-stage.is-reading { touch-action: none; overscroll-behavior: none; }
         }
+        .world-stage.touch-cover-fallback { touch-action: none; overscroll-behavior: none; }
 
         .world-stage[data-text-size="sm"] { --reading-font-size: 14px; --reading-line-height: 1.88; --reading-shade-start: 80%; }
         .world-stage[data-text-size="md"] { --reading-font-size: 16px; --reading-line-height: 1.78; --reading-shade-start: 84%; }
@@ -1609,6 +1610,14 @@
         }
 
         function initWorldSwiper() {
+            // Avoid the long transformed cover track on iOS WebKit, where the owner reported a blank/frozen page.
+            // Use the stage touch path instead and stop Safari's native pull-to-refresh gesture.
+            const isIosWebKit = /iPad|iPhone|iPod/.test(window.navigator.userAgent)
+                || (window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1);
+            if (isIosWebKit) {
+                el.stage.classList.add('touch-cover-fallback');
+                return;
+            }
             renderWorldSlides();
             if (!window.Swiper) return;
 
@@ -2742,6 +2751,12 @@
             goToWorld(currentWorldIndex + delta);
         }
 
+        function switchCoverByGesture(dx, dy) {
+            if (Math.abs(dy) > 72 && Math.abs(dy) > Math.abs(dx)) {
+                switchWorld(dy < 0 ? 1 : -1);
+            }
+        }
+
         function switchWorldByGesture(delta, swipeSnapshot) {
             const nextIndex = currentWorldIndex + delta;
             if (nextIndex < 0 || nextIndex >= worlds.length) {
@@ -2851,8 +2866,18 @@
 
             el.stage.addEventListener('touchmove', (e) => {
                 if (!touchStarted || touchIgnored) return;
-                if (e.touches.length !== 1 || currentPage !== 'worlds' || !experienceMatches('worlds.reading')) {
+                if (e.touches.length !== 1 || currentPage !== 'worlds') {
                     clearTouchGesture();
+                    return;
+                }
+                if (!experienceMatches('worlds.reading')) {
+                    if (worldSwiper) {
+                        clearTouchGesture();
+                    } else {
+                        const dx = e.touches[0].clientX - touchStartX;
+                        const dy = e.touches[0].clientY - touchStartY;
+                        if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) e.preventDefault();
+                    }
                     return;
                 }
                 const dx = e.touches[0].clientX - touchStartX;
@@ -2915,7 +2940,7 @@
                 touchSnapshot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
                 document.getElementById('btnLeft').classList.toggle('is-gesture-target', direction === 'left');
                 document.getElementById('btnRight').classList.toggle('is-gesture-target', direction === 'right');
-            }, { passive: true });
+            }, { passive: false });
 
             el.stage.addEventListener('touchend', (e) => {
                 if (!touchStarted) return;
@@ -2942,10 +2967,7 @@
                 if (!experienceMatches('worlds.reading')) {
                     clearTouchGesture();
                     if (worldSwiper) return;
-                    // 封面模式：上下滑动切换世界
-                    if (absDy > 72 && absDy > absDx) {
-                        switchWorld(dy < 0 ? 1 : -1);
-                    }
+                    switchCoverByGesture(dx, dy);
                     return;
                 }
 
