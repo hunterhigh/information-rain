@@ -70,6 +70,30 @@ assert.deepEqual(events.slice(2), [
   ['render', 'next'],
 ]);
 
+const iosBranchEvents = [];
+const iosBranchContext = {
+  worlds: [{ data: { start: { exits: { left: 'next' } }, next: { text: '下一节点' } } }],
+  currentWorldIndex: 0,
+  currentNodeId: 'start',
+  pathHistory: ['start'],
+  stats: { totalSteps: 0 },
+  el: { stage: { classList: { contains: name => name === 'touch-cover-fallback', add() {}, remove() {} } } },
+  clearSwipeFeedback: () => iosBranchEvents.push('clear'),
+  createScreenSnapshot: () => { throw new Error('iPhone 左滑不应复制整张舞台'); },
+  createNodeTextExitCopy: () => { throw new Error('iPhone 左滑不应复制正文'); },
+  animateScreenSnapshot: () => { throw new Error('iPhone 左滑不应运行整屏快照动画'); },
+  experienceMatches: () => false,
+  sendExperience: event => iosBranchEvents.push(event),
+  saveStats: () => {},
+  renderNode: nodeId => iosBranchEvents.push(nodeId),
+  setTimeout: callback => { callback(); return 1; },
+};
+runInNewContext(html.slice(start, end), iosBranchContext);
+iosBranchContext.handleDirection('left');
+assert.equal(iosBranchContext.currentNodeId, 'next', 'iPhone 左滑仍应进入目标分支');
+assert.equal(iosBranchContext.stats.totalSteps, 1, 'iPhone 左滑仍应计入步数');
+assert.deepEqual(iosBranchEvents.slice(0, 3), ['clear', 'MOVE', 'NODE_READY']);
+
 const scrollStart = html.indexOf('function resolveTextTouchScroll(');
 const scrollEnd = html.indexOf('\n        }', scrollStart) + '\n        }'.length;
 assert.ok(scrollStart >= 0 && scrollEnd > scrollStart, '找不到正文手势滚动判定');
@@ -158,6 +182,8 @@ const touchContext = {
     stage: {
       addEventListener: (name, callback, options) => { touchListeners[name] = callback; touchOptions[name] = options; },
       getBoundingClientRect: () => ({ width: 300, height: 530 }),
+      classList: { contains: name => name === 'touch-cover-fallback', add() {} },
+      dataset: {},
     },
     searchInput: { addEventListener() {} },
   },
@@ -178,6 +204,20 @@ touchListeners.touchmove({ touches: [{ clientX: 100, clientY: 100 }], preventDef
 touchListeners.touchend({ changedTouches: [{ clientX: 100, clientY: 100 }], touches: [] });
 assert.equal(coverScrollPrevented, true, 'iPhone 封面滑动应阻止 Safari 的页面滚动');
 assert.deepEqual(coverTouchEvents, [[0, -100]], '封面触摸移动后应保留手势直到松手切换');
+const iosTouchBranches = [];
+touchContext.experienceMatches = () => true;
+touchContext.worlds = [{ data: { start: { exits: { left: 'next' } }, next: { text: '下一节点' } } }];
+touchContext.currentWorldIndex = 0;
+touchContext.currentNodeId = 'start';
+touchContext.createScreenSnapshot = () => { throw new Error('iPhone 拖动中不应复制整张舞台'); };
+touchContext.handleDirection = direction => iosTouchBranches.push(direction);
+touchContext.document.getElementById = () => ({ classList: { toggle() {} } });
+touchListeners.touchstart({ target: touchTarget, touches: [{ clientX: 200, clientY: 200 }] });
+let branchScrollPrevented = false;
+touchListeners.touchmove({ touches: [{ clientX: 120, clientY: 200 }], preventDefault() { branchScrollPrevented = true; } });
+touchListeners.touchend({ changedTouches: [{ clientX: 120, clientY: 200 }], touches: [] });
+assert.equal(branchScrollPrevented, true, 'iPhone 阅读态左滑应阻止 Safari 原生滚动');
+assert.deepEqual(iosTouchBranches, ['left'], 'iPhone 轻量触摸路径仍应选择左侧分支');
 assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
 assert.doesNotMatch(html, /let wheelLocked\b/, '不应恢复固定时长的滚轮锁');
 assert.doesNotMatch(html, /逐字显示|typeWriter\(|finishTypewriter|typeTimer/, '正文不应再使用逐字输出效果');
