@@ -302,6 +302,7 @@
             inset: 0;
             transition: all 0.8s ease;
             z-index: 0;
+            pointer-events: none;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1611,6 +1612,8 @@
             renderWorldSlides();
             if (!window.Swiper) return;
 
+            // Swiper must measure a visible stage on initialization; display:none yields zero-sized slides.
+            el.stage.classList.add('swiper-ready');
             worldSwiper = new window.Swiper(el.worldSwiper, {
                 direction: 'vertical',
                 speed: 380,
@@ -1656,7 +1659,6 @@
                 }
             });
             prepareWorldImageWindow(currentWorldIndex);
-            el.stage.classList.add('swiper-ready');
         }
 
         function loadSettings() {

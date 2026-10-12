@@ -89,6 +89,31 @@ assert.match(html, /switchWorldByGesture\(1, snapshot\)/, '上划应进入下一
 assert.match(html, /switchWorldByGesture\(-1, snapshot\)/, '下划应返回上一部作品');
 assert.match(html, /aspect-ratio:\s*9\s*\/\s*16/, '作品舞台必须保留 9:16 竖屏比例');
 assert.match(html, /swiper@14\.2\.0/, 'Swiper 必须固定到已核验版本');
+assert.match(html, /\.ambience-layer\s*\{[^}]*pointer-events:\s*none;/, '封面氛围图层不能拦截底层 Swiper 的触摸滑动');
+const swiperStart = html.indexOf('function initWorldSwiper() {');
+const swiperEnd = html.indexOf('function loadSettings() {', swiperStart);
+assert.ok(swiperStart >= 0 && swiperEnd > swiperStart, '找不到封面滑动初始化函数');
+let visibleWhenSwiperInitialized = false;
+const swiperStageClasses = new Set();
+const swiperContext = {
+  renderWorldSlides: () => {},
+  prepareWorldImageWindow: () => {},
+  currentWorldIndex: 0,
+  el: {
+    stage: { classList: { add: name => swiperStageClasses.add(name) } },
+    worldSwiper: {},
+  },
+  window: {
+    Swiper: class {
+      constructor() {
+        visibleWhenSwiperInitialized = swiperStageClasses.has('swiper-ready');
+      }
+    },
+  },
+};
+runInNewContext(html.slice(swiperStart, swiperEnd), swiperContext);
+swiperContext.initWorldSwiper();
+assert.equal(visibleWhenSwiperInitialized, true, 'Swiper 初始化时封面舞台必须已显示，避免按零尺寸计算滑动');
 assert.match(html, /xstate@5\.33\.2/, 'XState 必须固定到稳定版本');
 assert.doesNotMatch(html, /let wheelLocked\b/, '不应恢复固定时长的滚轮锁');
 assert.doesNotMatch(html, /逐字显示|typeWriter\(|finishTypewriter|typeTimer/, '正文不应再使用逐字输出效果');
